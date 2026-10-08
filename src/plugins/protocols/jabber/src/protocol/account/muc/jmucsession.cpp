@@ -422,7 +422,7 @@ void JMUCSession::onParticipantPresence(const Jreen::Presence &presence,
 				user->setRealJid(participant->realJID());
 			text = user->realJid().isEmpty()
 					? nick
-					: nick % QLatin1Literal(" (") % user->realJid() % QLatin1Literal(")");
+					: nick % QLatin1String(" (") % user->realJid() % QLatin1String(")");
 			text = text % tr(" has joined the room");
 			if (participant->affiliation() == MUCRoom::AffiliationOwner)
 				text = text % tr(" as") % tr(" owner");
@@ -585,7 +585,7 @@ void JMUCSession::onServiceMessage(const Jreen::Message &msg)
 		QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, d->captchaForm);
 
 		QVBoxLayout *layout = new QVBoxLayout;
-		form->layout()->setMargin(0);
+		form->layout()->setContentsMargins(0, 0, 0, 0);
 		layout->addWidget(label);
 		layout->addWidget(form);
 		layout->addWidget(buttonBox);

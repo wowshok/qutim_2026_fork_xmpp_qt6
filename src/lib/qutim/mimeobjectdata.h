@@ -49,7 +49,7 @@ public:
 	virtual QStringList formats() const;
 protected:
 	virtual QVariant retrieveData(const QString &mimetype,
-								  QVariant::Type preferredType) const;
+								  QMetaType preferredType) const;
 private:
 	QScopedPointer<MimeObjectDataPrivate> d_ptr;
 };

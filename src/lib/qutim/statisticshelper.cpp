@@ -34,7 +34,8 @@
 #include <QUrl>
 #include <QUrlQuery>
 #include <QRect>
-#include <QDesktopWidget>
+#include <QScreen>
+#include <QGuiApplication>
 
 namespace qutim_sdk_0_3 {
 
@@ -55,7 +56,7 @@ public:
 
 void StatisticsHelperPrivate::init()
 {
-	QRect size = qApp->desktop()->screenGeometry();
+	QRect size = QGuiApplication::primaryScreen()->geometry();
 	systemInfo.insert(QLatin1String("os"), SystemInfo::getVersion());
 	systemInfo.insert(QLatin1String("short"), SystemInfo::getName());
 	systemInfo.insert(QLatin1String("full"), SystemInfo::getFullName());
@@ -145,7 +146,7 @@ StatisticsHelper::~StatisticsHelper()
 
 QString StatisticsHelper::infoHtml() const
 {
-	QRect size = qApp->desktop()->screenGeometry();
+	QRect size = QGuiApplication::primaryScreen()->geometry();
 	return tr("<b>Short:</b> %1 <br />"
 			  "<b>Version:</b> %2 <br />"
 			  "<b>Full:</b> %3 <br />"

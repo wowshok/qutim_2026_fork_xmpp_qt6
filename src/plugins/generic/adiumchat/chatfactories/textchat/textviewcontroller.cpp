@@ -334,8 +334,8 @@ void TextViewController::animate()
 	int begin = layout->hitTest(visibleRect.topLeft(), Qt::FuzzyHit);
 	int end = layout->hitTest(visibleRect.bottomRight(), Qt::FuzzyHit);
 	int *indexesEnd = movie->indexes.data() + movie->indexes.size();
-	int *beginIndex = qLowerBound(movie->indexes.data(), indexesEnd, begin);
-	int *endIndex = qUpperBound(beginIndex, indexesEnd, end);
+	int *beginIndex = std::lower_bound(movie->indexes.data(), indexesEnd, begin);
+	int *endIndex = std::upper_bound(beginIndex, indexesEnd, end);
 	if (beginIndex == endIndex)
 		return;
 	QRegion region;

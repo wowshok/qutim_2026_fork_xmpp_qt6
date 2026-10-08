@@ -104,8 +104,6 @@ namespace qutim_sdk_0_3
 
 	History::History()
 	{
-		QMetaType::registerComparators<AccountInfo>();
-		QMetaType::registerComparators<ContactInfo>();
 	}
 
 	History::~History()

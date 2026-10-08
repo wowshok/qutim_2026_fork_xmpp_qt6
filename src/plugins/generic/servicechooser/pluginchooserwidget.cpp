@@ -82,7 +82,7 @@ void PluginChoooserWidget::loadImpl()
 			if (icon.isNull() || !icon.availableSizes().count())
 				icon = Icon("applications-system");
 			QString name = info.name();
-			int index = qLowerBound(helper, name) - helper.constBegin();
+			int index = std::lower_bound(helper, name) - helper.constBegin();
 			helper.insert(index, name);
 			ServiceItem *item = new ServiceItem(icon, name);
 			item->setToolTip(html(info));

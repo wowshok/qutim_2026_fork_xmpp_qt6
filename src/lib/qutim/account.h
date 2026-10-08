@@ -54,6 +54,7 @@ class LIBQUTIM_EXPORT Account : public MenuController
 {
 	Q_DECLARE_PRIVATE(Account)
 	Q_OBJECT
+	Q_MOC_INCLUDE("protocol.h")
 	Q_PROPERTY(QString id READ id)
 	Q_PROPERTY(qutim_sdk_0_3::Protocol* protocol READ protocol CONSTANT)
 	Q_PROPERTY(qutim_sdk_0_3::Status status READ status NOTIFY statusChanged)

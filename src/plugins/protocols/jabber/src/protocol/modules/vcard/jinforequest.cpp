@@ -514,7 +514,7 @@ void JInfoRequest::addMultilineItem(DataType type, DataItem &group, const QStrin
 
 void JInfoRequest::addItemList(DataType type, DataItem &group, const QString &data) const
 {
-	addItem(type, group, qobject_cast<Account*>(object()) ? data : QVariant(data.split(',', QString::SkipEmptyParts)));
+	addItem(type, group, qobject_cast<Account*>(object()) ? data : QVariant(data.split(',', Qt::SkipEmptyParts)));
 }
 
 void JInfoRequest::addItemList(DataType type, DataItem &group, const QStringList &data) const

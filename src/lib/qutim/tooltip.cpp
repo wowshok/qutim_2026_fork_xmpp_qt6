@@ -31,6 +31,7 @@
 #include "protocol.h"
 #include "iconloader.h"
 #include <QPointer>
+#include <QRegularExpression>
 #include <QCoreApplication>
 #include <QAbstractItemView>
 #include <QHelpEvent>
@@ -104,7 +105,7 @@ namespace qutim_sdk_0_3
 		if (iconPosition == IconBeforeTitle)
 			d->addIcon(text, icon);
 		if (!title.toString().isEmpty()) {
-			text += QLatin1Literal("<b>") % title.toString();
+			text += QLatin1String("<b>") % title.toString();
 			if (!descriptionEmpty)
 				text += ":";
 			text += "</b>";
@@ -135,11 +136,11 @@ namespace qutim_sdk_0_3
 	QString ToolTipEvent::html() const
 	{
 		QString text;
-		QMapIterator<quint8, QString> i(d->fields);
+		QMultiMapIterator<quint8, QString> i(d->fields);
 		i.toBack();
 		while (i.hasPrevious())
 			text += i.previous().value();
-		text.remove(QRegExp("^<br/>"));
+		text.remove(QRegularExpression(QStringLiteral("^<br/>")));
 		return text;
 	}
 

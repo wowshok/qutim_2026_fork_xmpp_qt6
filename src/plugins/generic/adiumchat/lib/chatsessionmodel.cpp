@@ -69,7 +69,7 @@ QVariant ChatSessionModel::data(const QModelIndex &index, int role) const
 void ChatSessionModel::addContact(Buddy *unit)
 {
 	const Node node(unit);
-	const QList<Node>::Iterator it = qLowerBound(m_units.begin(), m_units.end(), node);
+	const QList<Node>::Iterator it = std::lower_bound(m_units.begin(), m_units.end(), node);
 	if (it != m_units.end() && it->unit == unit)
 		return;
 	int index = it - m_units.begin();
@@ -96,7 +96,7 @@ void ChatSessionModel::addContact(Buddy *unit)
 void ChatSessionModel::removeContact(Buddy *unit)
 {
 	const Node node(unit);
-	const QList<Node>::Iterator it = qBinaryFind(m_units.begin(), m_units.end(), node);
+	const QList<Node>::Iterator it = qutim_sdk_0_3::binaryFind(m_units.begin(), m_units.end(), node);
 	if (it == m_units.end())
 		return;
 	int index = it - m_units.begin();
@@ -110,10 +110,10 @@ void ChatSessionModel::onNameChanged(const QString &title, const QString &oldTit
 {
 	Buddy *unit = static_cast<Buddy*>(sender());
 	QList<Node>::Iterator it;
-	it = qBinaryFind(m_units.begin(), m_units.end(), Node(unit, oldTitle));
+	it = qutim_sdk_0_3::binaryFind(m_units.begin(), m_units.end(), Node(unit, oldTitle));
 	Q_ASSERT(it != m_units.end());
 	const int from = it - m_units.begin();
-	it = qLowerBound(m_units.begin(), m_units.end(), Node(unit, title));
+	it = std::lower_bound(m_units.begin(), m_units.end(), Node(unit, title));
 	int to = it - m_units.begin();
 	m_units[from].title = title;
 	if (beginMoveRows(QModelIndex(), from, from, QModelIndex(), to)) {
@@ -131,7 +131,7 @@ void ChatSessionModel::onStatusChanged(const qutim_sdk_0_3::Status &)
 	Buddy *unit = qobject_cast<Buddy*>(sender());
 	Q_ASSERT(unit);
 	Node node(unit);
-	const QList<Node>::Iterator it = qBinaryFind(m_units.begin(), m_units.end(), node);
+	const QList<Node>::Iterator it = qutim_sdk_0_3::binaryFind(m_units.begin(), m_units.end(), node);
 	if (it == m_units.end())
 		return;
 	int index = it - m_units.begin();
@@ -155,10 +155,10 @@ void ChatSessionModel::onPriorityChanged(const int &oldPriority, const int &newP
 {
 	Buddy *unit = static_cast<Buddy*>(sender());
 	QList<Node>::Iterator it;
-	it = qBinaryFind(m_units.begin(), m_units.end(), Node(unit, oldPriority));
+	it = qutim_sdk_0_3::binaryFind(m_units.begin(), m_units.end(), Node(unit, oldPriority));
 	Q_ASSERT(it != m_units.end());
 	const int from = it - m_units.begin();
-	it = qLowerBound(m_units.begin(), m_units.end(), Node(unit, newPriority));
+	it = std::lower_bound(m_units.begin(), m_units.end(), Node(unit, newPriority));
 	int to = it - m_units.begin();
 	m_units[from].priority = newPriority;
 	if (beginMoveRows(QModelIndex(), from, from, QModelIndex(), to)) {

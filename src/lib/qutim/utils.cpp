@@ -30,7 +30,10 @@
 #include "message.h"
 #include <QDate>
 #include <QLocale>
-#include <QDesktopWidget>
+#include <QScreen>
+#include <QCursor>
+#include <QWidget>
+#include <QRegularExpression>
 #include <QApplication>
 #include <QUrl>
 #include <QTimeZone>
@@ -148,11 +151,11 @@ namespace qutim_sdk_0_3
 			if (length < 3)
 				appendInt(str, date.month(), length);
 			else if (length == 3)
-				str += QDate::shortMonthName(date.month());
+				str += QLocale::system().monthName(date.month(), QLocale::ShortFormat);
 			else if (length == 4)
-				str += QDate::longMonthName(date.month());
+				str += QLocale::system().monthName(date.month(), QLocale::LongFormat);
 			else
-				str += QDate::shortMonthName(date.month()).at(0);
+				str += QLocale::system().monthName(date.month(), QLocale::ShortFormat).at(0);
 			break;
 		case L'w':
 			TRIM_LENGTH(2);
@@ -185,11 +188,11 @@ namespace qutim_sdk_0_3
 			}
 		case L'E':
 			if (length < 4)
-				str += QDate::shortDayName(date.dayOfWeek());
+				str += QLocale::system().dayName(date.dayOfWeek(), QLocale::ShortFormat);
 			else if (length == 4)
-				str += QDate::longDayName(date.dayOfWeek());
+				str += QLocale::system().dayName(date.dayOfWeek(), QLocale::LongFormat);
 			else
-				str += QDate::shortDayName(date.dayOfWeek()).at(0);
+				str += QLocale::system().dayName(date.dayOfWeek(), QLocale::ShortFormat).at(0);
 			break;
 		case L'a':
 			str += time.hour() < 12 ? "AM" : "PM";
@@ -279,16 +282,16 @@ namespace qutim_sdk_0_3
 						str += *chars;
 						break;
 					case L'a':
-						appendStr(str, QDate::shortDayName(date.dayOfWeek()), length);
+						appendStr(str, QLocale::system().dayName(date.dayOfWeek(), QLocale::ShortFormat), length);
 						break;
 					case L'A':
-						appendStr(str, QDate::longDayName(date.dayOfWeek()), length);
+						appendStr(str, QLocale::system().dayName(date.dayOfWeek(), QLocale::LongFormat), length);
 						break;
 					case L'b':
-						appendStr(str, QDate::shortMonthName(date.month()), length);
+						appendStr(str, QLocale::system().monthName(date.month(), QLocale::ShortFormat), length);
 						break;
 					case L'B':
-						appendStr(str, QDate::longMonthName(date.month()), length);
+						appendStr(str, QLocale::system().monthName(date.month(), QLocale::LongFormat), length);
 						break;
 					case L'c':
 						appendStr(str, QLocale::system().toString(datetime), length);
@@ -436,7 +439,10 @@ namespace qutim_sdk_0_3
 
 	void centerizeWidget(QWidget *widget)
 	{
-		QRect rect = QApplication::desktop()->screenGeometry(QCursor::pos());
+		QScreen *screen = QGuiApplication::screenAt(QCursor::pos());
+		if (!screen)
+			screen = QGuiApplication::primaryScreen();
+		QRect rect = screen->geometry();
 		QPoint position(rect.left() + rect.width() / 2 - widget->size().width() / 2,
 						rect.top() + rect.height() / 2 - widget->size().height() / 2);
 		widget->move(position);
@@ -445,14 +451,15 @@ namespace qutim_sdk_0_3
 	UrlParser::UrlTokenList UrlParser::tokenize(const QString &text, Flags flags)
 	{
 		UrlTokenList result;
-		static QRegExp linkRegExp("([a-zA-Z0-9\\-\\_\\.]+@([a-zA-Z0-9\\-\\_]+\\.)+[a-zA-Z]+)|"
+		static const QRegularExpression linkRegExp(QStringLiteral("([a-zA-Z0-9\\-\\_\\.]+@([a-zA-Z0-9\\-\\_]+\\.)+[a-zA-Z]+)|"
 								  "([a-z]+(\\+[a-z]+)?://|www\\.)"
 								  "[\\w-]+(\\.[\\w-]+)*\\.\\w+"
 								  "(:\\d+)?"
 								  "(/[\\w\\+\\.\\[\\]!%\\$/\\(\\),:;@'&=~-]*"
 								  "(\\?[\\w\\+\\.\\[\\]!%\\$/\\(\\),:;@\\'&=~-]*)?"
-								  "(#[\\w\\+\\.\\[\\]!%\\$/\\\\\\(\\)\\|,:;@&=~-]*)?)?",
-								  Qt::CaseInsensitive);
+								  "(#[\\w\\+\\.\\[\\]!%\\$/\\\\\\(\\)\\|,:;@&=~-]*)?)?"),
+								  QRegularExpression::CaseInsensitiveOption
+								  | QRegularExpression::UseUnicodePropertiesOption);
 		Q_ASSERT(linkRegExp.isValid());
 		QList<QPair<int, int> > tags;
 		int currentTag = 0;
@@ -495,31 +502,32 @@ namespace qutim_sdk_0_3
 				}
 			}
 		}
-		int pos = 0;
-		int lastPos = 0;
-		while (((pos = linkRegExp.indexIn(text, pos)) != -1)) {
-			QString link = linkRegExp.cap(0);
+		qsizetype pos = 0;
+		qsizetype lastPos = 0;
+		QRegularExpressionMatch match;
+		while ((pos = text.indexOf(linkRegExp, pos, &match)) != -1) {
+			QString link = match.captured(0);
 			while (currentTag < tags.size() && tags.at(currentTag).second < pos)
 				currentTag++;
 			if (currentTag < tags.size()) {
 				const QPair<int, int> &pair = tags.at(currentTag);
-				int left = qBound(pair.first, pos, pair.second);
-				int right = qBound(pair.first, pos + link.size(), pair.second);
+				qsizetype left = qBound<qsizetype>(qsizetype(pair.first), pos, qsizetype(pair.second));
+				qsizetype right = qBound<qsizetype>(qsizetype(pair.first), pos + link.size(), qsizetype(pair.second));
 				if (left != right) {
 					pos += link.size();
 					continue;
 				}
 			}
-			UrlToken tok = { text.midRef(lastPos, pos - lastPos), QString() };
+			UrlToken tok = { QStringView(text).mid(lastPos, pos - lastPos), QString() };
 			if (!tok.text.isEmpty()) {
 				if (!result.isEmpty() && result.last().url.isEmpty()) {
-					QStringRef tmp = result.last().text;
-					result.last().text = QStringRef(tmp.string(), tmp.position(), tmp.size() + tok.text.size());
+					QStringView tmp = result.last().text;
+					result.last().text = QStringView(tmp.data(), tmp.size() + tok.text.size());
 				} else {
 					result << tok;
 				}
 			}
-			tok.text = text.midRef(pos, link.size());
+			tok.text = QStringView(text).mid(pos, link.size());
 			pos += link.size();
 			if (flags & Html)
 				link = unescape(link);
@@ -532,9 +540,9 @@ namespace qutim_sdk_0_3
 			lastPos = pos;
 		}
 		if (!result.isEmpty() && result.last().url.isEmpty()) {
-			result.last().text = text.midRef(result.last().text.position());
+			result.last().text = QStringView(text).mid(result.last().text.data() - text.constData());
 		} else {
-			UrlToken tok = { text.midRef(lastPos), QString() };
+			UrlToken tok = { QStringView(text).mid(lastPos), QString() };
 			result << tok;
 		}
 		return result;

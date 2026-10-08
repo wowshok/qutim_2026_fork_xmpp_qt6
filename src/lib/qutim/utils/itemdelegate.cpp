@@ -17,7 +17,7 @@
 
 #include <QPainter>
 #include <QApplication>
-#include <QLatin1Literal>
+#include <QLatin1String>
 #include <QTextLayout>
 #include <QTreeView>
 #include <QListView>
@@ -73,12 +73,12 @@ QString description(const QModelIndex& index, QFontMetrics metrics, int width = 
 		QVariantMap fields = data.toMap();
 		QVariantMap::const_iterator it;
 		for (it = fields.constBegin(); it != fields.constEnd(); ++it) {
-			QString newLine = it.key() % QLatin1Literal(": ") % it.value().toString();
+			QString newLine = it.key() % QLatin1String(": ") % it.value().toString();
 			if (width) {
 				newLine = metrics.elidedText(newLine, Qt::ElideRight, firstLineWidth);
 				firstLineWidth = width;
 			}
-			desc += newLine % QLatin1Literal(" \n");
+			desc += newLine % QLatin1String(" \n");
 		}
 		desc.remove(desc.length()-2,2); //remove last \n
 	}

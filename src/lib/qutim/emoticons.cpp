@@ -157,7 +157,7 @@ void EmoticonsProvider::clearEmoticons()
 }
 
 inline void appendEmoticonToHash(QList<EmoticonsProvider::Emoticon> &ls, const EmoticonsProvider::Emoticon &e)
-{ ls.insert(qLowerBound(ls.begin(), ls.end(), e), e); }
+{ ls.insert(std::lower_bound(ls.begin(), ls.end(), e), e); }
 
 void EmoticonsProvider::appendEmoticon(const QString &imgPath, const QStringList &codes)
 {
@@ -172,13 +172,13 @@ void EmoticonsProvider::appendEmoticon(const QString &imgPath, const QStringList
 	}
 	p->order.append(imgPath);
 	p->map.insert(imgPath, codes);
-	QString imgHtml = QLatin1Literal("<img src=\"")
+	QString imgHtml = QLatin1String("<img src=\"")
 			% imgPath
-			% QLatin1Literal("\" width=\"")
+			% QLatin1String("\" width=\"")
 			% QString::number(size.width())
-			% QLatin1Literal("\" height=\"")
+			% QLatin1String("\" height=\"")
 			% QString::number(size.height())
-			% QLatin1Literal("\" alt=\"%4\" title=\"%4\"><span style=\"font-size: 0\">%4</span></img>");
+			% QLatin1String("\" alt=\"%4\" title=\"%4\"><span style=\"font-size: 0\">%4</span></img>");
 	foreach (const QString &code, codes) {
 		Emoticon e;
 		e.picPath = imgPath;
@@ -317,15 +317,15 @@ inline bool compareEmoticon(const QChar *c, const QString &smile)
 	return s->isNull();
 }
 
-inline void appendEmoticon(QString &text, const QString &url, const QStringRef &emo)
+inline void appendEmoticon(QString &text, const QString &url, QStringView emo)
 {
 	int i = 0, last = 0;
 	while ((i = url.indexOf(QLatin1String("%4"), last)) != -1) {
-		text += QStringRef(&url, last, i - last);
+		text += QStringView(url).mid(last, i - last);
 		text += emo;
 		last = i + 2;
 	}
-	text += QStringRef(&url, last, url.length() - last);
+	text += QStringView(url).mid(last);
 }
 
 QList<EmoticonsTheme::Token> EmoticonsTheme::tokenize(const QString &message, ParseMode mode)
@@ -387,7 +387,7 @@ QList<EmoticonsTheme::Token> EmoticonsTheme::tokenize(const QString &message, Pa
 							text = QString();
 						}
 						QString htmlCode;
-						appendEmoticon(htmlCode, emo.picHTMLCode, QStringRef(&message, chars - begin, length));
+						appendEmoticon(htmlCode, emo.picHTMLCode, QStringView(message).mid(chars - begin, length));
 						tokens << Token(QString(chars, length), emo.picPath, htmlCode);
 						found = true;
 						at_amp = false;
@@ -485,7 +485,7 @@ QStringList themeList()
 		foreach (const QString &theme, backend->themeList())
 			themes << theme;
 	}
-	QStringList result = themes.toList();
+	QStringList result = themes.values();
 	result.prepend(nullThemeName);
 	return result;
 }

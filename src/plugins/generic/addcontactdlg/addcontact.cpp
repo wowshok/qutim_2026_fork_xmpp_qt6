@@ -170,7 +170,7 @@ void AddContact::setAccount(Account *account)
 	Q_D(AddContact);
 	d->account = account;
 	d->ui->stackedWidget->setCurrentIndex(1);
-	d->ui->IDLabel->setText(account->protocol()->data(Protocol::ProtocolIdName).toString() % QLatin1Literal(":"));
+	d->ui->IDLabel->setText(account->protocol()->data(Protocol::ProtocolIdName).toString() % QLatin1String(":"));
 }
 
 void AddContact::on_okButton_clicked()

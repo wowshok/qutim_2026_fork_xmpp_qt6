@@ -61,7 +61,7 @@ void IconWrapperPrivate::init_helper()
 			continue;
 		wrappers << gens[i]->generate<IconWrapper>();
 	}
-	wrappers.removeAll(NULL);
+	wrappers.removeAll(nullptr);
 }
 
 Q_GLOBAL_STATIC(IconWrapperPrivate, iconWrapper)

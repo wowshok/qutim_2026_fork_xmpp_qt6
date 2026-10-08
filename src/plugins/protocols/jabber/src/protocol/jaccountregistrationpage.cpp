@@ -243,9 +243,9 @@ void JAccountRegistrationPage::onError(const Error::Ptr &error)
 		}
 	}
 	if (!m_error.isEmpty()) {
-		m_error = QLatin1Literal("<span style=\"color: red\">")
+		m_error = QLatin1String("<span style=\"color: red\">")
 				  % m_error.toHtmlEscaped().replace(QLatin1String("\n"), QLatin1String("<br>"))
-				  % QLatin1Literal("</span>");
+				  % QLatin1String("</span>");
 	}
 	ui->errorLabel->setText(m_error);
 	m_manager->fetchFields();

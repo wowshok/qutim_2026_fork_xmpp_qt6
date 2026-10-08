@@ -87,7 +87,7 @@ SimpleWidget::SimpleWidget() : m_model("ContactModel")
 	setUnifiedTitleAndToolBarOnMac(true);
 
 	QVBoxLayout *layout = new QVBoxLayout(w);
-	layout->setMargin(0);
+	layout->setContentsMargins(0, 0, 0, 0);
 	layout->setSpacing(0);
 
 	if (QtWin::isCompositionEnabled()) {

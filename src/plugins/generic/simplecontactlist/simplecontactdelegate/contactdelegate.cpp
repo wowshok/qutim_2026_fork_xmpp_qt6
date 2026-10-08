@@ -196,7 +196,7 @@ void ContactDelegate::paint(QPainter *painter,
 			QString count = index.data(ContactsCountRole).toString();
 			QString online_count = index.data(OnlineContactsCountRole).toString();
 
-			QString txt = name % QLatin1Literal(" (")
+			QString txt = name % QLatin1String(" (")
 						  % online_count
 						  % QLatin1Char('/')
 						  % count
@@ -224,7 +224,7 @@ void ContactDelegate::paint(QPainter *painter,
 		if (p->showFlags & ShowExtendedInfoIcons) {
 			QList<QVariantHash> list = status.extendedInfos().values();
 			ContactInfoComparator comparator;
-			qSort(list.begin(), list.end(), comparator);
+			std::sort(list.begin(), list.end(), comparator);
 
 			const QString iconId = QStringLiteral("icon");
 			const QString fallbackIconId = QStringLiteral("fallbackIcon");

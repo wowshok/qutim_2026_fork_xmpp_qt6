@@ -39,6 +39,7 @@
 #include <QStringBuilder>
 #include <QTimer>
 #include <QPointer>
+#include <unordered_map>
 
 #define CONFIG_MAKE_DIRTY_ONLY_AT_SET_VALUE 1
 
@@ -620,30 +621,30 @@ public:
 		if (it == m_hash.end())
 			return ConfigSource::Ptr();
 
-		m_timers.remove(it->timer.timerId());
-		it->timer.start(5 * 60, this);
-		m_timers.insert(it->timer.timerId(), key);
+		m_timers.remove(it->second.timer.timerId());
+		it->second.timer.start(5 * 60, this);
+		m_timers.insert(it->second.timer.timerId(), key);
 
-		return it->config;
+		return it->second.config;
 	}
 
 	void insert(const QString &key, const ConfigSource::Ptr &value)
 	{
 		auto it = m_hash.find(key);
 		if (it == m_hash.end())
-			it = m_hash.insert(key, Info());
+			it = m_hash.emplace(key, Info()).first;
 
-		m_timers.remove(it->timer.timerId());
-		it->timer.start(5 * 60, this);
-		m_timers.insert(it->timer.timerId(), key);
+		m_timers.remove(it->second.timer.timerId());
+		it->second.timer.start(5 * 60, this);
+		m_timers.insert(it->second.timer.timerId(), key);
 
-		it->config = value;
+		it->second.config = value;
 	}
 
 	void timerEvent(QTimerEvent *event)
 	{
 		QString key = m_timers.take(event->timerId());
-		m_hash.remove(key);
+		m_hash.erase(key);
 	}
 
 private:
@@ -653,7 +654,8 @@ private:
 		ConfigSource::Ptr config;
 	};
 
-	typedef QHash<QString, Info> Hash;
+	// QBasicTimer is move-only, which QHash does not support in Qt 6
+	typedef std::unordered_map<QString, Info> Hash;
 	Hash m_hash;
 	mutable QHash<int, QString> m_timers;
 };
@@ -673,7 +675,7 @@ void ConfigNotifier::notify()
 			changedPaths.insert(qMakePair(pair.first, path));
 		}
 	}
-	auto sortedPaths = changedPaths.toList();
+	auto sortedPaths = changedPaths.values();
 	typedef const QPair<QString, QString> & Pair;
 	std::sort(sortedPaths.begin(), sortedPaths.end(), [] (Pair first, Pair second) {
 		return std::make_tuple(first.first, -first.second.size(), first.second)

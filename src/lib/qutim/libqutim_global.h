@@ -28,6 +28,7 @@
 
 #include <QtCore/qglobal.h>
 #include <QtCore/QObject>
+#include <algorithm>
 
 #if QT_VERSION < QT_VERSION_CHECK(4, 6, 0)
 # error Incompatible Qt library, need 4.6.0 at least
@@ -54,6 +55,28 @@
 namespace qutim_sdk_0_3
 {
 	LIBQUTIM_EXPORT void centerizeWidget(QWidget *widget); //move widget to center of current screen
+}
+
+namespace qutim_sdk_0_3
+{
+// Replacement for qBinaryFind, removed in Qt 6
+template <typename Iterator, typename T, typename LessThan>
+inline Iterator binaryFind(Iterator begin, Iterator end, const T &value, LessThan lessThan)
+{
+	Iterator it = std::lower_bound(begin, end, value, lessThan);
+	if (it == end || lessThan(value, *it))
+		return end;
+	return it;
+}
+
+template <typename Iterator, typename T>
+inline Iterator binaryFind(Iterator begin, Iterator end, const T &value)
+{
+	Iterator it = std::lower_bound(begin, end, value);
+	if (it == end || value < *it)
+		return end;
+	return it;
+}
 }
 
 #endif // LIBQUTIM_GLOBAL_H

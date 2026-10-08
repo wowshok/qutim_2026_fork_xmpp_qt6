@@ -89,7 +89,7 @@ ToryWidget::ToryWidget() : d_ptr(new ToryWidgetPrivate())
 	setUnifiedTitleAndToolBarOnMac(true);
 
 	QVBoxLayout *layout = new QVBoxLayout(w);
-	layout->setMargin(0);
+	layout->setContentsMargins(0, 0, 0, 0);
 	layout->setSpacing(0);
 
 	if (QtWin::isCompositionEnabled()) {
@@ -256,7 +256,7 @@ void ToryWidget::onAccountCreated(qutim_sdk_0_3::Account *account)
 	if (!d->accountsContainer) {
 		QWidget *accountsWidget = new QWidget(this);
 		d->accountsContainer = new QHBoxLayout(accountsWidget);
-		d->accountsContainer->setMargin(0);
+		d->accountsContainer->setContentsMargins(0, 0, 0, 0);
 		d->accountsContainer->setSpacing(0);
 		QSpacerItem *horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 		d->accountsContainer->addItem(horizontalSpacer);

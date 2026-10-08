@@ -27,6 +27,7 @@
 #include "config.h"
 #include "objectgenerator.h"
 #include "dglobalhotkey_p.h"
+#include <QWidget>
 
 namespace qutim_sdk_0_3
 {

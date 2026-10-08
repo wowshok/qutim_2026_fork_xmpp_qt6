@@ -55,7 +55,7 @@
 //	if (JContact *contact = qobject_cast<JContact*>(unit)) {
 //		QString cap = QString::fromStdString(gloox::XMLNS_SI);
 //		QList<JContactResource*> resources = contact->resources();
-//		qSort(resources.begin(), resources.end(), resource_priority_less);
+//		std::sort(resources.begin(), resources.end(), resource_priority_less);
 //		JContactResource *current = 0;
 //		foreach (JContactResource *resource, resources) {
 //			if (resource->checkFeature(cap)) {

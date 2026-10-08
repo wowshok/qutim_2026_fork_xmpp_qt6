@@ -19,7 +19,7 @@ class LIBQUTIM_EXPORT QuickAction : public QObject
 	Q_PROPERTY(QString tooltip READ tooltip WRITE setTooltip NOTIFY tooltipChanged)
 	Q_PROPERTY(bool enabled READ isEnabled WRITE setEnabled NOTIFY enabledChanged)
 	Q_PROPERTY(bool checkable READ isCheckable WRITE setCheckable NOTIFY checkableChanged)
-	Q_PROPERTY(bool checked READ isChecked WRITE setChecked DESIGNABLE isCheckable NOTIFY toggled)
+	Q_PROPERTY(bool checked READ isChecked WRITE setChecked NOTIFY toggled)
 	Q_PROPERTY(bool visible READ isVisible WRITE setVisible NOTIFY visibleChanged)
 	Q_PROPERTY(bool separator READ isSeparator WRITE setSeparator NOTIFY separatorChanged)
 	Q_PROPERTY(QVariant shortcut READ shortcut WRITE setShortcut NOTIFY shortcutChanged)

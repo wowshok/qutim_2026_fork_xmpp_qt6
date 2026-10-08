@@ -62,7 +62,6 @@ namespace qutim_sdk_0_3
 	{
 		StaticConstructor()
 		{
-			qRegisterMetaTypeStreamOperators<LocalizedString>("qutim_sdk_0_3::LocalizedString");
 		}
 	} staticConstructor;
 }

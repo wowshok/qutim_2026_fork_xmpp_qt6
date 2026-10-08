@@ -84,7 +84,7 @@ Config Account::config()
 {
 	Q_D(Account);
 	QStringList paths;
-	paths << d->protocol.data()->id() % QLatin1Char('.') % d->id % QLatin1Literal("/account");
+	paths << d->protocol.data()->id() % QLatin1Char('.') % d->id % QLatin1String("/account");
 	paths << d->protocol.data()->id();
 	return Config(paths);
 }

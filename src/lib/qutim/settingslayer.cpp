@@ -450,7 +450,7 @@ QIcon getTypeIcon(Type type)
 void registerItem(SettingsItem *item)
 {
 	ensure_settings_private();
-	SettingsItemList::iterator before = qLowerBound(p->items.begin(),
+	SettingsItemList::iterator before = std::lower_bound(p->items.begin(),
 													p->items.end(),
 													item,
 													itemLessThan

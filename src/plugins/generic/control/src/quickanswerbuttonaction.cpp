@@ -122,7 +122,7 @@ QuickAnswerMenu::QuickAnswerMenu(ChatUnit *contact) : m_contact(contact)
 //	action->setDefaultWidget(this);
 //	menu->addAction(action);
 	QVBoxLayout *layout = new QVBoxLayout(menu);
-	layout->setMargin(0);
+	layout->setContentsMargins(0, 0, 0, 0);
 	layout->addWidget(this);
 	menu->setLayout(layout);
 	layout->addWidget(this);

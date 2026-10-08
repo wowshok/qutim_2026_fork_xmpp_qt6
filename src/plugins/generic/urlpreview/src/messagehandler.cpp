@@ -320,12 +320,12 @@ void UrlHandler::netmanFinished(QNetworkReply *reply)
 
 void UrlHandler::updateData(ChatUnit *unit, const QString &uid, const QString &html)
 {
-	QString js = QLatin1Literal("urlpreview")
+	QString js = QLatin1String("urlpreview")
 				 % uid
-				 % QLatin1Literal(".innerHTML = \"")
+				 % QLatin1String(".innerHTML = \"")
 				 % QString(html).replace("\"", "\\\"")
-				 % QLatin1Literal("\";")
-				 % QLatin1Literal("if(nearBottom() || urlpreview") % uid % QLatin1Literal(".getAttribute('data-wasnearbottom') == 'true'){scrollToBottom();}");
+				 % QLatin1String("\";")
+				 % QLatin1String("if(nearBottom() || urlpreview") % uid % QLatin1String(".getAttribute('data-wasnearbottom') == 'true'){scrollToBottom();}");
 	ChatSession *session = ChatLayer::get(unit);
 
 	QMetaObject::invokeMethod(session, "evaluateJavaScript", Q_ARG(QString, js));

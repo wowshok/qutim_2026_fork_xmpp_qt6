@@ -38,7 +38,7 @@
 #include <QPushButton>
 #include <qutim/debug.h>
 #include <QCommandLinkButton>
-#include <QLatin1Literal>
+#include <QLatin1String>
 #include <qutim/icon.h>
 #include <qutim/utils/itemdelegate.h>
 #include "joinpage.h"

@@ -35,7 +35,7 @@ namespace Core
 SimpleActionBoxModule::SimpleActionBoxModule()
 {
 	m_layout = new QHBoxLayout(this);
-	m_layout->setMargin(0);
+	m_layout->setContentsMargins(0, 0, 0, 0);
 }
 
 void SimpleActionBoxModule::addAction(QAction *action)

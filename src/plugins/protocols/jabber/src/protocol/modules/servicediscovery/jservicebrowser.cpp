@@ -188,21 +188,21 @@ void JServiceBrowser::onInfoReceived(const Jreen::Disco::Item &di)
 		item->setText(0, di.jid());
 	item->setIcon(0, Icon(serviceIcon(di)));
 	QString tooltip;
-	tooltip = QLatin1Literal("<b>") % di.name() % QLatin1Literal("</b> (")
-			% di.jid().full() % QLatin1Literal(")<br/>");
+	tooltip = QLatin1String("<b>") % di.name() % QLatin1String("</b> (")
+			% di.jid().full() % QLatin1String(")<br/>");
 	QString type = tr("type: ");
 	QString category = tr("category: ");
 	if (!di.identities().isEmpty()) {
-		tooltip += QLatin1Literal("<br/><b>") % tr("Identities:") % QLatin1Literal("</b><br/>");
+		tooltip += QLatin1String("<br/><b>") % tr("Identities:") % QLatin1String("</b><br/>");
 		foreach(Jreen::Disco::Identity identity, di.identities()) {
 			Jreen::Disco::Item tmp;
 			tmp.setJid(tmp.jid());
 			tmp.addIdentity(identity);
 			QString img = IconLoader::iconPath(serviceIcon(tmp), 16);
-			tooltip += QLatin1Literal("<img src='") % img % QLatin1Literal("'> ")
-					% identity.name() % QLatin1Literal(" (") % category
-					% identity.category() % QLatin1Literal(", ") % type
-					% identity.type() % QLatin1Literal(")<br/>");
+			tooltip += QLatin1String("<img src='") % img % QLatin1String("'> ")
+					% identity.name() % QLatin1String(" (") % category
+					% identity.category() % QLatin1String(", ") % type
+					% identity.type() % QLatin1String(")<br/>");
 		}
 	}
 	item->setToolTip(0, tooltip);
@@ -343,11 +343,11 @@ void JServiceBrowser::showFeatures()
 	Jreen::Disco::Item di = item->data(0, ItemRole).value<Jreen::Disco::Item>();
 	QString featuresText;
 	if (!di.features().isEmpty()) {
-		featuresText = QLatin1Literal("<b>") % tr("Features:") % QLatin1Literal("</b><br/>");
+		featuresText = QLatin1String("<b>") % tr("Features:") % QLatin1String("</b><br/>");
 		QStringList features = QStringList::fromSet(di.features());
 		features.sort();
 		foreach(QString feature, features)
-			featuresText += feature % QLatin1Literal("<br/>");
+			featuresText += feature % QLatin1String("<br/>");
 	}
 	p->ui->featuresView->setHtml(featuresText);
 }

@@ -57,7 +57,7 @@ static QVariantMap qutim_resource_open(QResource &res)
 	QByteArray buffer;
 	int size = res.size();
 	const uchar *data = res.data();
-	if (res.isCompressed()) {
+	if (res.compressionAlgorithm() == QResource::ZlibCompression) {
 		buffer = qUncompress(res.data(), size);
 		size = buffer.size();
 		data = reinterpret_cast<const uchar*>(buffer.constData());
@@ -69,9 +69,9 @@ static QVariantMap qutim_resource_open(QResource &res)
 
 QVariantMap PersonInfoData::data() const
 {
-	QResource res(QLatin1Literal(":/devels/") % ocsUsername % QLatin1Literal(".json"));
+	QResource res(QLatin1String(":/devels/") % ocsUsername % QLatin1String(".json"));
 	if (!res.isValid())
-		res.setFileName(QLatin1Literal(":/contributers/") % ocsUsername % QLatin1Literal(".json"));
+		res.setFileName(QLatin1String(":/contributers/") % ocsUsername % QLatin1String(".json"));
 	return qutim_resource_open(res);
 }
 
@@ -196,7 +196,7 @@ QList<PersonInfo> PersonInfo::authors()
 		contributers[i].chop(5); // ".json".length()
 		persons << qMakePair(PersonInfo(contributers[i]), 0);
 	}
-	qSort(persons.begin(), persons.end(), personLessThen);
+	std::sort(persons.begin(), persons.end(), personLessThen);
 	QList<PersonInfo> result;
 	for (int i = 0; i < persons.size(); i++)
 		result << persons.at(i).first;
@@ -219,8 +219,8 @@ QList<PersonInfo> PersonInfo::translators()
 		if (localizedWebs == QLatin1String(webs.original()))
 			localizedWebs.clear();
 		QStringList nameList = localizedNames.split(QLatin1Char(','));
-		QStringList emailList = localizedEmails.split(QLatin1Char(','), QString::KeepEmptyParts);
-		QStringList webList = localizedWebs.split(QLatin1Char(','), QString::KeepEmptyParts);
+		QStringList emailList = localizedEmails.split(QLatin1Char(','), Qt::KeepEmptyParts);
+		QStringList webList = localizedWebs.split(QLatin1Char(','), Qt::KeepEmptyParts);
 		for (int i = 0; i < nameList.size(); i++) {
 			persons << PersonInfo(nameList.at(i).toUtf8(),
 								  task,

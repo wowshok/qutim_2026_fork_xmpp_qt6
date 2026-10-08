@@ -43,7 +43,7 @@
 #include <QItemEditorFactory>
 #include <QApplication>
 #include <QHelpEvent>
-#include <QLatin1Literal>
+#include <QLatin1String>
 #include "settings/olddelegatesettings.h"
 
 bool contactInfoLessThan(const QVariantHash &a, const QVariantHash &b) {
@@ -348,7 +348,7 @@ void ContactListItemDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 		QList<QVariantHash> list;
 		foreach (const QVariantHash &data, extStatuses) {
 			QList<QVariantHash>::iterator search_it =
-					qLowerBound(list.begin(), list.end(), data, contactInfoLessThan);
+					std::lower_bound(list.begin(), list.end(), data, contactInfoLessThan);
 			list.insert(search_it,data);
 		}
 
@@ -380,7 +380,7 @@ void ContactListItemDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 		QString count = index.data(ContactsCountRole).toString();
 		QString online_count = index.data(OnlineContactsCountRole).toString();
 
-		text = text % QLatin1Literal(" (")
+		text = text % QLatin1String(" (")
 				% online_count
 				% QLatin1Char('/')
 				% count

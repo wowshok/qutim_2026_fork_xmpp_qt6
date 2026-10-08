@@ -56,7 +56,7 @@ SubmitPage::SubmitPage(qutim_sdk_0_3::StatisticsHelper *helper, QWizard *parent)
 	if (helper->action() == StatisticsHelper::NeedToAskInit
 			|| helper->action() == StatisticsHelper::NeedToAskUpdate) {
 		QVBoxLayout *scrollArealayout = new QVBoxLayout(this);
-		scrollArealayout->setMargin(0);
+		scrollArealayout->setContentsMargins(0, 0, 0, 0);
 		QScrollArea *scrollArea = new QScrollArea(this);
 		scrollArealayout->addWidget(scrollArea);
 		scrollArea->setFrameShape(QFrame::NoFrame);

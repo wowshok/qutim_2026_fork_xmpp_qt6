@@ -87,7 +87,7 @@ TabbedChatWidget::TabbedChatWidget(const QString &key, QWidget *parent) :
 	m_layout = new QVBoxLayout(centralWidget());
 	m_layout->addWidget(m_hSplitter);
 #ifdef Q_OS_MAC
-	m_layout->setMargin(1);
+	m_layout->setContentsMargins(1, 1, 1, 1);
 	m_layout->setSpacing(1);
 #endif
 
@@ -113,7 +113,7 @@ void TabbedChatWidget::setView(QWidget *view)
 	if (!m_chatViewLayout) {
 		QWidget *w = new QWidget(this);
 		m_chatViewLayout = new QVBoxLayout(w);
-		m_chatViewLayout->setMargin(0);
+		m_chatViewLayout->setContentsMargins(0, 0, 0, 0);
 		m_vSplitter->insertWidget(0, w);
 	}
 	m_chatViewLayout->addWidget(view);
@@ -188,7 +188,7 @@ void TabbedChatWidget::loadSettings()
 			tabBar = new QWidget(this);
 			tabBar->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 			QHBoxLayout *l = new QHBoxLayout(tabBar);
-			l->setMargin(0);
+			l->setContentsMargins(0, 0, 0, 0);
 			btn = new QToolButton(this);
 			btn->setToolButtonStyle(Qt::ToolButtonIconOnly);
 			btn->setAutoRaise(true);

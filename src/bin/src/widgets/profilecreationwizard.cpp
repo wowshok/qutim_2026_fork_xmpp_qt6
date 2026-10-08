@@ -149,7 +149,7 @@ ProfileCreationWizard::ProfileCreationWizard(ModuleManager *parent,
 		creator->setParent(this);
 		creators << creator;
 	}
-	qSort(creators.begin(), creators.end(), creatorsLessThan);
+	std::sort(creators.begin(), creators.end(), creatorsLessThan);
 	foreach (ProfileCreatorPage *creator, creators) {
 		foreach (QWizardPage *page, creator->pages(this)) {
 			addPage(page);
