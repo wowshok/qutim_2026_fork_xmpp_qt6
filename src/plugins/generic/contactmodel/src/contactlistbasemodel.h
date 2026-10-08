@@ -32,8 +32,99 @@
 #include <qutim/notification.h>
 #include <QAbstractItemModel>
 #include <QBasicTimer>
+#include <iterator>
 
 class ContactListFrontModel;
+
+// Nodes keep pointers to their parents and model indexes point to nodes, so
+// node addresses must stay stable. Qt 5 QList allocated large elements on the
+// heap one by one; Qt 6 QList is contiguous and moves elements on insertion.
+// NodeList restores the Qt 5 behaviour for the subset of the API in use.
+template <typename T>
+class NodeList
+{
+	template <typename Item, typename Base>
+	class Iterator
+	{
+	public:
+		typedef std::random_access_iterator_tag iterator_category;
+		typedef T value_type;
+		typedef qsizetype difference_type;
+		typedef Item *pointer;
+		typedef Item &reference;
+
+		Iterator() {}
+		explicit Iterator(Base it) : i(it) {}
+		reference operator*() const { return **i; }
+		pointer operator->() const { return *i; }
+		reference operator[](difference_type n) const { return *i[n]; }
+		Iterator &operator++() { ++i; return *this; }
+		Iterator operator++(int) { Iterator t = *this; ++i; return t; }
+		Iterator &operator--() { --i; return *this; }
+		Iterator operator--(int) { Iterator t = *this; --i; return t; }
+		Iterator &operator+=(difference_type n) { i += n; return *this; }
+		Iterator &operator-=(difference_type n) { i -= n; return *this; }
+		Iterator operator+(difference_type n) const { return Iterator(i + n); }
+		Iterator operator-(difference_type n) const { return Iterator(i - n); }
+		difference_type operator-(const Iterator &o) const { return i - o.i; }
+		bool operator==(const Iterator &o) const { return i == o.i; }
+		bool operator!=(const Iterator &o) const { return i != o.i; }
+		bool operator<(const Iterator &o) const { return i < o.i; }
+		bool operator>(const Iterator &o) const { return i > o.i; }
+		bool operator<=(const Iterator &o) const { return i <= o.i; }
+		bool operator>=(const Iterator &o) const { return i >= o.i; }
+		Base base() const { return i; }
+	private:
+		Base i;
+	};
+
+public:
+	typedef Iterator<T, typename QList<T*>::iterator> iterator;
+	typedef Iterator<const T, typename QList<T*>::const_iterator> const_iterator;
+	typedef T value_type;
+
+	NodeList() {}
+	NodeList(const NodeList &o) { for (T *t : o.d) d.append(new T(*t)); }
+	NodeList &operator=(const NodeList &o)
+	{
+		if (this != &o) {
+			NodeList copy(o);
+			d.swap(copy.d);
+		}
+		return *this;
+	}
+	~NodeList() { qDeleteAll(d); }
+
+	qsizetype size() const { return d.size(); }
+	bool isEmpty() const { return d.isEmpty(); }
+	T &operator[](qsizetype i) { return *d[i]; }
+	const T &operator[](qsizetype i) const { return *d.at(i); }
+	const T &at(qsizetype i) const { return *d.at(i); }
+	T &last() { return *d.last(); }
+
+	iterator begin() { return iterator(d.begin()); }
+	iterator end() { return iterator(d.end()); }
+	const_iterator begin() const { return const_iterator(d.cbegin()); }
+	const_iterator end() const { return const_iterator(d.cend()); }
+
+	void append(const T &t) { d.append(new T(t)); }
+	iterator insert(iterator before, const T &t)
+	{
+		const qsizetype index = before - begin();
+		d.insert(index, new T(t));
+		return begin() + index;
+	}
+	iterator erase(iterator it)
+	{
+		const qsizetype index = it - begin();
+		delete d.takeAt(index);
+		return begin() + index;
+	}
+	void removeAt(qsizetype i) { delete d.takeAt(i); }
+
+private:
+	QList<T*> d;
+};
 
 enum ContactListItemRole
 {
@@ -181,7 +272,7 @@ protected:
 
 		inline ContactListNode(NodeType type, BaseNode *parent) : BaseNode(type, parent) {}
 
-		QList<ContactNode> contacts;
+		NodeList<ContactNode> contacts;
 		bool collapsed = false;
 		QHash<qutim_sdk_0_3::Contact*, int> onlineContacts;
 		QHash<qutim_sdk_0_3::Contact*, int> totalContacts;
@@ -209,7 +300,7 @@ protected:
 
 		inline TagListNode(NodeType type, BaseNode *parent) : ContactListNode(type, parent) {}
 
-		QList<TagNode> tags;
+		NodeList<TagNode> tags;
 	};
 
 	class AccountNode : public TagListNode
@@ -235,7 +326,7 @@ protected:
 
 		inline AccountListNode(NodeType type, BaseNode *parent) : TagListNode(type, parent) {}
 
-		QList<AccountNode> accounts;
+		NodeList<AccountNode> accounts;
 	};
 
 	class RootNode : public AccountListNode
