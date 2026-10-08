@@ -11,6 +11,7 @@ set(QUTIM_SHARE_DIRS
 	"${ART}/sounds|sounds"
 	"${ART}/icons/qutim-default|icons/qutim-default"
 	"${ART}/icons/user-status|icons/qutim-default/user-status"
+	"${ART}/icons/oxygen|icons/oxygen"
 	"${ART}/icons/humanity/hicolor|icons/hicolor"
 	"${ART}/icons/clients/hicolor/16x16/apps|icons/hicolor/16x16/apps"
 	"${ART}/icons/user-status/hicolor/scalable/status|icons/hicolor/scalable/status"
