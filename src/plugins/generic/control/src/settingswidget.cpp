@@ -55,7 +55,7 @@ AnswerLine::AnswerLine(const QString &text, QListWidget *list)
 	m_item = new QListWidgetItem(list);
 	QObject *guard = new QObject();
 	connect(guard, SIGNAL(destroyed()), SLOT(deleteLater()));
-	m_item->setData(Qt::UserRole, qVariantFromValue(Guard(guard)));
+	m_item->setData(Qt::UserRole, QVariant::fromValue(Guard(guard)));
 	m_item->setData(Qt::SizeHintRole, sizeHint());
 	m_textEdit->setPlainText(text);
 	list->setItemWidget(m_item, this);

@@ -54,8 +54,8 @@ public slots:
 	void remove();
 
 protected:
-	static int list_count(QQmlListProperty<Action> *list);
-	static Action *list_at(QQmlListProperty<Action> *list, int index);
+	static qsizetype list_count(QQmlListProperty<Action> *list);
+	static Action *list_at(QQmlListProperty<Action> *list, qsizetype index);
 
 private:
 	qutim_sdk_0_3::Notification *m_notify;

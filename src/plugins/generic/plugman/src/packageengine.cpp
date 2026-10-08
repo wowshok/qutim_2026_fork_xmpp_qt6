@@ -32,6 +32,7 @@
 #include <qutim/systeminfo.h>
 #include <qutim/jsonfile.h>
 #include <attica/downloaditem.h>
+#include <QRandomGenerator>
 
 using namespace Attica;
 using namespace qutim_sdk_0_3;
@@ -48,7 +49,7 @@ PackageEngine::PackageEngine(QObject *parent)
 //	} else {
 //		m_manager.loadDefaultProviders();
 //	}
-	m_idCounter = (qint64(qrand()) << 32) | quint32(qrand());
+	m_idCounter = qint64(QRandomGenerator::global()->generate64() >> 1);
 
 	const QString fileName = SystemInfo::getDir(SystemInfo::ShareDir)
 							 .filePath(QLatin1String("packages.json"));
@@ -281,7 +282,7 @@ void PackageEngine::onNetworkRequestFinished()
 	}
 
 	QDir tmp = QDir::temp();
-	QString subpath = QLatin1String("qutim-plugman-") + QString::number(qrand());
+	QString subpath = QLatin1String("qutim-plugman-") + QString::number(QRandomGenerator::global()->generate());
 	if (!tmp.mkdir(subpath)) {
 		critical() << "Can't create subdirectory at temporary path" << tmp;
 		return;

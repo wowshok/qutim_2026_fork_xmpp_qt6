@@ -68,7 +68,7 @@ void FileTransferActionGenerator::createImpl(QAction *action, QObject *obj) cons
 
 	QMenu *menu = new QMenu();
 	QObject::connect(action, SIGNAL(destroyed()), menu, SLOT(deleteLater()));
-	action->setProperty("menuObject", qVariantFromValue((QObject*)menu));
+	action->setProperty("menuObject", QVariant::fromValue((QObject*)menu));
 }
 
 static const QList<QAction*> &getSendActions(SimpleFileTransfer *manager)
@@ -82,7 +82,7 @@ static const QList<QAction*> &getSendActions(SimpleFileTransfer *manager)
 	foreach (FileTransferFactory *factory, FileTransferManager::factories()) {
 		QAction *action = new QAction(factory->icon(), factory->name(), manager);
 		QObject::connect(action, SIGNAL(triggered()), manager, SLOT(onSendThroughSpecificFactory()));
-		action->setProperty("factory", qVariantFromValue((QObject*)factory));
+		action->setProperty("factory", QVariant::fromValue((QObject*)factory));
 		actions << action;
 	}
 	return actions;
@@ -118,7 +118,7 @@ void FileTransferActionGenerator::showImpl(QAction *action, QObject *obj)
 		FileTransferFactory *factory = getObjectFromProperty<FileTransferFactory>(action, "factory");
 		Q_ASSERT(factory);
 		if (factory->checkAbility(unit)) {
-			action->setProperty("controller", qVariantFromValue((QObject*)unit));
+			action->setProperty("controller", QVariant::fromValue((QObject*)unit));
 			menu->addAction(action);
 		} else {
 			menu->removeAction(action);
@@ -128,7 +128,7 @@ void FileTransferActionGenerator::showImpl(QAction *action, QObject *obj)
 	if (menu->actions().count() > 1) {
 		QAction *separator = getSeparatorSendAction(m_manager);
 		QAction *defaultAct = getDefaultSendAction(m_manager);
-		defaultAct->setProperty("controller", qVariantFromValue((QObject*)unit));
+		defaultAct->setProperty("controller", QVariant::fromValue((QObject*)unit));
 		menu->insertAction(menu->actions().first(), separator);
 		menu->insertAction(separator, defaultAct);
 		action->setMenu(menu);

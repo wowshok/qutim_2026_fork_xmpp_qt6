@@ -79,7 +79,7 @@ public:
 		return QSize(width, height);
 	}
 
-	void enterEvent(QEvent *event)
+	void enterEvent(QEnterEvent *event)
 	{
 		if (isEnabled())
 			update();
@@ -97,7 +97,7 @@ public:
 	{
 		QPainter p(this);
 		QStyleOption opt;
-		opt.init(this);
+		opt.initFrom(this);
 		opt.state |= QStyle::State_AutoRaise;
 		if (isEnabled() && underMouse() && !isChecked() && !isDown())
 			opt.state |= QStyle::State_Raised;

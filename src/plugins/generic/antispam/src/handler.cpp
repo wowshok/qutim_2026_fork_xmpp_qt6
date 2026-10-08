@@ -96,7 +96,7 @@ MessageHandlerAsyncResult Handler::doHandle(Message &message)
 	Info::Ptr info = contact->property(ANTISPAM_PROPERTY).value<Info::Ptr>();
 	if (info.isNull()) {
 		info = Info::Ptr::create();
-		contact->setProperty(ANTISPAM_PROPERTY, qVariantFromValue(info));
+		contact->setProperty(ANTISPAM_PROPERTY, QVariant::fromValue(info));
 	}
 
 	if (info->trusted) {

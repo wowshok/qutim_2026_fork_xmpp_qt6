@@ -124,7 +124,7 @@ QVariant FileTransferJobModel::headerData(int section, Qt::Orientation orientati
 	if (role != Qt::DisplayRole || orientation != Qt::Horizontal)
 		return QVariant();
 	if (section >= 0 && section < LastColumn)
-		return qVariantFromValue(headers[section]);
+		return QVariant::fromValue(headers[section]);
 	return QVariant();
 }
 
@@ -157,7 +157,7 @@ QVariant FileTransferJobModel::data(const QModelIndex &index, int role) const
 	}
 
 	if (role == FileTransferJobRole)
-		return qVariantFromValue(job);
+		return QVariant::fromValue(job);
 
 	if (role == DescriptionRole) {
 		QVariantMap map;

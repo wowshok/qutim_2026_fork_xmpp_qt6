@@ -57,7 +57,7 @@ QVariant FloatiesItemModel::data(const QModelIndex &index, int role) const
 	case ItemTypeRole:
 		return ContactType;
 	case StatusRole:
-		return qVariantFromValue(contact->status());
+		return QVariant::fromValue(contact->status());
 	case AvatarRole:
 		return contact->avatar();
 	default:

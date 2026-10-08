@@ -74,7 +74,8 @@ void TreeView::setContactModel(QAbstractItemModel *model)
 {
 	storeClosedTags();
 	Config group = Config().group("contactList").group(model->metaObject()->className());
-	m_closedIndexes = group.value("closedTags", QStringList()).value().toSet();
+	const QStringList closedTags = group.value("closedTags", QStringList()).value();
+	m_closedIndexes = QSet<QString>(closedTags.begin(), closedTags.end());
 	QTreeView::setModel(model);
 	connect(model, SIGNAL(rowsInserted(QModelIndex,int,int)),
 			SLOT(onRowsInserted(QModelIndex,int,int)));
@@ -132,7 +133,8 @@ void TreeView::startDrag(Qt::DropActions supportedActions)
 	QPoint point;
 	{
 		QAbstractItemDelegate *delegate = itemDelegate(index);
-		QStyleOptionViewItemV4 option = viewOptions();
+		QStyleOptionViewItem option;
+		initViewItemOption(&option);
 		option.locale = this->locale();
 		option.locale.setNumberOptions(QLocale::OmitGroupSeparator);
 		option.widget = this;
@@ -217,7 +219,7 @@ void TreeView::storeClosedTags()
 	if (!model())
 		return;
 	Config group = Config().group("contactList").group(model()->metaObject()->className());
-	group.setValue("closedTags", QStringList(m_closedIndexes.toList()));
+	group.setValue("closedTags", QStringList(m_closedIndexes.values()));
 }
 
 void TreeView::checkTag(const QModelIndex &parent, QAbstractItemModel *model)

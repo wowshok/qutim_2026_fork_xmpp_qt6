@@ -25,7 +25,6 @@
 
 #include "profilecreationpage.h"
 #include "ui_profilecreationpage.h"
-#include "submitpage.h"
 #include <qutim/cryptoservice.h>
 #include <qutim/objectgenerator.h>
 #include <qutim/extensioninfo.h>
@@ -57,7 +56,7 @@ ProfileCreationPage::ProfileCreationPage(QWidget *parent) :
 	ui->setupUi(this);
 	qDebug("%s???", Q_FUNC_INFO);
 	QDir dir = QApplication::applicationDirPath();
-	QFileInfo dirInfo = dir.absolutePath();
+	QFileInfo dirInfo(dir.absolutePath());
 	if (!dirInfo.isWritable()) {
 		ui->portableBox->setVisible(false);
 		ui->portableBox->setChecked(false);
@@ -102,7 +101,7 @@ void ProfileCreationPage::initializePage()
 		const ExtensionInfo info = gen->info();
 		if (!m_singleProfile
 				|| info.generator()->metaObject()->className() == QLatin1String("Core::NoCryptoService")) {
-			ui->cryptoBox->addItem(info.icon(), info.name(), qVariantFromValue(info));
+			ui->cryptoBox->addItem(info.icon(), info.name(), QVariant::fromValue(info));
 			if (first) {
 				ui->cryptoBox->setCurrentIndex(0);
 				ui->cryptoDescription->setText(info.description());
@@ -114,7 +113,7 @@ void ProfileCreationPage::initializePage()
 	first = true;
 	foreach (const ObjectGenerator *gen, ObjectGenerator::module<ConfigBackend>()) {
 		const ExtensionInfo info = gen->info();
-		ui->configBox->addItem(info.icon(), info.name(), qVariantFromValue(info));
+		ui->configBox->addItem(info.icon(), info.name(), QVariant::fromValue(info));
 		if (first) {
 			ui->configBox->setCurrentIndex(0);
 			ui->configDescription->setText(info.description());

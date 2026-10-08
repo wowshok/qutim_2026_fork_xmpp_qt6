@@ -172,7 +172,7 @@ QVariantHash JPersonActivityConverter::convertFrom(const QSharedPointer<Jreen::P
 	}
 	iconName += QLatin1String("-jabber");
 	qutim_sdk_0_3::ExtensionIcon icon(iconName);
-	data.insert(QLatin1String("icon"), qVariantFromValue(icon));
+	data.insert(QLatin1String("icon"), QVariant::fromValue(icon));
 	data.insert(QLatin1String("title"), title);
 	if (!activity->text().isEmpty())
 		data.insert(QLatin1String("description"), activity->text());

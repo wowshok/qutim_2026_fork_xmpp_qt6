@@ -19,8 +19,8 @@ public:
 	QQmlListProperty<Notify> notifies();
 
 protected:
-	static int list_count(QQmlListProperty<Notify> *list);
-	static Notify *list_at(QQmlListProperty<Notify> *list, int index);
+	static qsizetype list_count(QQmlListProperty<Notify> *list);
+	static Notify *list_at(QQmlListProperty<Notify> *list, qsizetype index);
 
 	void onNotificationAdded(qutim_sdk_0_3::Notification *notification);
 	void onNotificationRemoved(qutim_sdk_0_3::Notification *notification);

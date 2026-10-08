@@ -182,13 +182,14 @@ ActionGenerator::ActionGenerator(const QIcon &icon, const LocalizedString &text,
 	d->text = text;
 	d->receiver = const_cast<QObject *>(receiver);
 	d->member = QMetaObject::normalizedSignature(member);
-	char type = d->member[0];
-	d->member[0] = '0' + QSIGNAL_CODE;
-	if (!member)
+	if (d->member.isEmpty()) {
 		d->connectionType = ActionConnectionNone;
-	else
+	} else {
+		char type = d->member[0];
+		d->member[0] = '0' + QSIGNAL_CODE;
 		d->ensureConnectionType();
-	d->member[0] = type;
+		d->member[0] = type;
+	}
 	d->data = new ActionData;
 }
 
@@ -200,13 +201,14 @@ ActionGenerator::ActionGenerator(const QIcon &icon, const LocalizedString &text,
 	d->icon = icon;
 	d->text = text;
 	d->member = QMetaObject::normalizedSignature(member);
-	char type = d->member[0];
-	d->member[0] = '0' + QSIGNAL_CODE;
-	if (!member)
+	if (d->member.isEmpty()) {
 		d->connectionType = ActionConnectionNone;
-	else
+	} else {
+		char type = d->member[0];
+		d->member[0] = '0' + QSIGNAL_CODE;
 		d->ensureConnectionType();
-	d->member[0] = type;
+		d->member[0] = type;
+	}
 	d->data = new ActionData;
 }
 

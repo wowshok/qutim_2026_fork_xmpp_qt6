@@ -253,10 +253,10 @@ void XmlConsole::stackProcess(const QByteArray &data, bool incoming)
 						cursor.insertText(QLatin1String("\n"));
 						cursor.insertText(space);
 						cursor.insertText(QLatin1String("<"), bracketFormat);
-						cursor.insertText(token->startTag.name->toString(), tagFormat);
-						const QStringRef &xmlns = *token->startTag.xmlns;
+						cursor.insertText(*token->startTag.name, tagFormat);
+						const QString &xmlns = *token->startTag.xmlns;
 						if (i == 0 || xmlns != currentXmlns) {
-							currentXmlns = xmlns.toString();
+							currentXmlns = xmlns;
 							cursor.insertText(singleSpace);
 							cursor.insertText(QLatin1String("xmlns"), attributeFormat);
 							cursor.insertText(QLatin1String("="), zeroFormat);
@@ -287,12 +287,12 @@ void XmlConsole::stackProcess(const QByteArray &data, bool incoming)
 							cursor.insertText(space);
 						}
 						cursor.insertText(QLatin1String("</"), bracketFormat);
-						cursor.insertText(token->endTag.name->toString(), tagFormat);
+						cursor.insertText(*token->endTag.name, tagFormat);
 						cursor.insertText(QLatin1String(">"), bracketFormat);
 						depth--;
 					} else if (token->type == QXmlStreamReader::Characters) {
 						cursor.setCharFormat(bodyFormat);
-						QString text = token->charachters.text->toString();
+						QString text = *token->charachters.text;
 						if (text.contains(QLatin1Char('\n'))) {
 							QString space = generate_stacked_space(depth);
 							space.prepend(QLatin1Char('\n'));

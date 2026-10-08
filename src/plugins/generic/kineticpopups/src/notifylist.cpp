@@ -24,12 +24,12 @@ QQmlListProperty<Notify> NotifyList::notifies()
 	return QQmlListProperty<Notify>(this, this, nullptr, list_count, list_at, nullptr);
 }
 
-int NotifyList::list_count(QQmlListProperty<Notify> *list)
+qsizetype NotifyList::list_count(QQmlListProperty<Notify> *list)
 {
 	return static_cast<NotifyList *>(list->object)->m_notifies.size();
 }
 
-Notify *NotifyList::list_at(QQmlListProperty<Notify> *list, int index)
+Notify *NotifyList::list_at(QQmlListProperty<Notify> *list, qsizetype index)
 {
 	return static_cast<NotifyList *>(list->object)->m_notifies.at(index);
 }

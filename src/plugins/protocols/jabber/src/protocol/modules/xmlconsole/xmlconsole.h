@@ -101,44 +101,31 @@ private:
 		{
 			type = reader.tokenType();
 			if (type == QXmlStreamReader::StartElement) {
-				QStringRef tmp = reader.name();
-				startTag.namePointer = new QString(*tmp.string());
-				startTag.name = new QStringRef(startTag.namePointer, tmp.position(), tmp.length());
-				tmp = reader.namespaceUri();
-				startTag.xmlnsPointer = new QString(*tmp.string());
-				startTag.xmlns = new QStringRef(startTag.xmlnsPointer, tmp.position(), tmp.length());
+				startTag.name = new QString(reader.name().toString());
+				startTag.xmlns = new QString(reader.namespaceUri().toString());
 				startTag.attributes = new QXmlStreamAttributes(reader.attributes());
 				startTag.empty = false;
 			} else if (type == QXmlStreamReader::Characters) {
-				QStringRef tmp = reader.text();
-				charachters.textPointer = new QString(*tmp.string());
-				charachters.text = new QStringRef(charachters.textPointer, tmp.position(), tmp.length());
+				charachters.text = new QString(reader.text().toString());
 			} else if (type == QXmlStreamReader::EndElement) {
-				QStringRef tmp = reader.name();
-				endTag.namePointer = new QString(*tmp.string());
-				endTag.name = new QStringRef(endTag.namePointer, tmp.position(), tmp.length());
+				endTag.name = new QString(reader.name().toString());
 			}
 		}
 		StackToken(const QString &name)
 		{
 			type = QXmlStreamReader::Characters;
-			charachters.textPointer = new QString(name);
-			charachters.text = new QStringRef(charachters.textPointer);
+			charachters.text = new QString(name);
 		}
 
 		~StackToken()
 		{
 			if (type == QXmlStreamReader::StartElement) {
-				delete startTag.namePointer;
 				delete startTag.name;
-				delete startTag.xmlnsPointer;
 				delete startTag.xmlns;
 				delete startTag.attributes;
 			} else if (type == QXmlStreamReader::Characters) {
-				delete charachters.textPointer;
 				delete charachters.text;
 			} else if (type == QXmlStreamReader::EndElement) {
-				delete endTag.namePointer;
 				delete endTag.name;
 			}
 		}
@@ -146,20 +133,16 @@ private:
 		QXmlStreamReader::TokenType type;
 		union {
 			struct {
-				QString *namePointer;
-				QStringRef *name;
-				QString *xmlnsPointer;
-				QStringRef *xmlns;
+				QString *name;
+				QString *xmlns;
 				QXmlStreamAttributes *attributes;
 				bool empty;
 			} startTag;
 			struct {
-				QString *textPointer;
-				QStringRef *text;
+				QString *text;
 			} charachters;
 			struct {
-				QString *namePointer;
-				QStringRef *name;
+				QString *name;
 			} endTag;
 		};
 	};
@@ -177,7 +160,7 @@ private:
 		QColor paramColor;
 	};
 
-	Ui::XmlConsole *m_ui;
+	::Ui::XmlConsole *m_ui;
 	Jreen::Client *m_client;
 	QList<XmlNode> m_nodes;
 	StackEnvironment m_stackIncoming;

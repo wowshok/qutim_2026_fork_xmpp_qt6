@@ -60,7 +60,7 @@ private slots:
 //	void onPGPKeyDialogFinished(int result);
 
 private:
-	Ui::JMainSettings *ui;
+	::Ui::JMainSettings *ui;
 //	QCA::KeyStoreEntry m_keyEntry;
 	QPointer<JAccount> m_account;
 };

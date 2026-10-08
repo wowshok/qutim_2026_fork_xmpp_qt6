@@ -142,7 +142,7 @@ QVariant ContactListBaseModel::data(const QModelIndex &index, int role) const
 		case Qt::DecorationRole:
 			return account->status().icon();
 		case AccountRole:
-			return qVariantFromValue(account);
+			return QVariant::fromValue(account);
 		case ContactsCountRole:
 			return node->totalContacts.size();
 		case OnlineContactsCountRole:
@@ -210,13 +210,13 @@ QVariant ContactListBaseModel::data(const QModelIndex &index, int role) const
 		case StatusTextRole:
 			return contact->status().text();
 		case StatusRole:
-			return qVariantFromValue(contact->status());
+			return QVariant::fromValue(contact->status());
 		case AvatarRole:
 			return contact->avatar();
 		case AlphabetRole:
 			return contact->title().at(0).toUpper();
 		case ContactRole:
-			return qVariantFromValue<QObject*>(contact);
+			return QVariant::fromValue<QObject*>(contact);
 		case IdRole:
 			return contact->id();
 		case NotificationRole:
@@ -226,7 +226,7 @@ QVariant ContactListBaseModel::data(const QModelIndex &index, int role) const
 		case StatusIconNameRole:
 			return contact->status().icon().name();
 		case BuddyRole:
-			return qVariantFromValue<Buddy*>(contact);
+			return QVariant::fromValue<Buddy*>(contact);
 		default:
 			return QVariant();
 		}
@@ -753,7 +753,7 @@ Contact *ContactListBaseModel::findRealContact(Notification *notification)
 	if (Contact *meta = qobject_cast<MetaContact*>(contact ? contact->metaContact() : 0))
 		contact = meta;
 
-	notification->setProperty(contactProperty, qVariantFromValue(contact));
+	notification->setProperty(contactProperty, QVariant::fromValue(contact));
 	return contact;
 }
 

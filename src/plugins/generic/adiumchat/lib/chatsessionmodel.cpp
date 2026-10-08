@@ -54,11 +54,11 @@ QVariant ChatSessionModel::data(const QModelIndex &index, int role) const
 	case Qt::DecorationRole:
 		return buddy->status().icon();
 	case BuddyRole:
-		return qVariantFromValue(buddy);
+		return QVariant::fromValue(buddy);
 	case AvatarRole:
 		return buddy->avatar();
 	case StatusRole:
-		return qVariantFromValue(buddy->status());
+		return QVariant::fromValue(buddy->status());
 	case ItemTypeRole:
 		return ContactType;
 	default:

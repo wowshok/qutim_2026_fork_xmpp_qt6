@@ -24,15 +24,13 @@
 ****************************************************************************/
 
 #include "modulemanagerimpl.h"
-#include "submitpage.h"
 #include <qutim/jsonfile.h>
 #include <QVariant>
 #include <QFile>
 #include <QDebug>
-#include <QScriptValue>
-#include <QScriptEngine>
 #include <QTimer>
-#include <QSslSocket>
+#include <QSslConfiguration>
+#include <QSslCertificate>
 #include <qutim/protocol.h>
 #include "profiledialog.h"
 #include "profilecreationwizard.h"
@@ -57,18 +55,12 @@ ModuleManagerImpl::ModuleManagerImpl()
 	singleProfile = config.value("singleProfile", singleProfile);
 
 	QWizard *wizard = 0;
-	StatisticsHelper *helper = 0;
 	if (singleProfile) {
 		if (!config.hasChildGroup("profile")) {
 			wizard = new ProfileCreationWizard(this, QString(), QString(), true);
 		} else {
 			config.beginGroup("profile");
-			helper = new StatisticsHelper();
-			if (helper->action() == StatisticsHelper::NeedToAskInit
-					|| helper->action() == StatisticsHelper::NeedToAskUpdate) {
-				wizard = new QWizard();
-				wizard->addPage(new SubmitPage(helper, wizard));
-			}
+			// Usage statistics were sent to qutim.org, which is gone
 
 			bool systemProfiles = false;
 			ProfileDialog::profilesConfigPath(&systemProfiles);
@@ -101,10 +93,12 @@ void ModuleManagerImpl::initExtensions()
 {
 	QString path = SystemInfo::getPath(SystemInfo::SystemShareDir);
 	path += QLatin1String("/ca-certs/*.pem");
-	QSslSocket::addDefaultCaCertificates(path, QSsl::Pem, QRegExp::Wildcard);
+	QSslConfiguration sslConfig = QSslConfiguration::defaultConfiguration();
+	sslConfig.addCaCertificates(path, QSsl::Pem, QSslCertificate::PatternSyntax::Wildcard);
 	path.chop(3);
 	path += QLatin1String("crt");
-	QSslSocket::addDefaultCaCertificates(path, QSsl::Pem, QRegExp::Wildcard);
+	sslConfig.addCaCertificates(path, QSsl::Pem, QSslCertificate::PatternSyntax::Wildcard);
+	QSslConfiguration::setDefaultConfiguration(sslConfig);
 
 	ModuleManager::initExtensions();
 

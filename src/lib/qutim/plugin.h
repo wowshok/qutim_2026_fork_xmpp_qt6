@@ -223,7 +223,7 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(qutim_sdk_0_3::Plugin::Capabilities)
 	"pattern=""QUTIM_PLUGIN_VERIFICATION_DATA""\n" \
 	"debugid=" QUTIM_EXPORT_STRING(QUTIM_PLUGIN_ID)"\n" \
 	"libqutim=" QUTIM_VERSION_STRING"\0"; \
-	Q_EXTERN_C Q_DECL_EXPORT \
+	extern "C" Q_DECL_EXPORT \
 	const char *qutim_plugin_query_verification_data() \
 { return qutim_plugin_verification_data; }
 

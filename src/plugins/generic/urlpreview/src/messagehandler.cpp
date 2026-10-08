@@ -170,7 +170,7 @@ void UrlHandler::checkLink(const QStringRef &originalLink, QString &link, ChatUn
 	request.setRawHeader("Ranges", "bytes=0-0");
 	QNetworkReply *reply = m_netman->head(request);
 	reply->setProperty("uid", uid);
-	reply->setProperty("unit", qVariantFromValue<ChatUnit *>(from));
+	reply->setProperty("unit", QVariant::fromValue<ChatUnit *>(from));
 
 	ChatSession *session = ChatLayer::get(from);
 

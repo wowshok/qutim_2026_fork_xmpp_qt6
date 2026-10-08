@@ -114,7 +114,7 @@ void ContactListSettings::loadImpl()
 	foreach (SettingsWidget *widget, m_staticExtensionWidgets)
 		widget->load();
 
-	QHash<QByteArray, const ObjectGenerator*>::iterator itr = m_extensions.begin(), end = m_extensions.end();
+	QMultiHash<QByteArray, const ObjectGenerator*>::iterator itr = m_extensions.begin(), end = m_extensions.end();
 	while (itr != end) {
 		if (m_services.contains(itr.key()))
 			addExtensionWidget(itr.key(), itr.value(), true);

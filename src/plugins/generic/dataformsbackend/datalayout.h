@@ -51,7 +51,7 @@ public:
 	void addDataItems(const QList<qutim_sdk_0_3::DataItem> &items);
 	void addSpacer();
 	void addRow(QWidget *widget) { addRow(0, widget); }
-	void addRow(QWidget *title, QWidget *widget, Qt::Alignment widgetAligment = 0);
+	void addRow(QWidget *title, QWidget *widget, Qt::Alignment widgetAligment = Qt::Alignment());
 	bool isExpandable() { return m_expandable; }
 	void setHorizontalSpacing(int spacing);
 protected:

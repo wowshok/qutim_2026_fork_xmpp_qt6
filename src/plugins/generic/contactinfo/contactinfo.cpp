@@ -37,6 +37,7 @@
 #include <QUrl>
 #include <qutim/debug.h>
 #include <qutim/systemintegration.h>
+#include <QRegularExpression>
 
 namespace Core
 {
@@ -224,9 +225,9 @@ QString MainWindow::summary(const DataItem &items, bool *titlePrinted)
 			text += QString("<b>%1:</b>  ").arg(item.title());
 			QVariant::Type type = item.data().type();
 			if (type == QVariant::Date) {
-				text += item.data().toDate().toString(Qt::SystemLocaleLongDate);
+				text += QLocale::system().toString(item.data().toDate(), QLocale::LongFormat);
 			} else if (type == QVariant::DateTime) {
-				text += item.data().toDateTime().toString(Qt::SystemLocaleLongDate);
+				text += QLocale::system().toString(item.data().toDateTime(), QLocale::LongFormat);
 			} else if (type == QVariant::Bool) {
 				text += item.data().toBool() ?
 							QT_TRANSLATE_NOOP("ContactInfo", "yes") :
@@ -239,7 +240,7 @@ QString MainWindow::summary(const DataItem &items, bool *titlePrinted)
 							 url.toString(),
 							 url.toString().toHtmlEscaped());
 			} else {
-				text += str.replace(QRegExp("(\r\n|\n|\r)"), "<br>");
+				text += str.replace(QRegularExpression(QStringLiteral("(\r\n|\n|\r)")), QStringLiteral("<br>"));
 			}
 			text += "<br>";
 		}

@@ -52,7 +52,7 @@ public:
 
 	QString iconsList() const
 	{
-		return QStringList(m_missingIcons.toList()).join('\n');
+		return QStringList(m_missingIcons.values()).join('\n');
 	}
 protected:
 	QIcon doLoadIcon(const QString &name);

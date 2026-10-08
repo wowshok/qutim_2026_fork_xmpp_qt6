@@ -93,7 +93,7 @@ void Model::addContact(Contact *contact , QStandardItem *root)
 	QStandardItem *item = new QStandardItem(contact->title());
 	QIcon icon = AvatarFilter::icon(contact->avatar(), contact->status().icon());
 	item->setIcon(icon);
-	item->setData(qVariantFromValue(contact));
+	item->setData(QVariant::fromValue(contact));
 	QVariantMap map;
 	map.insert(tr("Account"), contact->account()->id());
 	item->setData(map, DescriptionRole);

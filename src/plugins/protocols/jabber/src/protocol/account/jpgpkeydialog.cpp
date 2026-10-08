@@ -112,7 +112,7 @@
 //	for (int i = 0; i < items.size(); ++i) {
 //		QStandardItem *item = items[i];
 //		item->setData(key.keyId(), KeyId);
-//		item->setData(qVariantFromValue(keyEntry), KeyEntry);
+//		item->setData(QVariant::fromValue(keyEntry), KeyEntry);
 //	}
 //	m_model->appendRow(items);
 

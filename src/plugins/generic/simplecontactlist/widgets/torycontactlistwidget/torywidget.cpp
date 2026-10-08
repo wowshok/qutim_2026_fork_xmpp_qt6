@@ -43,7 +43,9 @@
 #include <QAbstractItemDelegate>
 #include <QAction>
 #include <QApplication>
-#include <QDesktopWidget>
+#include <QScreen>
+#include <QActionGroup>
+#include <QGuiApplication>
 #include <qutim/simplecontactlist/lineedit.h>
 #include <QMenuBar>
 #include <QVBoxLayout>
@@ -210,7 +212,7 @@ void ToryWidget::loadGeometry()
 {
 	QByteArray geom = Config().group("contactList").value("geometry", QByteArray());
 	if (geom.isNull()) {
-		QRect rect = QApplication::desktop()->availableGeometry(QCursor::pos());
+		QRect rect = (QGuiApplication::screenAt(QCursor::pos()) ? QGuiApplication::screenAt(QCursor::pos()) : QGuiApplication::primaryScreen())->availableGeometry();
 		//black magic
 		int width = size().width();
 		int x = rect.width() - width;

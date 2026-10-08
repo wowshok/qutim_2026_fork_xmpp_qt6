@@ -68,7 +68,7 @@ void FileTransferSettingsWidget::loadImpl()
 		QListWidgetItem *item = new QListWidgetItem(m_factoriesWidget);
 		item->setText(factory->name());
 		item->setIcon(factory->icon());
-		item->setData(DescriptionRole, qVariantFromValue(factory->description()));
+		item->setData(DescriptionRole, QVariant::fromValue(factory->description()));
 		item->setData(FactoryClassNameRole, factory->metaObject()->className());
 	}
 }

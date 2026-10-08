@@ -36,7 +36,7 @@
 #include <QWidgetAction>
 #include <QMenu>
 #include <QApplication>
-#include <QDesktopWidget>
+#include <QScreen>
 #include <qutim/systemintegration.h>
 #include <qutim/servicemanager.h>
 
@@ -53,7 +53,7 @@ ChatEmoticonsWidget::ChatEmoticonsWidget(QWidget *parent) :
 {
 #ifndef Q_WS_MAEMO_5
 # ifdef QUTIM_MOBILE_UI
-	QRect screenGeometry = QApplication::desktop()->screenGeometry();
+	QRect screenGeometry = screen()->geometry();
 	resize(screenGeometry.width() * 0.8, screenGeometry.height() * 0.8);
 # else
 	resize(400,400);
@@ -172,7 +172,7 @@ void EmoAction::orientationChanged()
 {
 	if (m_emoticons_widget.data()->isVisible())
 	{
-		QRect screenGeometry = QApplication::desktop()->screenGeometry();
+		QRect screenGeometry = screen()->geometry();
 		if (screenGeometry.width() > screenGeometry.height())
 		{
 			//This crap need to completely remake!
@@ -201,7 +201,7 @@ void EmoAction::triggerEmoticons()
 	if (m_emoticons_widget.data()->isVisible()) {
 		m_emoticons_widget.data()->hide();
 	} else {
-		QRect screenGeometry = QApplication::desktop()->screenGeometry();
+		QRect screenGeometry = screen()->geometry();
 		if (screenGeometry.width() > screenGeometry.height())
 		{
 			//This crap need to completely remake!

@@ -121,7 +121,7 @@ void JoinChatDialog::addAccount(Account *account)
 	if (!account->groupChatManager())
 		return;
 	m_ui->accountBox->addItem(account->status().icon(), account->id(),
-							  qVariantFromValue(account));
+							  QVariant::fromValue(account));
 	if (m_ui->accountBox->count() == 1)
 		m_ui->accountBox->setCurrentIndex(0);
 }
@@ -129,7 +129,7 @@ void JoinChatDialog::addAccount(Account *account)
 void JoinChatDialog::onAccountStatusChanged(const qutim_sdk_0_3::Status &status)
 {
 	Account *account = qobject_cast<Account*>(sender());
-	int index = m_ui->accountBox->findData(qVariantFromValue(account));
+	int index = m_ui->accountBox->findData(QVariant::fromValue(account));
 	if (index >= 0)
 		m_ui->accountBox->setItemIcon(index, status.icon());
 }
@@ -137,7 +137,7 @@ void JoinChatDialog::onAccountStatusChanged(const qutim_sdk_0_3::Status &status)
 void JoinChatDialog::onManagerChanged(qutim_sdk_0_3::GroupChatManager *manager)
 {
 	Account *account = qobject_cast<Account*>(sender());
-	int index = m_ui->accountBox->findData(qVariantFromValue(account));
+	int index = m_ui->accountBox->findData(QVariant::fromValue(account));
 	if (index < 0 && manager) {
 		addAccount(account);
 	} else if (!manager) {
@@ -151,7 +151,7 @@ void JoinChatDialog::onManagerChanged(qutim_sdk_0_3::GroupChatManager *manager)
 void JoinChatDialog::onAccountDeath(QObject *object)
 {
 	Account *account = static_cast<Account*>(object);
-	int index = m_ui->accountBox->findData(qVariantFromValue(account));
+	int index = m_ui->accountBox->findData(QVariant::fromValue(account));
 	if (index >= 0)
 		m_ui->accountBox->removeItem(index);
 }
@@ -239,7 +239,7 @@ void JoinChatDialog::rebuildItems(int index)
 			items[i-items.constBegin()] = DataItem("conference", QT_TRANSLATE_NOOP("Jabber", "Conference"), m_uri);
 			dataitem.setSubitems(items);
 		}
-		item->setData(Qt::UserRole, qVariantFromValue(dataitem));
+		item->setData(Qt::UserRole, QVariant::fromValue(dataitem));
 		++count;
 	}
 	for (int i = count - 1; i >= bookmarks.size() + 1; --i)
@@ -250,7 +250,7 @@ void JoinChatDialog::rebuildItems(int index)
 		const DataItem &data = bookmarks.at(i);
 		QListWidgetItem *item = m_ui->conferenceListWidget->item(i + 1);
 		item->setText(data.title());
-		item->setData(Qt::UserRole, qVariantFromValue(data));
+		item->setData(Qt::UserRole, QVariant::fromValue(data));
 	}
 	index = qBound(0, index, m_ui->conferenceListWidget->count() - 1);
 	if (m_ui->conferenceListWidget->currentRow() == index) {

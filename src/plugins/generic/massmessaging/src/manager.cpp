@@ -79,7 +79,7 @@ void Manager::reload()
 			foreach (Contact *contact, account->findChildren<Contact *>()) {
 				QStandardItem *contact_item = new MessagingItem (contact->title());
 				contact_item->setIcon(contact->status().icon());
-				contact_item->setData(qVariantFromValue(contact),Qt::UserRole);
+				contact_item->setData(QVariant::fromValue(contact),Qt::UserRole);
 
 				account_item->appendRow(contact_item);
 				m_contacts.append(contact_item);

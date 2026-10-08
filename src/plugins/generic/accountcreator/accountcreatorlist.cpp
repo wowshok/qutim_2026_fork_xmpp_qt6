@@ -134,7 +134,7 @@ void AccountCreatorList::addAccount(qutim_sdk_0_3::Account *account)
 	accountItem->setText(account->name());
 	accountItem->setToolTip(account->name());
 	accountItem->setIcon(protoIcon);
-	accountItem->setData(Qt::UserRole,qVariantFromValue<Account *>(account));
+	accountItem->setData(Qt::UserRole,QVariant::fromValue<Account *>(account));
 
 	QWidget *buttons = new QWidget(this);
 
@@ -146,7 +146,7 @@ void AccountCreatorList::addAccount(qutim_sdk_0_3::Account *account)
 	btn->setText(tr("Properties"));
 	btn->setToolTip(tr("Account settings"));
 	btn->setIcon(Icon("document-properties"));
-	btn->setProperty("account",qVariantFromValue(account));
+	btn->setProperty("account",QVariant::fromValue(account));
 	connect(btn, SIGNAL(clicked()), SLOT(onAccountPropertiesTriggered()));
 	l->addWidget(btn);
 
@@ -154,7 +154,7 @@ void AccountCreatorList::addAccount(qutim_sdk_0_3::Account *account)
 	btn->setText(tr("Remove account"));
 	btn->setIcon(Icon("list-remove-user"));
 	btn->setToolTip(tr("Remove account"));
-	btn->setProperty("account",qVariantFromValue(account));
+	btn->setProperty("account",QVariant::fromValue(account));
 	connect(btn, SIGNAL(clicked()), SLOT(onAccountRemoveTriggered()));
 	l->addWidget(btn);
 

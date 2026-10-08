@@ -49,7 +49,8 @@
 #include <slidingstackedwidget.h>
 #include <qutim/servicemanager.h>
 #include <QApplication>
-#include <QDesktopWidget>
+#include <QScreen>
+#include <QGuiApplication>
 #include <QMenuBar>
 
 #ifdef Q_WS_MAEMO_5
@@ -445,7 +446,7 @@ void StackedChatWidget::showContactList()
 #ifdef Q_WS_MAEMO_5
 void StackedChatWidget::orientationChanged()
 {
-	QRect screenGeometry = QApplication::desktop()->screenGeometry();
+	QRect screenGeometry = QGuiApplication::primaryScreen()->geometry();
 	if (screenGeometry.width() > screenGeometry.height())
 	{
 		qApp->setAutoSipEnabled(true);

@@ -53,7 +53,7 @@ ActionWidget::ActionWidget(FileTransferJob *job, QWidget *parent) :
 	m_stopButton->setText(tr("Stop"));
 	m_stopButton->setToolTip(tr("Stop the task"));
 	m_stopButton->setIcon(Icon("media-playback-stop-filetransfer"));
-	m_stopButton->setProperty("actionWidget", qVariantFromValue(this));
+	m_stopButton->setProperty("actionWidget", QVariant::fromValue(this));
 	connect(m_stopButton, SIGNAL(clicked()), job, SLOT(stop()));
 	l->addWidget(m_stopButton, 0, 1);
 
