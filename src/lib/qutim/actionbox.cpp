@@ -50,7 +50,7 @@ ActionBox::ActionBox(QWidget *parent) :
 	if(d->module) {
 		d->module->setParent(this);
 		setLayout(new QHBoxLayout(this));
-		layout()->setMargin(0);
+		layout()->setContentsMargins(0, 0, 0, 0);
 		layout()->addWidget(d->module);
 	}
 }

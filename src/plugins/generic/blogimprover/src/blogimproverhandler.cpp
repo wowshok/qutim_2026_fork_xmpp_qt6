@@ -65,12 +65,12 @@ MessageHandlerAsyncResult BlogImproverHandler::doHandle(Message &message)
 	if (!linker.isValid())
 		return makeAsyncResult(Accept, QString());
 
-	static QLatin1Literal jids[] = {
-		QLatin1Literal("p@point.im"),
-		QLatin1Literal("6571781"),
-		QLatin1Literal("juick@juick.com"),
-		QLatin1Literal("jubo@nologin.ru"),
-		QLatin1Literal("bnw@bnw.im")
+	static QLatin1String jids[] = {
+		QLatin1String("p@point.im"),
+		QLatin1String("6571781"),
+		QLatin1String("juick@juick.com"),
+		QLatin1String("jubo@nologin.ru"),
+		QLatin1String("bnw@bnw.im")
 	};
 
 	const size_t count = sizeof(jids) / sizeof(jids[0]);

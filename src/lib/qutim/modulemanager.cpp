@@ -64,6 +64,7 @@
 #define QUTIM_TEST_PERFOMANCE 1
 
 #include <QCommandLineParser>
+#include <QElapsedTimer>
 
 //#define NO_COMMANDS 1
 
@@ -178,9 +179,9 @@ QString formatVersion(quint32 version)
 static void printVersion()
 {
 	QTextStream str(stdout);
-	str << qApp->applicationName() << " version " << versionString() << endl
-		<< "Using Qt version " << qVersion() << endl
-		<< "GPL v3 or any later" << endl;
+	str << qApp->applicationName() << " version " << versionString() << Qt::endl
+		<< "Using Qt version " << qVersion() << Qt::endl
+		<< "GPL v3 or any later" << Qt::endl;
 //	foreach (Plugin *plugin, p->plugins) {
 //		PluginInfo info = plugin->info();
 //		str << "  " << info.name() << ' ' << formatVersion(info.version())
@@ -296,7 +297,6 @@ ModuleManager::ModuleManager(QObject *parent) : QObject(parent)
 	VariantHook::init();
 	qRegisterMetaType<QObject*>();
 	qRegisterMetaType<QAction*>("QAction*");
-	qRegisterMetaTypeStreamOperators<Status>();
 	d = new ModuleManagerPrivate;
 	AccountManagerPrivate::self = &d->accountManager;
 	managerSelf = this;
@@ -481,7 +481,7 @@ void ModuleManager::loadPlugins(const QStringList &additional_paths)
 				typedef const char * (*QutimPluginVerificationFunction)();
 				QutimPluginVerificationFunction verificationFunction = NULL;
 #ifdef QUTIM_TEST_PERFOMANCE
-				QTime timer;
+				QElapsedTimer timer;
 				int libLoadTime, verifyTime, instanceTime, initTime;
 				quint64 debugId = 0;
 #endif // QUTIM_TEST_PERFOMANCE
@@ -540,7 +540,7 @@ void ModuleManager::loadPlugins(const QStringList &additional_paths)
 						PluginInfo::Data *info = plugin->p->info.data();
 						info->inited = 1;
 						info->fileName = filename;
-						QFileInfo fileInfo = info->fileName;
+						QFileInfo fileInfo(info->fileName);
 						QString baseName = fileInfo.baseName();
 						if (baseName.startsWith(QStringLiteral("lib")))
 							baseName.remove(0, 3);
@@ -769,7 +769,7 @@ void ModuleManager::initExtensions()
 			//				if (!pluginsConfig.value(plugin->metaObject()->className(), true))
 			//					continue;
 #ifdef QUTIM_TEST_PERFOMANCE
-			QTime timer;
+			QElapsedTimer timer;
 			timer.start();
 #endif
 			exts.at(i).generator()->generate<StartupModule>();
@@ -781,7 +781,7 @@ void ModuleManager::initExtensions()
 
 	foreach(Protocol *proto, Protocol::all()) {
 #ifdef QUTIM_TEST_PERFOMANCE
-		QTime timer;
+		QElapsedTimer timer;
 		timer.start();
 #endif
 		proto->loadAccounts();
@@ -799,7 +799,7 @@ void ModuleManager::initExtensions()
 		if (plugin && !disabledPlugins.contains(plugin->info().data())) {
 			if (plugin->info().capabilities() & Plugin::Loadable) {
 #ifdef QUTIM_TEST_PERFOMANCE
-				QTime timer;
+				QElapsedTimer timer;
 				timer.start();
 #endif
 				if (plugin->load()) {

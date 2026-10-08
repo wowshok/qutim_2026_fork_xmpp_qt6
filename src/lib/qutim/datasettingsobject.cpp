@@ -71,7 +71,7 @@ DataSettingsWidget::DataSettingsWidget(DataSettingsObject *object)
 	: m_object(object), m_form(0)
 {
 	m_layout = new QVBoxLayout(this);
-	m_layout->setMargin(0);
+	m_layout->setContentsMargins(0, 0, 0, 0);
 	connect(object, SIGNAL(itemChanged(qutim_sdk_0_3::DataItem)),
 			this, SLOT(onItemChanged(qutim_sdk_0_3::DataItem)));
 }

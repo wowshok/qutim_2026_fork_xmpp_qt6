@@ -74,7 +74,7 @@ QStringList MimeObjectData::formats() const
 }
 
 QVariant MimeObjectData::retrieveData(const QString &mimetype,
-									  QVariant::Type preferredType) const
+									  QMetaType preferredType) const
 {
 	return QMimeData::retrieveData(mimetype, preferredType);
 }

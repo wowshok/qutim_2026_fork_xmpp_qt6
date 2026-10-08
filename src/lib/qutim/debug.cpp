@@ -28,13 +28,14 @@
 #include "objectgenerator.h"
 #include "metaobjectbuilder.h"
 #include <QTime>
+#include <QIODevice>
 
 namespace qutim_sdk_0_3
 {
 class NoDebugStream: public QIODevice
 {
 public:
-	NoDebugStream() { open(WriteOnly); }
+	NoDebugStream() { open(QIODevice::WriteOnly); }
 	bool isSequential() const { return true; }
 	qint64 readData(char *, qint64) { return 0; /* eof */ }
 	qint64 readLineData(char *, qint64) { return 0; /* eof */ }

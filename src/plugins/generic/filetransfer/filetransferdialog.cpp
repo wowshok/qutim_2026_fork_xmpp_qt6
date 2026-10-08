@@ -45,7 +45,7 @@ ActionWidget::ActionWidget(FileTransferJob *job, QWidget *parent) :
 	QWidget(parent)
 {
 	QGridLayout *l = new QGridLayout(this);
-	l->setMargin(0);
+	l->setContentsMargins(0, 0, 0, 0);
 	l->setSpacing(0);
 	l->addItem(new QSpacerItem(0, 20, QSizePolicy::Minimum, QSizePolicy::Expanding), 1, 0);
 

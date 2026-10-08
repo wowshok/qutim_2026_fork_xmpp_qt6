@@ -26,6 +26,7 @@
 
 #include "actiontoolbar.h"
 #include <QAction>
+#include <QActionGroup>
 #include <QToolButton>
 #include <QMouseEvent>
 #include "actiontoolbar_p.h"

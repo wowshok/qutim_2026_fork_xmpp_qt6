@@ -179,7 +179,7 @@ bool ContactListFrontModel::dropMimeData(const QMimeData *genericData, Qt::DropA
 		QStringList allNames;
 		for (int i = 0, count = sourceModel()->rowCount(sourceParent); i < count; ++i)
 			allNames << sourceModel()->index(i, 0, sourceParent).data(TagNameRole).toString();
-		qSort(allNames.begin(), allNames.end(), comparator);
+		std::sort(allNames.begin(), allNames.end(), comparator);
 
 		order = allNames;
 

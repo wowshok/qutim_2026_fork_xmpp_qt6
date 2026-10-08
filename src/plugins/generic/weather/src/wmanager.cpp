@@ -247,11 +247,11 @@ QString WManager::currentLangId()
 	int count = sizeof(langs) / sizeof(langs[0]);
 	QByteArray name = QLocale().name().toLatin1();
 	WLang noop = { name.constData(), 0 };
-	WLang *lang = qBinaryFind(langs, langs + count, noop, isCStrLessThen);
+	WLang *lang = qutim_sdk_0_3::binaryFind(langs, langs + count, noop, isCStrLessThen);
 	if (lang == langs + count && name.contains('_')) {
 		name.truncate(name.indexOf('_'));
 		noop.locale = name.constData();
-		lang = qBinaryFind(langs, langs + count, noop, isCStrLessThen);
+		lang = qutim_sdk_0_3::binaryFind(langs, langs + count, noop, isCStrLessThen);
 	}
 	if (lang == langs + count)
 		return QString();

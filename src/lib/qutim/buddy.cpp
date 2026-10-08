@@ -84,17 +84,17 @@ bool Buddy::event(QEvent *ev)
 			QString ava = avatar();
 			if (ava.isEmpty())
 				ava = IconLoader::iconPath(QLatin1String("qutim"), 64);
-			QString text = QLatin1Literal("</td><td><img width=\"64\" src=\"")
+			QString text = QLatin1String("</td><td><img width=\"64\" src=\"")
 					% ava.toHtmlEscaped()
-					% QLatin1Literal("\"/></td></tr></table>");
+					% QLatin1String("\"/></td></tr></table>");
 			event->addHtml(text, 5);
 		}
 		event->addHtml("<font size=-1>", 50);
-		QString text = QLatin1Literal("<b>")
+		QString text = QLatin1String("<b>")
 				% name().toHtmlEscaped()
-				% QLatin1Literal("</b> &lt;")
+				% QLatin1String("</b> &lt;")
 				% id().toHtmlEscaped()
-				% QLatin1Literal("&gt;");
+				% QLatin1String("&gt;");
 		event->addHtml("</font>", 10);
 		event->addHtml(text, 90);
 		event->addField(QT_TRANSLATE_NOOP("ToolTip", "Account"), account()->id(), 90);

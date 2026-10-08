@@ -104,7 +104,7 @@ StackedChatWidget::StackedChatWidget(const QString &key, QWidget *parent) :
 
 	QVBoxLayout *chatViewLayout = new QVBoxLayout(chatViewWidget);
 	chatViewLayout->addWidget(view);
-	chatViewLayout->setMargin(0);
+	chatViewLayout->setContentsMargins(0, 0, 0, 0);
 
 	chatViewScrollArea->setWidget(chatViewWidget);
 	chatViewScrollArea->setWidgetResizable(true);
@@ -115,7 +115,7 @@ StackedChatWidget::StackedChatWidget(const QString &key, QWidget *parent) :
 
 	QWidget *chatInputWidget = new QWidget(m_chatWidget);
 	QHBoxLayout *chatInputLayout = new QHBoxLayout(chatInputWidget);
-	chatInputLayout->setMargin(0);
+	chatInputLayout->setContentsMargins(0, 0, 0, 0);
 	chatInputLayout->addWidget(m_toolbar);
 	chatInputLayout->addWidget(m_chatInput);
 	QToolBar *sendToolBar = new QToolBar(m_chatWidget);
@@ -133,7 +133,7 @@ StackedChatWidget::StackedChatWidget(const QString &key, QWidget *parent) :
 
 	QVBoxLayout *layout = new QVBoxLayout(m_chatWidget);
 	layout->addWidget(vSplitter);
-	layout->setMargin(0);
+	layout->setContentsMargins(0, 0, 0, 0);
 #ifdef Q_WS_MAEMO_5
 	m_kb_qwerty = new kb_Qwerty(this);
 	layout->addWidget(m_kb_qwerty);

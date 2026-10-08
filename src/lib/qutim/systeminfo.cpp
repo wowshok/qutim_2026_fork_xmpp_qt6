@@ -140,7 +140,7 @@ static bool lsbRelease(SystemInfoPrivate *d)
 
 	process.close();
 
-	QStringList list = ret.split(QLatin1Char('\n'), QString::KeepEmptyParts);
+	QStringList list = ret.split(QLatin1Char('\n'), Qt::KeepEmptyParts);
 
 	if (list.size() >= 3) {
 		auto fixed = [] (QString value) {
@@ -196,7 +196,7 @@ static bool osReleaseDetect(SystemInfoPrivate *d)
 		if (!releaseFile.open(QFile::ReadOnly))
 			continue;
 		const QString content = QString::fromUtf8(releaseFile.readAll());
-		foreach (const QString &line, content.split(QLatin1Char('\n'), QString::SkipEmptyParts)) {
+		foreach (const QString &line, content.split(QLatin1Char('\n'), Qt::SkipEmptyParts)) {
 			const QString name = line.section(QLatin1Char('='), 0, 0);
 			QString value = line.section(QLatin1Char('='), 1);
 			if (value.startsWith(QLatin1Char('"')))
@@ -299,12 +299,12 @@ SystemInfoPrivate::SystemInfoPrivate() : dirs(SystemInfo::SystemShareDir + 1)
 {
 	auto d = this;
 	// Initialize
-	d->dirs[SystemInfo::ConfigDir]         = QDir::homePath() % QLatin1Literal("/.qutim/profiles/default/config");
-	d->dirs[SystemInfo::HistoryDir]        = QDir::homePath() % QLatin1Literal("/.qutim/profiles/default/history");
-	d->dirs[SystemInfo::ShareDir]          = QDir::homePath() % QLatin1Literal("/.qutim/share");
+	d->dirs[SystemInfo::ConfigDir]         = QDir::homePath() + QLatin1String("/.qutim/profiles/default/config");
+	d->dirs[SystemInfo::HistoryDir]        = QDir::homePath() + QLatin1String("/.qutim/profiles/default/history");
+	d->dirs[SystemInfo::ShareDir]          = QDir::homePath() + QLatin1String("/.qutim/share");
 #if defined(QUTIM_SHARE_DIR)
-	d->dirs[SystemInfo::SystemConfigDir]   = qApp->applicationDirPath() % QLatin1Literal("/../") % QLatin1Literal(QUTIM_SHARE_DIR) % QLatin1Literal("/config");
-	d->dirs[SystemInfo::SystemShareDir]    = qApp->applicationDirPath() % QLatin1Literal("/../") % QLatin1Literal(QUTIM_SHARE_DIR);
+	d->dirs[SystemInfo::SystemConfigDir]   = qApp->applicationDirPath() + QLatin1String("/../") + QLatin1String(QUTIM_SHARE_DIR) + QLatin1String("/config");
+	d->dirs[SystemInfo::SystemShareDir]    = qApp->applicationDirPath() + QLatin1String("/../") + QLatin1String(QUTIM_SHARE_DIR);
 #else
 # error QUTIM_SHARE_DIR undefined!
 #endif

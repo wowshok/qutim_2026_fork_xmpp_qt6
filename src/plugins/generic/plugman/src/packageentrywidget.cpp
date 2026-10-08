@@ -45,7 +45,7 @@ PackageEntryWidget::PackageEntryWidget(const PackageEntry &entry)
 	QVBoxLayout *buttonsLayout = new QVBoxLayout();
 	connect(this, SIGNAL(destroyed()), buttonsLayout, SLOT(deleteLater()));
 	setLayout(layout);
-//	layout->setMargin(4);
+//	layout->setContentsMargins(4, 4, 4, 4);
 	m_previewLabel = new PackagePreviewWidget(this);
 //	m_previewLabel->setSizePolicy(QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed));
 //	m_previewLabel->resize(PreviewWidth, PreviewHeight);
@@ -84,10 +84,10 @@ void PackageEntryWidget::updateData()
 	QString info;
 	const QUrl url = content.detailpage();
 	if (url.isEmpty()) {
-		info += QLatin1Literal("<p><a href=\"") % QLatin1String(url.toEncoded())
-				% QLatin1Literal("\">") % content.name() % QLatin1Literal("</a></p>");
+		info += QLatin1String("<p><a href=\"") % QLatin1String(url.toEncoded())
+				% QLatin1String("\">") % content.name() % QLatin1String("</a></p>");
 	} else {
-		info += QLatin1Literal("<p><b>") % content.name() % QLatin1Literal("</b></p>");
+		info += QLatin1String("<p><b>") % content.name() % QLatin1String("</b></p>");
 	}
 
 	const QString authorName = content.author();
@@ -96,17 +96,17 @@ void PackageEntryWidget::updateData()
 
 	info += QLatin1String("<p>");
 	if (!authorPage.isEmpty()) {
-		info += tr("By <i>%1</i>").arg(QLatin1Literal("<a href=\"") % authorPage % QLatin1Literal("\">")
-									   % authorName % QLatin1Literal("</a>"));
+		info += tr("By <i>%1</i>").arg(QLatin1String("<a href=\"") % authorPage % QLatin1String("\">")
+									   % authorName % QLatin1String("</a>"));
 	} else if (!authorEmail.isEmpty()) {
-		info += tr("By <i>%1</i>").arg(authorName) % QLatin1Literal("<a href=\"mailto")
-				% authorEmail % QLatin1Literal("\">") % authorEmail % QLatin1Literal("</a>");
+		info += tr("By <i>%1</i>").arg(authorName) % QLatin1String("<a href=\"mailto")
+				% authorEmail % QLatin1String("\">") % authorEmail % QLatin1String("</a>");
 	} else {
-		info += tr("By <i>%1</i>").arg(QLatin1Literal("<a href=\"") % authorPage % QLatin1Literal("\">")
-									   % authorName % QLatin1Literal("</a>"));
+		info += tr("By <i>%1</i>").arg(QLatin1String("<a href=\"") % authorPage % QLatin1String("\">")
+									   % authorName % QLatin1String("</a>"));
 	}
 	info += QLatin1String("</p>");
-	info += QLatin1Literal("<p>") % content.description() % QLatin1Literal("</p>");
+	info += QLatin1String("<p>") % content.description() % QLatin1String("</p>");
 	m_detailsLabel->setText(info);
 
 	QString text;

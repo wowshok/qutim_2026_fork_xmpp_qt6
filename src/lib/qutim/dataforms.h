@@ -31,6 +31,7 @@
 #include <QFrame>
 #include <QDateTime>
 #include <QDate>
+#include <QRegularExpression>
 #include <QPixmap>
 #include <QImage>
 #include <QIcon>
@@ -69,7 +70,7 @@ class DataItemPrivate;
  -# \b QStringList (or \ref LocalizedStringList):
   - \b alternatives. Holds alternative options for user and has type QStringList
   (or \ref LocalizedStringList).
-  - \b validator. Provides validation of input text and has type QValidator or QRegExp.
+  - \b validator. Provides validation of input text and has type QValidator or QRegularExpression.
  -# \b bool.
  -# \b QDate.
  -# \b QDateTime.
@@ -95,7 +96,7 @@ class DataItemPrivate;
   - \b alternatives. Holds alternative options for user and has type QStringList
   (or \ref LocalizedStringList).
    - \b editable. Holds whether the field is editable. The default property value is false.
-  - \b validator. Provides validation of input text and has type QValidator or QRegExp.
+  - \b validator. Provides validation of input text and has type QValidator or QRegularExpression.
   - \b password. Holds whether the input text is displayed or every character is replaced by asterisk.
   The default property value is false. The property can be overshadowed by the property 'alternatives'.
   - \b multiline. Holds whether the text is multiline. The default property value is false.
@@ -487,7 +488,7 @@ public:
 						  bool editable = false, QValidator *validator = 0);
 	StringChooserDataItem(const QString &name, const LocalizedString &title,
 						  const QStringList &alternatives, const QString &data,
-						  bool editable, QRegExp validator);
+						  bool editable, QRegularExpression validator);
 	StringChooserDataItem(const QString &name, const LocalizedString &title,
 						  const LocalizedStringList &alternatives,
 						  const LocalizedString &data,
@@ -495,7 +496,7 @@ public:
 	StringChooserDataItem(const QString &name, const LocalizedString &title,
 						  const LocalizedStringList &alternatives,
 						  const LocalizedString &data,
-						  bool editable, QRegExp validator);
+						  bool editable, QRegularExpression validator);
 };
 
 class LIBQUTIM_EXPORT MultiLineStringDataItem : public DataItem
@@ -514,13 +515,13 @@ public:
 				   const QString &data = QString(),
 				   QValidator *validator = 0, bool password = false);
 	StringDataItem(const QString &name, const LocalizedString &title,
-				   const QString &data, QRegExp validator,
+				   const QString &data, QRegularExpression validator,
 				   bool password = false);
 	StringDataItem(const QString &name, const LocalizedString &title,
 				   const LocalizedString &data, QValidator *validator = 0,
 				   bool password = false);
 	StringDataItem(const QString &name, const LocalizedString &title,
-				   const LocalizedString &data, QRegExp validator,
+				   const LocalizedString &data, QRegularExpression validator,
 				   bool password = false);
 };
 

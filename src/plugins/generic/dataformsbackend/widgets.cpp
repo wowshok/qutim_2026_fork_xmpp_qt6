@@ -25,7 +25,7 @@
 #include "widgets.h"
 #include <qutim/icon.h>
 #include <QFileDialog>
-#include <QRegExpValidator>
+#include <QRegularExpressionValidator>
 #include <QUrl>
 #include "datalayout.h"
 #include "widgetgenerator.h"
@@ -49,7 +49,7 @@ static QValidator *getValidator(const QVariant &validator, QWidget *object)
 		if (validator.canConvert<QValidator*>())
 			d = validator.value<QValidator*>();
 		else
-			d = new QRegExpValidator(validator.toRegExp(), object);
+			d = new QRegularExpressionValidator(validator.toRegularExpression(), object);
 		return d;
 	}
 	return 0;

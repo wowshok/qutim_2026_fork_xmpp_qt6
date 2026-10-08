@@ -30,7 +30,7 @@
 #include <qutim/tooltip.h>
 #include <QApplication>
 #include <qutim/protocol.h>
-#include <QLatin1Literal>
+#include <QLatin1String>
 #include <qutim/rosterstorage.h>
 
 using namespace qutim_sdk_0_3;

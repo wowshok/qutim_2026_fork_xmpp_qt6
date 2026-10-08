@@ -32,8 +32,6 @@
 #include <QDateTime>
 #include <QEvent>
 
-class QScriptEngine;
-
 namespace qutim_sdk_0_3
 {
 class ChatUnit;
@@ -90,7 +88,6 @@ public:
 	Message(const Message &other);
 	virtual ~Message();
 	Message &operator =(const Message &other);
-	static void scriptRegister(QScriptEngine *engine);
 	const QString &text() const;
 	void setText(const QString &text);
 	QString html() const;

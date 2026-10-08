@@ -78,7 +78,7 @@ namespace Jabber
 			QObject::connect(action, SIGNAL(destroyed()), menu, SLOT(deleteLater()));
 			action->setMenu(menu);
 			QList<JContactResource *> resources = contact->resources();
-			qSort(resources.begin(), resources.end(), resource_less_than);
+			std::sort(resources.begin(), resources.end(), resource_less_than);
 			bool isEmpty = true;
 			foreach (JContactResource *resource, resources) {
 				if (d->feature.isEmpty() || resource->checkFeature(d->feature)) {

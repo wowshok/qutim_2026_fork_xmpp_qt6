@@ -72,9 +72,9 @@ LocalizationSettings::LocalizationSettings() :
 			QLocale locale(lang);
 			text = QLocale::languageToString(locale.language());
 			if (locale.country() != QLocale::AnyCountry) {
-				text += QString(QLatin1Literal(" (")
+				text += QString(QLatin1String(" (")
 								% QLocale::countryToString(locale.country())
-								% QLatin1Literal(")"));
+								% QLatin1String(")"));
 			}
 		}
 		QListWidgetItem *item = new QListWidgetItem(icon, text, m_ui->languagesList);

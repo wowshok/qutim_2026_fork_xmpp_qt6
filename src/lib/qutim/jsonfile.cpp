@@ -160,7 +160,6 @@ bool JsonFile::save(const QVariant &variant)
 	if (!d->file.open(QIODevice::WriteOnly | QIODevice::Text))
 		return false;
 	QTextStream stream(&d->file);
-	stream.setCodec("utf-8");
 	bool result = json_file_generate(stream, variant, 0);
 	stream.flush();
 	d->file.close();

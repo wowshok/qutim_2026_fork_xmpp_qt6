@@ -134,9 +134,9 @@ QVariant ContactListBaseModel::data(const QModelIndex &index, int role) const
 		switch (role) {
 		case Qt::DisplayRole:
 			return QString(account->name()
-					% QLatin1Literal(" (")
+					% QLatin1String(" (")
 					% account->id()
-					% QLatin1Literal(")"));
+					% QLatin1String(")"));
 		case ItemTypeRole:
 			return AccountType;
 		case Qt::DecorationRole:
@@ -246,7 +246,7 @@ void ContactListBaseModel::handleNotification(Notification *notification)
 	}
 
 	NotificationList &queue = m_notificationHash[contact];
-	NotificationList::Iterator it = qUpperBound(queue.begin(), queue.end(),
+	NotificationList::Iterator it = std::upper_bound(queue.begin(), queue.end(),
 												notification, Comparator());
 	queue.insert(it, notification);
 	ref(notification);
@@ -455,7 +455,7 @@ void ContactListBaseModel::onContactDestroyed(QObject *obj)
 		foreach (ContactNode *node, contacts) {
 			ContactListNode *parentNode = node->parent();
 			QModelIndex parentIndex = createIndex(node->parent());
-			QList<ContactNode>::iterator jt = qBinaryFind(parentNode->contacts.begin(),
+			QList<ContactNode>::iterator jt = qutim_sdk_0_3::binaryFind(parentNode->contacts.begin(),
 														  parentNode->contacts.end(),
 														  contact,
 														  Comparator());
@@ -590,7 +590,7 @@ ContactListBaseModel::TagNode *ContactListBaseModel::ensureTag(const QString &na
 {
 	QModelIndex parentIndex = createIndex(parent);
 
-	QList<TagNode>::iterator it = qLowerBound(parent->tags.begin(),
+	QList<TagNode>::iterator it = std::lower_bound(parent->tags.begin(),
 											  parent->tags.end(),
 											  name,
 											  Comparator());
@@ -609,7 +609,7 @@ ContactListBaseModel::ContactNode *ContactListBaseModel::ensureContact(Contact *
 {
 	QModelIndex parentIndex = createIndex(parent);
 
-	QList<ContactNode>::iterator it = qLowerBound(parent->contacts.begin(),
+	QList<ContactNode>::iterator it = std::lower_bound(parent->contacts.begin(),
 												  parent->contacts.end(),
 												  contact,
 												  Comparator());
@@ -635,7 +635,7 @@ void ContactListBaseModel::eraseContact(Contact *contact, ContactListBaseModel::
 {
 	QModelIndex parentIndex = createIndex(parent);
 
-	QList<ContactNode>::iterator it = qBinaryFind(parent->contacts.begin(),
+	QList<ContactNode>::iterator it = qutim_sdk_0_3::binaryFind(parent->contacts.begin(),
 												  parent->contacts.end(),
 												  contact,
 												  Comparator());
@@ -761,7 +761,7 @@ void ContactListBaseModel::addTags(const QStringList &tags)
 {
 	bool modified = false;
 	foreach (const QString &tag, tags) {
-		QStringList::Iterator it = qLowerBound(m_tags.begin(), m_tags.end(), tag);
+		QStringList::Iterator it = std::lower_bound(m_tags.begin(), m_tags.end(), tag);
 		if (it != m_tags.end() && *it == tag)
 			continue;
 		m_tags.insert(it, tag);
@@ -846,14 +846,14 @@ QModelIndex ContactListBaseModel::createIndex(ContactListBaseModel::BaseNode *no
 		}
 	} else if (TagNode *tagNode = node_cast<TagNode*>(node)) {
 		QList<TagNode> &tags = tagNode->parent()->tags;
-		QList<TagNode>::iterator it = qBinaryFind(tags.begin(), tags.end(), *tagNode);
+		QList<TagNode>::iterator it = qutim_sdk_0_3::binaryFind(tags.begin(), tags.end(), *tagNode);
 		if (it != tags.end()) {
 			int index = it - tags.begin();
 			return createIndex(*it, index + tagNode->parent()->contacts.size());
 		}
 	} else if (ContactNode *contactNode = node_cast<ContactNode*>(node)) {
 		QList<ContactNode> &contacts = contactNode->parent()->contacts;
-		QList<ContactNode>::iterator it = qBinaryFind(contacts.begin(), contacts.end(), *contactNode);
+		QList<ContactNode>::iterator it = qutim_sdk_0_3::binaryFind(contacts.begin(), contacts.end(), *contactNode);
 		if (it != contacts.end()) {
 			int index = it - contacts.begin();
 			return createIndex(*it, index);

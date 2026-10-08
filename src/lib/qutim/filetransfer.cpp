@@ -228,7 +228,7 @@ FileTransferJob::~FileTransferJob()
 void FileTransferJob::send(const QUrl &url, const QString &title)
 {
 	Q_D(FileTransferJob);
-	QFileInfo info = url.toLocalFile();
+	QFileInfo info(url.toLocalFile());
 	d->title = title.isEmpty() ? info.fileName() : title;
 	QStringList files;
 	if (info.isDir()) {
@@ -259,7 +259,7 @@ void FileTransferJob::send(const QDir &baseDir, const QStringList &files, const 
 	d->dir = baseDir;
 	d->title = title;
 	for (int i = 0; i < files.size(); i++) {
-		QFileInfo info = d->dir.filePath(files.at(i));
+		QFileInfo info(d->dir.filePath(files.at(i)));
 		FileTransferInfo ftInfo;
 		ftInfo.setFileName(files.at(i));
 		ftInfo.setFileSize(info.size());
@@ -512,7 +512,7 @@ class FileTransferObserverPrivate
 {
 	Q_DECLARE_PUBLIC(FileTransferObserver)
 public:
-	FileTransferObserverPrivate(FileTransferObserver *q) : q_ptr(q), scope(0) {}
+	FileTransferObserverPrivate(FileTransferObserver *q) : q_ptr(q) {}
 	static FileTransferObserverPrivate *get(FileTransferObserver *o) { return o->d_func(); }
 	void emitAbilityChanged(bool ability) { emit q_func()->abilityChanged(ability); }
 	void _q_clearObserverData(QObject *obj);

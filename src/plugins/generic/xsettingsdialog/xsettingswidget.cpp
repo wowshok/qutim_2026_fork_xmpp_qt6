@@ -63,7 +63,7 @@ void XSettingsWidget::addItem(SettingsItem *item)
 		return;
 	SettingsWidget *widget = item->widget();
 	connect(widget, SIGNAL(modifiedChanged(bool)), SLOT(onModifiedChanged(bool)));
-	SettingsItemList::Iterator it = qLowerBound(m_items.begin(), m_items.end(),
+	SettingsItemList::Iterator it = std::lower_bound(m_items.begin(), m_items.end(),
 												item, itemLessThen);
 	int index = it - m_items.begin();
 	m_items.insert(index, item);

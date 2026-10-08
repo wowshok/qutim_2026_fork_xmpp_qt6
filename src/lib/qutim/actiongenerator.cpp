@@ -31,7 +31,7 @@
 #include <QAction>
 #include <QtCore/QCoreApplication>
 #include "debug.h"
-#include <QLatin1Literal>
+#include <QLatin1String>
 
 
 namespace qutim_sdk_0_3
@@ -454,7 +454,7 @@ QList<QAction *> ActionGenerator::actions(QObject *object) const
 {
 	QList<QAction*> list;
 	if (ActionValue::WeakPtr value = ActionValue::find(this, object))
-		list.append(value.data()->action.data());
+		list.append(value.toStrongRef()->action.data());
 	return list;
 }
 
@@ -462,7 +462,7 @@ QMap<QObject*, QAction*> ActionGenerator::actions() const
 {
 	QMap<QObject*, QAction*> map;
 	foreach (const ActionValue::WeakPtr &value, ActionValue::find(this))
-		map.insert(value.data()->key.first, value.data()->action.data());
+		map.insert(value.toStrongRef()->key.first, value.toStrongRef()->action.data());
 	return map;
 }
 

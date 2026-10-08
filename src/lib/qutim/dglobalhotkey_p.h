@@ -42,7 +42,7 @@ public:
 	~dGlobalHotKey();
 
 	static bool eventFilter( void *e );
-	bool nativeEventFilter(const QByteArray &eventType, void *message, long *result);
+	bool nativeEventFilter(const QByteArray &eventType, void *message, qintptr *result);
 	static dGlobalHotKey *instance();
 
 	bool shortcut( const QString &s, bool a = true );

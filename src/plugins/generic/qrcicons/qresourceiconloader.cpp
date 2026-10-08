@@ -25,7 +25,7 @@
 #include "qresourceiconloader.h"
 #include <QIcon>
 #include <QDir>
-#include <QLatin1Literal>
+#include <QLatin1String>
 //#include "modulemanagerimpl.h"
 #include <qutim/debug.h>
 #include <qutim/systeminfo.h>

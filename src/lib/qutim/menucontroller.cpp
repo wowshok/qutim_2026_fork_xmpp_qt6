@@ -100,7 +100,7 @@ void ActionValue::handleDeath(const ActionGenerator *gen)
 	MenuActionMap::Iterator it;
 	MenuActionMap::Iterator endit = globalActions()->end();
 	foreach (const ActionValue::WeakPtr &valuePtr, find(gen)) {
-		ActionValue *value = valuePtr.data();
+		ActionValue *value = valuePtr.toStrongRef().data();
 		MenuController *controller = qobject_cast<MenuController*>(value->key.first);
 		if (controller) {
 			MenuControllerPrivate *p = MenuControllerPrivate::get(controller);
@@ -679,7 +679,7 @@ const ActionInfoV2 &ActionCollectionPrivate::addAction(const ActionGenerator *ge
 
 void ActionCollectionPrivate::removeAction(const ActionInfoV2 &info)
 {
-	QList<ActionInfoV2>::ConstIterator it = qBinaryFind(actionInfos.constBegin(),
+	QList<ActionInfoV2>::ConstIterator it = qutim_sdk_0_3::binaryFind(actionInfos.constBegin(),
 														actionInfos.constEnd(),
 														info, actionLessThan);
 	if (it != actionInfos.constEnd()) {
@@ -700,8 +700,8 @@ void ActionCollectionPrivate::removeAction(const ActionInfoV2 &info)
 
 void ActionCollectionPrivate::addAction(const ActionInfoV2 &info)
 {
-	Q_ASSERT(actionInfos.constEnd() == qBinaryFind(actionInfos.constBegin(), actionInfos.constEnd(), info, actionLessThan));
-	int index = qLowerBound(actionInfos.begin(), actionInfos.end(),
+	Q_ASSERT(actionInfos.constEnd() == qutim_sdk_0_3::binaryFind(actionInfos.constBegin(), actionInfos.constEnd(), info, actionLessThan));
+	int index = std::lower_bound(actionInfos.begin(), actionInfos.end(),
 							info, actionLessThan) - actionInfos.begin();
 	insertAction(index, info);
 }
@@ -744,7 +744,7 @@ void ActionCollectionPrivate::ensureActionInfos()
 		owner = (flags & MenuController::ShowOwnerActions)
 				? MenuControllerPrivate::get(owner)->owner : 0;
 	}
-	qSort(actionInfos.begin(), actionInfos.end(), actionLessThan);
+	std::sort(actionInfos.begin(), actionInfos.end(), actionLessThan);
 }
 
 void ActionCollectionPrivate::recalc()

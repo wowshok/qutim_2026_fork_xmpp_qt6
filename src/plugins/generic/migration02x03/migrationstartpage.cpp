@@ -187,7 +187,7 @@ bool MigrationStartPage::validatePage()
 		}
 		Config config(protocol % QLatin1Char('.')
 					  % item->data(Qt::UserRole + 1).toString()
-					  % QLatin1Literal("/account"));
+					  % QLatin1String("/account"));
 		config.group("general").setValue("passwd", password, Config::Crypted);
 		config.sync();
 		config = Config(protocol);

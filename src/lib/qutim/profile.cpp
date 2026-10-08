@@ -27,6 +27,7 @@
 #include <QCoreApplication>
 #include <QDir>
 #include <QCryptographicHash>
+#include <QRegularExpression>
 #include "systeminfo.h"
 #include "extensioninfo.h"
 #include "config.h"
@@ -196,18 +197,19 @@ bool Profile::acceptData(const QVariantMap &profilesData, const QString &passwor
 static QString replaceEnvironmentVariables(const QString &path)
 {
 	QString cleanedPath = QDir::cleanPath(path);
-	QRegExp regexp(QLatin1String("%(\\w+)%"));
+	static const QRegularExpression regexp(QStringLiteral("%(\\w+)%"));
 	Q_ASSERT(regexp.isValid());
-	int pos = 0;
+	qsizetype pos = 0;
+	QRegularExpressionMatch match;
 
-	while ((pos = regexp.indexIn(cleanedPath, pos)) != -1) {
-		QByteArray variable = regexp.cap(1).toLocal8Bit();
+	while ((pos = cleanedPath.indexOf(regexp, pos, &match)) != -1) {
+		QByteArray variable = match.captured(1).toLocal8Bit();
 		QByteArray localEncodedVariable = qgetenv(variable);
 		QString data = QString::fromLocal8Bit(localEncodedVariable.constData(), localEncodedVariable.size());
 		if (data.isEmpty()) {
-			pos += regexp.matchedLength();
+			pos += match.capturedLength();
 		} else {
-			cleanedPath.replace(pos, regexp.matchedLength(), data);
+			cleanedPath.replace(pos, match.capturedLength(), data);
 			pos += data.length();
 		}
 	}

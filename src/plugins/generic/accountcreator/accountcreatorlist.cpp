@@ -139,7 +139,7 @@ void AccountCreatorList::addAccount(qutim_sdk_0_3::Account *account)
 	QWidget *buttons = new QWidget(this);
 
 	QHBoxLayout *l = new QHBoxLayout(buttons);
-	l->setMargin(0);
+	l->setContentsMargins(0, 0, 0, 0);
 	l->setSpacing(0);
 
 	QToolButton *btn = new QToolButton(buttons);

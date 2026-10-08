@@ -39,7 +39,7 @@ PackageDownloadDialog::PackageDownloadDialog(const QStringList &categories, cons
 
 	QVBoxLayout *layout = new QVBoxLayout(this);
 	layout->addWidget(m_view);
-	layout->setMargin(0);
+	layout->setContentsMargins(0, 0, 0, 0);
 	setLayout(layout);
 
 	Config config("plugman");

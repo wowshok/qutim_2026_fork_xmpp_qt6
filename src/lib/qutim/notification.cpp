@@ -68,7 +68,8 @@ class NotificationRequestPrivate : public DynamicPropertyData
 public:
 	NotificationRequestPrivate() : DynamicPropertyData()
 	{
-		enabledBackends = backendHash()->keys().toSet();
+		const QList<QByteArray> keys = backendHash()->keys();
+		enabledBackends = QSet<QByteArray>(keys.begin(), keys.end());
 	}
 	NotificationRequestPrivate(const NotificationRequestPrivate& o) :
 		DynamicPropertyData(o), object(o.object), pixmap(o.pixmap), text(o.text),
@@ -538,7 +539,8 @@ void NotificationRequest::addAction(Notification::Type type, const NotificationA
 QList<NotificationAction> NotificationRequest::actions() const
 {
 	QList<NotificationAction> actions = d_ptr->actions;
-	actions += globalActions()->values(d_ptr->type);
+	if (globalActions()->contains(d_ptr->type))
+		actions += globalActions()->value(d_ptr->type);
 	return actions;
 }
 

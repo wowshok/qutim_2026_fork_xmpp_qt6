@@ -1,9 +1,6 @@
 [submodule "translations"]
 	path = translations
 	url = https://github.com/euroelessar/qutim-translations.git
-[submodule "src/3rdparty/k8json"]
-	path = src/3rdparty/k8json
-	url = https://github.com/euroelessar/k8json.git
 [submodule "artwork"]
 	path = artwork
 	url = https://github.com/qutIM/artwork.git

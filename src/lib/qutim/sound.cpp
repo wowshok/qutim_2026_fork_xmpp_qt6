@@ -225,7 +225,7 @@ QStringList Sound::themeList()
 		foreach (const QString &theme, backend->themeList())
 			themes << theme;
 	}
-	return themes.toList();
+	return themes.values();
 }
 
 void Sound::setTheme(const QString &name)

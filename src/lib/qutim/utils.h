@@ -48,7 +48,8 @@ public:
 	Q_DECLARE_FLAGS(Flags, Flag)
 	struct UrlToken
 	{
-		QStringRef text;
+		// Points into the string passed to tokenize()
+		QStringView text;
 		QString url;
 	};
 	typedef QVector<UrlToken> UrlTokenList;

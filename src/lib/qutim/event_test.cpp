@@ -29,6 +29,7 @@
 #include <QTime>
 #include <QDebug>
 #include <QCoreApplication>
+#include <QElapsedTimer>
 
 namespace qutim_sdk_0_3
 {
@@ -67,7 +68,7 @@ namespace qutim_sdk_0_3
 		QutimEvent qevent;
 		qApp->installEventFilter(test.data());
 		qDebug("There are %d calls of method:", NUM);
-		QTime t;
+		QElapsedTimer t;
 		{
 			t.start();
 			for(volatile int i = 0; i < NUM; i++)

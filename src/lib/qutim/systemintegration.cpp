@@ -59,7 +59,7 @@ IntegrationData::IntegrationData()
 			integrations.append(integration);
 		}
 	}
-	qSort(integrations.begin(), integrations.end(),
+	std::sort(integrations.begin(), integrations.end(),
 		  [] (SystemIntegration *a, SystemIntegration *b) {
 		return a->priority() > b->priority();
 	});

@@ -67,7 +67,7 @@ bool AvatarFilter::draw(QPainter *painter, int x, int y,
 	if (path.isEmpty())
 		return false;
 
-	QString key = QLatin1Literal("qutim_avatar_")
+	QString key = QLatin1String("qutim_avatar_")
 			% QString::number(d->defaultSize.width())
 			% QLatin1Char('_')
 			% QString::number(d->defaultSize.height())
@@ -77,7 +77,7 @@ bool AvatarFilter::draw(QPainter *painter, int x, int y,
 	if (!QPixmapCache::find(key, &pixmap)) {
 		if (!pixmap.load(path))
 			return false;
-		QString alphaKey = QLatin1Literal("qutim_avatar_alpha_")
+		QString alphaKey = QLatin1String("qutim_avatar_alpha_")
 				% QString::number(d->defaultSize.width())
 				% QLatin1Char('_')
 				% QString::number(d->defaultSize.height());

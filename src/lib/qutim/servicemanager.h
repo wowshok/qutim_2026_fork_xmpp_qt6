@@ -102,16 +102,18 @@ public:
 	inline ServicePointer &operator =(const ServicePointer &o) { d = o.d; return *this; }
 	inline ~ServicePointer() {}
 
-	inline QByteArray name() const { return d ? d.data()->name : QByteArray(); }
-	inline T *data() const { return qobject_cast<T*>(d ? d.data()->object : 0); }
+	inline QByteArray name() const { ServicePointerData *p = rawData(); return p ? p->name : QByteArray(); }
+	inline T *data() const { ServicePointerData *p = rawData(); return qobject_cast<T*>(p ? p->object : 0); }
 	inline T *operator ->() const { Q_ASSERT(d); return data(); }
 	inline T &operator *() const { Q_ASSERT(d); return *data(); }
-	inline operator bool() const { return d && d.data()->object; }
+	inline operator bool() const { ServicePointerData *p = rawData(); return p && p->object; }
 	inline operator T*() const { return data(); }
 	inline bool operator !() const { return !operator bool(); }
 	inline bool isNull() const { return !data(); }
 
 private:
+	// The data is owned by ServiceManager, the pointer only observes it
+	inline ServicePointerData *rawData() const { return d.toStrongRef().data(); }
 	ServicePointerData::Ptr d;
 };
 

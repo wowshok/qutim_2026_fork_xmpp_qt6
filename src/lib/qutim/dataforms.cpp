@@ -514,12 +514,12 @@ StringChooserDataItem::StringChooserDataItem(const QString &name, const Localize
 
 StringChooserDataItem::StringChooserDataItem(const QString &name, const LocalizedString &title,
 											 const QStringList &alternatives, const QString &data,
-											 bool editable, QRegExp validator) :
+											 bool editable, QRegularExpression validator) :
 	DataItem(name, title, data)
 {
 	setProperty("alternatives", QVariant::fromValue(alternatives));
 	setProperty("editable", editable);
-	if (!validator.isEmpty())
+	if (!validator.pattern().isEmpty())
 		setProperty("validator", QVariant::fromValue(validator));
 }
 
@@ -536,12 +536,12 @@ StringChooserDataItem::StringChooserDataItem(const QString &name, const Localize
 
 StringChooserDataItem::StringChooserDataItem(const QString &name, const LocalizedString &title,
 											 const LocalizedStringList &alternatives, const LocalizedString &data,
-											 bool editable, QRegExp validator) :
+											 bool editable, QRegularExpression validator) :
 	DataItem(name, title, QVariant::fromValue(data))
 {
 	setProperty("alternatives", QVariant::fromValue(alternatives));
 	setProperty("editable", editable);
-	if (!validator.isEmpty())
+	if (!validator.pattern().isEmpty())
 		setProperty("validator", QVariant::fromValue(validator));
 }
 
@@ -569,10 +569,10 @@ StringDataItem::StringDataItem(const QString &name, const LocalizedString &title
 }
 
 StringDataItem::StringDataItem(const QString &name, const LocalizedString &title,
-							   const QString &data, QRegExp validator, bool password) :
+							   const QString &data, QRegularExpression validator, bool password) :
 	DataItem(name, title, data)
 {
-	if (!validator.isEmpty())
+	if (!validator.pattern().isEmpty())
 		setProperty("validator", QVariant::fromValue(validator));
 	setProperty("password", password);
 }
@@ -587,10 +587,10 @@ StringDataItem::StringDataItem(const QString &name, const LocalizedString &title
 }
 
 StringDataItem::StringDataItem(const QString &name, const LocalizedString &title,
-							   const LocalizedString &data, QRegExp validator, bool password) :
+							   const LocalizedString &data, QRegularExpression validator, bool password) :
 	DataItem(name, title, QVariant::fromValue(data))
 {
-	if (!validator.isEmpty())
+	if (!validator.pattern().isEmpty())
 		setProperty("validator", QVariant::fromValue(validator));
 	setProperty("password", password);
 }

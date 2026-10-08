@@ -35,7 +35,7 @@ GroupChatPage::GroupChatPage(QWidget *parent) :
 	setWidget(widget);
 	setWidgetResizable(true);
 	m_layout = new QVBoxLayout(widget);
-	m_layout->setMargin(0);
+	m_layout->setContentsMargins(0, 0, 0, 0);
 	setFrameShape(QAbstractScrollArea::NoFrame);
 }
 
