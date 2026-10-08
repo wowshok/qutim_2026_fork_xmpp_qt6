@@ -1,7 +1,0 @@
-{
-	"pluginIcon": "",
-	"pluginName": "Multimedia engine",
-	"pluginDescription": "Sound engine based on QtMultimedia",
-	"extensionHeader": "multimediasoundbackend.h",
-	"extensionClass": "Core::MultimediaSoundBackend"
-}

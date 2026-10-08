@@ -1,7 +1,0 @@
-{
-    "pluginIcon": "",
-    "pluginName": "Dock integration",
-    "pluginDescription": "Mac OS X dock integration",
-    "extensionHeader": "macdock.h",
-    "extensionClass": "MacIntegration::MacDock"
-}
