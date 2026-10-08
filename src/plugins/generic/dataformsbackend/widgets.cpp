@@ -204,7 +204,7 @@ ComboBox::ComboBox(DefaultDataForm *dataForm,
 	if (!item.name().isEmpty())
 		dataForm->addWidget(item.name(), this);
 	connect(this, SIGNAL(editTextChanged(QString)), SLOT(onChanged(QString)));
-	connect(this, SIGNAL(currentIndexChanged(QString)), SLOT(onChanged(QString)));
+	connect(this, SIGNAL(currentTextChanged(QString)), SLOT(onChanged(QString)));
 	m_emitChangedSignal = item.dataChangedReceiver();
 	if (m_emitChangedSignal) {
 		Q_ASSERT(item.dataChangedMethod());

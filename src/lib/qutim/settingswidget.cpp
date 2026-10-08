@@ -108,7 +108,7 @@ SettingsWidget::SettingsWidget(QWidget *parent) :
 	p(new SettingsWidgetPrivate)
 {
 	p->mapper = new QSignalMapper(this);
-	connect(p->mapper, SIGNAL(mapped(int)), this, SLOT(onStateChanged(int)));
+	connect(p->mapper, SIGNAL(mappedInt(int)), this, SLOT(onStateChanged(int)));
 	p->changed_num = 0;
 	p->modified = false;
 	p->sleep = true;
