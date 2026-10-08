@@ -74,7 +74,7 @@ TabbedChatBehavior::TabbedChatBehavior() :
 	ui->formLayoutBox->hide(); //Classic layout is really ugly
 #endif
 
-	connect(m_group,SIGNAL(buttonClicked(int)),SLOT(onButtonClicked(int)));
+	connect(m_group,SIGNAL(idClicked(int)),SLOT(onButtonClicked(int)));
 	lookForWidgetState(ui->storeBox);
 	lookForWidgetState(ui->recentBox);
 	lookForWidgetState(ui->groupUntil);

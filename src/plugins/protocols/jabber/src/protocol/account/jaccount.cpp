@@ -249,7 +249,7 @@ JAccount::JAccount(const QString &id) :
 	d->signalMapper.setMapping(d->roster, 1);
 	d->signalMapper.setMapping(d->privacyManager, 2);
 	connect(d->client.data(), SIGNAL(connected()), d->privacyManager, SLOT(request()));
-	connect(&d->signalMapper, SIGNAL(mapped(int)), this, SLOT(_q_on_module_loaded(int)));
+	connect(&d->signalMapper, SIGNAL(mappedInt(int)), this, SLOT(_q_on_module_loaded(int)));
 
 	d->roster->loadFromStorage();
 

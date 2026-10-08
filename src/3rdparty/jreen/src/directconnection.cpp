@@ -57,7 +57,7 @@ void DirectConnectionPrivate::connectSocket()
 	connect(socket, SIGNAL(readyRead()), parent, SIGNAL(readyRead()));
 	connect(socket, SIGNAL(stateChanged(QAbstractSocket::SocketState)),
 	        this, SLOT(stateChanged(QAbstractSocket::SocketState)));
-	connect(socket, SIGNAL(error(QAbstractSocket::SocketError)),
+	connect(socket, SIGNAL(errorOccurred(QAbstractSocket::SocketError)),
 	        this, SLOT(error(QAbstractSocket::SocketError)));
 	connect(socket, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)),
 	        parent, SIGNAL(proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)));

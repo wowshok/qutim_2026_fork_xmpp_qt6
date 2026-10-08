@@ -97,13 +97,15 @@ namespace Jreen
 			return QString();
 		}
 		QByteArray in = s.toUtf8();
-		in.resize(JID_PORTION_SIZE);
+		in.resize(JID_PORTION_SIZE, '\0');
 		int rc = Jreen_idn_stringprep(in.data(), JID_PORTION_SIZE,
 		                              static_cast<Stringprep_profile_flags>(0),
 		                              profile);
 		*ok = rc == 0;
 		if (*ok)
-			return QString::fromUtf8(in);
+			// stringprep writes a NUL-terminated string into the buffer;
+			// unlike Qt 5, Qt 6 fromUtf8(QByteArray) does not stop at NUL
+			return QString::fromUtf8(in.constData());
 		else
 			return QString();
 	}
