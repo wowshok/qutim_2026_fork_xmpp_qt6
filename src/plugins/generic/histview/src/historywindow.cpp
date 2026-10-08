@@ -27,7 +27,7 @@
 #include "historywindow.h"
 #include <QPoint>
 #include <QApplication>
-#include <QDesktopWidget>
+#include <QScreen>
 #include <QFileInfo>
 #include <QDir>
 #include <qutim/icon.h>
@@ -242,7 +242,7 @@ void HistoryWindow::fillDateTreeWidget(int index)
 
 			month = new QTreeWidgetItem(year);
 			month->setChildIndicatorPolicy(QTreeWidgetItem::ShowIndicator);
-			month->setText(0, QDate::longMonthName(date.month()));
+			month->setText(0, QLocale::system().monthName(date.month(), QLocale::LongFormat));
 			month->setIcon(0, Icon("view-calendar-month"));
 			month->setData(0, Qt::UserRole, date);
 			month->setExpanded(false);

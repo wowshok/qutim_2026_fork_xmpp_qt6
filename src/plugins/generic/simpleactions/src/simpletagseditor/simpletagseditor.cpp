@@ -81,10 +81,10 @@ void SimpleTagsEditor::load()
 		QSet<QString> tagsSet;
 		foreach (Account *account, AccountManager::instance()->accounts()) {
 			foreach (Contact *contact, account->findChildren<Contact*>()) {
-				tagsSet += contact->tags().toSet();
+				{ const QStringList contactTags = contact->tags(); tagsSet += QSet<QString>(contactTags.begin(), contactTags.end()); }
 			}
 		}
-		tags = tagsSet.toList();
+		tags = tagsSet.values();
 	}
 
 	QStringList contactTags = m_contact->tags();
@@ -102,7 +102,7 @@ void SimpleTagsEditor::save()
 		if (ui->listWidget->item(index)->checkState() == Qt::Checked)
 			tags << ui->listWidget->item(index)->text();
 	}
-	m_contact->setTags(tags.toList());
+	m_contact->setTags(tags.values());
 }
 
 void Core::SimpleTagsEditor::on_addButton_clicked()

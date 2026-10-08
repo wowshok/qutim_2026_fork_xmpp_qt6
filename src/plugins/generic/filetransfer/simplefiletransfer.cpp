@@ -133,7 +133,7 @@ void FileTransferActionGenerator::showImpl(QAction *action, QObject *obj)
 		menu->insertAction(separator, defaultAct);
 		action->setMenu(menu);
 	} else {
-		action->setMenu(0);
+		action->setMenu(nullptr);
 	}
 }
 
@@ -166,7 +166,7 @@ QIODevice *SimpleFileTransfer::doOpenFile(FileTransferJob *job)
 		if (path.isNull())
 			return 0;
 
-		QFileInfo info = path;
+		QFileInfo info(path);
 		if (!info.isDir())
 			path = info.absoluteFilePath();
 		else

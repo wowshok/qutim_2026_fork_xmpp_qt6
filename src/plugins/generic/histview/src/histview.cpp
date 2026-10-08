@@ -26,7 +26,7 @@
 #include "histview.h"
 #include <QPoint>
 #include <QApplication>
-#include <QDesktopWidget>
+#include <QScreen>
 #include <QFileInfo>
 #include <QDir>
 #include <qutim/icon.h>

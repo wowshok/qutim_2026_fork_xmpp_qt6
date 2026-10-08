@@ -92,7 +92,7 @@ void ServiceChoooserWidget::loadImpl()
 		if (serviceName && *serviceName) {
 			if (!m_service_items.contains(serviceName)) {
 				QString localizedName = QT_TRANSLATE_NOOP("Service",serviceName).toString();
-				int index = std::lower_bound(helper, localizedName) - helper.constBegin();
+				int index = std::lower_bound(helper.constBegin(), helper.constEnd(), localizedName) - helper.constBegin();
 				helper.insert(index, localizedName);
 				ServiceItem *item = new ServiceItem(Icon(serviceIcon(serviceName)),localizedName);
 				item->setData(true,ServiceItem::ExclusiveRole);

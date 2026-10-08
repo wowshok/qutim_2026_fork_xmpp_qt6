@@ -10,11 +10,13 @@ set(QUTIM_SHARE_DIRS
 	"${CMAKE_CURRENT_SOURCE_DIR}/qutim/ca-certs|ca-certs"
 	"${ART}/sounds|sounds"
 	"${ART}/icons/qutim-default|icons/qutim-default"
-	"${ART}/icons/user-status|icons/qutim-default/user-status"
 	"${ART}/icons/oxygen|icons/oxygen"
 	"${ART}/icons/humanity/hicolor|icons/hicolor"
 	"${ART}/icons/clients/hicolor/16x16/apps|icons/hicolor/16x16/apps"
-	"${ART}/icons/user-status/hicolor/scalable/status|icons/hicolor/scalable/status"
+	# Application and tray status icons (qutim, qutim-online, qutim-offline, ...)
+	"${ART}/icons/qutim/icons/hicolor|icons/hicolor"
+	# Mood icons, laid out as a hicolor theme
+	"${ART}/icons/user-status/hicolor|icons/hicolor"
 	"${ART}/icons/tray/ubuntu-mono-light|icons/ubuntu-mono-light/scalable/status"
 	"${ART}/icons/tray/ubuntu-mono-dark|icons/ubuntu-mono-dark/scalable/status"
 	"${PLUGINS}/kineticpopups/src/quickpopup|quickpopup"
@@ -36,3 +38,6 @@ foreach(entry ${QUTIM_SHARE_DIRS})
 endforeach()
 
 install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/applications/" DESTINATION share/applications)
+# The desktop file refers to the application icon by name, so it goes to the system theme too
+install(DIRECTORY "${ART}/icons/qutim/icons/" DESTINATION share/icons)
+install(DIRECTORY "${ART}/icons/qutim/pixmaps/" DESTINATION share/pixmaps)

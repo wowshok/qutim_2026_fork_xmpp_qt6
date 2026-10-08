@@ -42,7 +42,7 @@ ShortcutItemDelegate::ShortcutItemDelegate(QObject* parent):
 
 void ShortcutItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const
 {
-	QStyleOptionViewItemV4 opt(option);
+	QStyleOptionViewItem opt(option);
 	QStyle *style = opt.widget ? opt.widget->style() : QApplication::style();
 	style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, opt.widget);
 
