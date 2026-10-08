@@ -89,7 +89,7 @@ public:
 	
 	virtual int payloadType() const;
 	virtual QStringList features() const;
-	virtual bool canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
+	virtual bool canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
 	
 protected:
 	const QString m_elementUri;
@@ -119,7 +119,7 @@ Q_INLINE_TEMPLATE QStringList JingleTransportFactory<Extension>::features() cons
 }
 
 template <typename Extension>
-Q_INLINE_TEMPLATE bool JingleTransportFactory<Extension>::canParse(const QStringRef &name, const QStringRef &uri,
+Q_INLINE_TEMPLATE bool JingleTransportFactory<Extension>::canParse(QStringView name, QStringView uri,
                                                                    const QXmlStreamAttributes &)
 {
 	return name == QLatin1String("transport") && uri == m_elementUri;

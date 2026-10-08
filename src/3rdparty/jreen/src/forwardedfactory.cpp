@@ -42,13 +42,13 @@ QStringList ForwardedFactory::features() const
 	return QStringList(NS_FORWARDED);
 }
 
-bool ForwardedFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool ForwardedFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("forwarded") && uri == NS_FORWARDED;
 }
 
-void ForwardedFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void ForwardedFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	++m_depth;
 	if (m_depth == 1) {
@@ -67,7 +67,7 @@ void ForwardedFactory::handleStartElement(const QStringRef &name, const QStringR
 		m_messageFactory.handleStartElement(name, uri, attributes);
 }
 
-void ForwardedFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void ForwardedFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	if (m_state == AtDelayed)
 		m_delayedFactory.handleEndElement(name, uri);
@@ -86,7 +86,7 @@ void ForwardedFactory::handleEndElement(const QStringRef &name, const QStringRef
 	--m_depth;
 }
 
-void ForwardedFactory::handleCharacterData(const QStringRef &text)
+void ForwardedFactory::handleCharacterData(QStringView text)
 {
 	if (m_state == AtDelayed)
 		m_delayedFactory.handleCharacterData(text);

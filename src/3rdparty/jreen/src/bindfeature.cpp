@@ -54,10 +54,10 @@ class JREEN_AUTOTEST_EXPORT BindQueryFactory : public PayloadFactory<BindQuery>
 public:
 	BindQueryFactory() : m_bind(true), m_depth(0), m_state(AtStart) {}
 	QStringList features() const { return QStringList(); }
-	bool canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleEndElement(const QStringRef &name, const QStringRef &uri);
-	void handleCharacterData(const QStringRef &text);
+	bool canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleEndElement(QStringView name, QStringView uri);
+	void handleCharacterData(QStringView text);
 	void serialize(Payload *extension, QXmlStreamWriter *writer);
 	Payload::Ptr createPayload();
 private:
@@ -69,13 +69,13 @@ private:
 	State m_state;
 };
 
-bool BindQueryFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool BindQueryFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return (name == QLatin1String("bind") || name == QLatin1String("unbind")) && uri == NS_BIND;
 }
 
-void BindQueryFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void BindQueryFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
@@ -95,7 +95,7 @@ void BindQueryFactory::handleStartElement(const QStringRef &name, const QStringR
 	}
 }
 
-void BindQueryFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void BindQueryFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
@@ -104,7 +104,7 @@ void BindQueryFactory::handleEndElement(const QStringRef &name, const QStringRef
 		m_state = AtStart;
 }
 
-void BindQueryFactory::handleCharacterData(const QStringRef &text)
+void BindQueryFactory::handleCharacterData(QStringView text)
 {
 	if (m_depth == 2 && m_state == AtResource)
 		m_resource = text.toString();
@@ -145,14 +145,14 @@ void BindFeature::reset()
 	m_hasFeature = false;
 }
 
-bool BindFeature::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool BindFeature::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	jreenDebug() << Q_FUNC_INFO;
 	return name == QLatin1String("bind") && uri == NS_BIND;
 }
 
-void BindFeature::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void BindFeature::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
@@ -161,13 +161,13 @@ void BindFeature::handleStartElement(const QStringRef &name, const QStringRef &u
 	m_hasFeature = true;
 }
 
-void BindFeature::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void BindFeature::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 }
 
-void BindFeature::handleCharacterData(const QStringRef &text)
+void BindFeature::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 }

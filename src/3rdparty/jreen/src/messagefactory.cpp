@@ -77,14 +77,14 @@ void MessageFactory::serialize(Stanza *stanza, QXmlStreamWriter *writer)
 	writer->writeEndElement();
 }
 
-bool MessageFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool MessageFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
 	return name == QLatin1String("message");
 }
 
-void MessageFactory::handleStartElement(const QStringRef &name, const QStringRef &uri,
+void MessageFactory::handleStartElement(QStringView name, QStringView uri,
 										const QXmlStreamAttributes &attributes)
 {
 	m_depth++;
@@ -94,7 +94,7 @@ void MessageFactory::handleStartElement(const QStringRef &name, const QStringRef
 	if (m_depth == 1) {
 		m_state = AtMessage;
 		MessagePrivate *p = static_cast<MessagePrivate*>(m_stanza.data());
-		QStringRef subtype = attributes.value(QLatin1String("type"));
+		QStringView subtype = attributes.value(QLatin1String("type"));
 		if (subtype.isEmpty())
 			p->subtype = Message::Normal;
 		else
@@ -111,7 +111,7 @@ void MessageFactory::handleStartElement(const QStringRef &name, const QStringRef
 	}
 }
 
-void MessageFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void MessageFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	StanzaFactory::handleEndElement(name, uri);
 	if (m_depth == 2)
@@ -119,7 +119,7 @@ void MessageFactory::handleEndElement(const QStringRef &name, const QStringRef &
 	m_depth--;
 }
 
-void MessageFactory::handleCharacterData(const QStringRef &name)
+void MessageFactory::handleCharacterData(QStringView name)
 {
 	StanzaFactory::handleCharacterData(name);
 	if(m_depth == 2) {

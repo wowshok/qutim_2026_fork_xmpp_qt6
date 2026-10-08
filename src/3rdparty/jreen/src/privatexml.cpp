@@ -47,15 +47,15 @@ QStringList PrivateXmlQueryFactory::features() const
 	return QStringList(NS_PRIVATE_XML);
 }
 
-bool PrivateXmlQueryFactory::canParse(const QStringRef &name, const QStringRef &uri,
+bool PrivateXmlQueryFactory::canParse(QStringView name, QStringView uri,
 									  const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("query") && uri == NS_PRIVATE_XML;
 }
 
-void PrivateXmlQueryFactory::handleStartElement(const QStringRef &name,
-												const QStringRef &uri,
+void PrivateXmlQueryFactory::handleStartElement(QStringView name,
+												QStringView uri,
 												const QXmlStreamAttributes &attributes)
 {
 	m_depth++;
@@ -73,7 +73,7 @@ void PrivateXmlQueryFactory::handleStartElement(const QStringRef &name,
 		m_factory->handleStartElement(name, uri, attributes);
 }
 
-void PrivateXmlQueryFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void PrivateXmlQueryFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	if (m_factory) {
 		m_factory->handleEndElement(name, uri);
@@ -85,7 +85,7 @@ void PrivateXmlQueryFactory::handleEndElement(const QStringRef &name, const QStr
 	m_depth--;
 }
 
-void PrivateXmlQueryFactory::handleCharacterData(const QStringRef &text)
+void PrivateXmlQueryFactory::handleCharacterData(QStringView text)
 {
 	if (m_factory)
 		m_factory->handleCharacterData(text);

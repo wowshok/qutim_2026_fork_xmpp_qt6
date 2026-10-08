@@ -76,14 +76,14 @@ void IqFactory::serialize(Stanza *stanza, QXmlStreamWriter *writer)
 	writer->writeEndElement();
 }
 
-bool IqFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool IqFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
 	return name == QLatin1String("iq");
 }
 
-void IqFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void IqFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	m_depth++;
 	if (m_depth == 1)
@@ -91,7 +91,7 @@ void IqFactory::handleStartElement(const QStringRef &name, const QStringRef &uri
 	StanzaFactory::handleStartElement(name, uri, attributes);
 	if (m_depth == 1) {
 		IQPrivate *p = static_cast<IQPrivate*>(m_stanza.data());
-		QStringRef type = attributes.value(QLatin1String("type"));
+		QStringView type = attributes.value(QLatin1String("type"));
 		if (type == QLatin1String("get"))
 			p->subtype = IQ::Get;
 		else if (type == QLatin1String("set"))
@@ -105,13 +105,13 @@ void IqFactory::handleStartElement(const QStringRef &name, const QStringRef &uri
 	}
 }
 
-void IqFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void IqFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	StanzaFactory::handleEndElement(name, uri);
 	m_depth--;
 }
 
-void IqFactory::handleCharacterData(const QStringRef &name)
+void IqFactory::handleCharacterData(QStringView name)
 {
 	StanzaFactory::handleCharacterData(name);
 }

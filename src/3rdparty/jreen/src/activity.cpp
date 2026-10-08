@@ -50,8 +50,8 @@ Activity::Activity(const QString &general, const QString &specific, const QStrin
 	d_ptr(new ActivityPrivate)
 {
 	Q_D(Activity);
-	d->general = ActivityFactory::generalByName(QStringRef(&general));
-	d->specific = ActivityFactory::specificByName(QStringRef(&specific));
+	d->general = ActivityFactory::generalByName(QStringView(general));
+	d->specific = ActivityFactory::specificByName(QStringView(specific));
 	d->text = text;
 }
 

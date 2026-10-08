@@ -63,13 +63,13 @@ QStringList SoftwareVersionFactory::features() const
 	return QStringList(NS_SOFTWAREVERSION);
 }
 
-bool SoftwareVersionFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool SoftwareVersionFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("query") && uri == NS_SOFTWAREVERSION;
 }
 
-void SoftwareVersionFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void SoftwareVersionFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
@@ -84,7 +84,7 @@ void SoftwareVersionFactory::handleStartElement(const QStringRef &name, const QS
 		d->state = strToEnum<SoftwareVersionFactoryPrivate::State>(name,query_strings);
 }
 
-void SoftwareVersionFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void SoftwareVersionFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(name);
@@ -92,7 +92,7 @@ void SoftwareVersionFactory::handleEndElement(const QStringRef &name, const QStr
 	d->depth--;
 }
 
-void SoftwareVersionFactory::handleCharacterData(const QStringRef &text)
+void SoftwareVersionFactory::handleCharacterData(QStringView text)
 {
 	Q_D(SoftwareVersionFactory);
 	if(d->depth == 2) {

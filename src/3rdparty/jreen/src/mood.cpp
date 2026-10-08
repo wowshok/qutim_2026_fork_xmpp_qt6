@@ -65,7 +65,7 @@ QString Mood::typeName() const
 
 void Mood::setType(const QString &type)
 {
-	d_func()->type = MoodFactory::typeByName(QStringRef(&type));
+	d_func()->type = MoodFactory::typeByName(QStringView(type));
 }
 
 void Mood::setType(Type type)

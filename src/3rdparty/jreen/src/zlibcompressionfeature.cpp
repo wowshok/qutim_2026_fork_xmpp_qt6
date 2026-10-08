@@ -44,14 +44,14 @@ void ZLibCompressionFeature::reset()
 	m_methods.clear();
 }
 
-bool ZLibCompressionFeature::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool ZLibCompressionFeature::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(attributes);
 	return uri == NS_COMPRESS_FEATURE || uri == NS_COMPRESS_PROTOCOL;
 }
 
-void ZLibCompressionFeature::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void ZLibCompressionFeature::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
@@ -63,7 +63,7 @@ void ZLibCompressionFeature::handleStartElement(const QStringRef &name, const QS
 	}
 }
 
-void ZLibCompressionFeature::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void ZLibCompressionFeature::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(uri);
 	if (m_depth == 1) {
@@ -78,7 +78,7 @@ void ZLibCompressionFeature::handleEndElement(const QStringRef &name, const QStr
 	m_depth--;
 }
 
-void ZLibCompressionFeature::handleCharacterData(const QStringRef &text)
+void ZLibCompressionFeature::handleCharacterData(QStringView text)
 {
 	if (m_state == AtMethod)
 		m_methods << text.toString();

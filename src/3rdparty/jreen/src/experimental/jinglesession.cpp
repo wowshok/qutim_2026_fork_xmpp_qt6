@@ -66,7 +66,7 @@ void JingleSessionPrivate::handle(const Jingle::Ptr &jingle)
 			content->contentObject->handleDescription(remoteContent.description);
 			if (remoteContent.transports.size() != 1) {
 				qWarning("Content %s has %d transports", qPrintable(content->name),
-				         remoteContent.transports.size());
+				         int(remoteContent.transports.size()));
 			}
 			if (!remoteContent.transports.value(0)) {
 				qCritical("Content %s has no transports", qPrintable(content->name));

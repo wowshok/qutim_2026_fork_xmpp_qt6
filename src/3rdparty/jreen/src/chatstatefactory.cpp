@@ -54,27 +54,27 @@ QStringList ChatStateFactory::features() const
 	return QStringList(NS_CHATSTATE);
 }
 
-bool ChatStateFactory::canParse(const QStringRef &name,
-								const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool ChatStateFactory::canParse(QStringView name,
+								QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return (strToEnum(name.toString(),state_strings) != -1) && (uri == NS_CHATSTATE);
 }
 
-void ChatStateFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void ChatStateFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
 	m_state = strToEnum<ChatState::State>(name.toString(),state_strings);
 }
 
-void ChatStateFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void ChatStateFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 }
 
-void ChatStateFactory::handleCharacterData(const QStringRef &text)
+void ChatStateFactory::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 }

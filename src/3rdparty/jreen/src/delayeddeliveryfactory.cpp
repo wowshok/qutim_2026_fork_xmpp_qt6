@@ -55,14 +55,14 @@ QStringList DelayedDeliveryFactory::features() const
 	return QStringList(NS_DELAY);
 }
 
-bool DelayedDeliveryFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool DelayedDeliveryFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	return (name == QLatin1String("delay") && uri == NS_DELAY)
 			|| (name == QLatin1String("x") && uri == NS_DELAY_DEPRECATED);
 	Q_UNUSED(attributes);
 }
 
-void DelayedDeliveryFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void DelayedDeliveryFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_D(DelayedDeliveryFactory);
 	Q_UNUSED(name);
@@ -71,13 +71,13 @@ void DelayedDeliveryFactory::handleStartElement(const QStringRef &name, const QS
 	d->dateTime = Util::fromStamp(attributes.value("stamp").toString());
 }
 
-void DelayedDeliveryFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void DelayedDeliveryFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 }
 
-void DelayedDeliveryFactory::handleCharacterData(const QStringRef &text)
+void DelayedDeliveryFactory::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 }

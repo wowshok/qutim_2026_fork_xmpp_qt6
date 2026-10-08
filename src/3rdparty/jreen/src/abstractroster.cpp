@@ -60,13 +60,13 @@ QStringList AbstractRosterQueryFactory::features() const
 	return QStringList(NS_ROSTER);
 }
 
-bool AbstractRosterQueryFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool AbstractRosterQueryFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("query") && uri == NS_ROSTER;
 }
 
-void AbstractRosterQueryFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void AbstractRosterQueryFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	m_depth++;
@@ -79,7 +79,7 @@ void AbstractRosterQueryFactory::handleStartElement(const QStringRef &name, cons
 		m_jid = JID(attributes.value(QLatin1String("jid")).toString()).bare();
 		m_name = attributes.value(QLatin1String("name")).toString();
 		m_ask = attributes.value(QLatin1String("ask")).toString();
-		QStringRef s10n = attributes.value(QLatin1String("subscription"));
+		QStringView s10n = attributes.value(QLatin1String("subscription"));
 		m_subscription = strToEnum<RosterItem::SubscriptionType>(s10n,subscription_types);
 		m_groups.clear();
 	} else if (m_depth == 3 && m_state == AtItem && name == QLatin1String("group")) {
@@ -87,7 +87,7 @@ void AbstractRosterQueryFactory::handleStartElement(const QStringRef &name, cons
 	}
 }
 
-void AbstractRosterQueryFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void AbstractRosterQueryFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(name);
@@ -109,7 +109,7 @@ void AbstractRosterQueryFactory::handleEndElement(const QStringRef &name, const 
 	m_depth--;
 }
 
-void AbstractRosterQueryFactory::handleCharacterData(const QStringRef &text)
+void AbstractRosterQueryFactory::handleCharacterData(QStringView text)
 {
 	if (m_depth == 3 && m_state == AtGroup)
 		m_groups << text.toString();

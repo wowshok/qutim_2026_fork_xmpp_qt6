@@ -39,13 +39,13 @@ StanzaFactory::~StanzaFactory()
 {
 }
 
-void StanzaFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void StanzaFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	while (!m_stanza->tokens.isEmpty() && m_stanza->tokens.last()->type == StanzaPrivate::Token::Characters)
 		delete m_stanza->tokens.takeLast();
 	StanzaPrivate::StartToken *token = new StanzaPrivate::StartToken;
-	token->name = name.appendTo(&m_stanza->buffer);
-	token->uri = uri.appendTo(&m_stanza->buffer);
+	token->name = name.toString();
+	token->uri = uri.toString();
 	token->attributes = attributes;
 	m_stanza->tokens << token;
 
@@ -63,7 +63,7 @@ void StanzaFactory::handleStartElement(const QStringRef &name, const QStringRef 
 		m_parsers.at(i)->handleStartElement(name, uri, attributes);
 }
 
-void StanzaFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void StanzaFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	for (int i = 0; i < m_parsers.size(); i++)
 		m_parsers.at(i)->handleEndElement(name, uri);
@@ -80,14 +80,14 @@ void StanzaFactory::handleEndElement(const QStringRef &name, const QStringRef &u
 	}
 }
 
-void StanzaFactory::handleCharacterData(const QStringRef &text)
+void StanzaFactory::handleCharacterData(QStringView text)
 {
 	for (int i = 0; i < m_parsers.size(); i++)
 		m_parsers.at(i)->handleCharacterData(text);
 	if (!m_stanza->tokens.isEmpty() && m_stanza->tokens.last()->type == StanzaPrivate::Token::EndElement)
 		return;
 	StanzaPrivate::CharactersToken *token = new StanzaPrivate::CharactersToken;
-	token->text = text.appendTo(&m_stanza->buffer);
+	token->text = text.toString();
 	m_stanza->tokens << token;
 }
 
@@ -95,20 +95,20 @@ void StanzaFactory::serialize(Stanza *stanza, QXmlStreamWriter *writer)
 {
 	StanzaPrivate *p = StanzaPrivate::get(*stanza);
 	QString namespaceUri = QLatin1String("jabber:client");
-	QStack<QStringRef> uries;
+	QStack<QString> uries;
 	for (int i = 0; i < p->tokens.size(); ++i) {
 		StanzaPrivate::Token * const token = p->tokens.at(i);
 		if (token->type == StanzaPrivate::Token::StartElement) {
 			StanzaPrivate::StartToken * const startToken = static_cast<StanzaPrivate::StartToken*>(token);
-			writer->writeStartElement(startToken->name.toString());
-			QStringRef currentUri = (i == 0) ? QStringRef(&namespaceUri) : startToken->uri;
+			writer->writeStartElement(startToken->name);
+			const QString &currentUri = (i == 0) ? namespaceUri : startToken->uri;
 			if (uries.isEmpty() || uries.top() != currentUri)
-				writer->writeDefaultNamespace(startToken->uri.toString());
+				writer->writeDefaultNamespace(startToken->uri);
 			uries.push(currentUri);
 			writer->writeAttributes(startToken->attributes);
 		} else if (token->type == StanzaPrivate::Token::Characters) {
 			StanzaPrivate::CharactersToken * const charachtersToken = static_cast<StanzaPrivate::CharactersToken*>(token);
-			writer->writeCharacters(charachtersToken->text.toString());
+			writer->writeCharacters(charachtersToken->text);
 		} else if (token->type == StanzaPrivate::Token::EndElement) {
 			writer->writeEndElement();
 			uries.pop();

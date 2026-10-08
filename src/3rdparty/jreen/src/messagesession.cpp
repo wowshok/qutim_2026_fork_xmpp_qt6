@@ -156,7 +156,6 @@ MessageSessionManager::MessageSessionManager(Client *client) :
 	Q_D(MessageSessionManager);
 	d->client = client;
 	d->sessionHandlers.resize(Message::Invalid + 1);
-	qsrand(QDateTime::currentDateTime().toTime_t());
 	connect(client, SIGNAL(messageReceived(Jreen::Message)),
 	        this, SLOT(handleMessage(Jreen::Message)));
 	ClientPrivate::get(d->client)->messageSessionManager = this;

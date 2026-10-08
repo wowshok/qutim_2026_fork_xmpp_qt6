@@ -63,7 +63,7 @@ JID PrivacyItem::jid() const
 void PrivacyItem::setJID(const JID &jid)
 {
 	d_ptr->type = ByJID;
-	d_ptr->data = qVariantFromValue(jid);
+	d_ptr->data = QVariant::fromValue(jid);
 }
 
 PrivacyItem::SubscriptionType PrivacyItem::subscription() const

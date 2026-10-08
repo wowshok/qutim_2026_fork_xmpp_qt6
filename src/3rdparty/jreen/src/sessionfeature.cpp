@@ -46,35 +46,35 @@ class JREEN_AUTOTEST_EXPORT SessionQueryFactory : public PayloadFactory<SessionQ
 public:
 	SessionQueryFactory() {}
 	QStringList features() const { return QStringList(); }
-	bool canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleEndElement(const QStringRef &name, const QStringRef &uri);
-	void handleCharacterData(const QStringRef &text);
+	bool canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleEndElement(QStringView name, QStringView uri);
+	void handleCharacterData(QStringView text);
 	void serialize(Payload *extension, QXmlStreamWriter *writer);
 	Payload::Ptr createPayload();
 private:
 };
 
-bool SessionQueryFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool SessionQueryFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("session") && uri == NS_SESSION;
 }
 
-void SessionQueryFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void SessionQueryFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
 }
 
-void SessionQueryFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void SessionQueryFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 }
 
-void SessionQueryFactory::handleCharacterData(const QStringRef &text)
+void SessionQueryFactory::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 }
@@ -107,14 +107,14 @@ void SessionFeature::reset()
 	m_hasFeature = false;
 }
 
-bool SessionFeature::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool SessionFeature::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	jreenDebug() << Q_FUNC_INFO;
 	return name == QLatin1String("session") && uri == NS_SESSION;
 }
 
-void SessionFeature::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void SessionFeature::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
@@ -123,13 +123,13 @@ void SessionFeature::handleStartElement(const QStringRef &name, const QStringRef
 	m_hasFeature = true;
 }
 
-void SessionFeature::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void SessionFeature::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 }
 
-void SessionFeature::handleCharacterData(const QStringRef &text)
+void SessionFeature::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 }

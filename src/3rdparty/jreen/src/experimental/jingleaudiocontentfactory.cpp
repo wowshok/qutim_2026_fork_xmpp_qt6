@@ -47,7 +47,7 @@ QStringList JingleAudioContentFactory::features() const
 	        << NS_RTP_AUDIO;
 }
 
-void JingleAudioContentFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void JingleAudioContentFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
@@ -69,7 +69,7 @@ void JingleAudioContentFactory::handleStartElement(const QStringRef &name, const
 	}
 }
 
-void JingleAudioContentFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void JingleAudioContentFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
@@ -81,7 +81,7 @@ void JingleAudioContentFactory::handleEndElement(const QStringRef &name, const Q
 	m_depth--;
 }
 
-void JingleAudioContentFactory::handleCharacterData(const QStringRef &text)
+void JingleAudioContentFactory::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 }

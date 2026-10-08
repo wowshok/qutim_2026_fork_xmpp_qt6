@@ -106,7 +106,7 @@ protected:
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 	inline void detach() { if (d->ref != 1) detach_helper(); }
 #else
-	inline void detach() { if (d->ref.load() != 1) detach_helper(); }
+	inline void detach() { if (d->ref.loadRelaxed() != 1) detach_helper(); }
 #endif
 	void detach_helper()
 	{
@@ -186,7 +186,7 @@ inline QStringList LangMap::values() const
 
 inline QStringList LangMap::values(const QString &lang) const
 {
-	return d->base.isEmpty() ? d->other.values(lang) : (d->other.values() << d->base);
+	return d->base.isEmpty() ? (d->other.contains(lang) ? QStringList(d->other.value(lang)) : QStringList()) : (d->other.values() << d->base);
 }
 
 inline void LangMap::fillNode(QXmlStreamWriter *writer, const QString &name, const QString &uri) const

@@ -49,14 +49,14 @@ QStringList EventFactory::features() const
 	return QStringList(NS_EVENT);
 }
 
-bool EventFactory::canParse(const QStringRef &name, const QStringRef &uri,
+bool EventFactory::canParse(QStringView name, QStringView uri,
 							const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("event") && uri == NS_EVENT;
 }
 
-void EventFactory::handleStartElement(const QStringRef &name, const QStringRef &uri,
+void EventFactory::handleStartElement(QStringView name, QStringView uri,
 									  const QXmlStreamAttributes &attributes)
 {
 	m_depth++;
@@ -74,7 +74,7 @@ void EventFactory::handleStartElement(const QStringRef &name, const QStringRef &
 		m_factory->handleStartElement(name, uri, attributes);
 }
 
-void EventFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void EventFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	if (m_state == AtEntity)
 		m_factory->handleEndElement(name, uri);
@@ -89,7 +89,7 @@ void EventFactory::handleEndElement(const QStringRef &name, const QStringRef &ur
 	m_depth--;
 }
 
-void EventFactory::handleCharacterData(const QStringRef &text)
+void EventFactory::handleCharacterData(QStringView text)
 {
 	if (m_state == AtEntity)
 		m_factory->handleCharacterData(text);
@@ -105,7 +105,7 @@ void EventFactory::serialize(Payload *extension, QXmlStreamWriter *writer)
 		return;
 	} else if (!event->node().isEmpty()) {
 		node = event->node();
-		factory = findFactory(QStringRef(&node));
+		factory = findFactory(QStringView(node));
 	} else {
 		factory = findFactory(items.at(0)->payloadType());
 		node = factory ? factory->features().value(0) : QString();
@@ -135,7 +135,7 @@ Payload::Ptr EventFactory::createPayload()
 	return Payload::Ptr(m_event.take());
 }
 
-AbstractPayloadFactory *EventFactory::findFactory(const QStringRef &node)
+AbstractPayloadFactory *EventFactory::findFactory(QStringView node)
 {
 	for (int i = 0; i < m_factories.size(); i++) {
 		if (m_factories.at(i)->features().value(0) == node)

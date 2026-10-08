@@ -70,7 +70,7 @@ void Parser::reset()
 	d->state = WaitingForStanza;
 	d->depth = 0;
 	foreach (XmlStreamParser *parser, d->parsers)
-		parser->handleEndElement(QStringRef(), QStringRef());
+		parser->handleEndElement(QStringView(), QStringView());
 	d->parsers.clear();
 	foreach (StreamFeature *feature, d->client->features)
 		feature->reset();
@@ -206,12 +206,12 @@ QByteArray Parser::nextPart(QByteArray &data, bool first, bool *needMoreData)
 	return result;
 }
 
-bool Parser::canParse(const QStringRef &, const QStringRef &, const QXmlStreamAttributes &)
+bool Parser::canParse(QStringView , QStringView , const QXmlStreamAttributes &)
 {
 	return true;
 }
 
-void Parser::handleStartElement(const QStringRef &name, const QStringRef &uri,
+void Parser::handleStartElement(QStringView name, QStringView uri,
 								const QXmlStreamAttributes &attributes)
 {
 	Q_D(Parser);
@@ -255,7 +255,7 @@ void Parser::handleStartElement(const QStringRef &name, const QStringRef &uri,
 	d->depth++;
 }
 
-void Parser::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void Parser::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_D(Parser);
 	d->depth--;
@@ -308,7 +308,7 @@ void Parser::handleEndElement(const QStringRef &name, const QStringRef &uri)
 	//				jreenDebug() << d->reader->tokenString() << d->depth << name;
 }
 
-void Parser::handleCharacterData(const QStringRef &text)
+void Parser::handleCharacterData(QStringView text)
 {
 	Q_D(Parser);
 	foreach (XmlStreamParser *parser, d->parsers)

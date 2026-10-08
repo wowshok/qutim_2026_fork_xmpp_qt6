@@ -26,6 +26,7 @@
 #include "util.h"
 #include "jid.h"
 #include <QCryptographicHash>
+#include <QRandomGenerator>
 
 namespace Jreen
 {
@@ -93,7 +94,7 @@ QDateTime Util::fromStamp(const QString &stamp)
 		int num = stamp.indexOf(QLatin1Char('Z'));
 		if(num < 0) {
 			num = stamp.lastIndexOf(QLatin1Char('-'));
-			num = std::max(num, stamp.lastIndexOf(QLatin1Char('+')));
+			num = std::max<qsizetype>(num, stamp.lastIndexOf(QLatin1Char('+')));
 		}
 
 		QString time = stamp;
@@ -134,7 +135,7 @@ QByteArray Util::randomHash()
 {
 	qint32 buf[5];
 	for (int i = 0; i < 5; i++)
-		buf[i] = qrand();
+		buf[i] = QRandomGenerator::global()->generate();
 	return QByteArray::fromRawData(reinterpret_cast<char*>(buf), sizeof(buf)).toHex();
 }
 
@@ -142,7 +143,7 @@ QString Util::randomStringHash(int length)
 {
 	QString str(length, Qt::Uninitialized);
 	for (int i = 0; i < length; ++i) {
-		int c = qrand() % (10 + 26);
+		int c = QRandomGenerator::global()->generate() % (10 + 26);
 		if (c < 10)
 			str[i] = QLatin1Char('0' + c);
 		else

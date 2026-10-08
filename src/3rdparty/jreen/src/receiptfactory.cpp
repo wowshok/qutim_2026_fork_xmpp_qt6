@@ -56,13 +56,13 @@ QStringList ReceiptFactory::features() const
 	return QStringList(NS_RECEIPT);
 }
 
-bool ReceiptFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool ReceiptFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return (strToEnum(name,receipt_strings) != -1) && uri == NS_RECEIPT;
 }
 
-void ReceiptFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void ReceiptFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_D(ReceiptFactory);
 	Q_UNUSED(uri);
@@ -70,13 +70,13 @@ void ReceiptFactory::handleStartElement(const QStringRef &name, const QStringRef
 	d->type = strToEnum<Receipt::Type>(name,receipt_strings);
 }
 
-void ReceiptFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void ReceiptFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 }
 
-void ReceiptFactory::handleCharacterData(const QStringRef &text)
+void ReceiptFactory::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 }

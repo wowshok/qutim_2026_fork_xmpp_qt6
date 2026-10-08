@@ -37,14 +37,14 @@ AbstractStructureParser::AbstractStructureParser(const QLatin1String &name) : m_
 {
 }
 	
-bool AbstractStructureParser::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool AbstractStructureParser::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
 	return name == m_name;
 }
 
-void AbstractStructureParser::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void AbstractStructureParser::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
@@ -85,7 +85,7 @@ void AbstractStructureParser::handleStartElement(const QStringRef &name, const Q
 	}
 }
 
-void AbstractStructureParser::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void AbstractStructureParser::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
@@ -94,13 +94,13 @@ void AbstractStructureParser::handleEndElement(const QStringRef &name, const QSt
 	m_currentArray = 0;
 }
 
-void AbstractStructureParser::handleCharacterData(const QStringRef &text)
+void AbstractStructureParser::handleCharacterData(QStringView text)
 {
 	if (m_currentString) {
 		*m_currentString = text.toString();
 		m_currentString = 0;
 	} else if (m_currentArray) {
-		const QString str = QString::fromRawData(text.unicode(), text.size());
+		const QString str = text.toString();
 		*m_currentArray = QByteArray::fromBase64(str.toLatin1());
 		m_currentArray = 0;
 	}
@@ -301,9 +301,9 @@ public:
 	VCardOrgParser();
 	void serialize(const VCard::Organization &org, QXmlStreamWriter *writer);
 protected:
-	void handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleEndElement(const QStringRef &name, const QStringRef &uri);
-	void handleCharacterData(const QStringRef &text);
+	void handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleEndElement(QStringView name, QStringView uri);
+	void handleCharacterData(QStringView text);
 
 private:
 	bool atOrgUnit;
@@ -331,7 +331,7 @@ void VCardOrgParser::serialize(const VCard::Organization &org, QXmlStreamWriter 
 	writer->writeEndElement();
 }
 
-void VCardOrgParser::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void VCardOrgParser::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	AbstractStructureParser::handleStartElement(name, uri, attributes);
 	if (m_depth == 1) {
@@ -342,14 +342,14 @@ void VCardOrgParser::handleStartElement(const QStringRef &name, const QStringRef
 	}
 }
 
-void VCardOrgParser::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void VCardOrgParser::handleEndElement(QStringView name, QStringView uri)
 {
 	if (m_depth == 2 && name == QLatin1String("ORGUNIT"))
 		atOrgUnit = false;
 	AbstractStructureParser::handleEndElement(name, uri);
 }
 
-void VCardOrgParser::handleCharacterData(const QStringRef &text)
+void VCardOrgParser::handleCharacterData(QStringView text)
 {
 	if (atOrgUnit)
 		m_data.orgUnits << text.toString();
@@ -438,7 +438,7 @@ VCardFactory::VCardFactory() : d_ptr(new VCardFactoryPrivate)
 }
 
 
-bool VCardFactory::canParse(const QStringRef& name, const QStringRef& uri, const QXmlStreamAttributes& attributes)
+bool VCardFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes& attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("vCard") && uri == NS_VCARD;
@@ -455,7 +455,7 @@ QStringList VCardFactory::features() const
 	return QStringList(NS_VCARD);
 }
 
-void VCardFactory::handleStartElement(const QStringRef& name, const QStringRef& uri,
+void VCardFactory::handleStartElement(QStringView name, QStringView uri,
 									  const QXmlStreamAttributes& attributes)
 {
 	Q_D(VCardFactory);
@@ -499,7 +499,7 @@ void VCardFactory::handleStartElement(const QStringRef& name, const QStringRef& 
 		d->currentParser->handleStartElement(name, uri, attributes);
 }
 
-void VCardFactory::handleCharacterData(const QStringRef& text)
+void VCardFactory::handleCharacterData(QStringView text)
 {
 	Q_D(VCardFactory);
 	if (d->currentParser)
@@ -508,7 +508,7 @@ void VCardFactory::handleCharacterData(const QStringRef& text)
 		*d->currentString = text.toString();
 }
 
-void VCardFactory::handleEndElement(const QStringRef& name, const QStringRef& uri)
+void VCardFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_D(VCardFactory);
 	Q_UNUSED(name);

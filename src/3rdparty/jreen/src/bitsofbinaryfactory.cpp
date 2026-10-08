@@ -41,14 +41,14 @@ QStringList BitsOfBinaryFactory::features() const
 	return QStringList();
 }
 
-bool BitsOfBinaryFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool BitsOfBinaryFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	m_depth = 0;
 	return name == QLatin1String("data") && uri == NS_BOB;
 }
 
-void BitsOfBinaryFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void BitsOfBinaryFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
@@ -57,7 +57,7 @@ void BitsOfBinaryFactory::handleStartElement(const QStringRef &name, const QStri
 	if (m_depth == 1) {
 		m_query.reset(new BitsOfBinary);
 		m_query->setCid(QUrl(attributes.value(QLatin1String("cid")).toString()));
-		QStringRef maxAgeString = attributes.value(QLatin1String("max-age"));
+		QStringView maxAgeString = attributes.value(QLatin1String("max-age"));
 		bool ok = true;
 		qint64 maxAge = maxAgeString.toString().toInt(&ok);
 		m_query->setMaximumAge(ok ? maxAge : -1);
@@ -65,14 +65,14 @@ void BitsOfBinaryFactory::handleStartElement(const QStringRef &name, const QStri
 	}
 }
 
-void BitsOfBinaryFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void BitsOfBinaryFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 	--m_depth;
 }
 
-void BitsOfBinaryFactory::handleCharacterData(const QStringRef &text)
+void BitsOfBinaryFactory::handleCharacterData(QStringView text)
 {
 	if (m_depth == 1)
 		m_query->setData(QByteArray::fromBase64(text.toString().toLatin1()));

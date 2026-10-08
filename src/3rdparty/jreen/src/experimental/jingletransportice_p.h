@@ -80,9 +80,9 @@ public:
     TransportFactory();
 	
 	virtual JingleTransport *createObject(JingleContent *content);
-	virtual void handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	virtual void handleEndElement(const QStringRef &name, const QStringRef &uri);
-	virtual void handleCharacterData(const QStringRef &text);
+	virtual void handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	virtual void handleEndElement(QStringView name, QStringView uri);
+	virtual void handleCharacterData(QStringView text);
 	virtual void serialize(Payload *obj, QXmlStreamWriter *writer);
 	virtual Payload::Ptr createPayload();
 	

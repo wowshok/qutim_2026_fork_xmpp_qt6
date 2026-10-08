@@ -176,7 +176,7 @@ void SASLFeature::reset()
 #endif
 }
 
-bool SASLFeature::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool SASLFeature::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	if (!sasl_inited_successfully)
 		return false;
@@ -185,7 +185,7 @@ bool SASLFeature::canParse(const QStringRef &name, const QStringRef &uri, const 
 	return uri == NS_SASL;
 }
 
-void SASLFeature::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void SASLFeature::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_ASSERT(sasl_inited_successfully);
 	Q_UNUSED(uri);
@@ -203,7 +203,7 @@ void SASLFeature::handleStartElement(const QStringRef &name, const QStringRef &u
 	}
 }
 
-void SASLFeature::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void SASLFeature::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_ASSERT(sasl_inited_successfully);
 	Q_UNUSED(uri);
@@ -219,7 +219,7 @@ void SASLFeature::handleEndElement(const QStringRef &name, const QStringRef &uri
 	m_depth--;
 }
 
-void SASLFeature::handleCharacterData(const QStringRef &text)
+void SASLFeature::handleCharacterData(QStringView text)
 {
 	Q_ASSERT(sasl_inited_successfully);
 	if (m_state == AtMechanism) {

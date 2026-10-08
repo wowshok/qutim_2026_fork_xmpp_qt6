@@ -40,9 +40,9 @@ public:
 	StanzaFactory(Client *client);
 	virtual ~StanzaFactory();
 	
-	void handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleEndElement(const QStringRef &name, const QStringRef &uri);
-	void handleCharacterData(const QStringRef &name);
+	void handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleEndElement(QStringView name, QStringView uri);
+	void handleCharacterData(QStringView name);
 	
 	virtual int stanzaType() = 0;
 	virtual Stanza::Ptr createStanza() = 0;

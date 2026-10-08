@@ -64,7 +64,7 @@ void TLSFeature::reset()
 	m_available = false;
 }
 
-bool TLSFeature::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool TLSFeature::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(name);
@@ -80,7 +80,7 @@ bool TLSFeature::canParse(const QStringRef &name, const QStringRef &uri, const Q
 	return false;
 }
 
-void TLSFeature::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void TLSFeature::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
@@ -90,7 +90,7 @@ void TLSFeature::handleStartElement(const QStringRef &name, const QStringRef &ur
 		m_required = true;
 }
 
-void TLSFeature::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void TLSFeature::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(uri);
 	if (name == QLatin1String("proceed")) {
@@ -111,7 +111,7 @@ void TLSFeature::handleEndElement(const QStringRef &name, const QStringRef &uri)
 	}
 }
 
-void TLSFeature::handleCharacterData(const QStringRef &text)
+void TLSFeature::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 }

@@ -46,7 +46,7 @@ BitsOfBinary::BitsOfBinary(const QByteArray &data, qint64 age) : d_ptr(new BitsO
 	d->data = data;
 }
 
-BitsOfBinary::BitsOfBinary(const QUrl &cid)
+BitsOfBinary::BitsOfBinary(const QUrl &cid) : d_ptr(new BitsOfBinaryPrivate)
 {
 	Q_D(BitsOfBinary);
 	d->maximumAge = -1;

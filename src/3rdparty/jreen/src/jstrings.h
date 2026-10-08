@@ -27,8 +27,20 @@
 #define JREEN_JSTRINGS_H
 
 #include "jreen.h"
+#include <algorithm>
 
 namespace Jreen {
+// Replacement for qBinaryFind, removed in Qt 6
+template <typename RandomAccessIterator, typename T, typename LessThan>
+Q_INLINE_TEMPLATE RandomAccessIterator jreenBinaryFind(RandomAccessIterator begin, RandomAccessIterator end,
+                                                       const T &value, LessThan lessThan)
+{
+	RandomAccessIterator it = std::lower_bound(begin, end, value, lessThan);
+	if (it == end || lessThan(value, *it))
+		return end;
+	return it;
+}
+
 //enums
 template<typename T, int N>
 Q_INLINE_TEMPLATE int strToEnum(const T &str, const char *(&strings)[N])

@@ -42,10 +42,10 @@ public:
 	virtual bool isActivatable();
 	virtual bool activate();
 	virtual void reset();
-	virtual bool canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	virtual void handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	virtual void handleEndElement(const QStringRef &name, const QStringRef &uri);
-	virtual void handleCharacterData(const QStringRef &text);
+	virtual bool canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	virtual void handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	virtual void handleEndElement(QStringView name, QStringView uri);
+	virtual void handleCharacterData(QStringView text);
 	
 private:
 	RegistrationManager *m_manager;
