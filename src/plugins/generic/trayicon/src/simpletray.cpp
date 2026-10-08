@@ -260,6 +260,9 @@ void SimpleTray::handleNotification(Notification *notification)
 
 void SimpleTray::timerEvent(QTimerEvent *timer)
 {
+	// No system tray available
+	if (!m_icon)
+		return;
 	if (timer->timerId() != m_iconTimer.timerId()) {
 		QObject::timerEvent(timer);
 	} else {
@@ -336,6 +339,9 @@ static QIcon addIcon(const QIcon &backing, QIcon &icon, const QSize &size, int n
 
 void SimpleTray::generateIconSizes(const QIcon &backing, QIcon &icon, int number)
 {
+	// No system tray available
+	if (!m_icon)
+		return;
 	foreach (QSize sz, backing.availableSizes()) {
 		addIcon(backing, icon, sz, number);
 	}
@@ -347,6 +353,9 @@ void SimpleTray::generateIconSizes(const QIcon &backing, QIcon &icon, int number
 
 void SimpleTray::updateGeneratedIcon()
 {
+	// No system tray available
+	if (!m_icon)
+		return;
 	Notification *notif = currentNotification();
 	if (!notif) {
 		if (m_iconTimer.isActive())
@@ -486,6 +495,9 @@ void SimpleTray::onAccountDestroyed(QObject *obj)
 
 void SimpleTray::onAccountCreated(qutim_sdk_0_3::Account *account)
 {
+	// No system tray available
+	if (!m_icon)
+		return;
 	if (m_actions.contains(account))
 		return;
 	m_accounts << account;
@@ -508,6 +520,9 @@ void SimpleTray::onAccountCreated(qutim_sdk_0_3::Account *account)
 
 void SimpleTray::onStatusChanged(const qutim_sdk_0_3::Status &status)
 {
+	// No system tray available
+	if (!m_icon)
+		return;
 	Account *account = qobject_cast<Account*>(sender());
 	if (account == m_activeAccount || !m_activeAccount) {
 		m_activeAccount = account;

@@ -69,22 +69,7 @@ void JPlugin::init()
 				 QT_TRANSLATE_NOOP("Plugin", "Account creator for Jabber protocol"),
 				 new GeneralGenerator<JAccountWizard>(),
 				 jabberIcon);
-	addExtension(QT_TRANSLATE_NOOP("Plugin", "LiveJournal account creator"),
-				 QT_TRANSLATE_NOOP("Plugin", "Account creator for LiveJournal"),
-				 new GeneralGenerator<LJAccountWizard>(),
-				 ExtensionIcon("im-livejournal"));
-	addExtension(QT_TRANSLATE_NOOP("Plugin", "Google Talk account creator"),
-				 QT_TRANSLATE_NOOP("Plugin", "Account creator for Google Talk"),
-				 new GeneralGenerator<GTAccountWizard>(),
-				 ExtensionIcon("im-gtalk"));
-	addExtension(QT_TRANSLATE_NOOP("Plugin", "Yandex.Online account creator"),
-				 QT_TRANSLATE_NOOP("Plugin", "Account creator for Yandex.Online"),
-				 new GeneralGenerator<YAccountWizard>(),
-				 ExtensionIcon("im-yandex"));
-	addExtension(QT_TRANSLATE_NOOP("Plugin", "QIP account creator"),
-				 QT_TRANSLATE_NOOP("Plugin", "Account creator for QIP"),
-				 new GeneralGenerator<QIPAccountWizard>(),
-				 ExtensionIcon("im-qip"));
+	// LiveJournal, Google Talk, Yandex.Online and QIP XMPP services are shut down
 	addExtension(QT_TRANSLATE_NOOP("Plugin", "Jabber XML console"),
 				 QT_TRANSLATE_NOOP("Plugin", "XML console for low-level protocol debugging"),
 				 new GeneralGenerator<XmlConsole, JabberExtension>(),

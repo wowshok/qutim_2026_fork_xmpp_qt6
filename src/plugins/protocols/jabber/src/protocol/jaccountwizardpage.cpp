@@ -122,11 +122,7 @@ int JAccountWizardPage::nextId() const
 
 void JAccountWizardPage::on_newAccountButton_clicked()
 {
-	if (ui->serverEdit->count() == 0) {
-		QUrl url(QLatin1String("http://xmpp.net/services.xml"));
-		QNetworkRequest request(url);
-		m_networkManager.get(request);
-	}
+	// The public server list at xmpp.net/services.xml is gone, the server is typed in
 	setFinalPage(false);
 }
 
@@ -151,7 +147,7 @@ void JAccountWizardPage::onFinished(QNetworkReply *reply)
 		}
 	}
 	QString text = ui->serverEdit->currentText();
-	if (text.isEmpty()) {
+	if (text.isEmpty() && !servers.isEmpty()) {
 		int index = QRandomGenerator::global()->bounded(int(servers.size()));
 		text = servers.value(index);
 	}
