@@ -54,7 +54,7 @@
 #include <qutim/metacontactmanager.h>
 #include <QMenuBar>
 #include <QApplication>
-#include <QDesktopWidget>
+#include <QScreen>
 #include <QWidgetAction>
 #include <qutim/utils.h>
 #include "tagsfilterdialog.h"

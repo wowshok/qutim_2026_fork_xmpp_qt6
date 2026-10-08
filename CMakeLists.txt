@@ -29,3 +29,6 @@ find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Network Qml Quick)
 
 add_subdirectory(src/3rdparty)
 add_subdirectory(src/lib)
+add_subdirectory(src/bin)
+add_subdirectory(src/plugins)
+add_subdirectory(src/share)

@@ -55,8 +55,8 @@ public:
 		Conference &operator =(const Conference &o);
 		~Conference();
 		
-		bool operator ==(const Conference &o);
-		bool operator !=(const Conference &o);
+		bool operator ==(const Conference &o) const;
+		bool operator !=(const Conference &o) const;
 		bool isValid() const;
 		
 		void setJid(const JID &jid);

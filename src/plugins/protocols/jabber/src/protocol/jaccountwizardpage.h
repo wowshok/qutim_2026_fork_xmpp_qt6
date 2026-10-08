@@ -58,7 +58,7 @@ private:
 	QNetworkAccessManager m_networkManager;
 	JAccountWizard *m_accountWizard;
 	JAccountType m_type;
-	Ui::JAccountWizardPage *ui;
+	::Ui::JAccountWizardPage *ui;
 };
 }
 

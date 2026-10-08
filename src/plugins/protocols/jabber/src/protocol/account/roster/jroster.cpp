@@ -532,7 +532,8 @@ void JRoster::onMetaContactsReceived(const Jreen::MetaContactStorage::ItemList &
 {
 	Q_D(JRoster);
 	d->atMetaLoad = true;
-	QSet<QString> removedContacts = QSet<QString>::fromList(d->metacontacts.keys());
+	const QStringList metacontactIds = d->metacontacts.keys();
+	QSet<QString> removedContacts(metacontactIds.begin(), metacontactIds.end());
 	foreach (const Jreen::MetaContactStorage::Item &item, items) {
 		JContact *contact = d->contacts.value(item.jid().bare());
 		if (!contact)

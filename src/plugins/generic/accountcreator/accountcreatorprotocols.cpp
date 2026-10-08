@@ -74,7 +74,7 @@ AccountCreatorProtocols::AccountCreatorProtocols(QWizard *parent) :
 
 		QListWidgetItem *item = new QListWidgetItem(ui->protocolList);
 		item->setData(Qt::UserRole + 1, reinterpret_cast<qptrdiff>(wizard));
-		item->setData(Qt::UserRole + 2, qVariantFromValue(info));
+		item->setData(Qt::UserRole + 2, QVariant::fromValue(info));
 
 		item->setIcon(icon);
 		item->setText(info.name());

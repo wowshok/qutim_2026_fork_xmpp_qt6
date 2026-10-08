@@ -151,7 +151,7 @@ void JServiceBrowser::getInfo(QTreeWidgetItem *item)
 {
 	Jreen::Disco::Item di = item->data(0, ItemRole).value<Jreen::Disco::Item>();
 	Jreen::DiscoReply *reply = p->disco->requestInfo(di);
-	reply->setProperty("item", qVariantFromValue(item));
+	reply->setProperty("item", QVariant::fromValue(item));
 	p->cleanupHandler.add(reply);
 	connect(reply, SIGNAL(infoReceived(Jreen::Disco::Item)),
 			SLOT(onInfoReceived(Jreen::Disco::Item)));
@@ -166,7 +166,7 @@ void JServiceBrowser::getItems(QTreeWidgetItem *item)
 	Jreen::Disco::Item di = item->data(0, ItemRole).value<Jreen::Disco::Item>();
 	if (!item->childCount() && (di.actions() & Jreen::Disco::Item::ActionExpand)) {
 		Jreen::DiscoReply *reply = p->disco->requestItems(di);
-		reply->setProperty("item", qVariantFromValue(item));
+		reply->setProperty("item", QVariant::fromValue(item));
 		p->cleanupHandler.add(reply);
 		connect(reply, SIGNAL(itemsReceived(Jreen::Disco::ItemList)),
 				SLOT(onItemsReceived(Jreen::Disco::ItemList)));
@@ -179,7 +179,7 @@ void JServiceBrowser::onInfoReceived(const Jreen::Disco::Item &di)
 {
 	QTreeWidgetItem *item = sender()->property("item").value<QTreeWidgetItem*>();
 	Q_ASSERT(item);
-	item->setData(0, ItemRole, qVariantFromValue(di));
+	item->setData(0, ItemRole, QVariant::fromValue(di));
 	if (p->isConference && (di.hasIdentity("conference") || di.hasIdentity("server")))
 		item->setHidden(false);
 	if (!di.name().isEmpty())
@@ -239,7 +239,7 @@ void JServiceBrowser::onItemsReceived(const Jreen::Disco::ItemList &items)
 		else
 			item->setText(0, di.jid());
 		item->setExpanded(false);
-		item->setData(0, ItemRole, qVariantFromValue(di));
+		item->setData(0, ItemRole, QVariant::fromValue(di));
 		getInfo(item);
 	}
 	parentItem->setExpanded(true);
@@ -277,7 +277,7 @@ void JServiceBrowser::on_searchButton_clicked()
 	item->setText(0, server);
 	Jreen::Disco::Item di;
 	di.setJid(p->ui->serviceServer->currentText());
-	item->setData(0, ItemRole, qVariantFromValue(di));
+	item->setData(0, ItemRole, QVariant::fromValue(di));
 	getInfo(item);
 	p->ui->serviceServer->removeItem(p->ui->serviceServer->findText(server));
 	p->ui->serviceServer->insertItem(0, server);
@@ -344,7 +344,7 @@ void JServiceBrowser::showFeatures()
 	QString featuresText;
 	if (!di.features().isEmpty()) {
 		featuresText = QLatin1String("<b>") % tr("Features:") % QLatin1String("</b><br/>");
-		QStringList features = QStringList::fromSet(di.features());
+		QStringList features = di.features().values();
 		features.sort();
 		foreach(QString feature, features)
 			featuresText += feature % QLatin1String("<br/>");

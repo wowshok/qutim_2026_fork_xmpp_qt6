@@ -51,18 +51,12 @@ bool isTitle(const QModelIndex &index)
 
 const QWidget *getWidget(const QStyleOptionViewItem &option)
 {
-	if (const QStyleOptionViewItemV3 *v3 = qstyleoption_cast<const QStyleOptionViewItemV3 *>(&option))
-		return v3->widget;
-
-	return 0;
+	return option.widget;
 }
 
 QStyle *getStyle(const QStyleOptionViewItem& option)
 {
-	if (const QStyleOptionViewItemV3 *v3 = qstyleoption_cast<const QStyleOptionViewItemV3 *>(&option))
-		return v3->widget ? v3->widget->style() : QApplication::style();
-
-	return QApplication::style();
+	return option.widget ? option.widget->style() : QApplication::style();
 }
 
 QString description(const QModelIndex& index, QFontMetrics metrics, int width = 0, int firstLineWidth = 0)
@@ -104,13 +98,13 @@ void ItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option,
 {
 	Q_D(const ItemDelegate);
 	painter->setClipping(false); //spike
-	QStyleOptionViewItemV4 opt(option);
+	QStyleOptionViewItem opt(option);
 	QStyle *style = getStyle(opt);
 
 	QString title = index.data(Qt::DisplayRole).toString();
 
 	if (isSeparator(index)) {
-		opt.features &= ~QStyleOptionViewItemV2::Alternate;
+		opt.features &= ~QStyleOptionViewItem::Alternate;
 		painter->drawText(option.rect, Qt::AlignCenter, title);
 	}
 	else if (isTitle(index)) {
@@ -129,7 +123,7 @@ void ItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option,
 		QRect rect = option.rect;
 		rect.adjust(d->padding,0,0,0);
 		if (const QTreeView *view = qobject_cast<const QTreeView*>(getWidget(option))) {
-			QStyleOptionViewItemV2 branchOption;
+			QStyleOptionViewItem branchOption;
 			static const int i = 9; // ### hardcoded in qcommonstyle.cpp
 			QRect r = option.rect;
 			branchOption.rect = QRect(r.left() + i/2, r.top() + (r.height() - i)/2, i, i);
@@ -269,13 +263,13 @@ QRect ItemDelegatePrivate::checkRect(const QModelIndex& index,const QStyleOption
 
 QRect ItemDelegatePrivate::checkRect(const QStyleOptionViewItem &o, const QRect &rect) const
 {
-	QStyleOptionViewItemV4 option(o);
+	QStyleOptionViewItem option(o);
 	QStyleOptionButton opt;
 	opt.QStyleOption::operator=(option);
 	opt.rect = rect;
 	const QWidget *widget = getWidget(option);
 	QStyle *style = getStyle(option);
-	QRect checkRect = style->subElementRect(QStyle::SE_ViewItemCheckIndicator, &opt, widget);
+	QRect checkRect = style->subElementRect(QStyle::SE_ItemViewItemCheckIndicator, &opt, widget);
 	return checkRect;
 }
 
@@ -369,7 +363,7 @@ QRect ItemDelegate::drawCheck(QPainter *painter,
 		checkOption.state |= QStyle::State_On;
 		break;
 	}
-	getStyle(option)->drawPrimitive(QStyle::PE_IndicatorViewItemCheck, &checkOption, painter,getWidget(option));
+	getStyle(option)->drawPrimitive(QStyle::PE_IndicatorItemViewItemCheck, &checkOption, painter,getWidget(option));
 	return checkOption.rect;
 }
 

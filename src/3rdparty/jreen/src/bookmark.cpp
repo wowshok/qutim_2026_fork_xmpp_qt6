@@ -69,12 +69,12 @@ Bookmark::Conference::~Conference()
 {
 }
 
-bool Bookmark::Conference::operator ==(const Conference &o)
+bool Bookmark::Conference::operator ==(const Conference &o) const
 {
 	return d_ptr == o.d_ptr;
 }
 
-bool Bookmark::Conference::operator !=(const Conference &o)
+bool Bookmark::Conference::operator !=(const Conference &o) const
 {
 	return d_ptr != o.d_ptr;
 }

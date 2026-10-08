@@ -338,7 +338,7 @@ MessageHandler::Result RosterManager::doHandle(Message &message, QString *reason
 		MessageListContainer::Ptr container = session->property("__control_container").value<MessageListContainer::Ptr>();
 		if (!container) {
 			container = MessageListContainer::Ptr::create();
-			session->setProperty("__control_container", qVariantFromValue(container));
+			session->setProperty("__control_container", QVariant::fromValue(container));
 		}
 		if (message.isIncoming())
 			container->messages << message;

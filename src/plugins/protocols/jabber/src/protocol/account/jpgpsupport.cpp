@@ -632,7 +632,7 @@
 //	if (contact->pgpKeyId().isEmpty()) {
 //		JPGPKeyDialog *dialog = new JPGPKeyDialog(JPGPKeyDialog::PublicKeys, contact->pgpKeyId());
 //		connect(dialog, SIGNAL(accepted()), SLOT(onKeyDialogAccepted()));
-//		dialog->setProperty("object", qVariantFromValue(obj));
+//		dialog->setProperty("object", QVariant::fromValue(obj));
 //		dialog->show();
 //	} else {
 //		contact->setPGPKeyId(QString());

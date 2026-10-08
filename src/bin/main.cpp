@@ -28,7 +28,6 @@
 #include <random>
 
 #include <QApplication>
-#include <QTextCodec>
 #include <QWidget>
 #include <QTime>
 
@@ -44,10 +43,8 @@ int main(int argc, char *argv[])
 	{
 		std::random_device rd;
 		srand(rd());
-		qsrand(rd());
 	}
 	QApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
-	QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 	QApplication app(argc, argv);
 
 	Core::ModuleManagerImpl core;

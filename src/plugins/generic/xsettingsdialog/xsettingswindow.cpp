@@ -35,7 +35,9 @@
 #include <qutim/icon.h>
 #include <qutim/settingswidget.h>
 #include <qutim/config.h>
-#include <QDesktopWidget>
+#include <QScreen>
+#include <QActionGroup>
+#include <QGuiApplication>
 #include <QApplication>
 #include <QMessageBox>
 #include <QCloseEvent>
@@ -65,9 +67,9 @@ struct XSettingsWindowPrivate
 	QDialogButtonBox *buttonBox;
 	QSplitter *splitter;
 	QObject *controller;
-	QMap<Settings::Type,SettingsItem*> items;
+	QMultiMap<Settings::Type,SettingsItem*> items;
 	QList<SettingsWidget*> modifiedWidgets;
-	QMap<Settings::Type,QAction*> actionMap;
+	QMultiMap<Settings::Type,QAction*> actionMap;
 	QMap<QPair<int, QString>, QPointer<XSettingsWidget> > widgetsCache;
 	QAction *currentAction;
 	QWidget *parent;
@@ -97,7 +99,7 @@ XSettingsWindow::XSettingsWindow(const qutim_sdk_0_3::SettingsItemList& settings
 	} else {
 		data = cfg.value("geometry", QByteArray());
 		if (data.isEmpty() || !restoreGeometry(data)) {
-			QSize desktopSize = QApplication::desktop()->availableGeometry(QCursor::pos()).size();
+			QSize desktopSize = (QGuiApplication::screenAt(QCursor::pos()) ? QGuiApplication::screenAt(QCursor::pos()) : QGuiApplication::primaryScreen())->availableGeometry().size();
 			resize(desktopSize.width() / 2, desktopSize.height() * 2 / 3);
 			centerizeWidget(this);
 		}
@@ -168,7 +170,10 @@ XSettingsWindow::XSettingsWindow(const qutim_sdk_0_3::SettingsItemList& settings
 
 void XSettingsWindow::update(const qutim_sdk_0_3::SettingsItemList& settings)
 {
-	foreach (SettingsItem *item, (p->items.values().toSet() -= settings.toSet())) {
+	const QList<SettingsItem*> allItems = p->items.values();
+	QSet<SettingsItem*> removedItems(allItems.begin(), allItems.end());
+	removedItems -= QSet<SettingsItem*>(settings.begin(), settings.end());
+	foreach (SettingsItem *item, removedItems) {
 		QPair<int, QString> id = qMakePair(item->priority(), item->text().toString());
 		QPointer<XSettingsWidget> widget = p->widgetsCache.value(id);
 		if (widget && widget.data()->removeItem(item)) {
@@ -198,7 +203,7 @@ void XSettingsWindow::loadSettings(const qutim_sdk_0_3::SettingsItemList& settin
 {
 	foreach (SettingsItem *item,settings) {
 		//QListWidgetItem *list_item = new QListWidgetItem(item->icon(),item->text(),p->listWidget);
-		p->items.insertMulti(item->type(),item);
+		p->items.insert(item->type(),item);
 	}
 	ensureActions();
 }
@@ -229,7 +234,7 @@ void XSettingsWindow::ensureActions()
 			p->toolBar->addAction(a);
 			if (type == Settings::General) {
 				QAction *sep = p->toolBar->addSeparator();
-				p->actionMap.insertMulti(Settings::General, sep);
+				p->actionMap.insert(Settings::General, sep);
 			}
 		}
 	}
@@ -267,7 +272,7 @@ void XSettingsWindow::onGroupActionTriggered(QAction *a )
 		if (!icon.actualSize(QSize(1,1)).isValid())
 			icon = Icon("applications-system");
 		QListWidgetItem *listItem = new QListWidgetItem(icon, info.text, p->listWidget);
-		listItem->setData(Qt::UserRole, qVariantFromValue(info));
+		listItem->setData(Qt::UserRole, QVariant::fromValue(info));
 	}
 
 	if (p->listWidget->count() > 1)

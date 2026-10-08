@@ -47,7 +47,8 @@
 #include <QApplication>
 #include <QLineEdit>
 #include <qutim/metacontact.h>
-#include <QDesktopWidget>
+#include <QScreen>
+#include <QGuiApplication>
 #include <qutim/actiongenerator.h>
 #include <QTimer>
 #include <QKeyEvent>
@@ -163,7 +164,7 @@ SimpleWidget::SimpleWidget() : m_model("ContactModel")
 
 	Status status = Status(Status::Offline);
 	m_statusBtn->setText(status.name());
-	m_statusBtn->setProperty("lastStatus",qVariantFromValue(status));
+	m_statusBtn->setProperty("lastStatus",QVariant::fromValue(status));
 
 	statusMenu->addSeparator();
 
@@ -279,7 +280,7 @@ void SimpleWidget::onAccountStatusChanged(const qutim_sdk_0_3::Status &status)
 	action->setIcon(status.icon());
 
 	if (isStatusChange(status)) {
-		m_statusBtn->setProperty("lastStatus",qVariantFromValue(status));
+		m_statusBtn->setProperty("lastStatus",QVariant::fromValue(status));
 		m_statusBtn->setText(status.name());
 	}
 }
@@ -338,7 +339,7 @@ void SimpleWidget::changeStatusTextAccepted()
 #ifdef Q_WS_MAEMO_5
 void SimpleWidget::orientationChanged()
 {
-	QRect screenGeometry = QApplication::desktop()->screenGeometry();
+	QRect screenGeometry = QGuiApplication::primaryScreen()->geometry();
 	if (screenGeometry.width() > screenGeometry.height()) {
 		addToolBar(Qt::LeftToolBarArea,m_mainToolBar);
 		m_mainToolBar->setOrientation(Qt::Vertical);

@@ -59,7 +59,7 @@ private slots:
 	void onUnsupported();
 
 private:
-	Ui::JAccountRegistrationPage *ui;
+	::Ui::JAccountRegistrationPage *ui;
 	Jreen::Client *m_client;
 	Jreen::RegistrationManager *m_manager;
 	JDataForm *m_jabberForm;

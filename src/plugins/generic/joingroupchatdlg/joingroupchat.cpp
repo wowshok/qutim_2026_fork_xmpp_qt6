@@ -177,16 +177,16 @@ void JoinGroupChat::fillBookmarks(Account *account)
 	m_bookmarksBoxModel->startUpdating();
 	m_bookmarksViewModel->startUpdating();
 
-	QVariant fields = qVariantFromValue(QT_TRANSLATE_NOOP("JoinGroupChat", "Join an existing or create a new groupchat"));
+	QVariant fields = QVariant::fromValue(QT_TRANSLATE_NOOP("JoinGroupChat", "Join an existing or create a new groupchat"));
 	m_bookmarksViewModel->addItem(BookmarkNew,
 								  QT_TRANSLATE_NOOP("JoinGroupChat", "Join"),
 								  fields);
-	fields = qVariantFromValue(QT_TRANSLATE_NOOP("JoinGroupChat", "Create, edit, or delete saved bookmarks"));
+	fields = QVariant::fromValue(QT_TRANSLATE_NOOP("JoinGroupChat", "Create, edit, or delete saved bookmarks"));
 	m_bookmarksViewModel->addItem(BookmarkEdit,
 								  QT_TRANSLATE_NOOP("JoinGroupChat", "Manage bookmarks"),
 								  fields);
 	if(!m_uri.isEmpty()) {
-		fields = qVariantFromValue(QT_TRANSLATE_NOOP("JoinGroupChat",
+		fields = QVariant::fromValue(QT_TRANSLATE_NOOP("JoinGroupChat",
 													 QString("Join URI right now: %1").arg(m_uri).toUtf8()
 													 ));
 		m_bookmarksViewModel->addItem(BookmarkURI,

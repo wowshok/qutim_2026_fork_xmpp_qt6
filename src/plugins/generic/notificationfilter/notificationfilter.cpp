@@ -327,7 +327,7 @@ void NotificationFilterImpl::onAccountStatusChanged(const qutim_sdk_0_3::Status 
 			timer = new QTimer(this);
 			timer->setInterval(20000);
 			timer->setSingleShot(true);
-			timer->setProperty("account", qVariantFromValue(acc));
+			timer->setProperty("account", QVariant::fromValue(acc));
 			connect(timer, SIGNAL(timeout()), SLOT(onAccountConnected()));
 			m_connectingAccounts.insert(acc, timer);
 		} else {

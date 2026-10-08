@@ -159,11 +159,11 @@ namespace Jabber
 		if (mood->type() <= Jreen::Mood::Invalid)
 			return data;
 		data.insert(QLatin1String("mood"), mood->typeName());
-		data.insert(QLatin1String("title"), qVariantFromValue(moodsNames()->value(mood->type())));
+		data.insert(QLatin1String("title"), QVariant::fromValue(moodsNames()->value(mood->type())));
 		if (!mood->text().isEmpty())
 			data.insert(QLatin1String("description"), mood->text());
 		qutim_sdk_0_3::ExtensionIcon icon(QLatin1String("user-status-") + mood->typeName());
-		data.insert(QLatin1String("icon"), qVariantFromValue(icon));
+		data.insert(QLatin1String("icon"), QVariant::fromValue(icon));
 		data.insert(QLatin1String("showInTooltip"), true);
 		data.insert(QLatin1String("priorityInTooltip"), 70);
 		return data;

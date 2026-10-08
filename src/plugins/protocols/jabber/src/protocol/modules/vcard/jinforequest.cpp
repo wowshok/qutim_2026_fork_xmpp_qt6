@@ -396,8 +396,8 @@ DataItem typeItem(const T &val, const char *name,
 
 	DataItem item(QLatin1String(name),
 				  QT_TRANSLATE_NOOP("ContactInfo", "Type"),
-				  qVariantFromValue(descriptions.value(current)));
-	item.setProperty("alternatives", qVariantFromValue(descriptions));
+				  QVariant::fromValue(descriptions.value(current)));
+	item.setProperty("alternatives", QVariant::fromValue(descriptions));
 	item.setProperty("identificators", ids);
 	item.setProperty("additional", true);
 	return item;

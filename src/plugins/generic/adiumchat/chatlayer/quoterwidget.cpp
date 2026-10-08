@@ -81,7 +81,7 @@ QuoterWidget::QuoterWidget(const MessageList &messages, QObject *controller)
 	setWindowFlags(Qt::Popup | Qt::FramelessWindowHint);
 	foreach (const Message &message, messages) {
 		QListWidgetItem *item = new QListWidgetItem(this);
-		item->setData(MessageRole, qVariantFromValue(message));
+		item->setData(MessageRole, QVariant::fromValue(message));
 		QString text = getUnitNick(message);
 		text += message.time().toString(QLatin1String(" (hh:mm:ss)"));
 		text += QLatin1String("\n");

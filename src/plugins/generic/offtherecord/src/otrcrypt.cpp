@@ -65,20 +65,20 @@ void OtrActionGenerator::createImpl(QAction *action, QObject *obj) const
 	OTRCrypt::instance()->ensureClosure(stateInfo.unit);
 	QAction *startSessionAction = actionMenu->addAction(Icon("security-high"), OTRCrypt::tr("Start private Conversation"));
 	stateInfo.state = StartConversation;
-	startSessionAction->setData(qVariantFromValue(stateInfo));
+	startSessionAction->setData(QVariant::fromValue(stateInfo));
 	QAction *endSessionAction = actionMenu->addAction(Icon("security-low"), OTRCrypt::tr("End private Conversation"));
 	stateInfo.state = EndConversation;
-	endSessionAction->setData(qVariantFromValue(stateInfo));
+	endSessionAction->setData(QVariant::fromValue(stateInfo));
 	actionMenu->insertSeparator(NULL);
 	QAction *verifyAction = actionMenu->addAction(Icon("security-medium"), OTRCrypt::tr("Verify Fingerprint"));
 	stateInfo.state = VerifyFingerprint;
-	verifyAction->setData(qVariantFromValue(stateInfo));
+	verifyAction->setData(QVariant::fromValue(stateInfo));
 	QAction *sessionIdAction = actionMenu->addAction(OTRCrypt::tr("Show secure Session ID"));
 	stateInfo.state = ShowSessionID;
-	sessionIdAction->setData(qVariantFromValue(stateInfo));
+	sessionIdAction->setData(QVariant::fromValue(stateInfo));
 	QAction *fingerprintAction = actionMenu->addAction(OTRCrypt::tr("Show own Fingerprint"));
 	stateInfo.state = ShowFingerprint;
-	fingerprintAction->setData(qVariantFromValue(stateInfo));
+	fingerprintAction->setData(QVariant::fromValue(stateInfo));
 	action->setMenu(actionMenu);
 	QMenu *settingsMenu = actionMenu->addMenu(OTRCrypt::tr("Personal settings"));
 	OtrActionInfo info;
@@ -102,9 +102,9 @@ void OtrActionGenerator::createImpl(QAction *action, QObject *obj) const
 		action->setCheckable(true);
 		action->setChecked(i == 0);
 		policyInfo.policy = types[i].value;
-		action->setData(qVariantFromValue(policyInfo));
+		action->setData(QVariant::fromValue(policyInfo));
 	}
-	action->setData(qVariantFromValue(info));
+	action->setData(QVariant::fromValue(info));
 	settingsMenu->addActions(info.group->actions());
 	actionMenu->addMenu(settingsMenu);
 	QObject::connect(actionMenu, SIGNAL(triggered(QAction*)), OTRCrypt::instance(), SLOT(onActionTriggered(QAction*)));

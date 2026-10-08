@@ -99,12 +99,12 @@ void Notify::remove()
 		backend->removeNotification(m_notify);
 }
 
-int Notify::list_count(QQmlListProperty<Action> *list)
+qsizetype Notify::list_count(QQmlListProperty<Action> *list)
 {
 	return static_cast<Notify *>(list->object)->m_actions.size();
 }
 
-Action *Notify::list_at(QQmlListProperty<Action> *list, int index)
+Action *Notify::list_at(QQmlListProperty<Action> *list, qsizetype index)
 {
 	return static_cast<Notify *>(list->object)->m_actions.at(index);
 }

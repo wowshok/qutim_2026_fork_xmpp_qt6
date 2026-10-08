@@ -39,6 +39,7 @@
 #include <qutim/json.h>
 #include <jreen/error.h>
 #include <QUrl>
+#include <QRegularExpression>
 
 using namespace qutim_sdk_0_3;
 using namespace gloox;
@@ -66,7 +67,8 @@ JSoftwareDetection::JSoftwareDetection(JAccount *account) : QObject(account)
 	foreach (const QString &node, cache.childGroups()) {
 		cache.beginGroup(node);
 		SoftwareInfo info;
-		info.features = QSet<QString>::fromList(cache.value(QLatin1String("features"), QStringList()));
+		const QStringList features = cache.value(QLatin1String("features"), QStringList());
+		info.features = QSet<QString>(features.begin(), features.end());
 		info.name = cache.value(QLatin1String("name"), QString());
 		info.version = cache.value(QLatin1String("version"), QString());
 		info.os = cache.value(QLatin1String("os"), QString());
@@ -96,7 +98,7 @@ void JSoftwareDetection::timerEvent(QTimerEvent *ev)
 		for (int i = 0; i < m_recent.size(); i++) {
 			const SoftwareInfo info = m_hash.value(m_recent[i]);
 			cache.beginGroup(toConfigNode(m_recent[i]));
-			cache.setValue(QLatin1String("features"), QStringList(info.features.toList()));
+			cache.setValue(QLatin1String("features"), QStringList(info.features.values()));
 			cache.setValue(QLatin1String("name"), info.name);
 			cache.setValue(QLatin1String("version"), info.version);
 			cache.setValue(QLatin1String("os"), info.os);
@@ -130,9 +132,9 @@ void JSoftwareDetection::handlePresence(const Jreen::Presence &presence)
 				updateClientData(resource, client, software, softwareVersion, QString(), "gtalk-android");
 				return;
 			}
-			static const QRegExp regExp("^http://.*google.com/.*client/caps$");
+			static const QRegularExpression regExp(QStringLiteral("^http://.*google.com/.*client/caps$"));
 			Q_ASSERT(regExp.isValid());
-			if(regExp.exactMatch(capsNode))	{
+			if(regExp.match(capsNode).hasMatch())	{
 				QString software = "GTalk";
 				if(capsNode.startsWith("http://mail."))
 					software += " (GMail)";
@@ -332,17 +334,6 @@ QString JSoftwareDetection::getClientDescription(const QString &software, const 
 	return desc;
 }
 
-template <typename Char, int N>
-bool isStrEqual(const QString &s1, const Char (&s2)[N])
-{
-	if (N != s1.size())
-		return false;
-	for (int i = 0; i < N; i++)
-		if (s1[i] != s2[i])
-			return false;
-	return true;
-}
-
 QString JSoftwareDetection::getClientIcon(const QString &software)
 {
 	if (software.isEmpty())
@@ -357,7 +348,7 @@ QString JSoftwareDetection::getClientIcon(const QString &software)
 		return QLatin1String("bombus-pl");
 	else if (software == QLatin1String("bombus+"))
 		return QLatin1String("bombus-p");
-	else if (isStrEqual(software, L"Я.онлайн"))
+	else if (software == QStringLiteral("Я.онлайн"))
 		return QLatin1String("yachat");
 	else if (software == QLatin1String("hotcoffee"))
 		return QLatin1String("miranda-hotcoffee");
@@ -365,7 +356,7 @@ QString JSoftwareDetection::getClientIcon(const QString &software)
 		return QLatin1String("emacs");
 	else if (software == QLatin1String("just another jabber client"))
 		return QLatin1String("jajc");
-	else if (isStrEqual(software, L"Пиджин")) // Stupid pidgin devels! Name mustn't be localized!
+	else if (software == QStringLiteral("Пиджин")) // Stupid pidgin devels! Name mustn't be localized!
 		return QLatin1String("pidgin");
 	return (software.toLower().replace(' ', '-') += QLatin1String("-jabber"));
 }

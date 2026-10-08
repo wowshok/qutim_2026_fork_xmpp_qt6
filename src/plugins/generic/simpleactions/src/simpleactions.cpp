@@ -193,7 +193,7 @@ void SimpleActions::onContactRenameAction(QObject *o)
 	dialog->setWindowTitle(tr("Rename contact %1").arg(contact->title()));
 	dialog->setLabelText(tr("Input new name for contact %1").arg(contact->title()));
 	dialog->setTextValue(contact->name());
-	dialog->setProperty("contact", qVariantFromValue(contact));
+	dialog->setProperty("contact", QVariant::fromValue(contact));
 	SystemIntegration::open(dialog);
 	connect(dialog, SIGNAL(textValueSelected(QString)), SLOT(onContactNameSelected(QString)));
 	connect(dialog, SIGNAL(finished(int)), dialog, SLOT(deleteLater()));
@@ -224,7 +224,7 @@ void SimpleActions::onShowInfoActionCreated(QAction *action, QObject *controller
 {
 	InfoObserver *observer = new InfoObserver(controller);
 	updatInfoAction(action, observer->supportLevel());
-	observer->setProperty("action", qVariantFromValue<ActionPtr>(action));
+	observer->setProperty("action", QVariant::fromValue<ActionPtr>(action));
 	connect(observer, SIGNAL(supportLevelChanged(qutim_sdk_0_3::InfoRequestFactory::SupportLevel)),
 			SLOT(onInformationSupportLevelChanged(qutim_sdk_0_3::InfoRequestFactory::SupportLevel)));
 	connect(action, SIGNAL(destroyed()), observer, SLOT(deleteLater()));
@@ -241,7 +241,7 @@ void SimpleActions::onInformationSupportLevelChanged(InfoRequestFactory::Support
 void SimpleActions::onContactAddRemoveActionCreated(QAction *a, QObject *o)
 {
 	Contact *contact = sender_cast<Contact*>(o);
-	a->setProperty("contact", qVariantFromValue(contact));
+	a->setProperty("contact", QVariant::fromValue(contact));
 	AddRemove::checkContact(a, contact);
 	connect(contact, SIGNAL(inListChanged(bool)),
 			this, SLOT(inListChanged(bool)),
@@ -258,7 +258,7 @@ void SimpleActions::onContactAddRemoveAction(QObject *obj)
 											  QCoreApplication::translate("AddContact", "Remove contact"),
 											  tr("Are you sure you want to delete a contact %1 from the roster?").arg(contact->title()),
 											  QMessageBox::Yes | QMessageBox::No);
-		dialog->setProperty("contact", qVariantFromValue(contact));
+		dialog->setProperty("contact", QVariant::fromValue(contact));
 		connect(dialog, SIGNAL(finished(int)), dialog, SLOT(deleteLater()));
 		connect(contact, SIGNAL(destroyed()), dialog, SLOT(deleteLater()));
 		connect(dialog, SIGNAL(finished(int)), SLOT(onRemoveChoosed(int)));

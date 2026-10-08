@@ -109,7 +109,7 @@ void ServiceChoooserWidget::loadImpl()
 			item->setData(info.description().toString(),DescriptionRole);
 			if (selected.value(serviceName).toString() == ServiceChoooser::className(info))
 				item->setCheckState(Qt::Checked);
-			item->setData(qVariantFromValue(info), ServiceItem::ExtentionInfoRole);
+			item->setData(QVariant::fromValue(info), ServiceItem::ExtentionInfoRole);
 
 			m_service_items.value(serviceName)->appendRow(item);
 		}

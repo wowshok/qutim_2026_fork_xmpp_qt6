@@ -191,7 +191,7 @@ DataItem JBookmarkManager::fields(const Bookmark::Conference &bookmark, bool isB
 {
 	qutim_sdk_0_3::DataItem item(bookmark.name().isEmpty() ? bookmark.jid().bare() : bookmark.name());
 	if (bookmark.isValid()) {
-		item.setProperty("bookmark", qVariantFromValue(bookmark));
+		item.setProperty("bookmark", QVariant::fromValue(bookmark));
 	}
 	{
 		qutim_sdk_0_3::DataItem nameItem("name", QT_TRANSLATE_NOOP("Jabber", "Name"), bookmark.name());

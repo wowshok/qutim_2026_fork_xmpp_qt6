@@ -29,6 +29,7 @@
 #include <qutim/accountmanager.h>
 #include <QDebug>
 #include <QMetaMethod>
+#include <QRegularExpression>
 
 using namespace qutim_sdk_0_3;
 
@@ -379,7 +380,7 @@ void ContactListFrontModel::onRowsRemoved(const QModelIndex &parent, int first, 
 
 bool ContactListFrontModel::filterAcceptsRowImpl(int sourceRow, const QModelIndex &sourceParent, bool checkCollapse) const
 {
-	const QRegExp regexp = filterRegExp();
+	const QRegularExpression regexp = filterRegularExpression();
 	QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
 
 	if (checkCollapse) {
@@ -388,14 +389,14 @@ bool ContactListFrontModel::filterAcceptsRowImpl(int sourceRow, const QModelInde
 			return false;
 	}
 
-	if (m_filterTags.isEmpty() && m_showOffline && regexp.isEmpty())
+	if (m_filterTags.isEmpty() && m_showOffline && regexp.pattern().isEmpty())
 		return true;
 
 	switch (index.data(ItemTypeRole).toInt()) {
 	case ContactType: {
 		Contact *contact = qobject_cast<Contact*>(index.data(BuddyRole).value<Buddy*>());
 		Q_ASSERT(contact);
-		if (!regexp.isEmpty()) {
+		if (!regexp.pattern().isEmpty()) {
 			return contact->id().contains(regexp) || contact->name().contains(regexp);
 		} else {
 			if (index.data(NotificationRole).toInt() >= Notification::IncomingMessage)

@@ -84,7 +84,7 @@ namespace Jabber
 				if (d->feature.isEmpty() || resource->checkFeature(d->feature)) {
 					isEmpty = false;
 					QAction *action = menu->addAction(Icon("user-online-jabber"), resource->name(), receiver(), member());
-					action->setData(qVariantFromValue<MenuController *>(resource));
+					action->setData(QVariant::fromValue<MenuController *>(resource));
 				}
 			}
 			if (isEmpty)

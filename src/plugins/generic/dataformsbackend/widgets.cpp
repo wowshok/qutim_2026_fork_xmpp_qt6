@@ -87,9 +87,9 @@ Label::Label(DefaultDataForm *dataForm, const DataItem &item, QWidget *parent) :
 	if (item.property("notSet", false)) {
 		enabled = false;
 	} else if (type == QVariant::Date) {
-		value = item.data().toDate().toString(Qt::SystemLocaleLongDate);
+		value = QLocale::system().toString(item.data().toDate(), QLocale::LongFormat);
 	} else if (type == QVariant::DateTime) {
-		value = item.data().toDateTime().toString(Qt::SystemLocaleLongDate);
+		value = QLocale::system().toString(item.data().toDateTime(), QLocale::LongFormat);
 	} else if (type == QVariant::Icon || type == QVariant::Pixmap || type == QVariant::Image) {
 		QSize size = item.property("imageSize", QSize(128, 128));
 		QPixmap pixmap = variantToPixmap(item.data(), size);
@@ -190,7 +190,7 @@ ComboBox::ComboBox(DefaultDataForm *dataForm,
 
 	setEditable(item.property("editable", false));
 	setMinimumContentsLength(12);
-	setSizeAdjustPolicy(AdjustToMinimumContentsLength);
+	setSizeAdjustPolicy(AdjustToMinimumContentsLengthWithIcon);
 	setCurrentIndex(current);
 
 	QVariant validatorVar = item.property(isTitle ? "titleValidator" : "validator");
@@ -654,7 +654,7 @@ inline QVariant IconWidget::data() const
 		else if (m_type == QVariant::Image)
 			return QVariant::fromValue(QImage(m_path));
 	} else {
-		const QPixmap &pixmap = *m_pixmapWidget->pixmap();
+		const QPixmap pixmap = m_pixmapWidget->pixmap();
 		if (m_type == QVariant::Icon)
 			return QVariant::fromValue(QIcon(pixmap));
 		else if (m_type == QVariant::Pixmap)

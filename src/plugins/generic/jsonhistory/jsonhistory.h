@@ -29,7 +29,6 @@
 #include <qutim/history.h>
 #include <QRunnable>
 #include <QDir>
-#include <QLinkedList>
 #include <QPointer>
 #include <QMutex>
 #include <QQueue>

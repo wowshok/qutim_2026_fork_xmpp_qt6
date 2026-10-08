@@ -28,6 +28,7 @@
 #include <QNetworkReply>
 #include <jreen/jid.h>
 #include <qutim/debug.h>
+#include <QRandomGenerator>
 
 namespace Jabber
 {
@@ -144,14 +145,14 @@ void JAccountWizardPage::onFinished(QNetworkReply *reply)
 		if (reader.readNextStartElement()) {
 			if (reader.name() != QLatin1String("item"))
 				continue;
-			QStringRef jid = reader.attributes().value(QLatin1String("jid"));
+			QStringView jid = reader.attributes().value(QLatin1String("jid"));
 			if (!jid.isEmpty())
 				servers << jid.toString();
 		}
 	}
 	QString text = ui->serverEdit->currentText();
 	if (text.isEmpty()) {
-		int index = qrand() % servers.size();
+		int index = QRandomGenerator::global()->bounded(int(servers.size()));
 		text = servers.value(index);
 	}
 	ui->serverEdit->addItems(servers);

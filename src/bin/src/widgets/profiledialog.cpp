@@ -70,7 +70,7 @@ ProfileDialog::ProfileDialog(Config &config, ModuleManager *parent) :
 
 			QListWidgetItem *item = new QListWidgetItem(ui->profileList);
 			item->setSizeHint(QSize(0, itemHeight));
-			item->setData(Qt::UserRole + 1, qVariantFromValue(group));
+			item->setData(Qt::UserRole + 1, QVariant::fromValue(group));
 
 			QString id = group.value("id", QString());
 			if (id == current)

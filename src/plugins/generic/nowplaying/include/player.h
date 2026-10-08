@@ -49,7 +49,7 @@ namespace nowplaying
 	class TrackInfoEvent : public Event
 	{
 	public:
-		inline TrackInfoEvent(const TrackInfo &info) : Event(eventId(), qVariantFromValue(info)) {}
+		inline TrackInfoEvent(const TrackInfo &info) : Event(eventId(), QVariant::fromValue(info)) {}
 		inline ~TrackInfoEvent() {}
 
 		static quint16 eventId() { return registerType("now-playing-track"); }

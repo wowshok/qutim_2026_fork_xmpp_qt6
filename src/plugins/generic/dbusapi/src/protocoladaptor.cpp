@@ -46,7 +46,7 @@ ProtocolAdaptor::ProtocolAdaptor(const QDBusConnection &dbus, Protocol *parent) 
 void ProtocolAdaptor::onAccountCreated(qutim_sdk_0_3::Account *account)
 {
 	AccountAdaptor *adaptor = new AccountAdaptor(m_dbus, m_path, account);
-	Event(dbus_adaptor_event_id, qVariantFromValue<Account*>(account)).send();
+	Event(dbus_adaptor_event_id, QVariant::fromValue<Account*>(account)).send();
 	m_dbus.registerObject(adaptor->path().path(), account, QDBusConnection::ExportAdaptors);
 	m_accounts.insert(account->id(), adaptor->path());
 	emit accountCreated(adaptor->path(), account->id());

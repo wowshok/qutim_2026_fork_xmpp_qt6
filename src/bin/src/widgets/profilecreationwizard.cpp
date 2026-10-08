@@ -24,7 +24,6 @@
 ****************************************************************************/
 
 #include "profilecreationwizard.h"
-#include "submitpage.h"
 #include <qutim/profilecreatorpage.h>
 #include <qutim/objectgenerator.h>
 #include <qutim/systeminfo.h>
@@ -37,8 +36,8 @@
 #include <QTimer>
 #include <QApplication>
 #include <QDebug>
-#include <QTextCodec>
 #include <QLibrary>
+#include <QRandomGenerator>
 #ifdef Q_OS_UNIX
 # include <pwd.h>
 # include <unistd.h>
@@ -74,7 +73,7 @@ QString randomString(int len)
 		symbols[26 * 2 + i] = '0' + i;
 	QString str(len, Qt::Uninitialized);
 	for (int i = 0; i < len; ++i)
-		str[i] = symbols[qrand() % size];
+		str[i] = symbols[QRandomGenerator::system()->bounded(size)];
 	return str;
 }
 
@@ -111,9 +110,8 @@ ProfileCreationWizard::ProfileCreationWizard(ModuleManager *parent,
 #if defined(Q_OS_UNIX)
 		QT_TRY {
 			struct passwd *userInfo = getpwuid(getuid());
-			QTextCodec *codec = QTextCodec::codecForLocale();
-			realId = codec->toUnicode(userInfo->pw_name);
-			realName = codec->toUnicode(userInfo->pw_gecos).section(',', 0, 0);
+			realId = QString::fromLocal8Bit(userInfo->pw_name);
+			realName = QString::fromLocal8Bit(userInfo->pw_gecos).section(',', 0, 0);
 		} QT_CATCH(...) {
 		}
 #elif defined(Q_OS_WIN32)
@@ -156,8 +154,6 @@ ProfileCreationWizard::ProfileCreationWizard(ModuleManager *parent,
 		}
 	}
 
-	SubmitPage *p = new SubmitPage(new StatisticsHelper(), this);
-	addPage(p);
 
 	setAttribute(Qt::WA_DeleteOnClose, true);
 	setAttribute(Qt::WA_QuitOnClose, false);
@@ -170,6 +166,10 @@ ProfileCreationWizard::ProfileCreationWizard(ModuleManager *parent,
 
 void ProfileCreationWizard::done(int result)
 {
+	// QWizard::done() validates the page only after this override has run,
+	// but the code below needs ProfileCreationPage::validatePage() results
+	if (result == Accepted && !validateCurrentPage())
+		return;
 	if (result == Accepted) {
 		ProfileCreationPage *page = findChild<ProfileCreationPage*>();
 		QList<ConfigBackend*> &configBackends = get_config_backends();

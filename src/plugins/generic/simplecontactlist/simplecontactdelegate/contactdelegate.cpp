@@ -44,17 +44,11 @@ struct ContactDelegatePrivate
 {
 	const QWidget *getWidget(const QStyleOptionViewItem &option)
 	{
-		if (const QStyleOptionViewItemV3 *v3 = qstyleoption_cast<const QStyleOptionViewItemV3 *>(&option))
-			return v3->widget;
-
-		return 0;
+		return option.widget;
 	}
 	QStyle *getStyle(const QStyleOptionViewItem& option)
 	{
-		if (const QStyleOptionViewItemV3 *v3 = qstyleoption_cast<const QStyleOptionViewItemV3 *>(&option))
-			return v3->widget ? v3->widget->style() : QApplication::style();
-
-		return QApplication::style();
+		return option.widget ? option.widget->style() : QApplication::style();
 	}
 	int verticalPadding;
 	int horizontalPadding;
@@ -139,7 +133,7 @@ void ContactDelegate::paint(QPainter *painter,
 {
 	// ajust contact font
 	painter->setFont(p->contactFont);
-	QStyleOptionViewItemV4 opt(option);
+	QStyleOptionViewItem opt(option);
 	painter->save();
 	QStyle *style = p->getStyle(option);
 	const QWidget *widget = opt.widget;

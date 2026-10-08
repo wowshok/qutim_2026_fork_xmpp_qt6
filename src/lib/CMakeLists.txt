@@ -1,4 +1,4 @@
-file(GLOB LIBQUTIM_SRC CONFIGURE_DEPENDS qutim/*.cpp qutim/*.h qutim/*.ui)
+file(GLOB_RECURSE LIBQUTIM_SRC CONFIGURE_DEPENDS qutim/*.cpp qutim/*.h qutim/*.ui)
 
 set(THIRDPARTY_DIR "${CMAKE_SOURCE_DIR}/src/3rdparty")
 

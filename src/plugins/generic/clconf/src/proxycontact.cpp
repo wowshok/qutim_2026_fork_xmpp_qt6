@@ -124,7 +124,7 @@ bool ProxyContact::eventFilter(QObject *obj, QEvent *ev)
 		Event *event = static_cast<Event*>(ev);
 		static quint16 realUnitRequestEvent = Event::registerType("real-chatunit-request");
 		if (event->id == realUnitRequestEvent) {
-			event->args[0] = qVariantFromValue<Contact*>(this);
+			event->args[0] = QVariant::fromValue<Contact*>(this);
 			event->accept();
 			return true;
 		}

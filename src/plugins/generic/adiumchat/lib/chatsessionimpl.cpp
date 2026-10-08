@@ -25,6 +25,7 @@
 
 #include "chatsessionimpl.h"
 #include <QStringBuilder>
+#include <QActionGroup>
 #include "chatlayerimpl.h"
 #include "chatsessionmodel.h"
 #include <QApplication>
@@ -435,7 +436,7 @@ void ChatSessionImplPrivate::fillMenu(QMenu *menu, ChatUnit *unit, const ChatUni
 	Q_Q(ChatSessionImpl);
 	QAction *act = new QAction(menu);
 	act->setText(QT_TRANSLATE_NOOP("ChatSession", "Auto"));
-	act->setData(qVariantFromValue(unit));
+	act->setData(QVariant::fromValue(unit));
 	act->setCheckable(true);
 	act->setChecked(!sendToLastActiveResource && unit == q->getCurrentUnit());
 	group.data()->addAction(act);
@@ -465,7 +466,7 @@ void ChatSessionImplPrivate::fillMenu(QMenu *menu, ChatUnit *unit, const ChatUni
 				act->setText(QString("%1 (%2)").arg(lower->title(), lower->id()));
 			else
 				act->setText(lower->title());
-			act->setData(qVariantFromValue(lower));
+			act->setData(QVariant::fromValue(lower));
 			act->setCheckable(true);
 			act->setChecked(!sendToLastActiveResource && lower == q->getCurrentUnit());
 			group.data()->addAction(act);

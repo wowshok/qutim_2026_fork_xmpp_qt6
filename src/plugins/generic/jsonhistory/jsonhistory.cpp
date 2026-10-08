@@ -422,7 +422,7 @@ AsyncResult<QList<QDate>> JsonHistory::dates(const ContactInfo &contact, const Q
 
 		QFile file(scope->getFileName(contact, month));
 		if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-			handler.handle(result.toList());
+			handler.handle(result.values());
 			return;
 		}
 
@@ -466,7 +466,7 @@ AsyncResult<QList<QDate>> JsonHistory::dates(const ContactInfo &contact, const Q
 			}
 		}
 
-		QList<QDate> sortedResult = result.toList();
+		QList<QDate> sortedResult = result.values();
 		std::sort(sortedResult.begin(), sortedResult.end());
 
 		handler.handle(sortedResult);

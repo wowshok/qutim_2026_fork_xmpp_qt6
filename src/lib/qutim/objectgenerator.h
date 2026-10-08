@@ -32,6 +32,21 @@
 
 namespace qutim_sdk_0_3
 {
+// Qt 6 deletes qobject_interface_iid<T>() for types without Q_DECLARE_INTERFACE,
+// Qt 5 returned nullptr for them
+template <typename T>
+constexpr auto interfaceIidHelper(int) -> decltype(qobject_interface_iid<T>())
+{ return qobject_interface_iid<T>(); }
+template <typename T>
+constexpr const char *interfaceIidHelper(...)
+{ return nullptr; }
+template <typename T>
+constexpr const char *interfaceIid()
+{ return interfaceIidHelper<T>(0); }
+}
+
+namespace qutim_sdk_0_3
+{
 class ObjectGeneratorPrivate;
 class ExtensionInfo;
 
@@ -204,13 +219,13 @@ protected:
 	template<typename T> static inline GeneratorList module_helper(const QObject *)
 	{ return ObjectGenerator::module(&T::staticMetaObject); }
 	template<typename T> static inline GeneratorList module_helper(const void *)
-	{ return ObjectGenerator::module(qobject_interface_iid<T *>()); }
+	{ return ObjectGenerator::module(interfaceIid<T *>()); }
 	template<typename T>
 	inline bool extends_helper(const QObject *) const
 	{ return extends(&T::staticMetaObject); }
 	template<typename T>
 	inline bool extends_helper(const void *) const
-	{ return extends(qobject_interface_iid<T *>()); }
+	{ return extends(interfaceIid<T *>()); }
 	QObject *generateHelper2() const;
 #endif
 protected:
@@ -288,8 +303,8 @@ private:
 	{
 		Interface *i = pointer;
 		Q_UNUSED(i);
-		if (qobject_interface_iid<Interface*>())
-			result << qobject_interface_iid<Interface*>();
+		if (interfaceIid<Interface*>())
+			result << interfaceIid<Interface*>();
 	}
 };
 

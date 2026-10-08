@@ -35,6 +35,7 @@
 #include <QtConcurrent/QtConcurrentFilter>
 #include <QCryptographicHash>
 #include <QTimer>
+#include <QRandomGenerator>
 
 #define BASE_URL "http://qutim.org/client_stuff/icons"
 #define ICONS_PATH "icons/hicolor/16x16/apps"
@@ -137,7 +138,7 @@ void UpdaterPlugin::onReplyFinished(QNetworkReply *reply)
 			// Now we should force IconEngine to update icon's cache
 			QDir dir = SystemInfo::getDir(SystemInfo::ShareDir);
 			dir.cd(QLatin1String("icons"));
-			QFile file(dir.filePath(QLatin1String("temporary-") + QString::number(qrand())));
+			QFile file(dir.filePath(QLatin1String("temporary-") + QString::number(QRandomGenerator::global()->generate())));
 			file.open(QFile::WriteOnly);
 			file.write("123");
 			file.flush();

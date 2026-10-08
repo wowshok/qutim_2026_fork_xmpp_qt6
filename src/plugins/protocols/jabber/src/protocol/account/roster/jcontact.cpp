@@ -62,7 +62,7 @@ public:
 	bool inList;
 	bool encrypted;
 	QString avatar;
-	QStringRef hash;
+	QString hash;
 	QHash<QString, QVariantHash> extInfo;
 	Jreen::RosterItem::SubscriptionType subscription;
 	Status status;
@@ -410,7 +410,7 @@ QString JContact::avatar() const
 
 QString JContact::avatarHash() const
 {
-	return d_func()->hash.toString();
+	return d_func()->hash;
 }
 
 void JContact::setAvatar(const QString &hex)
@@ -421,7 +421,7 @@ void JContact::setAvatar(const QString &hex)
 	d->avatar = d->account->getAvatarPath() % QLatin1Char('/') % hex;
 	int pos = d->avatar.lastIndexOf('/') + 1;
 	int length = d->avatar.length() - pos;
-	d->hash = QStringRef(&d->avatar, pos, length);
+	d->hash = d->avatar.mid(pos, length);
 	emit avatarChanged(d->avatar);
 	if (!qobject_cast<JAccountResource*>(this) && d->inList) {
 		RosterStorage::instance()->updateContact(this, d->account->roster()->version());

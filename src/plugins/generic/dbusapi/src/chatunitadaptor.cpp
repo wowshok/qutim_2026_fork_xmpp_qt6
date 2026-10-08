@@ -46,7 +46,7 @@ QDBusObjectPath ChatUnitAdaptor::ensurePath(QDBusConnection dbus, ChatUnit *unit
 	if (path.path().isEmpty() && unit) {
 		QDBusObjectPath accountPath = AccountAdaptor::hash().value(unit->account());
 		ChatUnitAdaptor *adaptor = new ChatUnitAdaptor(dbus, accountPath, unit);
-		Event(dbus_adaptor_event_id, qVariantFromValue<ChatUnit*>(unit)).send();
+		Event(dbus_adaptor_event_id, QVariant::fromValue<ChatUnit*>(unit)).send();
 		if (Conference *conf = qobject_cast<Conference*>(unit)) {
 			new ConferenceAdaptor(dbus, conf);
 		} else {

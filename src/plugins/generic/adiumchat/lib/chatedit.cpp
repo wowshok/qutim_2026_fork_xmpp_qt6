@@ -64,7 +64,7 @@ QString ChatEdit::textEditToPlainText()
 						   end.position() - begin.position() - (atEnd ? 0 : 1));
 		QString selectionText = begin.selection().toPlainText();
 		if (!first)
-			result += selectionText.midRef(1);
+			result += QStringView(selectionText).mid(1);
 		else
 			result += selectionText;
 		result += postValue;
@@ -177,7 +177,7 @@ void ChatEdit::send()
 	ChatUnit *unit = m_session.data()->getCurrentUnit();
 	if (trimmed.startsWith(QLatin1Char('/')) && trimmed.size() > 1) {
 		int index = trimmed.indexOf(QLatin1Char(' '));
-		QStringRef cmd = trimmed.midRef(1, (index == -1 ? trimmed.size() : index) - 1);
+		QStringView cmd = QStringView(trimmed).mid(1, (index == -1 ? trimmed.size() : index) - 1);
 		const QMetaObject *meta = unit->metaObject();
 		for (int i = meta->propertyCount() - 1; i >= 0; --i) {
 			QMetaProperty prop = meta->property(i);

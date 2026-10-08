@@ -160,7 +160,7 @@ QVariant PackageModel::data(const QModelIndex &index, int role) const
 	case Qt::DisplayRole:
 		return entry.content().name();
 	case ContentRole:
-		return qVariantFromValue(entry);
+		return QVariant::fromValue(entry);
 	case StateRole:
 		return entry.status();
 	case DetailRole:

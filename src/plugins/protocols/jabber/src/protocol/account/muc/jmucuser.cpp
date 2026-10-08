@@ -43,7 +43,7 @@ public:
 		role = MUCRoom::RoleNone;
 	}
 	QString avatar;
-	QStringRef hash;
+	QString hash;
 	MUCRoom::Affiliation affiliation;
 	MUCRoom::Role role;
 	QString realJid;
@@ -110,7 +110,7 @@ QString JMUCUser::avatar() const
 
 QString JMUCUser::avatarHash() const
 {
-	return d_func()->hash.toString();
+	return d_func()->hash;
 }
 
 void JMUCUser::setAvatar(const QString &hex)
@@ -119,7 +119,7 @@ void JMUCUser::setAvatar(const QString &hex)
 	if (d->hash == hex)
 		return;
 	d->avatar = static_cast<JAccount *>(account())->getAvatarPath() % QLatin1Char('/') % hex;
-	d->hash = d->avatar.rightRef(hex.size());
+	d->hash = d->avatar.right(hex.size());
 	emit avatarChanged(d->avatar);
 }
 

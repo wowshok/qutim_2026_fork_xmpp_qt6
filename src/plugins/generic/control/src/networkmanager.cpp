@@ -359,7 +359,7 @@ void NetworkManager::sendRequest(ChatUnit *contact, const QString &text)
 	QByteArray data = "request=" + paranoicEscape(text.toUtf8());
 	QNetworkReply *reply = QNetworkAccessManager::post(request, data);
 	connect(contact, SIGNAL(destroyed()), reply, SLOT(deleteLater()));
-	reply->setProperty("__control_contact", qVariantFromValue(contact));
+	reply->setProperty("__control_contact", QVariant::fromValue(contact));
 }
 
 QNetworkReply *NetworkManager::post(const QUrl &url, const QByteArray &body)
@@ -739,7 +739,7 @@ void NetworkManager::onTimer()
 	Scope::Ptr scope = Scope::Ptr::create();
 	scope->actions.prepend(actions);
 	scope->account = account;
-	reply->setProperty("scope", qVariantFromValue(scope));
+	reply->setProperty("scope", QVariant::fromValue(scope));
 	debug() << Json::generate(body);
 	m_currentReply = reply;
 }
