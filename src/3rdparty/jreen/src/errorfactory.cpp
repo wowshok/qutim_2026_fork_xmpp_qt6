@@ -61,7 +61,7 @@ ErrorFactory::ErrorFactory()
 {
 }
 
-bool ErrorFactory::canParse(const QStringRef& name, const QStringRef& uri, const QXmlStreamAttributes&)
+bool ErrorFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes&)
 {
 	return name == QLatin1String("error") && (uri == NS_ERROR || uri == NS_ERROR2);
 }
@@ -76,12 +76,12 @@ QStringList ErrorFactory::features() const
 	return QStringList(NS_ERROR);
 }
 
-void ErrorFactory::handleStartElement(const QStringRef& name, const QStringRef& uri, const QXmlStreamAttributes& attributes)
+void ErrorFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes& attributes)
 {
 	Q_UNUSED(uri);
 	m_depth++;
 	if (m_depth == 1) {
-		QStringRef subtype = attributes.value(QLatin1String("type"));
+		QStringView subtype = attributes.value(QLatin1String("type"));
 		m_type = strToEnum<Error::Type>(subtype,error_types);
 		m_text.clear();
 	} else if(m_depth == 2) {
@@ -94,12 +94,12 @@ void ErrorFactory::handleStartElement(const QStringRef& name, const QStringRef& 
 	}
 }
 
-void ErrorFactory::handleCharacterData(const QStringRef& text)
+void ErrorFactory::handleCharacterData(QStringView text)
 {
 	if (m_state == AtText)
 		m_text = text.toString();
 }
-void ErrorFactory::handleEndElement(const QStringRef& name, const QStringRef& uri)
+void ErrorFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);

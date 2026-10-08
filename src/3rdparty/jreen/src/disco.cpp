@@ -50,13 +50,13 @@ QStringList DiscoInfoFactory::features() const
 	return QStringList(NS_DISCO_INFO);
 }
 
-bool DiscoInfoFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool DiscoInfoFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("query") && uri == NS_DISCO_INFO;
 }
 
-void DiscoInfoFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void DiscoInfoFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	m_depth++;
 	if (m_depth == 1) {
@@ -83,7 +83,7 @@ void DiscoInfoFactory::handleStartElement(const QStringRef &name, const QStringR
 		m_factory.handleStartElement(name, uri, attributes);
 }
 
-void DiscoInfoFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void DiscoInfoFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	if (m_state == AtDataForm)
 		m_factory.handleEndElement(name, uri);
@@ -95,7 +95,7 @@ void DiscoInfoFactory::handleEndElement(const QStringRef &name, const QStringRef
 	m_depth--;
 }
 
-void DiscoInfoFactory::handleCharacterData(const QStringRef &text)
+void DiscoInfoFactory::handleCharacterData(QStringView text)
 {
 	if (m_state == AtDataForm)
 		m_factory.handleCharacterData(text);
@@ -146,15 +146,15 @@ QStringList DiscoItemsFactory::features() const
 	return QStringList(NS_DISCO_ITEMS);
 }
 
-bool DiscoItemsFactory::canParse(const QStringRef &name, const QStringRef &uri,
+bool DiscoItemsFactory::canParse(QStringView name, QStringView uri,
 			  const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("query") && uri == NS_DISCO_ITEMS;
 }
 
-void DiscoItemsFactory::handleStartElement(const QStringRef &name,
-						const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void DiscoItemsFactory::handleStartElement(QStringView name,
+						QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
@@ -171,14 +171,14 @@ void DiscoItemsFactory::handleStartElement(const QStringRef &name,
 	}
 }
 
-void DiscoItemsFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void DiscoItemsFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 	m_depth--;
 }
 
-void DiscoItemsFactory::handleCharacterData(const QStringRef &text)
+void DiscoItemsFactory::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 }

@@ -445,7 +445,7 @@ void DataFormFieldListMulti::setChecked(int index, bool checked)
 		if (d_ptr->values.contains(value))
 			return;
 		DataFormValueLessThen lessThen = { d_ptr->options };
-		QStringList::iterator it = qLowerBound(d_ptr->values.begin(), d_ptr->values.end(), value, lessThen);
+		QStringList::iterator it = std::lower_bound(d_ptr->values.begin(), d_ptr->values.end(), value, lessThen);
 		d_ptr->values.insert(it, value);
 	}
 }

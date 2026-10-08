@@ -59,14 +59,14 @@ QStringList BookmarkFactory::features() const
 	return QStringList(NS_BOOKMARKS);
 }
 
-bool BookmarkFactory::canParse(const QStringRef &name, const QStringRef &uri,
+bool BookmarkFactory::canParse(QStringView name, QStringView uri,
 							   const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("storage") && uri == NS_BOOKMARKS;
 }
 
-void BookmarkFactory::handleStartElement(const QStringRef &name, const QStringRef &uri,
+void BookmarkFactory::handleStartElement(QStringView name, QStringView uri,
 										 const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
@@ -78,7 +78,7 @@ void BookmarkFactory::handleStartElement(const QStringRef &name, const QStringRe
 		m_state = AtConference;
 		m_conference = Bookmark::Conference();
 		m_conference.setName(attributes.value(QLatin1String("name")).toString());
-		QStringRef autojoin = attributes.value(QLatin1String("autojoin"));
+		QStringView autojoin = attributes.value(QLatin1String("autojoin"));
 		m_conference.setAutojoin(autojoin == QLatin1String("true"));
 		m_conference.setJid(attributes.value(QLatin1String("jid")).toString());
 	} else if(m_depth == 3 && m_state == AtConference) {
@@ -86,7 +86,7 @@ void BookmarkFactory::handleStartElement(const QStringRef &name, const QStringRe
 	}
 }
 
-void BookmarkFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void BookmarkFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
@@ -97,7 +97,7 @@ void BookmarkFactory::handleEndElement(const QStringRef &name, const QStringRef 
 	m_depth--;
 }
 
-void BookmarkFactory::handleCharacterData(const QStringRef &text)
+void BookmarkFactory::handleCharacterData(QStringView text)
 {
 	switch(m_state) {
 	case AtNick:

@@ -98,7 +98,7 @@ public:
 	virtual QString media() const;
 	virtual int payloadType() const;
 	virtual QStringList features() const;
-	virtual bool canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
+	virtual bool canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
 	
 protected:
 	const QString m_elementUri;
@@ -135,7 +135,7 @@ Q_INLINE_TEMPLATE QStringList JingleContentFactory<Extension>::features() const
 }
 
 template <typename Extension>
-Q_INLINE_TEMPLATE bool JingleContentFactory<Extension>::canParse(const QStringRef &name, const QStringRef &uri,
+Q_INLINE_TEMPLATE bool JingleContentFactory<Extension>::canParse(QStringView name, QStringView uri,
                                                                    const QXmlStreamAttributes &attributes)
 {
 	return name == QLatin1String("description") && uri == m_elementUri

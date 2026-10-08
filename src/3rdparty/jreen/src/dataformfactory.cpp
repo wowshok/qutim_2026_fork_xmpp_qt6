@@ -50,14 +50,14 @@ public:
 	{
 
 	}
-	virtual bool canParse(const QStringRef &name, const QStringRef &uri,
+	virtual bool canParse(QStringView name, QStringView uri,
 						  const QXmlStreamAttributes &attributes)
 	{
 		Q_UNUSED(uri);
 		Q_UNUSED(attributes);
 		return name == QLatin1String("option");
 	}
-	virtual void handleStartElement(const QStringRef &name, const QStringRef &uri,
+	virtual void handleStartElement(QStringView name, QStringView uri,
 									const QXmlStreamAttributes &attributes)
 	{
 		Q_UNUSED(name);
@@ -70,7 +70,7 @@ public:
 			m_atValue = 1;
 		}
 	}
-	virtual void handleEndElement(const QStringRef &name, const QStringRef &uri)
+	virtual void handleEndElement(QStringView name, QStringView uri)
 	{
 		Q_UNUSED(name);
 		Q_UNUSED(uri);
@@ -78,7 +78,7 @@ public:
 			m_atValue = 0;
 		m_depth--;
 	}
-	virtual void handleCharacterData(const QStringRef &text)
+	virtual void handleCharacterData(QStringView text)
 	{
 		if(m_depth == 2 && m_atValue)
 			m_value = text.toString();
@@ -123,13 +123,13 @@ public:
 	{
 	}
 	
-	virtual bool canParse(const QStringRef &name, const QStringRef &uri,
+	virtual bool canParse(QStringView name, QStringView uri,
 						  const QXmlStreamAttributes &attributes)
 	{
 		Q_UNUSED(attributes);
 		return name == QLatin1String("media") && uri == NS_MEDIA;
 	}
-	virtual void handleStartElement(const QStringRef &name, const QStringRef &uri,
+	virtual void handleStartElement(QStringView name, QStringView uri,
 									const QXmlStreamAttributes &attributes)
 	{
 		Q_UNUSED(name);
@@ -144,7 +144,7 @@ public:
 			m_uriType = attributes.value(QLatin1String("type")).toString();
 		}
 	}
-	virtual void handleEndElement(const QStringRef &name, const QStringRef &uri)
+	virtual void handleEndElement(QStringView name, QStringView uri)
 	{
 		Q_UNUSED(name);
 		Q_UNUSED(uri);
@@ -152,7 +152,7 @@ public:
 			m_state = AtNowhere;
 		m_depth--;
 	}
-	virtual void handleCharacterData(const QStringRef &text)
+	virtual void handleCharacterData(QStringView text)
 	{
 		if(m_depth == 2 && m_state == AtUri) {
 			m_media->appendUri(text.toString(), m_uriType);
@@ -218,14 +218,14 @@ public:
 	{
 
 	}
-	virtual bool canParse(const QStringRef &name, const QStringRef &uri,
+	virtual bool canParse(QStringView name, QStringView uri,
 						  const QXmlStreamAttributes &attributes)
 	{
 		Q_UNUSED(uri);
 		Q_UNUSED(attributes);
 		return name == QLatin1String("field");
 	}
-	virtual void handleStartElement(const QStringRef &name, const QStringRef &uri,
+	virtual void handleStartElement(QStringView name, QStringView uri,
 									const QXmlStreamAttributes &attributes)
 	{
 		m_depth++;
@@ -252,7 +252,7 @@ public:
 		else if(m_state == AtMedia)
 			m_mediaParser.handleStartElement(name, uri, attributes);
 	}
-	virtual void handleEndElement(const QStringRef &name, const QStringRef &uri)
+	virtual void handleEndElement(QStringView name, QStringView uri)
 	{
 		if(m_state == AtOption) {
 			m_optionParser.handleEndElement(name,uri);
@@ -269,7 +269,7 @@ public:
 			m_state = AtNowhere;
 		m_depth--;
 	}
-	virtual void handleCharacterData(const QStringRef &text)
+	virtual void handleCharacterData(QStringView text)
 	{
 		switch(m_state) {
 		case AtValue:
@@ -402,13 +402,13 @@ QStringList DataFormFactory::features() const
 	return QStringList(NS_DATAFORM);
 }
 
-bool DataFormFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool DataFormFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("x") && uri == QLatin1String(NS_DATAFORM);
 }
 
-void DataFormFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void DataFormFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_D(DataFormFactory);
 	d->depth++;
@@ -428,7 +428,7 @@ void DataFormFactory::handleStartElement(const QStringRef &name, const QStringRe
 		d->fieldParser.handleStartElement(name,uri,attributes);
 }
 
-void DataFormFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void DataFormFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_D(DataFormFactory);
 	if(d->state == AtField) {
@@ -443,7 +443,7 @@ void DataFormFactory::handleEndElement(const QStringRef &name, const QStringRef 
 	d->depth--;
 }
 
-void DataFormFactory::handleCharacterData(const QStringRef &text)
+void DataFormFactory::handleCharacterData(QStringView text)
 {
 	Q_D(DataFormFactory);
 	switch(d->state) {

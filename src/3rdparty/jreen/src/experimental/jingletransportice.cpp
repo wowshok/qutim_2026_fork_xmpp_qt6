@@ -90,7 +90,7 @@ Transport::Transport(JingleContent *content)
 			addresses << address;
 		}
 	}
-	qSort(addresses.begin(), addresses.end(), addressLessThen);
+	std::sort(addresses.begin(), addresses.end(), addressLessThen);
 	QList<XMPP::Ice176::LocalAddress> localAddresses;
 	foreach (const QHostAddress &address, addresses) {
 		XMPP::Ice176::LocalAddress localAddress;
@@ -186,7 +186,7 @@ JingleTransport *TransportFactory::createObject(JingleContent *content)
 	return new Transport(content);
 }
 
-void TransportFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attr)
+void TransportFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attr)
 {
 	Q_UNUSED(uri);
 	m_depth++;
@@ -212,14 +212,14 @@ void TransportFactory::handleStartElement(const QStringRef &name, const QStringR
 	}
 }
 
-void TransportFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void TransportFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 	m_depth--;
 }
 
-void TransportFactory::handleCharacterData(const QStringRef &text)
+void TransportFactory::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 }

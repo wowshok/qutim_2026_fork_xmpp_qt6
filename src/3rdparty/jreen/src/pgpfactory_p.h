@@ -36,10 +36,10 @@ class JREEN_AUTOTEST_EXPORT PGPSignedFactory : public PayloadFactory<PGPSigned>
 public:
 	PGPSignedFactory();
 	QStringList features() const;
-	bool canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleEndElement(const QStringRef &name, const QStringRef &uri);
-	void handleCharacterData(const QStringRef &text);
+	bool canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleEndElement(QStringView name, QStringView uri);
+	void handleCharacterData(QStringView text);
 	void serialize(Payload *extension, QXmlStreamWriter *writer);
 	Payload::Ptr createPayload();
 private:
@@ -52,10 +52,10 @@ class JREEN_AUTOTEST_EXPORT PGPEncryptedFactory : public PayloadFactory<PGPEncry
 public:
 	PGPEncryptedFactory();
 	QStringList features() const;
-	bool canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleEndElement(const QStringRef &name, const QStringRef &uri);
-	void handleCharacterData(const QStringRef &text);
+	bool canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleEndElement(QStringView name, QStringView uri);
+	void handleCharacterData(QStringView text);
 	void serialize(Payload *extension, QXmlStreamWriter *writer);
 	Payload::Ptr createPayload();
 private:

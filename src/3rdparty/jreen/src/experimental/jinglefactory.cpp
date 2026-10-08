@@ -74,14 +74,14 @@ QStringList JingleFactory::features() const
 	return QStringList(NS_JINGLE) << NS_JINGLE_RTP;
 }
 
-bool JingleFactory::canParse(const QStringRef &name, const QStringRef &uri,
+bool JingleFactory::canParse(QStringView name, QStringView uri,
                              const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("jingle") && uri == NS_JINGLE;
 }
 
-void JingleFactory::handleStartElement(const QStringRef &name, const QStringRef &uri,
+void JingleFactory::handleStartElement(QStringView name, QStringView uri,
                                        const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
@@ -121,7 +121,7 @@ void JingleFactory::handleStartElement(const QStringRef &name, const QStringRef 
 		m_factory->handleStartElement(name, uri, attributes);
 }
 
-void JingleFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void JingleFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	if (m_factory) {
 		m_factory->handleEndElement(name, uri);
@@ -144,7 +144,7 @@ void JingleFactory::handleEndElement(const QStringRef &name, const QStringRef &u
 	--m_depth;
 }
 
-void JingleFactory::handleCharacterData(const QStringRef &text)
+void JingleFactory::handleCharacterData(QStringView text)
 {
 	if (m_factory)
 		m_factory->handleCharacterData(text);

@@ -48,27 +48,27 @@ QStringList AttentionFactory::features() const
 	return QStringList(NS_ATTENTION);
 }
 
-bool AttentionFactory::canParse(const QStringRef &name,
-								const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool AttentionFactory::canParse(QStringView name,
+								QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("attention") && uri == NS_ATTENTION;
 }
 
-void AttentionFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void AttentionFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
 	Q_UNUSED(name);
 }
 
-void AttentionFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void AttentionFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 }
 
-void AttentionFactory::handleCharacterData(const QStringRef &text)
+void AttentionFactory::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 }

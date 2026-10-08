@@ -48,15 +48,15 @@ QStringList VCardUpdateFactory::features() const
 	return QStringList(NS_VCARDUPDATE);
 }
 
-bool VCardUpdateFactory::canParse(const QStringRef &name, const QStringRef &uri,
+bool VCardUpdateFactory::canParse(QStringView name, QStringView uri,
 								  const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("x") && uri == NS_VCARDUPDATE;
 }
 
-void VCardUpdateFactory::handleStartElement(const QStringRef &name,
-											const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void VCardUpdateFactory::handleStartElement(QStringView name,
+											QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
@@ -70,7 +70,7 @@ void VCardUpdateFactory::handleStartElement(const QStringRef &name,
 	}
 }
 
-void VCardUpdateFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void VCardUpdateFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
@@ -79,7 +79,7 @@ void VCardUpdateFactory::handleEndElement(const QStringRef &name, const QStringR
 	m_depth--;
 }
 
-void VCardUpdateFactory::handleCharacterData(const QStringRef &text)
+void VCardUpdateFactory::handleCharacterData(QStringView text)
 {
 	if(m_depth == 2 && m_isPhoto)
 		m_hash = text.toString();

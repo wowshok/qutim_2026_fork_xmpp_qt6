@@ -112,14 +112,14 @@ void PresenceFactory::serialize(Stanza *stanza, QXmlStreamWriter *writer)
 	writer->writeEndElement();
 }
 
-bool PresenceFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool PresenceFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
 	return name == QLatin1String("presence");
 }
 
-void PresenceFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void PresenceFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	m_depth++;
 	if (m_depth == 1)
@@ -127,7 +127,7 @@ void PresenceFactory::handleStartElement(const QStringRef &name, const QStringRe
 	StanzaFactory::handleStartElement(name, uri, attributes);
 	PresencePrivate *p = static_cast<PresencePrivate*>(m_stanza.data());
 	if (m_depth == 1) {
-		QStringRef type = attributes.value(QLatin1String("type"));
+		QStringView type = attributes.value(QLatin1String("type"));
 		if (type == QLatin1String("unavailable"))
 			p->subtype = Presence::Unavailable;
 		else if (type == QLatin1String("probe"))
@@ -157,7 +157,7 @@ void PresenceFactory::handleStartElement(const QStringRef &name, const QStringRe
 	}
 }
 
-void PresenceFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void PresenceFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	StanzaFactory::handleEndElement(name, uri);
 	if (m_depth == 2)
@@ -165,7 +165,7 @@ void PresenceFactory::handleEndElement(const QStringRef &name, const QStringRef 
 	m_depth--;
 }
 
-void PresenceFactory::handleCharacterData(const QStringRef &text)
+void PresenceFactory::handleCharacterData(QStringView text)
 {
 	StanzaFactory::handleCharacterData(text);
 	if(m_depth == 2) {

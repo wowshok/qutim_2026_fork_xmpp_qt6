@@ -52,14 +52,14 @@ QStringList PublishFactory::features() const
 	return QStringList(NS_PUBSUB);
 }
 
-bool PublishFactory::canParse(const QStringRef &name, const QStringRef &uri,
+bool PublishFactory::canParse(QStringView name, QStringView uri,
 							  const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("pubsub") && uri == NS_PUBSUB;
 }
 
-void PublishFactory::handleStartElement(const QStringRef &name, const QStringRef &uri,
+void PublishFactory::handleStartElement(QStringView name, QStringView uri,
 										const QXmlStreamAttributes &attributes)
 {
 	m_depth++;
@@ -77,7 +77,7 @@ void PublishFactory::handleStartElement(const QStringRef &name, const QStringRef
 		m_factory->handleStartElement(name, uri, attributes);
 }
 
-void PublishFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void PublishFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	if (m_state == AtEntity)
 		m_factory->handleEndElement(name, uri);
@@ -92,7 +92,7 @@ void PublishFactory::handleEndElement(const QStringRef &name, const QStringRef &
 	m_depth--;
 }
 
-void PublishFactory::handleCharacterData(const QStringRef &text)
+void PublishFactory::handleCharacterData(QStringView text)
 {
 	if (m_state == AtEntity)
 		m_factory->handleCharacterData(text);
@@ -108,7 +108,7 @@ void PublishFactory::serialize(Payload *extension, QXmlStreamWriter *writer)
 		return;
 	} else if (!publish->node.isEmpty()) {
 		node = publish->node;
-		factory = findFactory(QStringRef(&node));
+		factory = findFactory(QStringView(node));
 	} else {
 		factory = findFactory(items.at(0)->payloadType());
 		node = factory ? factory->features().value(0) : QString();
@@ -143,7 +143,7 @@ Payload::Ptr PublishFactory::createPayload()
 	return Payload::Ptr(m_publish.take());
 }
 
-AbstractPayloadFactory *PublishFactory::findFactory(const QStringRef &node)
+AbstractPayloadFactory *PublishFactory::findFactory(QStringView node)
 {
 	for (int i = 0; i < m_factories.size(); i++) {
 		if (m_factories.at(i)->features().value(0) == node)

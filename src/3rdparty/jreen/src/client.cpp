@@ -317,7 +317,7 @@ int Client::port() const
 
 const QString Client::getID()
 {
-	return QLatin1Literal("Jreen:") % QString::number(qHash(this), 16) % QLatin1Char(':') % QString::number(d_func()->current_id++);
+	return QLatin1String("Jreen:") % QString::number(qHash(this), 16) % QLatin1Char(':') % QString::number(d_func()->current_id++);
 }
 
 Presence &Client::presence()
@@ -457,7 +457,7 @@ void Client::registerStreamFeature(StreamFeature *streamFeature)
 	Q_D(Client);
 	if(!streamFeature)
 		return;
-	d->features.insert(qLowerBound(d->features.begin(), d->features.end(),
+	d->features.insert(std::lower_bound(d->features.begin(), d->features.end(),
 	                               streamFeature, featureLessThan), streamFeature);
 	streamFeature->setStreamInfo(d->stream_info);
 }

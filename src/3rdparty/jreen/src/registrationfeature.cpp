@@ -57,13 +57,13 @@ void RegistrationFeature::reset()
 	m_activatable = false;
 }
 
-bool RegistrationFeature::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool RegistrationFeature::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("register") && uri == NS_REGISTER;
 }
 
-void RegistrationFeature::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void RegistrationFeature::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
@@ -71,13 +71,13 @@ void RegistrationFeature::handleStartElement(const QStringRef &name, const QStri
 		m_activatable = true;
 }
 
-void RegistrationFeature::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void RegistrationFeature::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 }
 
-void RegistrationFeature::handleCharacterData(const QStringRef &text)
+void RegistrationFeature::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 }

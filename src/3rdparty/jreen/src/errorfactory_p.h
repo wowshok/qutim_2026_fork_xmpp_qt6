@@ -35,12 +35,12 @@ class JREEN_AUTOTEST_EXPORT ErrorFactory : public PayloadFactory<Error>
 public:
     ErrorFactory();
     virtual ~ErrorFactory();
-    virtual bool canParse(const QStringRef& name, const QStringRef& uri, const QXmlStreamAttributes& attributes);
+    virtual bool canParse(QStringView name, QStringView uri, const QXmlStreamAttributes& attributes);
     virtual Payload::Ptr createPayload();
     virtual QStringList features() const;
-    virtual void handleStartElement(const QStringRef& name, const QStringRef& uri, const QXmlStreamAttributes& attributes);    
-    virtual void handleCharacterData(const QStringRef& text);
-    virtual void handleEndElement(const QStringRef& name, const QStringRef& uri);
+    virtual void handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes& attributes);    
+    virtual void handleCharacterData(QStringView text);
+    virtual void handleEndElement(QStringView name, QStringView uri);
     virtual void serialize(Payload* obj, QXmlStreamWriter* writer);
 private:
 	enum State {AtCondition,AtText};

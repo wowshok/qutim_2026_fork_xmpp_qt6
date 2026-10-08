@@ -66,8 +66,8 @@ public:
 	{
 		StartToken() : Token(StartElement) {}
 
-		QStringRef name;
-		QStringRef uri;
+		QString name;
+		QString uri;
 		QXmlStreamAttributes attributes;
 	};
 	
@@ -80,7 +80,7 @@ public:
 	{
 		CharactersToken() : Token(Characters) {}
 
-		QStringRef text;
+		QString text;
 	};
 	
 	StanzaPrivate(Type t) : type(t)
@@ -117,7 +117,6 @@ public:
 	QString id;
 	PayloadList extensions;
 	QList<Token*> tokens;
-	QString buffer;
 };
 
 }

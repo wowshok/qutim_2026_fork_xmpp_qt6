@@ -35,27 +35,27 @@
 namespace Jreen
 {
 
-bool NonSaslAuth::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool NonSaslAuth::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
 	return name == QLatin1String("auth") && uri == NS_IQ_AUTH;
 }
 
-void NonSaslAuth::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void NonSaslAuth::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
 }
 
-void NonSaslAuth::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void NonSaslAuth::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 }
 
-void NonSaslAuth::handleCharacterData(const QStringRef &text)
+void NonSaslAuth::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 }

@@ -27,6 +27,7 @@
 #include "util.h"
 #include "jid.h"
 #include <QCryptographicHash>
+#include <QRandomGenerator>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QUrl>
@@ -156,8 +157,8 @@ ConnectionBOSH::~ConnectionBOSH()
 bool ConnectionBOSH::open()
 {
 	Q_D(ConnectionBOSH);
-	d->rid = (quint64(qrand()) << 20) ^ quint64(qrand());
-	d->keyNum = (qAbs(qrand()) % 30) + 20;
+	d->rid = QRandomGenerator::global()->generate64();
+	d->keyNum = QRandomGenerator::global()->bounded(20, 50);
 	d->sendHeader(true);
 	d->authorized = false;
 	d->depth = 0;
@@ -280,7 +281,7 @@ void ConnectionBOSH::onRequestFinished(QNetworkReply *reply)
 					emit connected();
 				}
 				if (header)
-					d->streamParser->handleStartElement(QStringRef(), QStringRef(),
+					d->streamParser->handleStartElement(QStringView(), QStringView(),
 														QXmlStreamAttributes());
 			}
 			break;

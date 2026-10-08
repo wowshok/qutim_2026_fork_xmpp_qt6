@@ -38,13 +38,13 @@ QStringList CaptchaFactory::features() const
 	return QStringList();
 }
 
-bool CaptchaFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool CaptchaFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("captcha") && uri == NS_CAPTCHA;
 }
 
-void CaptchaFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void CaptchaFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	++m_depth;
 
@@ -57,7 +57,7 @@ void CaptchaFactory::handleStartElement(const QStringRef &name, const QStringRef
 		m_factory.handleStartElement(name, uri, attributes);
 }
 
-void CaptchaFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void CaptchaFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	if (m_atFactory) {
 		m_factory.handleEndElement(name, uri);
@@ -72,7 +72,7 @@ void CaptchaFactory::handleEndElement(const QStringRef &name, const QStringRef &
 	--m_depth;
 }
 
-void CaptchaFactory::handleCharacterData(const QStringRef &text)
+void CaptchaFactory::handleCharacterData(QStringView text)
 {
 	if (m_atFactory)
 		m_factory.handleCharacterData(text);

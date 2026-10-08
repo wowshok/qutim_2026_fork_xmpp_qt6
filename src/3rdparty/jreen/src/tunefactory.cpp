@@ -68,13 +68,13 @@ namespace Jreen
 		return QStringList(NS_TUNE);
 	}
 	
-	bool TuneFactory::canParse(const QStringRef &name, const QStringRef &uri,
+	bool TuneFactory::canParse(QStringView name, QStringView uri,
 							   const QXmlStreamAttributes &)
 	{
 		return name == QLatin1String("tune") && uri == NS_TUNE;
 	}
 	
-	void TuneFactory::handleStartElement(const QStringRef &name, const QStringRef &,
+	void TuneFactory::handleStartElement(QStringView name, QStringView ,
 										 const QXmlStreamAttributes &)
 	{
 		m_depth++;
@@ -85,14 +85,14 @@ namespace Jreen
 		//		m_subtype = strToEnum<Tune::Type>(name,tune_types);
 	}
 	
-	void TuneFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+	void TuneFactory::handleEndElement(QStringView name, QStringView uri)
 	{
 		Q_UNUSED(name);
 		Q_UNUSED(uri);
 		m_depth--;
 	}
 	
-	void TuneFactory::handleCharacterData(const QStringRef &text)
+	void TuneFactory::handleCharacterData(QStringView text)
 	{
 		if(m_depth == 2 && m_state != TuneInvalid)
 			m_data[m_state] = text.toString();

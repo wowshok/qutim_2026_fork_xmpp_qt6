@@ -251,7 +251,7 @@ void JingleAudioContentPrivate::send(int payload, const QByteArray &data)
 {
 	JingleRtpHeader header;
 	header.setSequence(sequence++);
-	header.setTimestamp(QDateTime::currentDateTime().toTime_t());
+	header.setTimestamp(QDateTime::currentDateTime().toSecsSinceEpoch());
 	header.setPayloadType(payload);
 	QByteArray result = header.data();
 	result += data;

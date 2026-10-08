@@ -45,27 +45,27 @@ QStringList NicknameFactory::features() const
 	return QStringList(NS_NICKNAME);
 }
 
-bool NicknameFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool NicknameFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
 	return name == QLatin1String("nick") && uri == NS_NICKNAME;
 }
 
-void NicknameFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void NicknameFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
 }
 
-void NicknameFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void NicknameFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 }
 
-void NicknameFactory::handleCharacterData(const QStringRef &text)
+void NicknameFactory::handleCharacterData(QStringView text)
 {
 	d_func()->nickname = text.toString();
 }

@@ -46,7 +46,6 @@
 #include "stanzafactory_p.h"
 #include "buffereddatastream.h"
 #include <QTimer>
-#include <QTextCodec>
 #include <QBuffer>
 #include <QNetworkProxyFactory>
 #include "stanza_p.h"

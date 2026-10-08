@@ -48,14 +48,14 @@ namespace Jreen
 		return QStringList(NS_TIME);
 	}
 	
-	bool EntityTimeFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+	bool EntityTimeFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 	{
 		Q_UNUSED(uri);
 		Q_UNUSED(attributes);
 		return name == QLatin1String("time") && uri == NS_TIME;
 	}
 	
-	void EntityTimeFactory::handleStartElement(const QStringRef &name, const QStringRef &uri,
+	void EntityTimeFactory::handleStartElement(QStringView name, QStringView uri,
 											   const QXmlStreamAttributes &attributes)
 	{
 		m_depth++;
@@ -73,7 +73,7 @@ namespace Jreen
 		Q_UNUSED(attributes);
 	}
 	
-	void EntityTimeFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+	void EntityTimeFactory::handleEndElement(QStringView name, QStringView uri)
 	{
 		if (m_depth == 2)
 			m_state = AtNowhere;
@@ -82,7 +82,7 @@ namespace Jreen
 		m_depth--;
 	}
 	
-	void EntityTimeFactory::handleCharacterData(const QStringRef &text)
+	void EntityTimeFactory::handleCharacterData(QStringView text)
 	{
 		if (m_state == AtUtc) {
 			m_utc = Util::fromStamp(text.toString());

@@ -43,14 +43,14 @@ QStringList MetaContactsFactory::features() const
 	return QStringList(NS_METACONTACTS);
 }
 
-bool MetaContactsFactory::canParse(const QStringRef &name, const QStringRef &uri,
+bool MetaContactsFactory::canParse(QStringView name, QStringView uri,
 							   const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("storage") && uri == NS_METACONTACTS;
 }
 
-void MetaContactsFactory::handleStartElement(const QStringRef &name, const QStringRef &uri,
+void MetaContactsFactory::handleStartElement(QStringView name, QStringView uri,
 										 const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
@@ -70,14 +70,14 @@ void MetaContactsFactory::handleStartElement(const QStringRef &name, const QStri
 	}
 }
 
-void MetaContactsFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void MetaContactsFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 	m_depth--;
 }
 
-void MetaContactsFactory::handleCharacterData(const QStringRef &text)
+void MetaContactsFactory::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 }

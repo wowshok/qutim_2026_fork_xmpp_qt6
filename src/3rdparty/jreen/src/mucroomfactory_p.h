@@ -37,10 +37,10 @@ public:
 	MUCRoomQueryFactory();
 	virtual ~MUCRoomQueryFactory();
 	QStringList features() const;
-	bool canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleEndElement(const QStringRef &name, const QStringRef &uri);
-	void handleCharacterData(const QStringRef &text);
+	bool canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleEndElement(QStringView name, QStringView uri);
+	void handleCharacterData(QStringView text);
 	void serialize(Payload *extension, QXmlStreamWriter *writer);
 	Payload::Ptr createPayload();
 };
@@ -50,10 +50,10 @@ class JREEN_AUTOTEST_EXPORT MUCRoomItemFactory : public XmlStreamFactory<MUCRoom
 public:
 	MUCRoomItemFactory();
 	virtual ~MUCRoomItemFactory();
-	bool canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleEndElement(const QStringRef &name, const QStringRef &uri);
-	void handleCharacterData(const QStringRef &text);
+	bool canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleEndElement(QStringView name, QStringView uri);
+	void handleCharacterData(QStringView text);
 	void serialize(MUCRoomItem *item, QXmlStreamWriter *writer);
 	void result(MUCRoomItem *item);
 private:
@@ -68,10 +68,10 @@ public:
 	MUCRoomUserQueryFactory();
 	virtual ~MUCRoomUserQueryFactory();
 	QStringList features() const;
-	bool canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleEndElement(const QStringRef &name, const QStringRef &uri);
-	void handleCharacterData(const QStringRef &text);
+	bool canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleEndElement(QStringView name, QStringView uri);
+	void handleCharacterData(QStringView text);
 	void serialize(Payload *extension, QXmlStreamWriter *writer);
 	Payload::Ptr createPayload();
 private:
@@ -88,10 +88,10 @@ public:
 	MUCRoomAdminQueryFactory();
 	virtual ~MUCRoomAdminQueryFactory();
 	QStringList features() const;
-	bool canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleEndElement(const QStringRef &name, const QStringRef &uri);
-	void handleCharacterData(const QStringRef &text);
+	bool canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleEndElement(QStringView name, QStringView uri);
+	void handleCharacterData(QStringView text);
 	void serialize(Payload *extension, QXmlStreamWriter *writer);
 	Payload::Ptr createPayload();
 private:
@@ -107,10 +107,10 @@ public:
 	MUCRoomOwnerQueryFactory();
 	virtual ~MUCRoomOwnerQueryFactory();
 	QStringList features() const;
-	bool canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleEndElement(const QStringRef &name, const QStringRef &uri);
-	void handleCharacterData(const QStringRef &text);
+	bool canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleEndElement(QStringView name, QStringView uri);
+	void handleCharacterData(QStringView text);
 	void serialize(Payload *extension, QXmlStreamWriter *writer);
 	Payload::Ptr createPayload();
 private:

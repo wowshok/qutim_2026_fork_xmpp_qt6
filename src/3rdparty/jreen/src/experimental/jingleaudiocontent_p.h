@@ -29,6 +29,7 @@
 #include "jingleaudiocontent.h"
 #include "jingleaudiopayload_p.h"
 #include "jinglecontent_p.h"
+#include <QRandomGenerator>
 
 namespace Jreen
 {
@@ -60,7 +61,7 @@ class JingleAudioContentPrivate : public JingleContentPrivate
 	Q_DECLARE_PUBLIC(JingleAudioContent)
 public:
 	JingleAudioContentPrivate(JingleAudioContent *q)
-	    : JingleContentPrivate(q), sequence(qrand()), lastSequence(0) {}
+	    : JingleContentPrivate(q), sequence(QRandomGenerator::global()->generate()), lastSequence(0) {}
 	
 	quint16 sequence;
 	quint16 lastSequence;

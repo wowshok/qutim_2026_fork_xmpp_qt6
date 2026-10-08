@@ -134,7 +134,7 @@ QStringList MoodFactory::features() const
 	return QStringList(NS_MOOD);
 }
 
-bool MoodFactory::canParse(const QStringRef &name, const QStringRef &uri,
+bool MoodFactory::canParse(QStringView name, QStringView uri,
 						   const QXmlStreamAttributes &)
 {
 	return name == QLatin1String("mood") && uri == NS_MOOD;
@@ -142,18 +142,18 @@ bool MoodFactory::canParse(const QStringRef &name, const QStringRef &uri,
 
 struct MoodLessThen
 {
-	bool operator()(const QStringRef &a, const char *b)
+	bool operator()(QStringView a, const char *b)
 	{
 		return a.compare(QLatin1String(b)) < 0;
 	}
 	
-	bool operator()(const char *a, const QStringRef &b)
+	bool operator()(const char *a, QStringView b)
 	{
 		return b.compare(QLatin1String(a)) > 0;
 	}
 };
 
-void MoodFactory::handleStartElement(const QStringRef &name, const QStringRef &,
+void MoodFactory::handleStartElement(QStringView name, QStringView ,
 									 const QXmlStreamAttributes &)
 {
 	m_depth++;
@@ -164,14 +164,14 @@ void MoodFactory::handleStartElement(const QStringRef &name, const QStringRef &,
 //		m_subtype = strToEnum<Mood::Type>(name,mood_types);
 }
 
-void MoodFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void MoodFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 	m_depth--;
 }
 
-void MoodFactory::handleCharacterData(const QStringRef &text)
+void MoodFactory::handleCharacterData(QStringView text)
 {
 	if(m_depth == 2)
 		m_text = text.toString();
@@ -202,13 +202,13 @@ QLatin1String MoodFactory::typeName(Mood::Type type)
 	return QLatin1String(type <= Mood::Invalid ? 0 : mood_types[type]);
 }
 
-Mood::Type MoodFactory::typeByName(const QStringRef &name)
+Mood::Type MoodFactory::typeByName(QStringView name)
 {
 	if (name.isEmpty())
 		return Mood::Empty;
 	int n = sizeof(mood_types)/sizeof(char*);
 	MoodLessThen moodLessThen;
-	const char **res = qBinaryFind(mood_types, mood_types + n, name, moodLessThen);
+	const char **res = jreenBinaryFind(mood_types, mood_types + n, name, moodLessThen);
 	return static_cast<Mood::Type>((res == mood_types + n) ? -1 : (res - mood_types));
 }
 

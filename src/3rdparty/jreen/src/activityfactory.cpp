@@ -122,12 +122,12 @@ static const char* specific_types[]= {
 
 struct ActivityLessThen
 {
-	bool operator()(const QStringRef &a, const char *b)
+	bool operator()(QStringView a, const char *b)
 	{
 		return a.compare(QLatin1String(b)) < 0;
 	}
 
-	bool operator()(const char *a, const QStringRef &b)
+	bool operator()(const char *a, QStringView b)
 	{
 		return b.compare(QLatin1String(a)) > 0;
 	}
@@ -148,13 +148,13 @@ QStringList ActivityFactory::features() const
 	return QStringList(NS_ACTIVITY);
 }
 
-bool ActivityFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool ActivityFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("activity") && uri == NS_ACTIVITY;
 }
 
-void ActivityFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void ActivityFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
@@ -174,7 +174,7 @@ void ActivityFactory::handleStartElement(const QStringRef &name, const QStringRe
 	}
 }
 
-void ActivityFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void ActivityFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
@@ -183,7 +183,7 @@ void ActivityFactory::handleEndElement(const QStringRef &name, const QStringRef 
 	m_depth--;
 }
 
-void ActivityFactory::handleCharacterData(const QStringRef &text)
+void ActivityFactory::handleCharacterData(QStringView text)
 {
 	if (m_depth == 2 && m_state == AtText)
 		m_text = text.toString();
@@ -223,12 +223,12 @@ Payload::Ptr ActivityFactory::createPayload()
 }
 
 template <typename T>
-static T typeByName(const QStringRef &name, const char* types[], int n)
+static T typeByName(QStringView name, const char* types[], int n)
 {
 	if (name.isEmpty())
 		return static_cast<T>(-2); // Empty
 	ActivityLessThen activityLessThen;
-	const char **res = qBinaryFind(types, types + n, name, activityLessThen);
+	const char **res = jreenBinaryFind(types, types + n, name, activityLessThen);
 	return static_cast<T>((res == types + n) ? -1 : (res - types));
 }
 
@@ -237,7 +237,7 @@ QLatin1String ActivityFactory::generalName(Activity::General general)
 	return QLatin1String(general <= Activity::InvalidGeneral ? 0 : general_types[general]);
 }
 
-Activity::General ActivityFactory::generalByName(const QStringRef &general)
+Activity::General ActivityFactory::generalByName(QStringView general)
 {
 	return typeByName<Activity::General>(general, general_types, sizeof(general_types)/sizeof(char*));
 }
@@ -247,7 +247,7 @@ QLatin1String ActivityFactory::specificName(Activity::Specific specific)
 	return QLatin1String(specific <= Activity::InvalidSpecific ? 0 : specific_types[specific]);
 }
 
-Activity::Specific ActivityFactory::specificByName(const QStringRef &specific)
+Activity::Specific ActivityFactory::specificByName(QStringView specific)
 {
 	return typeByName<Activity::Specific>(specific, specific_types, sizeof(specific_types)/sizeof(char*));
 }

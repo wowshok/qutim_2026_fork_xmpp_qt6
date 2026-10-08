@@ -94,14 +94,14 @@ QStringList CapabilitesFactory::features() const
 	return QStringList(NS_CAPS);
 }
 
-bool CapabilitesFactory::canParse(const QStringRef &name, const QStringRef &uri,
+bool CapabilitesFactory::canParse(QStringView name, QStringView uri,
 								  const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("c") && uri == NS_CAPS;
 }
 
-void CapabilitesFactory::handleStartElement(const QStringRef &name, const QStringRef &uri,
+void CapabilitesFactory::handleStartElement(QStringView name, QStringView uri,
 											const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(name);
@@ -110,13 +110,13 @@ void CapabilitesFactory::handleStartElement(const QStringRef &name, const QStrin
 	m_ver = attributes.value(QLatin1String("ver")).toString();
 }
 
-void CapabilitesFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void CapabilitesFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 }
 
-void CapabilitesFactory::handleCharacterData(const QStringRef &text)
+void CapabilitesFactory::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 }

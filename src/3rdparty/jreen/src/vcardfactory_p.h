@@ -36,10 +36,10 @@ class AbstractStructureParser : public XmlStreamParser
 {
 public:
 	AbstractStructureParser(const QLatin1String &name);
-	bool canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleEndElement(const QStringRef &name, const QStringRef &uri);
-	void handleCharacterData(const QStringRef &text);
+	bool canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleEndElement(QStringView name, QStringView uri);
+	void handleCharacterData(QStringView text);
 protected:
 	void serialize(void *zero, void *data, QXmlStreamWriter *writer);
 	void addByteArray(const QLatin1String &name, QByteArray *str);
@@ -104,10 +104,10 @@ public:
     VCardFactory();
     virtual ~VCardFactory();
 	QStringList features() const;
-	bool canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleEndElement(const QStringRef &name, const QStringRef &uri);
-	void handleCharacterData(const QStringRef &text);
+	bool canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleEndElement(QStringView name, QStringView uri);
+	void handleCharacterData(QStringView text);
 	void serialize(Payload *extension, QXmlStreamWriter *writer);
 	Payload::Ptr createPayload();	
 private:

@@ -107,10 +107,10 @@ namespace Jreen
 	{
 	public:
 		virtual ~XmlStreamParser() {}
-		virtual bool canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes) = 0;
-		virtual void handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes) = 0;
-		virtual void handleEndElement(const QStringRef &name, const QStringRef &uri) = 0;
-		virtual void handleCharacterData(const QStringRef &text) = 0;
+		virtual bool canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes) = 0;
+		virtual void handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes) = 0;
+		virtual void handleEndElement(QStringView name, QStringView uri) = 0;
+		virtual void handleCharacterData(QStringView text) = 0;
 	};
 	
 	template <typename T>

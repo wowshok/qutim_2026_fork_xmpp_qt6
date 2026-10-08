@@ -45,14 +45,14 @@ QStringList PingFactory::features() const
 	return QStringList(NS_PING);
 }
 
-bool PingFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool PingFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
 	Q_UNUSED(attributes);
 	return name == QLatin1String("ping") && uri == NS_PING;
 }
 
-void PingFactory::handleStartElement(const QStringRef &name, const QStringRef &uri,
+void PingFactory::handleStartElement(QStringView name, QStringView uri,
  const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(name);
@@ -60,13 +60,13 @@ void PingFactory::handleStartElement(const QStringRef &name, const QStringRef &u
 	Q_UNUSED(attributes);
 }
 
-void PingFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void PingFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 }
 
-void PingFactory::handleCharacterData(const QStringRef &text)
+void PingFactory::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 }

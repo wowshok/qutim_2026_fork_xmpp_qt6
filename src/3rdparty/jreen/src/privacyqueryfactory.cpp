@@ -48,7 +48,7 @@ QStringList PrivacyQueryFactory::features() const
 	return QStringList(NS_PRIVACY);
 }
 
-bool PrivacyQueryFactory::canParse(const QStringRef &name, const QStringRef &uri,
+bool PrivacyQueryFactory::canParse(QStringView name, QStringView uri,
 								   const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
@@ -61,7 +61,7 @@ static const char *privacy_actions[] = { "deny", "allow" };
 static const char *subscription_types[] = { "from", "to", "both", "remove", "none" };
 static const char *privacy_stanzas[] = { "message", "presence-in", "presence-out", "iq" };
 
-void PrivacyQueryFactory::handleStartElement(const QStringRef &name, const QStringRef &uri,
+void PrivacyQueryFactory::handleStartElement(QStringView name, QStringView uri,
 											 const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
@@ -69,7 +69,7 @@ void PrivacyQueryFactory::handleStartElement(const QStringRef &name, const QStri
 	if (m_depth == 1) {
 		m_query.reset(new PrivacyQuery);
 	} if (m_depth == 2) {
-		QStringRef listName = attributes.value(QLatin1String("name"));
+		QStringView listName = attributes.value(QLatin1String("name"));
 		if (name == QLatin1String("list")) {
 			m_state = AtList;
 			m_name = listName.toString();
@@ -84,7 +84,7 @@ void PrivacyQueryFactory::handleStartElement(const QStringRef &name, const QStri
 		m_items.append(m_items.isEmpty() ? PrivacyItem() : m_items.last());
 		PrivacyItem &item = m_items.last();
 		m_state = AtItem;
-		QStringRef data = attributes.value(QLatin1String("value"));
+		QStringView data = attributes.value(QLatin1String("value"));
 		int type = strToEnum(attributes.value(QLatin1String("type")), privacy_types);
 		if (type == -1 && !data.isEmpty())
 			type = item.type();
@@ -105,7 +105,7 @@ void PrivacyQueryFactory::handleStartElement(const QStringRef &name, const QStri
 		data = attributes.value(QLatin1String("action"));
 		item.setAction(strToEnum<PrivacyItem::Action>(data, privacy_actions));
 		item.setOrder(attributes.value(QLatin1String("order")).toString().toInt());
-		item.setStanzaTypes(0);
+		item.setStanzaTypes(PrivacyItem::StanzaTypes());
 	} else if (m_depth == 4 && m_state == AtItem) {
 		int data = strToEnum(name, privacy_stanzas);
 		if (data == -1)
@@ -115,7 +115,7 @@ void PrivacyQueryFactory::handleStartElement(const QStringRef &name, const QStri
 	}
 }
 
-void PrivacyQueryFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void PrivacyQueryFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
@@ -130,7 +130,7 @@ void PrivacyQueryFactory::handleEndElement(const QStringRef &name, const QString
 	m_depth--;
 }
 
-void PrivacyQueryFactory::handleCharacterData(const QStringRef &text)
+void PrivacyQueryFactory::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 }

@@ -48,7 +48,7 @@ QStringList MUCRoomQueryFactory::features() const
 	return QStringList(NS_MUC);
 }
 
-bool MUCRoomQueryFactory::canParse(const QStringRef &name, const QStringRef &uri,
+bool MUCRoomQueryFactory::canParse(QStringView name, QStringView uri,
 								   const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
@@ -56,7 +56,7 @@ bool MUCRoomQueryFactory::canParse(const QStringRef &name, const QStringRef &uri
 	return name == QLatin1String("x") && uri == NS_MUC;
 }
 
-void MUCRoomQueryFactory::handleStartElement(const QStringRef &name, const QStringRef &uri,
+void MUCRoomQueryFactory::handleStartElement(QStringView name, QStringView uri,
 											 const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(name);
@@ -64,13 +64,13 @@ void MUCRoomQueryFactory::handleStartElement(const QStringRef &name, const QStri
 	Q_UNUSED(attributes);
 }
 
-void MUCRoomQueryFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void MUCRoomQueryFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 }
 
-void MUCRoomQueryFactory::handleCharacterData(const QStringRef &text)
+void MUCRoomQueryFactory::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 }
@@ -121,7 +121,7 @@ MUCRoomItemFactory::~MUCRoomItemFactory()
 {
 }
 
-bool MUCRoomItemFactory::canParse(const QStringRef &name, const QStringRef &uri,
+bool MUCRoomItemFactory::canParse(QStringView name, QStringView uri,
 								  const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
@@ -129,7 +129,7 @@ bool MUCRoomItemFactory::canParse(const QStringRef &name, const QStringRef &uri,
 	return name == QLatin1String("item");
 }
 
-void MUCRoomItemFactory::handleStartElement(const QStringRef &name, const QStringRef &uri,
+void MUCRoomItemFactory::handleStartElement(QStringView name, QStringView uri,
 											const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
@@ -138,7 +138,7 @@ void MUCRoomItemFactory::handleStartElement(const QStringRef &name, const QStrin
 		m_item.reset(new MUCRoomItem);
 		m_item->jid = attributes.value(QLatin1String("jid")).toString();
 		m_item->nick = attributes.value(QLatin1String("nick")).toString();
-		QStringRef tmp = attributes.value(QLatin1String("affiliation"));
+		QStringView tmp = attributes.value(QLatin1String("affiliation"));
 		m_item->affiliation = strToEnum<MUCRoom::Affiliation>(tmp, mucroom_affiliations);
 		tmp = attributes.value(QLatin1String("role"));
 		m_item->role = strToEnum<MUCRoom::Role>(tmp, mucroom_roles);
@@ -150,7 +150,7 @@ void MUCRoomItemFactory::handleStartElement(const QStringRef &name, const QStrin
 	}
 }
 
-void MUCRoomItemFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void MUCRoomItemFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
@@ -159,7 +159,7 @@ void MUCRoomItemFactory::handleEndElement(const QStringRef &name, const QStringR
 	m_depth--;
 }
 
-void MUCRoomItemFactory::handleCharacterData(const QStringRef &text)
+void MUCRoomItemFactory::handleCharacterData(QStringView text)
 {
 	if (m_state == AtReason)
 		m_item->reason = text.toString();
@@ -206,7 +206,7 @@ QStringList MUCRoomUserQueryFactory::features() const
 	return QStringList(NS_MUCUSER);
 }
 
-bool MUCRoomUserQueryFactory::canParse(const QStringRef &name, const QStringRef &uri,
+bool MUCRoomUserQueryFactory::canParse(QStringView name, QStringView uri,
 									   const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
@@ -253,7 +253,7 @@ int userQueryCodeToFlag(int code)
 	}
 }
 
-void MUCRoomUserQueryFactory::handleStartElement(const QStringRef &name, const QStringRef &uri,
+void MUCRoomUserQueryFactory::handleStartElement(QStringView name, QStringView uri,
 												 const QXmlStreamAttributes &attributes)
 {
 	m_depth++;
@@ -263,7 +263,7 @@ void MUCRoomUserQueryFactory::handleStartElement(const QStringRef &name, const Q
 		if (m_item.canParse(name, uri, attributes)) {
 			m_state = AtItem;
 		} else if (name == QLatin1String("status")) {
-			QStringRef code = attributes.value(QLatin1String("code"));
+			QStringView code = attributes.value(QLatin1String("code"));
 			int codeInt = QString::fromRawData(code.data(), code.size()).toInt();
 			m_query->flags |= userQueryCodeToFlag(codeInt);
 		} else if (name == QLatin1String("invite")) {
@@ -287,7 +287,7 @@ void MUCRoomUserQueryFactory::handleStartElement(const QStringRef &name, const Q
 		m_item.handleStartElement(name, uri, attributes);
 }
 
-void MUCRoomUserQueryFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void MUCRoomUserQueryFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	if (m_state == AtItem) {
 		m_item.handleEndElement(name, uri);
@@ -303,7 +303,7 @@ void MUCRoomUserQueryFactory::handleEndElement(const QStringRef &name, const QSt
 	m_depth--;
 }
 
-void MUCRoomUserQueryFactory::handleCharacterData(const QStringRef &text)
+void MUCRoomUserQueryFactory::handleCharacterData(QStringView text)
 {
 	if (m_state == AtItem)
 		m_item.handleCharacterData(text);
@@ -356,7 +356,7 @@ QStringList MUCRoomAdminQueryFactory::features() const
 	return QStringList(NS_MUCADMIN);
 }
 
-bool MUCRoomAdminQueryFactory::canParse(const QStringRef &name, const QStringRef &uri,
+bool MUCRoomAdminQueryFactory::canParse(QStringView name, QStringView uri,
 										const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
@@ -364,7 +364,7 @@ bool MUCRoomAdminQueryFactory::canParse(const QStringRef &name, const QStringRef
 	return name == QLatin1String("query") && uri == NS_MUCADMIN;
 }
 
-void MUCRoomAdminQueryFactory::handleStartElement(const QStringRef &name, const QStringRef &uri,
+void MUCRoomAdminQueryFactory::handleStartElement(QStringView name, QStringView uri,
 												  const QXmlStreamAttributes &attributes)
 {
 	m_depth++;
@@ -376,7 +376,7 @@ void MUCRoomAdminQueryFactory::handleStartElement(const QStringRef &name, const 
 		m_item.handleStartElement(name, uri, attributes);
 }
 
-void MUCRoomAdminQueryFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void MUCRoomAdminQueryFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	if (m_state == AtItem) {
 		m_item.handleEndElement(name, uri);
@@ -390,7 +390,7 @@ void MUCRoomAdminQueryFactory::handleEndElement(const QStringRef &name, const QS
 	m_depth--;
 }
 
-void MUCRoomAdminQueryFactory::handleCharacterData(const QStringRef &text)
+void MUCRoomAdminQueryFactory::handleCharacterData(QStringView text)
 {
 	if (m_state == AtItem)
 		m_item.handleCharacterData(text);
@@ -426,7 +426,7 @@ QStringList MUCRoomOwnerQueryFactory::features() const
 	return QStringList(NS_MUCOWNER);
 }
 
-bool MUCRoomOwnerQueryFactory::canParse(const QStringRef &name, const QStringRef &uri,
+bool MUCRoomOwnerQueryFactory::canParse(QStringView name, QStringView uri,
 										const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(uri);
@@ -434,7 +434,7 @@ bool MUCRoomOwnerQueryFactory::canParse(const QStringRef &name, const QStringRef
 	return name == QLatin1String("query") && uri == NS_MUCOWNER;
 }
 
-void MUCRoomOwnerQueryFactory::handleStartElement(const QStringRef &name, const QStringRef &uri,
+void MUCRoomOwnerQueryFactory::handleStartElement(QStringView name, QStringView uri,
 												  const QXmlStreamAttributes &attributes)
 {
 	m_depth++;
@@ -446,7 +446,7 @@ void MUCRoomOwnerQueryFactory::handleStartElement(const QStringRef &name, const 
 		m_form.handleStartElement(name, uri, attributes);
 }
 
-void MUCRoomOwnerQueryFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void MUCRoomOwnerQueryFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	if (m_state == AtForm) {
 		m_form.handleEndElement(name, uri);
@@ -458,7 +458,7 @@ void MUCRoomOwnerQueryFactory::handleEndElement(const QStringRef &name, const QS
 	m_depth--;
 }
 
-void MUCRoomOwnerQueryFactory::handleCharacterData(const QStringRef &text)
+void MUCRoomOwnerQueryFactory::handleCharacterData(QStringView text)
 {
 	if (m_state == AtForm)
 		m_form.handleCharacterData(text);

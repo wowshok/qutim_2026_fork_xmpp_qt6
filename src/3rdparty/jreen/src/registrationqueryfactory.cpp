@@ -66,7 +66,7 @@ QStringList RegistrationQueryFactory::features() const
 	return QStringList(); // << NS_REGISTER;
 }
 
-bool RegistrationQueryFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool RegistrationQueryFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	m_state = Nowhere;
@@ -75,7 +75,7 @@ bool RegistrationQueryFactory::canParse(const QStringRef &name, const QStringRef
 	return name == QLatin1String("query") && uri == NS_REGISTER;
 }
 
-void RegistrationQueryFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void RegistrationQueryFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	++m_depth;
 	if (m_depth == 2) {
@@ -105,7 +105,7 @@ void RegistrationQueryFactory::handleStartElement(const QStringRef &name, const 
 		m_bobFactory.handleStartElement(name, uri, attributes);
 }
 
-void RegistrationQueryFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void RegistrationQueryFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	if (m_state == AtForm)
 		m_formFactory.handleEndElement(name, uri);
@@ -121,7 +121,7 @@ void RegistrationQueryFactory::handleEndElement(const QStringRef &name, const QS
 	--m_depth;
 }
 
-void RegistrationQueryFactory::handleCharacterData(const QStringRef &text)
+void RegistrationQueryFactory::handleCharacterData(QStringView text)
 {
 	if (m_state == AtForm)
 		m_formFactory.handleCharacterData(text);

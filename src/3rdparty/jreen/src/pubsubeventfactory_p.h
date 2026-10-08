@@ -39,14 +39,14 @@ public:
 	EventFactory(QList<AbstractPayloadFactory*> &factories);
 	~EventFactory();
 	QStringList features() const;
-	bool canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes);
-	void handleEndElement(const QStringRef &name, const QStringRef &uri);
-	void handleCharacterData(const QStringRef &text);
+	bool canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes);
+	void handleEndElement(QStringView name, QStringView uri);
+	void handleCharacterData(QStringView text);
 	void serialize(Payload *extension, QXmlStreamWriter *writer);
 	Payload::Ptr createPayload();
 private:
-	AbstractPayloadFactory *findFactory(const QStringRef &node);
+	AbstractPayloadFactory *findFactory(QStringView node);
 	AbstractPayloadFactory *findFactory(int type);
 
 	enum State { AtNowhere, AtItems, AtItem, AtEntity } m_state;

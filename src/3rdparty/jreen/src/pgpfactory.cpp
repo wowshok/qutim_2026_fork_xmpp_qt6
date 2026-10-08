@@ -41,13 +41,13 @@ QStringList PGPSignedFactory::features() const
 	return QStringList(NS_SIGNED);
 }
 
-bool PGPSignedFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool PGPSignedFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("x") && uri == NS_SIGNED;
 }
 
-void PGPSignedFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void PGPSignedFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
@@ -57,14 +57,14 @@ void PGPSignedFactory::handleStartElement(const QStringRef &name, const QStringR
 		m_query.reset(new PGPSigned);
 }
 
-void PGPSignedFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void PGPSignedFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 	--m_depth;
 }
 
-void PGPSignedFactory::handleCharacterData(const QStringRef &text)
+void PGPSignedFactory::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 	if (m_depth == 1)
@@ -94,13 +94,13 @@ QStringList PGPEncryptedFactory::features() const
 	return QStringList(NS_ENCRYPTED);
 }
 
-bool PGPEncryptedFactory::canParse(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+bool PGPEncryptedFactory::canParse(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(attributes);
 	return name == QLatin1String("x") && uri == NS_ENCRYPTED;
 }
 
-void PGPEncryptedFactory::handleStartElement(const QStringRef &name, const QStringRef &uri, const QXmlStreamAttributes &attributes)
+void PGPEncryptedFactory::handleStartElement(QStringView name, QStringView uri, const QXmlStreamAttributes &attributes)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
@@ -110,14 +110,14 @@ void PGPEncryptedFactory::handleStartElement(const QStringRef &name, const QStri
 		m_query.reset(new PGPEncrypted);
 }
 
-void PGPEncryptedFactory::handleEndElement(const QStringRef &name, const QStringRef &uri)
+void PGPEncryptedFactory::handleEndElement(QStringView name, QStringView uri)
 {
 	Q_UNUSED(name);
 	Q_UNUSED(uri);
 	--m_depth;
 }
 
-void PGPEncryptedFactory::handleCharacterData(const QStringRef &text)
+void PGPEncryptedFactory::handleCharacterData(QStringView text)
 {
 	Q_UNUSED(text);
 	if (m_depth == 1)
