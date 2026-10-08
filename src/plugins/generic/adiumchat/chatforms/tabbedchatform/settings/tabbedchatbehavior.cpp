@@ -121,7 +121,7 @@ void TabbedChatBehavior::loadImpl()
 	ui->tabPositionBox->setCurrentIndex(m_flags & TabsOnBottom ? 1 : 0);
 	ui->formLayoutBox->setCurrentIndex(m_flags & AdiumToolbar ? 1 : 0);
 
-	m_send_message_key = widget.value("sendKey", AdiumChat::SendCtrlEnter);
+	m_send_message_key = widget.value("sendKey", AdiumChat::SendEnter);
 	m_autoresize = widget.value("autoResize", false);
 	static_cast<QRadioButton *>(m_group->button(m_send_message_key))->setChecked(true);
 	Config history = cfg.group("chat/history");

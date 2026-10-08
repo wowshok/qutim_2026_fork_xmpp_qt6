@@ -109,6 +109,7 @@ endfunction()
 set(QUTIM_PLUGIN_TEMPLATE "${CMAKE_CURRENT_SOURCE_DIR}/plugintemplate.cpp")
 set(G "${CMAKE_CURRENT_SOURCE_DIR}/generic")
 
+find_package(Qt6 REQUIRED COMPONENTS Xml)
 find_package(Qt6Keychain REQUIRED)
 
 # Minimal XMPP client: without these qutim crashes or cannot create an account
@@ -144,6 +145,20 @@ foreach(p jsonhistory localization chatnotificationsbackend addcontactdlg contac
 endforeach()
 qutim_add_plugin(kineticpopups DIR "${G}/kineticpopups" EXCLUDE "/quickpopup/")
 qutim_add_plugin(trayicon DIR "${G}/trayicon")
+
+# Standard desktop features: contact actions, dialog buttons, protocol icons,
+# emoticons, sound theme, settings pages, file transfer, history viewer, search
+foreach(p simpleactions simpleactionbox adiumsrvicons emoticonssettings
+          notificationssettings notificationfilter proxysettings shortcutsettings filetransfer
+          filetransfersettings servicechooser simpleabout joinchatdialog soundthemeselector)
+	qutim_add_plugin(${p} DIR "${G}/${p}" SOURCE_DIR .)
+endforeach()
+foreach(p kopeteemoticonsbackend oldsoundtheme)
+	qutim_add_plugin(${p} DIR "${G}/${p}" SOURCE_DIR . LINK Qt6::Xml)
+endforeach()
+qutim_add_plugin(searchdialog DIR "${G}/searchdialog" SOURCE_DIR .)
+qutim_add_plugin(histview DIR "${G}/histview")
+qutim_add_plugin(unreadmessageskeeper DIR "${G}/unreadmessageskeeper")
 
 # XMPP, Jingle (VoIP) stays disabled
 qutim_add_plugin(jabber DIR "${CMAKE_CURRENT_SOURCE_DIR}/protocols/jabber" LINK jreen)

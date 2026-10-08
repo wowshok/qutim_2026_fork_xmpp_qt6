@@ -115,7 +115,7 @@ void AbstractSearchForm::updateServiceBox(QComboBox *serviceBox, QPushButton *up
 		int currentIndex = -1;
 		serviceBox->clear();
 		int i = 0;
-		foreach (const QString &service, services.toList()) {
+		foreach (const QString &service, services.values()) {
 			if (!service.isNull())
 				serviceBox->addItem(service);
 			if (currentIndex == -1 && service == currentService)

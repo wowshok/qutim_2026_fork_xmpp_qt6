@@ -38,20 +38,20 @@ namespace Core
 	{
 		QModelIndex index0 = sourceModel()->index(sourceRow, 0, sourceParent);
 		if(!m_complexHandling) {
-			return (sourceModel()->data(index0, qutim_sdk_0_3::DescriptionRole).toString().contains(filterRegExp())
-					|| sourceModel()->data(index0).toString().contains(filterRegExp()));
+			return (sourceModel()->data(index0, qutim_sdk_0_3::DescriptionRole).toString().contains(filterRegularExpression())
+					|| sourceModel()->data(index0).toString().contains(filterRegularExpression()));
 		}
 
-		if(index0.child(0, 0).isValid()) {
-			for(int i = 0; index0.child(i, 0).isValid(); ++i) {
-				if(sourceModel()->data(index0.child(i, 0)).toString().contains(filterRegExp())
-				   || sourceModel()->data(index0.child(i, 0), qutim_sdk_0_3::DescriptionRole)
-					  .toString().contains(filterRegExp()))
+		if(sourceModel()->index(0, 0, index0).isValid()) {
+			for(int i = 0; sourceModel()->index(i, 0, index0).isValid(); ++i) {
+				if(sourceModel()->data(sourceModel()->index(i, 0, index0)).toString().contains(filterRegularExpression())
+				   || sourceModel()->data(sourceModel()->index(i, 0, index0), qutim_sdk_0_3::DescriptionRole)
+					  .toString().contains(filterRegularExpression()))
 					return true;
 			}
 		} else {
-			return (sourceModel()->data(index0, qutim_sdk_0_3::DescriptionRole).toString().contains(filterRegExp())
-					|| sourceModel()->data(index0).toString().contains(filterRegExp()));
+			return (sourceModel()->data(index0, qutim_sdk_0_3::DescriptionRole).toString().contains(filterRegularExpression())
+					|| sourceModel()->data(index0).toString().contains(filterRegularExpression()));
 		}
 
 		return false;

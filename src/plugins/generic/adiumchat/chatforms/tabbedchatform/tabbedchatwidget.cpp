@@ -280,7 +280,7 @@ void TabbedChatWidget::loadSettings()
 		}
 		setProperty("loaded",true);
 	}
-	m_chatInput->setSendKey(cfg.value("sendKey", SendCtrlEnter));
+	m_chatInput->setSendKey(cfg.value("sendKey", SendEnter));
 	m_chatInput->setAutoResize(cfg.value("autoResize", false));
 
 	if(m_flags & IconsOnTabs)

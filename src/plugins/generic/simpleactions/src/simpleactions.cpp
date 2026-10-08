@@ -39,7 +39,7 @@
 #include <qutim/notification.h>
 #include <QClipboard>
 #include <QApplication>
-#include <QDesktopWidget>
+#include <QScreen>
 #include <QInputDialog>
 #include <QMessageBox>
 
