@@ -140,7 +140,7 @@ void LocalizationModule::loadLanguage(const QStringList &langs)
 	// For jabber's xml:lang
 	QLocale::setDefault(QLocale(langs.first()));
 	// Firstly we should try to load Qt's translation for selected languages
-	QString qtPath = QLibraryInfo::location(QLibraryInfo::TranslationsPath);
+	QString qtPath = QLibraryInfo::path(QLibraryInfo::TranslationsPath);
 	foreach (const QString &lang, langs) {
 		QTranslator *translator = new QTranslator(qApp);
 		if (!translator->load(QLatin1String("qt_") + lang, qtPath)) {
