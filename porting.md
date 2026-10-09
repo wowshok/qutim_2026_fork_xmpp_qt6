@@ -214,3 +214,45 @@ cmake --build build
 3. `jreen: port to Qt 6 (QStringRef -> QStringView, CMake)` (фаза 2)
 4. `libqutim: port to Qt 6, drop QtScript bindings` (фаза 3)
 5. `Build minimal XMPP plugin set with CMake` (фаза 4)
+
+## Фаза 7. Полный порт: все плагины и остальное, кроме протокольного слоя
+
+Договорённость от 2026-10-09: переносится весь qutIM — все плагины, QML, переводы, интеграции, —
+кроме подключений (jreen и протокольная часть jabber). Каждый пункт проверяется вручную в Xvfb против
+локального prosody, прежде чем считаться сделанным.
+
+### Аудит (состояние на начало фазы)
+
+Собрано 49 плагинов из 78 в `src/plugins/generic`. Найдено:
+
+1. **QML-модуль `org.qutim` (`src/qml`) не собирается вообще.** На нём держатся все QML-страницы.
+2. **QML написан под Qt Quick Controls 1** (14 файлов), Qt Quick 1 (6), `QtDesktop` (4), `QtQuick.Dialogs 1`
+   — в Qt 6 этого нет. Затронуты настройки трея, иконок, смайлов, автостатуса, антиспама, автоответчика,
+   напоминаний о ДР, превью ссылок, blogimprover, autopaster, окно «О программе», окно настроек
+   (`xsettingsdialog/qml`), стили всплывающих уведомлений.
+3. **Переводов нет.** `.po` → `lconvert` → `.ts` → `lrelease` → `share/languages/<lang>/<module>.qm` в CMake не перенесено.
+4. **Нет звука.** Бэкенд был на Phonon (удалён), `sdlsound` на SDL 1.2.
+5. **Нет автостатуса «Отошёл».** `idledetector` удалён (QtX11Extras); `idlestatuschanger` без него бесполезен.
+6. **Нет уведомлений рабочего стола** (`integrations/dbusnotifications`, freedesktop) и TCP keepalive
+   (`integrations/linuxintegration`) — удалены вместе с интеграциями, а для XFCE они нужны.
+7. **Молча сломанные `connect(SIGNAL/SLOT)`** на переименованных в Qt 6 сигналах — уже найдено пять, нужна сплошная проверка.
+8. **Тихие изменения поведения Qt 6**: адреса элементов `QList` больше не стабильны, `fromUtf8(QByteArray)`
+   не останавливается на NUL, `QVariant` сравнение, `QRegularExpression` без якорей и т.п. — нужна сплошная проверка.
+
+### План
+
+- 7.1 Инфраструктура: собрать `org.qutim` (C++ + qmldir), переписать весь QML на Qt Quick 2 + Controls 2,
+  перевести CMake на установку QML и переводов.
+- 7.2 Переводы: сборка `.qm` из `.po` для всех модулей, проверка русского интерфейса.
+- 7.3 Вернуть и портировать `idledetector` (X11 через xcb-screensaver, Wayland через D-Bus),
+  `dbusnotifications`, `linuxintegration`; новый звуковой бэкенд на Qt Multimedia вместо Phonon/SDL.
+- 7.4 Портировать оставшиеся плагины: highlighter, antispam, autoreply, urlpreview, massmessaging,
+  birthdayreminder, sessionhelper, clconf, logger, emoedit, nowplaying, dbusapi, idlestatuschanger,
+  chatspellchecker + hunspeller/aspeller, floaties, antiboss, formula, blogimprover, autopaster,
+  oldcontactdelegate, offtherecord, aescrypto; bearermanager переписать на `QNetworkInformation`.
+  Не переносятся (мёртвые сервисы/платформы): weather, updater, plugman, control, imagepub,
+  migration02x03, plistconfig, qrcicons, sdlsound (заменён Qt Multimedia).
+- 7.5 Сплошная проверка кода: все `SIGNAL()/SLOT()` против реальных сигнатур, все места с изменившимся
+  поведением Qt 6, предупреждения компилятора об устаревшем API.
+- 7.6 Проверка в работе: каждая страница настроек, каждое окно, сценарии чата/ростера/уведомлений/трея в Xvfb
+  против prosody, отдельно проверка трея на xfce4-panel.
