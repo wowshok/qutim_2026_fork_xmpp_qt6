@@ -24,6 +24,7 @@
 ****************************************************************************/
 
 #include "chatspellchecker.h"
+#include <QRegularExpression>
 #include <qutim/servicemanager.h>
 #include <QTextEdit>
 #include <QPlainTextEdit>
@@ -48,14 +49,16 @@ void SpellHighlighter::highlightBlock(const QString &text)
 	if (!m_speller)
 		return;
 
-	static QRegExp expression(QLatin1String("\\b\\w+\\b"));
+	// Unicode properties: without them \w and \b only know ASCII and Cyrillic
+	// words would never be checked (QRegExp handled Unicode by default)
+	static const QRegularExpression expression(QStringLiteral("\\b\\w+\\b"),
+											   QRegularExpression::UseUnicodePropertiesOption);
 
-	int index = text.indexOf(expression);
-	while (index >= 0) {
-		int length = expression.matchedLength();
-		if (!m_speller->isCorrect(expression.cap(0)))
-			setFormat(index, length, m_format);
-		index = text.indexOf(expression, index + length);
+	QRegularExpressionMatchIterator it = expression.globalMatch(text);
+	while (it.hasNext()) {
+		const QRegularExpressionMatch match = it.next();
+		if (!m_speller->isCorrect(match.captured(0)))
+			setFormat(match.capturedStart(), match.capturedLength(), m_format);
 	}
 }
 
@@ -146,7 +149,8 @@ void ChatSpellChecker::onTextEditContextMenuRequested(const QPoint &pos)
 		QTextBlock block = m_cursor.block();
 		const QString blockText = block.text();
 		if (!blockText.isEmpty()) {
-			static QRegExp separator("\\b");
+			static const QRegularExpression separator(QStringLiteral("\\b"),
+													  QRegularExpression::UseUnicodePropertiesOption);
 			int posInBlock = m_cursor.position() - block.position();
 			m_wordBegin = blockText.lastIndexOf(separator, posInBlock);
 			if (m_wordBegin != -1) {

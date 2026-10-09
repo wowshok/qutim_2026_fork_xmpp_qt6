@@ -2,8 +2,7 @@
 **
 ** qutIM - instant messenger
 **
-** Copyright © 2011 Nikita Belov <null@deltaz.org>
-** Copyright © 2012 Nicolay Izoderov <nico-izo@ya.ru>
+** Copyright © 2026 qutIM developers
 **
 *****************************************************************************
 **
@@ -24,45 +23,17 @@
 **
 ****************************************************************************/
 
-#ifndef HIGHLIGHTERITEMLIST_H
-#define HIGHLIGHTERITEMLIST_H
+#ifndef DPASTEPASTER_H
+#define DPASTEPASTER_H
 
-#include <QHBoxLayout>
-#include <QLabel>
-#include <QListWidgetItem>
-#include <QListWidget>
-#include <QPushButton>
-#include <QWidget>
-#include "highlightpattern.h"
-#include <QEvent>
+#include "pasterinterface.h"
 
-class HighlighterItemList : public QWidget
+class DpastePaster : public PasterInterface
 {
-	Q_OBJECT
-
 public:
-	HighlighterItemList(const HighlightPattern &pattern, QListWidget *regexList);
-	~HighlighterItemList();
-
-	HighlightPattern pattern() const;
-
-	QListWidgetItem *item();
-	void setItem(QListWidgetItem *item);
-
-
-signals:
-	void buttonClicked();
-
-protected:
-	virtual void changeEvent(QEvent *e);
-
-private:
-	QLabel *m_label;
-	QPushButton *m_button;
-	QListWidgetItem *m_item;
-	HighlightPattern m_pattern;
-	QString title() const;
+	QString name() override;
+	QNetworkReply *send(QNetworkAccessManager *manager, const QString &content, const QString &syntax) override;
+	QUrl handle(QNetworkReply *reply, QString *error) override;
 };
 
-#endif // HIGHLIGHTERITEMLIST_H
-
+#endif // DPASTEPASTER_H

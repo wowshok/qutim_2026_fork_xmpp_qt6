@@ -38,7 +38,7 @@
 typedef QHash<qutim_sdk_0_3::Account*, qutim_sdk_0_3::Status> StatusHash;
 
 class ManagerSettings;
-class QNetworkConfigurationManager;
+class QNetworkInformation;
 class BearerManager : public qutim_sdk_0_3::Plugin
 {
 	Q_OBJECT
@@ -61,7 +61,7 @@ private:
 	bool isNetworkOnline() const;
 
 	bool m_isOnline;
-	QNetworkConfigurationManager *m_confManager;
+	QNetworkInformation *m_networkInfo;
 };
 
 #endif // BEARERMANAGER_H

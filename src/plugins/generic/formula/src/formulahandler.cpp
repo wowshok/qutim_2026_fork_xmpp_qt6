@@ -31,37 +31,36 @@
 using namespace qutim_sdk_0_3;
 
 FormulaHandler::FormulaHandler()
+	// $$...$$, shortest match (QRegExp::setMinimal in the Qt 5 version)
+	: m_regexp(QStringLiteral("\\$\\$(.*?)\\$\\$"))
 {
-	m_regexp.setPatternSyntax(QRegExp::RegExp);
-	m_regexp.setPattern(QLatin1String("\\$\\$(.*)\\$\\$"));
-	m_regexp.setMinimal(true);
 	Q_ASSERT(m_regexp.isValid());
 }
 
 MessageHandlerAsyncResult FormulaHandler::doHandle(Message &message)
 {
-	int index = 0;
-	int lastIndex = 0;
+	qsizetype lastIndex = 0;
 	const QString html = message.html();
 	QString newHtml;
 	newHtml.reserve(html.size());
-	while ((index = m_regexp.indexIn(html, index)) >= 0) {
-		html.midRef(lastIndex, index - lastIndex).appendTo(&newHtml);
+	QRegularExpressionMatchIterator it = m_regexp.globalMatch(html);
+	while (it.hasNext()) {
+		const QRegularExpressionMatch match = it.next();
+		newHtml += QStringView(html).mid(lastIndex, match.capturedStart() - lastIndex);
 		// html is already escaped
-		const QString equation = m_regexp.cap(0);
-		const QString url = QLatin1String("http://latex.codecogs.com/png.latex?")
-							+ QUrl::toPercentEncoding(unescape(m_regexp.cap(1)));
+		const QString equation = match.captured(0);
+		const QString url = QLatin1String("https://latex.codecogs.com/png.latex?")
+							+ QString::fromLatin1(QUrl::toPercentEncoding(unescape(match.captured(1))));
 		newHtml += QLatin1String("<img src=\"");
 		newHtml += url;
-		newHtml += QLatin1String("\"alt=\"");
+		newHtml += QLatin1String("\" alt=\"");
 		newHtml += equation;
 		newHtml += QLatin1String("\" title=\"");
 		newHtml += equation;
 		newHtml += QLatin1String("\">");
-		index += m_regexp.cap(0).length();
-		lastIndex = index;
+		lastIndex = match.capturedEnd();
 	}
-	html.midRef(lastIndex, html.size() - lastIndex).appendTo(&newHtml);
+	newHtml += QStringView(html).mid(lastIndex);
 	message.setHtml(newHtml);
 	return makeAsyncResult(Accept, QString());
 }

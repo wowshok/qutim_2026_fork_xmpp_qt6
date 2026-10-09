@@ -27,7 +27,7 @@
 #define FORMULAHANDLER_H
 
 #include <qutim/messagehandler.h>
-#include <QRegExp>
+#include <QRegularExpression>
 
 class FormulaHandler : public qutim_sdk_0_3::MessageHandler
 {
@@ -36,7 +36,7 @@ public:
 
 	qutim_sdk_0_3::MessageHandlerAsyncResult doHandle(qutim_sdk_0_3::Message &message) override;
 private:
-	QRegExp m_regexp;
+	QRegularExpression m_regexp;
 };
 
 #endif // FORMULAHANDLER_H

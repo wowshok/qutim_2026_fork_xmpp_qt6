@@ -104,10 +104,10 @@ void OtrClosure::sessionID(bool)
 	}
 	else
 	{
-		msg = tr("Session ID of connection from account %1 to %2 is: ").arg(m_myAccount).arg(m_otherJid)+"<br/>" + sId + ".";
+		msg = tr("Session ID of connection from account %1 to %2 is: ").arg(m_myAccount.toHtmlEscaped(), m_otherJid.toHtmlEscaped())+"<br/>" + sId + ".";
 	}
 
-	QMessageBox mb(QMessageBox::Information, "qutim-otr", msg, NULL, NULL,
+	QMessageBox mb(QMessageBox::Information, "qutim-otr", msg, QMessageBox::NoButton, nullptr,
 				   Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
 	mb.setTextFormat(Qt::RichText);
 	mb.exec();
@@ -133,7 +133,7 @@ void OtrClosure::fingerprint(bool)
 		QString msg(tr("Fingerprint for account %1 is:").arg(m_myAccount)+"\n" + fingerprint + ".");
 
 		QMessageBox mb(QMessageBox::Information, "qutim-otr",
-				   msg, NULL, NULL,
+				   msg, QMessageBox::NoButton, nullptr,
 				   Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
 		mb.exec();
 }

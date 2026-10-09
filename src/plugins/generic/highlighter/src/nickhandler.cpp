@@ -47,10 +47,12 @@ void NickHandler::loadSettings()
 	int count = cfg.beginArray(QLatin1String("regexps"));
 	for (int i = 0; i < count; i++) {
 		cfg.setArrayIndex(i);
-		QRegExp regExp = cfg.value(QLatin1String("regexp"), QRegExp());
-
-		m_regexps << regExp;
+		const HighlightPattern pattern(cfg.value(QLatin1String("pattern"), QString()),
+									   HighlightPattern::syntaxFromKey(cfg.value(QLatin1String("syntax"), QString())));
+		if (pattern.isValid())
+			m_regexps << pattern.toRegularExpression();
 	}
+	cfg.endArray();
 	cfg.endGroup();
 }
 

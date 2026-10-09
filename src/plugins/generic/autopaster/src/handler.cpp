@@ -24,10 +24,9 @@
 ****************************************************************************/
 
 #include "handler.h"
+#include "dpastepaster.h"
+#include "pasterspaster.h"
 //#include "autopasterdialog.h"
-#include "ubuntupaster.h"
-#include "hastebinpaster.h"
-#include "kdepaster.h"
 
 #include <QNetworkReply>
 #include <QTimer>
@@ -46,9 +45,9 @@ AutoPasterHandler::AutoPasterHandler() :
 			   QIcon(),
 			   QT_TRANSLATE_NOOP("Plugin", "AutoPaster"))
 {
-	addPaster(new UbuntuPaster);
-	addPaster(new HastebinPaster);
-	addPaster(new KdePaster);
+	// hastebin.com, paste.kde.org and paste.ubuntu.com no longer accept anonymous pastes
+	addPaster(new DpastePaster);
+	addPaster(new PasteRsPaster);
 
 	readSettings();
 
@@ -172,6 +171,9 @@ void AutoPasterHandler::upload(QueueItem item, PasterInterface *paster, const QS
 		if (reply->error() == QNetworkReply::NoError) {
 			QString url = paster->handle(reply, &errorString).toString();
 
+			// Never send an empty message instead of the text
+			if (errorString.isEmpty() && url.isEmpty())
+				errorString = reply->errorString();
 			if (errorString.isEmpty()) {
 				item.message->setText(url);
 				item.handler.handle(Accept, QString());

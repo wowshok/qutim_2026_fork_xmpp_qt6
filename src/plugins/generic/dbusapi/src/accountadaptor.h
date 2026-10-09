@@ -52,7 +52,7 @@ public:
 	inline QString name() const { return m_account->name(); }
 	inline QDBusObjectPath protocol() const { return m_protocolPath; }
 	inline Status status() const { return m_account->status(); }
-	inline void setStatus(const Status &status) { m_account->setStatus(status); }
+	inline void setStatus(const Status &status) { m_account->setUserStatus(status); }
 	inline QDBusObjectPath path() const { return m_path; }
 public slots:
 	QDBusObjectPath chatUnit(const QString &unitId, bool create = false);

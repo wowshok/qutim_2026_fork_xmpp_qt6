@@ -62,7 +62,7 @@ private slots:
 	void netmanSslErrors(QNetworkReply *, const QList<QSslError> &);
 
 private:
-	void checkLink(const QStringRef &originalLink, QString &url, qutim_sdk_0_3::ChatUnit *from, qint64 id);
+	void checkLink(QStringView originalLink, QString &url, qutim_sdk_0_3::ChatUnit *from, qint64 id);
 	void updateData(qutim_sdk_0_3::ChatUnit *unit, const QString &uid, const QString &html);
 
 	QNetworkAccessManager *m_netman;
@@ -72,7 +72,6 @@ private:
 	QString m_youtubeTemplate;
 	QString m_html5AudioTemplate;
 	QString m_html5VideoTemplate;
-	QString m_yandexRichContentTemplate;
 	qutim_sdk_0_3::ConfigValue<quint64> m_maxImageHeight;
 	qutim_sdk_0_3::ConfigValue<quint64> m_maxImageWidth;
 
@@ -81,7 +80,6 @@ private:
 	qutim_sdk_0_3::ConfigValue<bool> m_enableImagesPreview;
 	qutim_sdk_0_3::ConfigValue<bool> m_enableHTML5Audio;
 	qutim_sdk_0_3::ConfigValue<bool> m_enableHTML5Video;
-	qutim_sdk_0_3::ConfigValue<bool> m_enableYandexRichContent;
 	qutim_sdk_0_3::ConfigValue<QStringList> m_exceptionList;
 };
 

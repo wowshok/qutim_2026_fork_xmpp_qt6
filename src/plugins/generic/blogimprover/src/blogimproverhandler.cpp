@@ -39,16 +39,16 @@ BlogImproverHandler::BlogImproverHandler()
 	m_enableBnwIntegration = cfg.value(QLatin1String("enableBnwIntegration"), true);
 	cfg.endGroup();
 
-	m_pstoNick.setPattern("(@[a-zA-Z0-9-_@\\.]+)\\b");
-	m_pstoNick.setCaseSensitivity(Qt::CaseInsensitive);
+	m_pstoNick.setPattern(QStringLiteral("(@[a-zA-Z0-9-_@\\.]+)\\b"));
+	m_pstoNick.setPatternOptions(QRegularExpression::CaseInsensitiveOption);
 
-	m_juickNick.setPattern("(@[a-zA-Z0-9-_@\\.]+)\\b");
-	m_juickNick.setCaseSensitivity(Qt::CaseInsensitive);
-	m_juickPost.setPattern("#\\d+\\b(?!/)");
-	m_juickComment.setPattern("#\\d{3,}/\\d+\\b");
+	m_juickNick.setPattern(QStringLiteral("(@[a-zA-Z0-9-_@\\.]+)\\b"));
+	m_juickNick.setPatternOptions(QRegularExpression::CaseInsensitiveOption);
+	m_juickPost.setPattern(QStringLiteral("#\\d+\\b(?!/)"));
+	m_juickComment.setPattern(QStringLiteral("#\\d{3,}/\\d+\\b"));
 
-	m_pstoPost.setPattern("(#[a-z]+)\\b(?!/)");
-	m_pstoComment.setPattern("(#[a-z]{4,}/\\d+)\\b");
+	m_pstoPost.setPattern(QStringLiteral("(#[a-z]+)\\b(?!/)"));
+	m_pstoComment.setPattern(QStringLiteral("(#[a-z]{4,}/\\d+)\\b"));
 
 	//m_pstoTag.setPattern("[*] ([^*,<]+(, [^*,<]+)*)");
 }
@@ -110,8 +110,9 @@ void BlogImproverHandler::handlePsto(Message &message, const HtmlLinker &linker)
 	QString html = message.html();
 	int pos = 0;
 
-	while ((pos = m_pstoPost.indexIn(html, pos)) != -1) {
-		const QString id = m_pstoPost.cap(1);
+	for (QRegularExpressionMatch match; (match = m_pstoPost.match(html, pos)).hasMatch(); ) {
+		pos = match.capturedStart();
+		const QString id = match.captured(1);
 		const QString toReplace = linker.create(id, id)
 			% QStringLiteral(" (")
 			% linker.create(QStringLiteral("S ") + id, QStringLiteral("S"))
@@ -129,8 +130,9 @@ void BlogImproverHandler::handlePsto(Message &message, const HtmlLinker &linker)
 
 	pos = 0;
 
-	while ((pos = m_pstoComment.indexIn(html, pos)) != -1) {
-		const QString id = m_pstoComment.cap(1);
+	for (QRegularExpressionMatch match; (match = m_pstoComment.match(html, pos)).hasMatch(); ) {
+		pos = match.capturedStart();
+		const QString id = match.captured(1);
 		const QString toReplace = linker.create(id, id)
 			% QStringLiteral(" (")
 			% linker.create(QStringLiteral("U ") + id, QStringLiteral("U"))
@@ -148,8 +150,9 @@ void BlogImproverHandler::handlePsto(Message &message, const HtmlLinker &linker)
 
 	pos = 0;
 
-	while ((pos = m_pstoNick.indexIn(html, pos)) != -1) {
-		const QString id = m_pstoNick.cap(1);
+	for (QRegularExpressionMatch match; (match = m_pstoNick.match(html, pos)).hasMatch(); ) {
+		pos = match.capturedStart();
+		const QString id = match.captured(1);
 		const QString toReplace = linker.create(id + QLatin1Char('+'), id);
 
 		html.replace(pos, id.length(), toReplace);
@@ -168,8 +171,9 @@ void BlogImproverHandler::handleJuick(Message &message, const HtmlLinker &linker
 
 	int pos = 0;
 
-	while ((pos = m_juickPost.indexIn(html, pos)) != -1) {
-		const QString id = m_juickPost.cap(0);
+	for (QRegularExpressionMatch match; (match = m_juickPost.match(html, pos)).hasMatch(); ) {
+		pos = match.capturedStart();
+		const QString id = match.captured(0);
 		const QString toReplace = linker.create(id, id)
 			% QStringLiteral(" (")
 			% linker.create(QStringLiteral("S ") + id, QStringLiteral("S"))
@@ -185,8 +189,9 @@ void BlogImproverHandler::handleJuick(Message &message, const HtmlLinker &linker
 
 	pos = 0;
 
-	while ((pos = m_juickComment.indexIn(html, pos)) != -1) {
-		const QString id = m_juickComment.cap(0);
+	for (QRegularExpressionMatch match; (match = m_juickComment.match(html, pos)).hasMatch(); ) {
+		pos = match.capturedStart();
+		const QString id = match.captured(0);
 		const QString toReplace = linker.create(id, id)
 			% QStringLiteral(" (")
 			% linker.create(QStringLiteral("U ") + id, QStringLiteral("U"))
@@ -202,8 +207,9 @@ void BlogImproverHandler::handleJuick(Message &message, const HtmlLinker &linker
 
 	pos = 0;
 
-	while ((pos = m_juickNick.indexIn(html, pos)) != -1) {
-		const QString id = m_juickNick.cap(1);
+	for (QRegularExpressionMatch match; (match = m_juickNick.match(html, pos)).hasMatch(); ) {
+		pos = match.capturedStart();
+		const QString id = match.captured(1);
 		const QString toReplace = linker.create(id + QLatin1Char('+'), id);
 
 		html.replace(pos, id.length(), toReplace);

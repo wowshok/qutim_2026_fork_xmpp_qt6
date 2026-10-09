@@ -2,8 +2,7 @@
 **
 ** qutIM - instant messenger
 **
-** Copyright © 2011 Nikita Belov <null@deltaz.org>
-** Copyright © 2012 Nicolay Izoderov <nico-izo@ya.ru>
+** Copyright © 2026 qutIM developers
 **
 *****************************************************************************
 **
@@ -24,45 +23,27 @@
 **
 ****************************************************************************/
 
-#ifndef HIGHLIGHTERITEMLIST_H
-#define HIGHLIGHTERITEMLIST_H
+#include "pasterspaster.h"
+#include <QCoreApplication>
 
-#include <QHBoxLayout>
-#include <QLabel>
-#include <QListWidgetItem>
-#include <QListWidget>
-#include <QPushButton>
-#include <QWidget>
-#include "highlightpattern.h"
-#include <QEvent>
-
-class HighlighterItemList : public QWidget
+// paste.rs: POST the raw text, the reply body is the paste URL
+QString PasteRsPaster::name()
 {
-	Q_OBJECT
+	return QStringLiteral("paste.rs");
+}
 
-public:
-	HighlighterItemList(const HighlightPattern &pattern, QListWidget *regexList);
-	~HighlighterItemList();
+QNetworkReply *PasteRsPaster::send(QNetworkAccessManager *manager, const QString &content, const QString &syntax)
+{
+	Q_UNUSED(syntax);
+	QNetworkRequest request(QUrl(QStringLiteral("https://paste.rs/")));
+	request.setHeader(QNetworkRequest::ContentTypeHeader, QByteArrayLiteral("text/plain; charset=utf-8"));
+	return manager->post(request, content.toUtf8());
+}
 
-	HighlightPattern pattern() const;
-
-	QListWidgetItem *item();
-	void setItem(QListWidgetItem *item);
-
-
-signals:
-	void buttonClicked();
-
-protected:
-	virtual void changeEvent(QEvent *e);
-
-private:
-	QLabel *m_label;
-	QPushButton *m_button;
-	QListWidgetItem *m_item;
-	HighlightPattern m_pattern;
-	QString title() const;
-};
-
-#endif // HIGHLIGHTERITEMLIST_H
-
+QUrl PasteRsPaster::handle(QNetworkReply *reply, QString *error)
+{
+	const QUrl url(QString::fromUtf8(reply->readAll()).trimmed());
+	if (!url.isValid() || url.scheme() != QLatin1String("https"))
+		*error = QCoreApplication::translate("AutoPaster", "Unexpected reply from %1").arg(name());
+	return url;
+}

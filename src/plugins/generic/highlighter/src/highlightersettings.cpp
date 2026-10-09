@@ -37,12 +37,8 @@ HighlighterSettings::HighlighterSettings()
 	connect(ui.regexptype, SIGNAL(currentIndexChanged(int)), this,  SLOT(validateInputRegexp()));
 
 
-	ui.regexptype->addItem(HighlighterItemList::getTranslatedRegexpType(QRegExp::RegExp), QVariant(QRegExp::RegExp));
-	ui.regexptype->addItem(HighlighterItemList::getTranslatedRegexpType(QRegExp::RegExp2), QVariant(QRegExp::RegExp2));
-	ui.regexptype->addItem(HighlighterItemList::getTranslatedRegexpType(QRegExp::Wildcard), QVariant(QRegExp::Wildcard));
-	ui.regexptype->addItem(HighlighterItemList::getTranslatedRegexpType(QRegExp::WildcardUnix), QVariant(QRegExp::WildcardUnix));
-	ui.regexptype->addItem(HighlighterItemList::getTranslatedRegexpType(QRegExp::FixedString), QVariant(QRegExp::FixedString));
-	ui.regexptype->addItem(HighlighterItemList::getTranslatedRegexpType(QRegExp::W3CXmlSchema11), QVariant(QRegExp::W3CXmlSchema11));
+	for (HighlightPattern::Syntax syntax : HighlightPattern::allSyntaxes())
+		ui.regexptype->addItem(HighlightPattern::syntaxTitle(syntax), int(syntax));
 }
 
 HighlighterSettings::~HighlighterSettings()
@@ -62,9 +58,12 @@ void HighlighterSettings::loadImpl()
 	int count = cfg.beginArray(QLatin1String("regexps"));
 	for (int i = 0; i < count; i++) {
 		cfg.setArrayIndex(i);
-		QRegExp regExp = cfg.value(QLatin1String("regexp"), QRegExp());
+		const HighlightPattern pattern(cfg.value(QLatin1String("pattern"), QString()),
+									   HighlightPattern::syntaxFromKey(cfg.value(QLatin1String("syntax"), QString())));
+		if (pattern.isEmpty())
+			continue;
 
-		HighlighterItemList *item = new HighlighterItemList(regExp, ui.regexpsList);
+		HighlighterItemList *item = new HighlighterItemList(pattern, ui.regexpsList);
 		connect(item, SIGNAL(buttonClicked()), this, SLOT(onRemoveButtonClicked()));
 		m_items << item;
 	}
@@ -82,11 +81,13 @@ void HighlighterSettings::saveImpl()
 	int count = cfg.beginArray(QLatin1String("regexps"));
 	for (int i = 0; i < m_items.size(); i++) {
 		cfg.setArrayIndex(i);
-		HighlighterItemList *item = m_items.at(i);
-		cfg.setValue(QLatin1String("regexp"), item->regexp());
+		const HighlightPattern pattern = m_items.at(i)->pattern();
+		cfg.setValue(QLatin1String("pattern"), pattern.pattern());
+		cfg.setValue(QLatin1String("syntax"), HighlightPattern::syntaxKey(pattern.syntax()));
 	}
 	for (int i = count - 1; i >= m_items.size(); --i)
 		cfg.remove(i);
+	cfg.endArray();
 	cfg.endGroup();
 }
 
@@ -116,26 +117,27 @@ void HighlighterSettings::onRemoveButtonClicked()
 
 void HighlighterSettings::on_addRegexp_clicked()
 {
-	int index = ui.regexptype->currentIndex();
-	QRegExp regexp(ui.regexp->text());
-
-	regexp.setPatternSyntax(static_cast<QRegExp::PatternSyntax>(ui.regexptype->itemData(index).toInt()));
-	if (regexp.isEmpty())
+	const HighlightPattern pattern = inputPattern();
+	if (!pattern.isValid())
 		return;
 
-	HighlighterItemList *item = new HighlighterItemList(regexp, ui.regexpsList);
+	HighlighterItemList *item = new HighlighterItemList(pattern, ui.regexpsList);
 	connect(item, SIGNAL(buttonClicked()), this, SLOT(onRemoveButtonClicked()));
 	m_items << item;
 
 	setModified(true);
 }
 
+HighlightPattern HighlighterSettings::inputPattern() const
+{
+	const int index = ui.regexptype->currentIndex();
+	return HighlightPattern(ui.regexp->text(),
+							static_cast<HighlightPattern::Syntax>(ui.regexptype->itemData(index).toInt()));
+}
+
 void HighlighterSettings::validateInputRegexp()
 {
-	int index = ui.regexptype->currentIndex();
-	QRegExp regexp(ui.regexp->text());
-	regexp.setPatternSyntax(static_cast<QRegExp::PatternSyntax>(ui.regexptype->itemData(index).toInt()));
-	if (!regexp.isValid()) {
+	if (!inputPattern().isValid()) {
 		//ui.regexp->setStyleSheet(QLatin1String("background: rgb(252, 190, 189);"));
 		ui.addRegexp->setDisabled(true);
 	} else {
@@ -152,8 +154,8 @@ void HighlighterSettings::changeEvent(QEvent *e)
 	{
 	case QEvent::LanguageChange:
 		for(int i = ui.regexptype->count() - 1; i >= 0; --i) {
-			QRegExp::PatternSyntax itemSyntax = static_cast<QRegExp::PatternSyntax>(ui.regexptype->itemData(i).toInt());
-			ui.regexptype->setItemText(i, HighlighterItemList::getTranslatedRegexpType(itemSyntax));
+			const auto itemSyntax = static_cast<HighlightPattern::Syntax>(ui.regexptype->itemData(i).toInt());
+			ui.regexptype->setItemText(i, HighlightPattern::syntaxTitle(itemSyntax));
 		}
 		break;
 	default:
