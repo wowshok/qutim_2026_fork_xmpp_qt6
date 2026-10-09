@@ -187,14 +187,30 @@ bool DirectConnection::open()
 {
 	Q_D(DirectConnection);
 	jreenDebug() << Q_FUNC_INFO << d->socket_state << d->socket->state();
-	if(d->socket_state != QAbstractSocket::UnconnectedState) {
-		if(d->socket_state == QAbstractSocket::ListeningState) {
-			d->socket_state = QAbstractSocket::ConnectedState;
-			QIODevice::open(ReadWrite);
-			emit stateChanged(static_cast<SocketState>(d->socket_state));
-		}
+	if (d->socket_state == QAbstractSocket::ListeningState) {
+		// The socket has just connected, finish opening the device
+		d->socket_state = QAbstractSocket::ConnectedState;
+		QIODevice::open(ReadWrite);
+		emit stateChanged(static_cast<SocketState>(d->socket_state));
 		return true;
 	}
+	if (d->socket_state != QAbstractSocket::UnconnectedState) {
+		// Already connected, or a connection attempt is in progress
+		if (isOpen()
+				|| d->socket_state == QAbstractSocket::HostLookupState
+				|| d->socket_state == QAbstractSocket::ConnectingState)
+			return true;
+		// Reconnect requested from a disconnected() handler while the old
+		// socket is still closing: the old code returned here without
+		// connecting, leaving the account in "Connecting" forever
+		jreenDebug() << "Dropping the closing socket to reconnect" << d->socket_state;
+		d->socket->blockSignals(true);
+		d->socket->abort();
+		d->socket->blockSignals(false);
+		d->socket_state = QAbstractSocket::UnconnectedState;
+	}
+	// A new attempt: forget the error of the previous one
+	d->socket_error = QAbstractSocket::UnknownSocketError;
 	if(d->do_lookup) {
 		d->doLookup();
 	} else {
