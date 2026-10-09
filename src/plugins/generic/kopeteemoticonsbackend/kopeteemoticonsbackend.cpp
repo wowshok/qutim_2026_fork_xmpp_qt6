@@ -28,9 +28,24 @@
 #include "kopeteemoticonsprovider.h"
 #include <qutim/thememanager.h>
 #include <QDebug>
+#include <QStandardPaths>
+
+// Kopete/KDE format themes installed system-wide or by the user, e.g.
+// /usr/share/emoticons/<theme>/emoticons.xml, are usable as well
+static void addSystemEmoticonPaths()
+{
+	static bool added = false;
+	if (added)
+		return;
+	added = true;
+	const QStringList dataDirs = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
+	for (const QString &dir : dataDirs)
+		ThemeManager::addPath(dir, QStringLiteral("emoticons"));
+}
 
 EmoticonsProvider* KopeteEmoticonsBackend::loadTheme(const QString& name)
 {
+	addSystemEmoticonPaths();
 	//TODO OPTIMIZE ME
 	QStringList themes = ThemeManager::list("emoticons");
 	QStringList::const_iterator it;
@@ -49,6 +64,7 @@ EmoticonsProvider* KopeteEmoticonsBackend::loadTheme(const QString& name)
 
 QStringList KopeteEmoticonsBackend::themeList()
 {
+	addSystemEmoticonPaths();
 	//TODO OPTIMIZE ME
 	QStringList themes = ThemeManager::list("emoticons");
 	QStringList::const_iterator it;

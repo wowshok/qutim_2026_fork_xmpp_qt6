@@ -1,5 +1,5 @@
-import QtQuick 2.1
-import QtQuick.Window 2.1
+import QtQuick 2.15
+import QtQuick.Window 2.15
 import org.qutim.kineticpopups 0.4
 import "logic.js" as Logic
 
@@ -102,14 +102,11 @@ Window {
                 }
             }
 
+            // A non-positive timeout means the popup stays until clicked
             Timer {
-                interval: {
-                    if(timeout.timeout > 0)
-                        return timeout.timeout
-                    else stop();
-                }
+                interval: Math.max(timeout.timeout, 1)
                 repeat: false
-                running: true
+                running: timeout.timeout > 0
                 onTriggered: Logic.removePopup(popup)
             }
 
@@ -122,8 +119,8 @@ Window {
     NotifyList {
         id: list
 
-        onNotifyAdded: Logic.addPopup(notify)
-        onNotifyRemoved: Logic.removePopup(notify)
+        onNotifyAdded: function(notify) { Logic.addPopup(notify) }
+        onNotifyRemoved: function(notify) { Logic.removePopup(notify) }
     }
 
     Component.onCompleted: Logic.init(list.notifies)

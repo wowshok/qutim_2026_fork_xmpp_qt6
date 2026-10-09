@@ -1,6 +1,6 @@
-import QtQuick 2.2
-import QtQuick.Controls 1.1
-import QtQuick.Layouts 1.1
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
 import org.qutim 0.4
 import org.qutim.autopaster 0.4
 
@@ -17,7 +17,7 @@ SettingsItem {
         name: "autopaster"
     }
 
-    readonly property QtObject handler: autopaster.object.handler
+    readonly property QtObject handler: autopaster.object ? autopaster.object.handler : null
 
     function save() {
         config.setValue("autoSubmit", autoSubmitEdit.checked);
@@ -28,7 +28,7 @@ SettingsItem {
     function load() {
         itemsModel.clear();
 
-        var pasters = root.handler.pasters;
+        var pasters = root.handler ? root.handler.pasters : [];
         for (var i = 0; i < pasters.length; ++i) {
             itemsModel.append({
                 text: pasters[i],
@@ -47,40 +47,36 @@ SettingsItem {
     GridLayout {
         anchors.fill: parent
         columns: 2
-        Label {
-            text: qsTr("Autosubmit:")
-        }
 
+        Label { text: qsTr("Autosubmit:") }
         CheckBox {
             id: autoSubmitEdit
             Layout.fillWidth: true
-            onCheckedChanged: root.modify()
+            onToggled: root.modify()
         }
 
-        Label {
-            text: qsTr("Default paste:")
-        }
-
+        Label { text: qsTr("Default paste:") }
         ComboBox {
             id: defaultLocationEdit
+            Layout.fillWidth: true
             model: itemsModel
             textRole: "text"
-            onCurrentTextChanged: root.modify()
+            onActivated: root.modify()
         }
 
-        Label {
-            text: qsTr("The number of rows to trigger:")
-        }
-
+        Label { text: qsTr("The number of rows to trigger:") }
         SpinBox {
             id: lineCountEdit
-            onValueChanged: root.modify()
+            from: 1
+            to: 1000
+            editable: true
             Layout.fillWidth: true
+            onValueModified: root.modify()
         }
 
         Item {
+            Layout.columnSpan: 2
             Layout.fillHeight: true
         }
     }
 }
-

@@ -63,6 +63,13 @@ QString ThemeManager::path(const QString& category, const QString &themeName)
 		if (themePath.isEmpty())
 			themePath = getThemePath(QDir(":/"),themeName,category);
 	}
+	if (themePath.isEmpty()) {
+		foreach (const QDir &dir, data()->paths + data()->categoryPaths.values(category)) {
+			themePath = getThemePath(dir, themeName, category);
+			if (!themePath.isEmpty())
+				break;
+		}
+	}
 	return themePath;
 }
 
@@ -87,10 +94,17 @@ QStringList ThemeManager::list(const QString &category)
 	return theme_list;
 }
 
+// The path is a base directory with category subdirectories (like a share dir);
+// with a category it is only searched for themes of that category
 void ThemeManager::addPath(const QString &path_, const QString &category)
 {
-	Q_UNUSED(path_);
-	Q_UNUSED(category);
+	const QDir dir(path_);
+	if (category.isEmpty()) {
+		if (!data()->paths.contains(dir))
+			data()->paths << dir;
+	} else if (!data()->categoryPaths.contains(category, dir)) {
+		data()->categoryPaths.insert(category, dir);
+	}
 }
 
 QList<QDir> ThemeManager::categoryDirs(const QString &category)
@@ -113,7 +127,7 @@ QList<QDir> ThemeManager::categoryDirs(const QString &category)
 			list << dir;
 	}
 
-	foreach (QDir dir, data()->categoryPaths) {
+	foreach (QDir dir, data()->categoryPaths.values(category)) {
 		if (dir.cd(category))
 			list << dir;
 	}

@@ -40,18 +40,15 @@ void QuickPlugin::registerTypes(const char *uri)
 				"org.qutim", 0, 4,
 				"MenuController",
 				QStringLiteral("Unable to create notification inside QtQuick"));
-	qmlRegisterUncreatableType<MessageUnitData>(
-				"org.qutim", 0, 4,
-				"MessageUnitData",
-				QStringLiteral("Unable to create notification inside QtQuick"));
-	qmlRegisterUncreatableType<Message>(
-				"org.qutim", 0, 4,
-				"Message",
-				QStringLiteral("Unable to create notification inside QtQuick"));
-	qmlRegisterUncreatableType<Status>(
-				"org.qutim", 0, 4,
-				"Status",
-				QStringLiteral("Unable to create notification inside QtQuick"));
+	// Q_GADGET value types: Qt 6 only allows exposing their enums under an uppercase name
+	qmlRegisterUncreatableMetaObject(MessageUnitData::staticMetaObject, "org.qutim", 0, 4, "MessageUnitData",
+									 QStringLiteral("MessageUnitData is a value type"));
+	// Q_GADGET value types: Qt 6 only allows exposing their enums under an uppercase name
+	qmlRegisterUncreatableMetaObject(Message::staticMetaObject, "org.qutim", 0, 4, "Message",
+									 QStringLiteral("Message is a value type"));
+	// Q_GADGET value types: Qt 6 only allows exposing their enums under an uppercase name
+	qmlRegisterUncreatableMetaObject(Status::staticMetaObject, "org.qutim", 0, 4, "Status",
+									 QStringLiteral("Status is a value type"));
 	qmlRegisterType<QuickConfig>("org.qutim", 0, 4, "Config");
 	qmlRegisterType<QuickEmoticons>("org.qutim", 0, 4, "Emoticons");
 	qmlRegisterType<QuickEmoticonsTheme>("org.qutim", 0, 4, "EmoticonsTheme");

@@ -1,7 +1,8 @@
-import QtQuick 2.1
-import QtWinExtras 1.0
+import QtQuick 2.15
 import "../default" as Default
 
+// The original theme used Windows DWM glass (QtWinExtras); this keeps its look
+// with a translucent dark background that works everywhere
 Default.Controller {
     popupComponent: Default.PopupBase {
         id: window
@@ -10,15 +11,11 @@ Default.Controller {
         textStyle: Text.Outline
         textStyleColor: "white"
 
-        DwmFeatures {
-            id: dwm
-
-            topGlassMargin: -1
-            leftGlassMargin: -1
-            rightGlassMargin: -1
-            bottomGlassMargin: -1
+        Rectangle {
+            anchors.fill: window.contentItem
+            radius: 8
+            color: "#b0dce6f0"
+            border.color: "#80ffffff"
         }
-
-        color: dwm.compositionEnabled ? "transparent" : dwm.realColorizationColor
     }
 }

@@ -5,7 +5,9 @@
 class Timeout : public QObject
 {
 	Q_OBJECT
-	Q_PROPERTY(int timeout READ timeout)
+	// Read from the config on every access: each new popup picks up the current
+	// value, so QML never needs a change notification
+	Q_PROPERTY(int timeout READ timeout CONSTANT)
 
 public:
 	Timeout(){}
@@ -15,7 +17,8 @@ public:
 	{
 		qutim_sdk_0_3::Config cfg(QStringLiteral("behavior"));
 		cfg.beginGroup(QStringLiteral("popup"));
-		int timeout = cfg.value(QStringLiteral("timeout"), 5) * 1000;
+		// The settings page stores seconds as a double (e.g. 2.5)
+		int timeout = qRound(cfg.value(QStringLiteral("timeout"), 5.0) * 1000);
 		cfg.endGroup();
 		return timeout;
 	}

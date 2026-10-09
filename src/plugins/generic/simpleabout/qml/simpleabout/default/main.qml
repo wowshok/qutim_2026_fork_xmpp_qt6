@@ -23,20 +23,22 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.2
-import QtQuick.Controls 1.1
-import QtQuick.Dialogs 1.2
-import QtQuick.Window 2.1
-import QtQuick.Layouts 1.1
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Window 2.15
+import QtQuick.Layouts 1.15
 import org.qutim.simpleabout 0.4
 
-Dialog {
+// Shown through QuickDialog, which toggles the "visible" property
+ApplicationWindow {
     id: root
-    width: 450
-    height: 400
+    width: 520
+    height: 480
+    minimumWidth: 400
+    minimumHeight: 360
+    visible: false
 
     title: qsTr("About qutIM")
-    standardButtons: StandardButton.Ok
 
     AboutInfo {
         id: info
@@ -44,13 +46,24 @@ Dialog {
 
     readonly property string translators: info.translators
 
+    component InfoText: ScrollView {
+        property alias text: area.text
+        clip: true
+        TextArea {
+            id: area
+            readOnly: true
+            textFormat: TextEdit.RichText
+            wrapMode: TextEdit.Wrap
+            onLinkActivated: function(link) { Qt.openUrlExternally(link) }
+        }
+    }
+
     ColumnLayout {
-        width: parent ? parent.width : 100
-        height: 480
+        anchors.fill: parent
+        anchors.margins: 10
 
         RowLayout {
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignRight | Qt.AlignTop
 
             Label {
                 text: "qutIM"
@@ -60,73 +73,61 @@ Dialog {
             Label {
                 id: qutimVersion
                 text: info.qutimVersion
+                Layout.alignment: Qt.AlignBottom
             }
         }
-        
+
         Label {
+            Layout.fillWidth: true
+            wrapMode: Text.Wrap
             text: qsTr("Module based instant messenger. Based on Qt %1 (%2 bits)").arg(info.qtVersion).arg(info.wordSize)
         }
-        
+
         GridLayout {
             columns: 2
-            Label {
-                text: qsTr("Project site:")
-            }
-            Label {
-                text: "<a href=\"http://qutim.org/\">http://qutim.org</a>"
-                onLinkActivated: Qt.openUrlExternally(link)
-            }
+            // qutim.org and trac.qutim.org are gone since 2023
             Label {
                 text: qsTr("Source code repository:")
             }
             Label {
-                text: "<a href=\"http://github.com/euroelessar/qutim/\">http://github.com/euroelessar/qutim/</a>"
-                onLinkActivated: Qt.openUrlExternally(link)
+                text: "<a href=\"https://github.com/wowshok/qutim_2026_fork_xmpp_qt6\">github.com/wowshok/qutim_2026_fork_xmpp_qt6</a>"
+                onLinkActivated: function(link) { Qt.openUrlExternally(link) }
             }
             Label {
-                text: qsTr("Bug tracker:")
+                text: qsTr("Original project:")
             }
             Label {
-                text: "<a href=\"http://trac.qutim.org/\">http://trac.qutim.org/</a>"
-                onLinkActivated: Qt.openUrlExternally(link)
+                text: "<a href=\"https://github.com/euroelessar/qutim\">github.com/euroelessar/qutim</a>"
+                onLinkActivated: function(link) { Qt.openUrlExternally(link) }
             }
         }
 
-        TabView {
-            Layout.fillHeight: true
+        TabBar {
+            id: tabs
             Layout.fillWidth: true
-
-            Tab {
-                title: qsTr("Developers")
-                
-                sourceComponent: TextArea {
-                    anchors.fill: parent
-                    readOnly: true
-                    textFormat: Qt.RichText
-                    text: info.developers
-                }
-            }
-            Tab {
-                title: qsTr("Translators")
+            TabButton { text: qsTr("Developers") }
+            TabButton {
+                text: qsTr("Translators")
                 visible: root.translators.length > 0
-                
-                sourceComponent: TextArea {
-                    anchors.fill: parent
-                    readOnly: true
-                    textFormat: Qt.RichText
-                    text: root.translators
-                }
+                width: visible ? implicitWidth : 0
             }
-            Tab {
-                title: qsTr("License")
-                
-                sourceComponent: TextArea {
-                    anchors.fill: parent
-                    readOnly: true
-                    textFormat: Qt.RichText
-                    text: info.license
-                }
-            }
+            TabButton { text: qsTr("License") }
+        }
+
+        StackLayout {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            currentIndex: tabs.currentIndex
+
+            InfoText { text: info.developers }
+            InfoText { text: root.translators }
+            InfoText { text: info.license }
+        }
+
+        DialogButtonBox {
+            Layout.fillWidth: true
+            standardButtons: DialogButtonBox.Ok
+            onAccepted: root.close()
         }
     }
 }

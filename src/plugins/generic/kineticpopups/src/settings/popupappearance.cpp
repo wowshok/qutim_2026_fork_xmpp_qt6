@@ -68,8 +68,7 @@ void PopupAppearance::loadImpl()
 	QString name = cfg.value("themeName", "default");
 	int index = ui->comboBox->findText(name);
 	ui->comboBox->setCurrentIndex(index);
-	int timeout = static_cast<int>(cfg.value("timeout", 5));
-	ui->doubleSpinBox->setValue(timeout);
+	ui->doubleSpinBox->setValue(cfg.value("timeout", 5.0));
 	ui->comboBox->blockSignals(false);
 }
 
