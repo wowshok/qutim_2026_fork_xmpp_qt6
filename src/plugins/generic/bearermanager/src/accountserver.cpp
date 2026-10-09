@@ -19,6 +19,7 @@ AccountServer::AccountServer(qutim_sdk_0_3::Account *account)
 	account->setUserStatus(status);
 
 	connect(account, &Account::stateChanged, this, [this, account] (Account::State state) {
+		qDebug() << account->id() << "state changed to" << state << "network online:" << m_online;
 		if (state == Account::Disconnected && m_online && !m_timer.isActive())
 			m_timer.start();
 		else if (state == Account::Connected && m_timer.isActive())
@@ -57,6 +58,8 @@ bool AccountServer::isDisconnected() const
 
 void AccountServer::updateState()
 {
+	qDebug() << m_account->id() << "update: online" << m_online << "want online" << wantOnline()
+			 << "state" << m_account->state();
 	if (m_online && wantOnline() && isDisconnected())
 		m_account->connectToServer();
 	else if (!m_online && isConnected())
