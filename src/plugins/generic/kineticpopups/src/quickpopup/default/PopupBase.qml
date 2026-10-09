@@ -1,5 +1,5 @@
-import QtQuick 2.1
-import QtQuick.Window 2.1
+import QtQuick 2.15
+import QtQuick.Window 2.15
 import org.qutim.kineticpopups 0.4
 
 Window {
@@ -16,7 +16,11 @@ Window {
     property int textStyle: Text.Sunken
     property color textStyleColor: "black"
 
-    flags: Qt.ToolTip
+    // Wayland refuses tool tip windows without a transient parent; there the
+    // compositor places the window anyway, so use a plain frameless tool window
+    flags: Qt.platform.pluginName === "wayland"
+           ? (Qt.Tool | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.WindowDoesNotAcceptFocus)
+           : Qt.ToolTip
 
 	Image {
 		id: image
@@ -37,6 +41,7 @@ Window {
 
 	Text {
 		id: subject
+		textFormat: Text.PlainText
         z: 5
 		//text: "Title"
 
@@ -59,6 +64,8 @@ Window {
 
 	Text {
 		id: body
+		// Only our own <br /> survives escapeHtml()
+		textFormat: Text.StyledText
 		wrapMode: Text.Wrap
         z: 5
 		//text: "Body Вот тестирую текст, много разного текста, он должен нормально отображаться"
@@ -105,8 +112,7 @@ Window {
 				hoverEnabled: true
 				acceptedButtons: Qt.LeftButton
 
-				onClicked: {
-					console.log("Action: " + model.modelData);
+				onClicked: function(mouse) {
 					model.modelData.trigger();
 					mouse.accepted = true;
 				}
@@ -146,8 +152,7 @@ Window {
 		id: acceptIgnoreArea
 		anchors.fill: main
 		acceptedButtons: Qt.LeftButton | Qt.RightButton
-		onClicked: {
-            console.log("Clicked");
+		onClicked: function(mouse) {
             for (var i = 0; i < window.notifies.length; ++i) {
                 var notify = window.notifies[i];
                 if (notify && mouse.button === Qt.RightButton)
@@ -158,24 +163,30 @@ Window {
 		}
 	}
 
+    // Notification texts come from contacts: show them as plain text, never as
+    // markup (an <img> tag there would make the popup load a remote image)
+    function escapeHtml(text) {
+        return String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+                           .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    property var plainLines: []
+
     function addNotify(notify) {
         var trimLength = 80;
-        
+
         window.notifies.push(notify);
 
-        var str = body.text;
-        if (str.length && notify.text.length && str.length < trimLength)
-            str = str + "<br /> ";
-        str = str + notify.text;
-        //trim
+        var lines = window.plainLines.slice();
+        lines.push(notify.text);
+        var str = lines.join("\n");
         if (str.length > trimLength)
             str = str.substring(0, trimLength - 3) + "...";
-        body.text = str;
+        window.plainLines = lines;
+        body.text = escapeHtml(str).replace(/\n/g, "<br />");
 
         subject.text = notify.title;
         actions.model = notify.actions;
-        
-        console.log(notify.title, notify.text);
 
         if (notify.avatar)
             image.source = notify.avatar;
@@ -198,7 +209,6 @@ Window {
 
         for (var i = 0; i < notifies.length; ++i) {
             var notify = notifies[i];
-            console.log('notify', notify.title)
             notify.remove();
         }
     }

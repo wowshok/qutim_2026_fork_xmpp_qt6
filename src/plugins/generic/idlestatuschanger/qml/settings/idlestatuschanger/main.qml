@@ -1,16 +1,16 @@
-import QtQuick 2.2
-import QtQuick.Controls 1.1
-import QtQuick.Layouts 1.1
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
 import org.qutim 0.4
 
 SettingsItem {
     id: root
-    
+
     Config {
         id: config
         group: "auto-away"
     }
-    
+
     function save() {
         config.setValue("away-enabled", awayCheckBox.checked)
         config.setValue("na-enabled", naCheckBox.checked)
@@ -19,7 +19,7 @@ SettingsItem {
         config.setValue("away-text", awayTextBox.text)
         config.setValue("na-text", naTextBox.text)
     }
-    
+
     function load() {
         awayCheckBox.checked = config.value("away-enabled", true);
         naCheckBox.checked = config.value("na-enabled", true);
@@ -28,21 +28,28 @@ SettingsItem {
         awayTextBox.text = config.value("away-text", "");
         naTextBox.text = config.value("na-text", "");
     }
-    
+
+    component MinutesSpinBox: SpinBox {
+        from: 1
+        to: 24 * 60
+        editable: true
+        Layout.preferredWidth: 200
+        textFromValue: function(value, locale) { return qsTr("%1 min.").arg(value); }
+        valueFromText: function(text, locale) { return parseInt(text, 10) || from; }
+        onValueModified: root.modify()
+    }
+
     ColumnLayout {
         anchors.fill: parent
-        
+
         CheckBox {
             id: awayCheckBox
             text: qsTr("Set status \"Away\" after:")
-            onCheckedChanged: root.modify()
+            onToggled: root.modify()
         }
-        SpinBox {
+        MinutesSpinBox {
             id: awaySpinBox
             enabled: awayCheckBox.checked
-            Layout.preferredWidth: 300
-            suffix: qsTr(" min.")
-            onValueChanged: root.modify()
         }
         TextArea {
             id: awayTextBox
@@ -53,14 +60,11 @@ SettingsItem {
         CheckBox {
             id: naCheckBox
             text: qsTr("Set status \"Not available\" after:")
-            onCheckedChanged: root.modify()
+            onToggled: root.modify()
         }
-        SpinBox {
+        MinutesSpinBox {
             id: naSpinBox
             enabled: naCheckBox.checked
-            Layout.preferredWidth: 300
-            suffix: qsTr(" min.")
-            onValueChanged: root.modify()
         }
         TextArea {
             id: naTextBox

@@ -74,6 +74,16 @@ function(qutim_add_plugin name)
 	# Catch missing symbols at link time instead of at plugin load
 	target_link_options(${name} PRIVATE "LINKER:--no-undefined")
 	install(TARGETS ${name} LIBRARY DESTINATION ${QUTIM_PLUGIN_DIR})
+
+	# QML pages and dialogs of the plugin go to <share>/qml, like the old qbs did
+	if(IS_DIRECTORY "${P_DIR}/qml")
+		# Copied on every build, so edited QML reaches the build tree without re-running CMake
+		add_custom_target(${name}_qml ALL
+			COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different
+				"${P_DIR}/qml" "${CMAKE_BINARY_DIR}/${QUTIM_SHARE_DIR}/qml"
+			COMMENT "Copying QML of ${name}")
+		install(DIRECTORY "${P_DIR}/qml/" DESTINATION "${QUTIM_SHARE_DIR}/qml")
+	endif()
 endfunction()
 
 # Shared library used by a group of plugins; its public headers are

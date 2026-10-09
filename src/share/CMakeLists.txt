@@ -20,12 +20,11 @@ set(QUTIM_SHARE_DIRS
 	"${ART}/icons/tray/ubuntu-mono-light|icons/ubuntu-mono-light/scalable/status"
 	"${ART}/icons/tray/ubuntu-mono-dark|icons/ubuntu-mono-dark/scalable/status"
 	"${PLUGINS}/kineticpopups/src/quickpopup|quickpopup"
-	"${PLUGINS}/xsettingsdialog/qml|qml"
-	"${PLUGINS}/trayicon/qml|qml"
 )
-# qticons' QML settings page uses QtQuick.Controls 1, removed in Qt 6
 
+set(index 0)
 foreach(entry ${QUTIM_SHARE_DIRS})
+	math(EXPR index "${index} + 1")
 	string(REPLACE "|" ";" entry "${entry}")
 	list(GET entry 0 src)
 	list(GET entry 1 dst)
@@ -33,7 +32,16 @@ foreach(entry ${QUTIM_SHARE_DIRS})
 		message(WARNING "Missing share data: ${src}")
 		continue()
 	endif()
-	file(COPY "${src}/" DESTINATION "${SHARE_OUT}/${dst}" PATTERN "CMakeLists.txt" EXCLUDE)
+	add_custom_target(share_data_${index} ALL
+		COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different "${src}" "${SHARE_OUT}/${dst}"
+		COMMAND ${CMAKE_COMMAND} -E rm -f "${SHARE_OUT}/${dst}/CMakeLists.txt"
+		COMMENT "Copying ${dst}")
+	# Several sources share icons/hicolor and each brings its own index.theme:
+	# copy in list order so the last (and most complete) one wins every time
+	if(previous_share_target)
+		add_dependencies(share_data_${index} ${previous_share_target})
+	endif()
+	set(previous_share_target share_data_${index})
 	install(DIRECTORY "${src}/" DESTINATION "${QUTIM_SHARE_DIR}/${dst}" PATTERN "CMakeLists.txt" EXCLUDE)
 endforeach()
 
