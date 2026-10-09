@@ -32,7 +32,7 @@
 			"SearchForm": "Core::DefaultSearchFormFactory",
 			"SearchLayer": "Core::SearchLayer",
 			"SettingsLayer": "Core::XSettingsLayerImpl",
-			"Sound": "PhononSoundBackend",
+			"Sound": "QtMultimediaSoundBackend",
 			"SpellChecker": "KdeSpellerLayer",
 			"TrayIcon": "Core::SimpleTray"
 		}

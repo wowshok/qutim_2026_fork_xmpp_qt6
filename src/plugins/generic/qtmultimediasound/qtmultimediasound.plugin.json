@@ -1,0 +1,7 @@
+{
+	"pluginIcon": "",
+	"pluginName": "Qt Multimedia sound engine",
+	"pluginDescription": "Plays notification sounds through Qt Multimedia",
+	"extensionHeader": "qtmultimediasoundbackend.h",
+	"extensionClass": "QtMultimediaSoundBackend"
+}

@@ -170,5 +170,21 @@ qutim_add_plugin(searchdialog DIR "${G}/searchdialog" SOURCE_DIR .)
 qutim_add_plugin(histview DIR "${G}/histview")
 qutim_add_plugin(unreadmessageskeeper DIR "${G}/unreadmessageskeeper")
 
+# Idle time for auto-away (X11 screensaver extension or D-Bus on Wayland)
+find_package(Qt6 REQUIRED COMPONENTS DBus)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(XCB_SCREENSAVER REQUIRED IMPORTED_TARGET xcb xcb-screensaver)
+qutim_add_plugin(idledetector DIR "${G}/idledetector" SOURCE_DIR .
+	LINK Qt6::DBus PkgConfig::XCB_SCREENSAVER)
+
+# Notification sounds through Qt Multimedia (replaces the Phonon and SDL backends)
+find_package(Qt6 REQUIRED COMPONENTS Multimedia)
+qutim_add_plugin(qtmultimediasound DIR "${G}/qtmultimediasound" SOURCE_DIR . LINK Qt6::Multimedia)
+
+# Linux desktop integration: freedesktop notifications and TCP keepalive
+set(I "${CMAKE_CURRENT_SOURCE_DIR}/integrations")
+qutim_add_plugin(dbusnotifications DIR "${I}/dbusnotifications" LINK Qt6::DBus)
+qutim_add_plugin(linuxintegration DIR "${I}/linuxintegration" SOURCE_DIR .)
+
 # XMPP, Jingle (VoIP) stays disabled
 qutim_add_plugin(jabber DIR "${CMAKE_CURRENT_SOURCE_DIR}/protocols/jabber" LINK jreen)
