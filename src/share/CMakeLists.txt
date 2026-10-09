@@ -49,3 +49,23 @@ install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/applications/" DESTINATION share/
 # The desktop file refers to the application icon by name, so it goes to the system theme too
 install(DIRECTORY "${ART}/icons/qutim/icons/" DESTINATION share/icons)
 install(DIRECTORY "${ART}/icons/qutim/pixmaps/" DESTINATION share/pixmaps)
+
+# Translations: translations/modules/<module>/<lang>.po -> <share>/languages/<lang>/<module>.qm,
+# the layout the localization plugin loads from (the old qbs went through .ts and lrelease)
+find_package(Qt6 REQUIRED COMPONENTS LinguistTools)
+file(GLOB QUTIM_PO_FILES CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/translations/modules/*/*.po")
+set(QUTIM_QM_FILES)
+foreach(po ${QUTIM_PO_FILES})
+	get_filename_component(lang "${po}" NAME_WE)
+	get_filename_component(moduleDir "${po}" DIRECTORY)
+	get_filename_component(module "${moduleDir}" NAME)
+	set(qm "${SHARE_OUT}/languages/${lang}/${module}.qm")
+	add_custom_command(OUTPUT "${qm}"
+		COMMAND ${CMAKE_COMMAND} -E make_directory "${SHARE_OUT}/languages/${lang}"
+		COMMAND Qt6::lconvert -i "${po}" -o "${qm}"
+		DEPENDS "${po}"
+		VERBATIM)
+	list(APPEND QUTIM_QM_FILES "${qm}")
+endforeach()
+add_custom_target(translations ALL DEPENDS ${QUTIM_QM_FILES})
+install(DIRECTORY "${SHARE_OUT}/languages/" DESTINATION "${QUTIM_SHARE_DIR}/languages")
