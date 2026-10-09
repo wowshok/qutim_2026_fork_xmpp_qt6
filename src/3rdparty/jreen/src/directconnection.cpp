@@ -108,6 +108,42 @@ void DirectConnectionPrivate::lookupResultsReady()
 	socket->connectToHost(record.host, record.port);
 }
 
+void DirectConnectionPrivate::setupKeepAlive()
+{
+	// It's known that KeepAlive breaks connections on Maemo 5 and MeeGo Harmattan
+#if defined(Q_OS_LINUX) && !defined(Q_WS_MAEMO_5) && !defined(MEEGO_EDITION_HARMATTAN)
+	if (!qobject_cast<QTcpSocket*>(socket) || socket->state() != QAbstractSocket::ConnectedState)
+		return;
+	int fd = socket->socketDescriptor();
+	if (fd == -1) {
+		jreenWarning() << "No socket descriptor, KeepAlive is not set";
+		return;
+	}
+	jreenDebug() << "Trying to set KeepAlive attributes to socket descriptor" << fd;
+	socket->setSocketOption(QAbstractSocket::KeepAliveOption, 1);
+	int enableKeepAlive = 1;
+	jreenDebug() << setsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, &enableKeepAlive, sizeof(enableKeepAlive));
+
+	int maxIdle = 15; // seconds
+	jreenDebug() << setsockopt(fd, IPPROTO_TCP, TCP_KEEPIDLE, &maxIdle, sizeof(maxIdle));
+
+	int count = 3;  // send up to 3 keepalive packets out, then disconnect if no response
+	jreenDebug() << setsockopt(fd, SOL_TCP, TCP_KEEPCNT, &count, sizeof(count));
+
+	int interval = 2;   // send a keepalive packet out every 2 seconds (after the idle period)
+	jreenDebug() << setsockopt(fd, SOL_TCP, TCP_KEEPINTVL, &interval, sizeof(interval));
+
+#ifdef TCP_USER_TIMEOUT
+	// Keepalive probes are not sent while written data (e.g. an XMPP
+	// ping) waits for an ACK, so a silently dropped link would only be
+	// noticed after the retransmissions give up, ~15 minutes later.
+	// Drop the connection if sent data stays unacknowledged for 45 s.
+	unsigned int userTimeout = 45 * 1000; // milliseconds
+	jreenDebug() << setsockopt(fd, IPPROTO_TCP, TCP_USER_TIMEOUT, &userTimeout, sizeof(userTimeout));
+#endif
+#endif
+}
+
 void DirectConnectionPrivate::stateChanged(QAbstractSocket::SocketState ss)
 {
 	jreenDebug() << Q_FUNC_INFO << socket_state << ss;
@@ -116,35 +152,20 @@ void DirectConnectionPrivate::stateChanged(QAbstractSocket::SocketState ss)
 
 	switch(ss) {
 	case QAbstractSocket::ConnectedState: {
-	// It's known that KeepAlive breaks connections on Maemo 5 and MeeGo Harmattan
-#if defined(Q_OS_LINUX) && !defined(Q_WS_MAEMO_5) && !defined(MEEGO_EDITION_HARMATTAN)
-		if (qobject_cast<QTcpSocket*>(socket)) {
-			int fd = socket->socketDescriptor();
-			if (fd != -1) {
-				jreenDebug() << "Trying to set KeepAlive attributes to socket descriptor" << fd;
-				if (fd != -1) {
-					socket->setSocketOption(QAbstractSocket::KeepAliveOption, 1);
-					int enableKeepAlive = 1;
-					jreenDebug() << setsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, &enableKeepAlive, sizeof(enableKeepAlive));
-
-					int maxIdle = 15; // seconds
-					jreenDebug() << setsockopt(fd, IPPROTO_TCP, TCP_KEEPIDLE, &maxIdle, sizeof(maxIdle));
-
-					int count = 3;  // send up to 3 keepalive packets out, then disconnect if no response
-					jreenDebug() << setsockopt(fd, SOL_TCP, TCP_KEEPCNT, &count, sizeof(count));
-
-					int interval = 2;   // send a keepalive packet out every 2 seconds (after the idle period)
-					jreenDebug() << setsockopt(fd, SOL_TCP, TCP_KEEPINTVL, &interval, sizeof(interval));
-				}
-			}
-		}
-#endif
+		// QSslSocket in Qt 6 reports its descriptor only after this signal
+		// has been delivered, so the socket options are set from the event loop
+		QMetaObject::invokeMethod(this, &DirectConnectionPrivate::setupKeepAlive, Qt::QueuedConnection);
 		socket_state = QAbstractSocket::ListeningState;
 		parent->open();
 		return;
 	}
 	case QAbstractSocket::ClosingState:
 		parent->close();
+		break;
+	case QAbstractSocket::UnconnectedState:
+		// The peer dropped the connection without ClosingState (e.g. an error)
+		if (parent->isOpen())
+			parent->close();
 		break;
 	default:
 		break;
@@ -225,8 +246,11 @@ void DirectConnection::close()
 {
 	Q_D(DirectConnection);
 	d->socket->flush();
-	d->socket->disconnectFromHost();
+	// Close the device before the socket: disconnectFromHost() may move the
+	// socket to UnconnectedState synchronously, and a reconnect started from
+	// that notification must not see the device as still open
 	QIODevice::close();
+	d->socket->disconnectFromHost();
 }
 
 void DirectConnection::setHost(const QHostAddress &host)

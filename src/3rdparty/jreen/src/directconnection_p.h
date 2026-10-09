@@ -68,6 +68,7 @@ public slots:
 	void lookupResultsReady();
 	void stateChanged(QAbstractSocket::SocketState ss);
 	void error(QAbstractSocket::SocketError se);
+	void setupKeepAlive();
 };
 
 }
