@@ -127,7 +127,10 @@ void QuickAction::setChecked(bool arg)
 void QuickAction::setShortcut(const QVariant &arg)
 {
 	QKeySequence sequence;
-	if (arg.type() == QVariant::Int)
+	// A StandardKey enum from QML may arrive as any numeric type in Qt 6
+	const int typeId = arg.typeId();
+	if (typeId == QMetaType::Int || typeId == QMetaType::UInt || typeId == QMetaType::LongLong
+			|| typeId == QMetaType::ULongLong || typeId == QMetaType::Double)
 		sequence = QKeySequence(static_cast<QKeySequence::StandardKey>(arg.toInt()));
 	else
 		sequence = QKeySequence::fromString(arg.toString());

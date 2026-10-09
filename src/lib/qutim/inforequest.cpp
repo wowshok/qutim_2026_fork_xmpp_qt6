@@ -24,6 +24,7 @@
 ****************************************************************************/
 
 #include "inforequest.h"
+#include "utils.h"
 #include "account.h"
 #include "buddy.h"
 #include "protocol.h"
@@ -167,7 +168,7 @@ void InfoRequest::cancel()
 QVariant InfoRequest::value(const QString &name, const QVariant &def) const
 {
 	QVariant val = getValue(name);
-	return val.isNull() ? def : val;
+	return isNullVariant(val) ? def : val;
 }
 
 InfoRequest::InfoRequest(QObject *object) :

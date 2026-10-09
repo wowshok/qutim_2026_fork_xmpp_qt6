@@ -24,6 +24,7 @@
 ****************************************************************************/
 
 #include "config.h"
+#include "utils.h"
 #include "cryptoservice.h"
 #include "systeminfo.h"
 #include "metaobjectbuilder.h"
@@ -1273,9 +1274,9 @@ QVariant Config::rootValue(const QVariant &def, ValueFlags type) const
 
 	QVariant var = d->current()->atoms.first()->toVariant();
 	if (type & Config::Crypted)
-		return var.isNull() ? def : CryptoService::decrypt(var);
+		return isNullVariant(var) ? def : CryptoService::decrypt(var);
 	else
-		return var.isNull() ? def : var;
+		return isNullVariant(var) ? def : var;
 }
 
 ConfigValue<QVariant> Config::value(const QString &key, const QVariant &def, ValueFlags type) const
@@ -1314,7 +1315,7 @@ ConfigValue<QVariant> Config::value(const QString &key, const QVariant &def, Val
 			var = child->toVariant();
 		}
 
-		if (!var.isNull())
+		if (!isNullVariant(var))
 			break;
 	}
 
@@ -1333,7 +1334,7 @@ ConfigValue<QVariant> Config::value(const QString &key, const QVariant &def, Val
 
 	typedef QExplicitlySharedDataPointer<Detail::ConfigConnectionData> ConfigConnectionDataPtr;
 	connection.m_data = ConfigConnectionDataPtr(new Detail::ConfigConnectionData(paths));
-	ConfigValueDataPtr data(new ConfigValueData(var.isNull() ? def : var, connection));
+	ConfigValueDataPtr data(new ConfigValueData(isNullVariant(var) ? def : var, connection));
 	return ConfigValue<QVariant>(data);
 }
 

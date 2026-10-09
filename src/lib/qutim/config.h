@@ -251,30 +251,30 @@ public:
 	Config &operator =(const Config &other);
 	virtual ~Config();
 
-	Config group(const QString &name) Q_REQUIRED_RESULT;
-	QStringList childGroups() const Q_REQUIRED_RESULT;
-	QStringList childKeys() const Q_REQUIRED_RESULT;
-	bool hasChildGroup(const QString &name) const Q_REQUIRED_RESULT;
-	bool hasChildKey(const QString &name) const Q_REQUIRED_RESULT;
+	Q_REQUIRED_RESULT Config group(const QString &name);
+	Q_REQUIRED_RESULT QStringList childGroups() const;
+	Q_REQUIRED_RESULT QStringList childKeys() const;
+	Q_REQUIRED_RESULT bool hasChildGroup(const QString &name) const;
+	Q_REQUIRED_RESULT bool hasChildKey(const QString &name) const;
 	void beginGroup(const QString &name);
 	void endGroup();
 	void remove(const QString &name);
 
-	Config arrayElement(int index) Q_REQUIRED_RESULT;
+	Q_REQUIRED_RESULT Config arrayElement(int index);
 	int beginArray(const QString &name);
 	void endArray();
-	int arraySize() const Q_REQUIRED_RESULT;
+	Q_REQUIRED_RESULT int arraySize() const;
 	void setArrayIndex(int index);
 	void remove(int index);
 
-	QVariant rootValue(const QVariant &def = QVariant(), ValueFlags type = Normal) const Q_REQUIRED_RESULT;
+	Q_REQUIRED_RESULT QVariant rootValue(const QVariant &def = QVariant(), ValueFlags type = Normal) const;
 	template<typename T>
-	ConfigValue<T> value(const QString &key, const T &def = T(), ValueFlags type = Normal) const Q_REQUIRED_RESULT;
-	ConfigValue<QVariant> value(const QString &key, const QVariant &def = QVariant(), ValueFlags type = Normal) const Q_REQUIRED_RESULT;
-	inline ConfigValue<QString> value(const QString &key, const QLatin1String &def, ValueFlags type = Normal) const Q_REQUIRED_RESULT;
-	inline ConfigValue<QString> value(const QString &key, const char *def, ValueFlags type = Normal) const Q_REQUIRED_RESULT;
+	Q_REQUIRED_RESULT ConfigValue<T> value(const QString &key, const T &def = T(), ValueFlags type = Normal) const;
+	Q_REQUIRED_RESULT ConfigValue<QVariant> value(const QString &key, const QVariant &def = QVariant(), ValueFlags type = Normal) const;
+	Q_REQUIRED_RESULT inline ConfigValue<QString> value(const QString &key, const QLatin1String &def, ValueFlags type = Normal) const;
+	Q_REQUIRED_RESULT inline ConfigValue<QString> value(const QString &key, const char *def, ValueFlags type = Normal) const;
 	template <int N>
-	ConfigValue<QString> value(const QString &key, const char (&def)[N], ValueFlags type = Normal) const Q_REQUIRED_RESULT;
+	Q_REQUIRED_RESULT ConfigValue<QString> value(const QString &key, const char (&def)[N], ValueFlags type = Normal) const;
 	template<typename T>
 	void setValue(const QString &key, const T &value, ValueFlags type = Normal);
 	void setValue(const QString &key, const QVariant &value, ValueFlags type = Normal);

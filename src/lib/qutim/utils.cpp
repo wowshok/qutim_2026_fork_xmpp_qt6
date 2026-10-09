@@ -37,9 +37,44 @@
 #include <QApplication>
 #include <QUrl>
 #include <QTimeZone>
+#include <QBitArray>
+#include <QUuid>
+#include <QRect>
+#include <QLine>
+#include <QPixmap>
+#include <QImage>
+#include <QIcon>
 
 namespace qutim_sdk_0_3
 {
+	bool isNullVariant(const QVariant &var)
+	{
+		if (var.isNull()) // invalid or a null pointer
+			return true;
+		switch (var.typeId()) {
+		case QMetaType::QString: return var.toString().isNull();
+		case QMetaType::QByteArray: return var.toByteArray().isNull();
+		case QMetaType::QChar: return var.toChar().isNull();
+		case QMetaType::QBitArray: return var.toBitArray().isNull();
+		case QMetaType::QDate: return var.toDate().isNull();
+		case QMetaType::QTime: return var.toTime().isNull();
+		case QMetaType::QDateTime: return var.toDateTime().isNull();
+		case QMetaType::QUuid: return var.toUuid().isNull();
+		case QMetaType::QPoint: return var.toPoint().isNull();
+		case QMetaType::QPointF: return var.toPointF().isNull();
+		case QMetaType::QSize: return var.toSize().isNull();
+		case QMetaType::QSizeF: return var.toSizeF().isNull();
+		case QMetaType::QRect: return var.toRect().isNull();
+		case QMetaType::QRectF: return var.toRectF().isNull();
+		case QMetaType::QLine: return var.toLine().isNull();
+		case QMetaType::QLineF: return var.toLineF().isNull();
+		case QMetaType::QPixmap: return var.value<QPixmap>().isNull();
+		case QMetaType::QImage: return var.value<QImage>().isNull();
+		case QMetaType::QIcon: return var.value<QIcon>().isNull();
+		default: return false;
+		}
+	}
+
 	class WeekDate
 	{
 	public:

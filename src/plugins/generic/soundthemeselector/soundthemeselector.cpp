@@ -41,7 +41,7 @@ SoundThemeSelector::SoundThemeSelector() :
 	m_model(new QStandardItemModel(this))
 {
 	ui->setupUi(this);
-	connect(ui->themeSelector, SIGNAL(currentIndexChanged(QString)), SLOT(currentIndexChanged(QString)));
+	connect(ui->themeSelector, &QComboBox::currentTextChanged, this, &SoundThemeSelector::currentIndexChanged);
 	ui->treeView->setModel(m_model);
 	connect(ui->treeView, SIGNAL(clicked(QModelIndex)), SLOT(onClicked(QModelIndex)));
 }

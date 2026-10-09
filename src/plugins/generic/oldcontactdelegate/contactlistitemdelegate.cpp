@@ -25,6 +25,7 @@
 ****************************************************************************/
 
 #include "contactlistitemdelegate.h"
+#include <qutim/utils.h>
 #include <qutim/icon.h>
 #include <qutim/config.h>
 #include <qutim/extensionicon.h>
@@ -517,7 +518,7 @@ void ContactListItemDelegate::updateEditorGeometry(QWidget *editor, const QStyle
 QSize ContactListItemDelegate::size(const QStyleOptionViewItem &option, const QModelIndex &index, const QVariant &value) const
 {
 	static QSize maxsize(16,16);
-	if (value.isValid() && !value.isNull()) {
+	if (!isNullVariant(value)) {
 		switch (value.type())
 		{
 		case QVariant::Invalid:
@@ -637,7 +638,7 @@ QPixmap ContactListItemDelegate::getAlphaMask(QPainter *painter, QRect rect, int
 
 void ContactListItemDelegate::draw(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect, const QVariant &value) const
 {
-	if (value.isValid() && !value.isNull()) {
+	if (!isNullVariant(value)) {
 	switch (value.type()) {
 	case QVariant::Invalid:
 		break;

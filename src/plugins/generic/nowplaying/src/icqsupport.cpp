@@ -132,7 +132,7 @@ namespace nowplaying {
 							   m_icqFactory->m_settings;
 		QString message = (config.setsCurrentStatus) ? config.mask_1 : config.mask_2;
 		QTime time(0, 0, 0);
-		time.addSecs(info.time);
+		time = time.addSecs(info.time);
 		message.replace("%artist", info.artist)
 				.replace("%title", info.title)
 				.replace("%album", info.album)

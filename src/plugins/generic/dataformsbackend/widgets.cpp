@@ -23,6 +23,7 @@
 **
 ****************************************************************************/
 #include "widgets.h"
+#include <qutim/utils.h>
 #include <qutim/icon.h>
 #include <QFileDialog>
 #include <QRegularExpressionValidator>
@@ -44,7 +45,7 @@ using namespace qutim_sdk_0_3;
 
 static QValidator *getValidator(const QVariant &validator, QWidget *object)
 {
-	if (!validator.isNull()) {
+	if (!isNullVariant(validator)) {
 		QValidator *d;
 		if (validator.canConvert<QValidator*>())
 			d = validator.value<QValidator*>();

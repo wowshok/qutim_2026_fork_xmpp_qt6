@@ -92,7 +92,7 @@ namespace nowplaying {
 						"/Player",
 						"org.freedesktop.MediaPlayer",
 						"StatusChange",
-						this, SLOT(statusChanged(DBusMprisPlayerStatus)));
+						this, SLOT(onStatusChanged(DBusMprisPlayerStatus)));
 		} else if (m_version == 2) {
 			bus.connect(m_service,
 						QLatin1String("/org/mpris/MediaPlayer2"),
@@ -115,7 +115,7 @@ namespace nowplaying {
 						   "/Player",
 						   "org.freedesktop.MediaPlayer",
 						   "StatusChange",
-						   this, SLOT(statusChanged(DBusMprisPlayerStatus)));
+						   this, SLOT(onStatusChanged(DBusMprisPlayerStatus)));
 		} else if (m_version == 2) {
 			bus.disconnect(m_service,
 						   QLatin1String("/org/mpris/MediaPlayer2"),

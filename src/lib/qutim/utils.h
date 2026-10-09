@@ -38,6 +38,15 @@ Q_INLINE_TEMPLATE T sender_cast(QObject *sender)
 	return static_cast<T>(sender);
 }
 
+/*!
+  Qt 5 semantics of QVariant::isNull(): true for an invalid variant and also
+  for a variant holding a null value (QString(), QByteArray(), a null QDate,
+  QPoint(0, 0), a null pointer, ...). Qt 6 QVariant::isNull() is true only
+  for an invalid variant or a null pointer, so a stored empty string is no
+  longer "null" there.
+*/
+LIBQUTIM_EXPORT bool isNullVariant(const QVariant &var);
+
 class LIBQUTIM_EXPORT UrlParser
 {
 public:

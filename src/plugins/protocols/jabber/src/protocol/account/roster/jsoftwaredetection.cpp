@@ -25,6 +25,7 @@
 ****************************************************************************/
 
 #include "jsoftwaredetection.h"
+#include <qutim/utils.h>
 #include "../jaccount.h"
 #include "jcontactresource.h"
 #include <qutim/extensionicon.h>
@@ -274,7 +275,7 @@ void JSoftwareDetection::onInfoRequestFinished()
 	updateCache(node, info);
 
 	if (JContactResource *unit = qobject_cast<JContactResource*>(m_account->getUnit(jid, false))) {
-		if (unit->property("node").isNull())
+		if (isNullVariant(unit->property("node")))
 			unit->setProperty("node", node);
 
 		if (!info.finished) {
