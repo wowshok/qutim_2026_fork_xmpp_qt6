@@ -27,15 +27,12 @@
 #include "highlighteritemlist.h"
 #include <QTextDocument>
 #include <qutim/icon.h>
-#include <QRegExp>
 #include <qutim/debug.h>
 
-HighlighterItemList::HighlighterItemList(const QRegExp &regex, QListWidget *regexList)
-	: m_regexp(regex)
+HighlighterItemList::HighlighterItemList(const HighlightPattern &pattern, QListWidget *regexList)
+	: m_pattern(pattern)
 {
-	QString title = QString::fromLatin1("%1<br>%2")
-			.arg(regex.pattern().toHtmlEscaped(), getTranslatedRegexpType(regex.patternSyntax()));
-	m_label = new QLabel(title, this);
+	m_label = new QLabel(title(), this);
 	QSizePolicy policy = m_label->sizePolicy();
 	policy.setHorizontalPolicy(QSizePolicy::MinimumExpanding);
 	m_label->setSizePolicy(policy);
@@ -57,9 +54,15 @@ HighlighterItemList::~HighlighterItemList()
 	qDebug() << this;
 }
 
-QRegExp HighlighterItemList::regexp() const
+HighlightPattern HighlighterItemList::pattern() const
 {
-	return m_regexp;
+	return m_pattern;
+}
+
+QString HighlighterItemList::title() const
+{
+	return QString::fromLatin1("%1<br>%2")
+			.arg(m_pattern.pattern().toHtmlEscaped(), HighlightPattern::syntaxTitle(m_pattern.syntax()));
 }
 
 QListWidgetItem *HighlighterItemList::item()
@@ -72,34 +75,13 @@ void HighlighterItemList::setItem(QListWidgetItem *item)
 	m_item = item;
 }
 
-QString HighlighterItemList::getTranslatedRegexpType(const QRegExp::PatternSyntax &syntax)
-{
-	switch(syntax)
-	{
-	case QRegExp::RegExp:
-		return tr("Perl-like");
-	case QRegExp::RegExp2:
-		return tr("Improved perl-like");
-	case QRegExp::Wildcard:
-		return tr("Shell-like");
-	case QRegExp::WildcardUnix:
-		return tr("Shell-like Unix");
-	case QRegExp::FixedString:
-		return tr("Fixed string");
-	case QRegExp::W3CXmlSchema11:
-		return tr("W3C XML Schema");
-	default:
-		return tr("Perl-like");
-	}
-}
-
 void HighlighterItemList::changeEvent(QEvent *e)
 {
 	QWidget::changeEvent(e);
 	switch (e->type())
 	{
 	case QEvent::LanguageChange:
-		m_label->setText(getTranslatedRegexpType(regexp().patternSyntax()));
+		m_label->setText(title());
 		m_button->setText(tr("Remove"));
 		break;
 	default:

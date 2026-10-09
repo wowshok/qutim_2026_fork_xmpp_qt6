@@ -32,7 +32,8 @@
 #include "hunspellsettings.h"
 #include <QDir>
 #include <QApplication>
-#include <QTextCodec>
+#include <QStringDecoder>
+#include <QStringEncoder>
 
 HunSpellChecker *HunSpellChecker::self = 0;
 
@@ -42,11 +43,19 @@ HunSpellChecker::HunSpellChecker() :
 	Q_ASSERT(!self);
 	self = this;
 
-#ifdef Q_WS_WIN
-	m_dictPath = QCoreApplication::applicationDirPath() + "/dicts/";
-#else
-	m_dictPath = "/usr/share/myspell/dicts/";
-#endif
+	// Debian and Ubuntu moved dictionaries from myspell/dicts to /usr/share/hunspell
+	const QStringList dictPaths = {
+		QStringLiteral("/usr/share/hunspell/"),
+		QStringLiteral("/usr/share/myspell/dicts/"),
+		QStringLiteral("/usr/share/myspell/")
+	};
+	m_dictPath = dictPaths.first();
+	for (const QString &path : dictPaths) {
+		if (!QDir(path).entryList(QStringList(QStringLiteral("*.dic")), QDir::Files).isEmpty()) {
+			m_dictPath = path;
+			break;
+		}
+	}
 
 	Settings::registerItem(new GeneralSettingsItem<HunSpellSettings>(
 			Settings::General,
@@ -77,7 +86,7 @@ QStringList HunSpellChecker::suggest(const QString &word) const
 	QStringList lst;
 	int count = m_speller->suggest(&selection, convert(word));
 	for(int i = 0; i < count; ++i)
-		lst << (m_codec ? m_codec->toUnicode(selection[i]) : QString::fromUtf8(selection[i]));
+		lst << toUnicode(selection[i]);
 	m_speller->free_list(&selection, count);
 	return lst;
 }
@@ -86,7 +95,7 @@ void HunSpellChecker::store(const QString &word) const
 {
 	if (!m_speller)
 		return;
-	m_speller->add(convert(word));
+	m_speller->add(convert(word).toStdString());
 }
 
 void HunSpellChecker::storeReplacement(const QString &bad, const QString &good)
@@ -125,7 +134,8 @@ void HunSpellChecker::loadSettings(QString lang)
 	if (QFileInfo(dic).exists()) {
 		m_speller = new Hunspell(QString("%1/%2.aff").arg(m_dictPath).arg(lang).toUtf8().constData(),
 								 dic.toUtf8().constData());
-		m_codec = QTextCodec::codecForName(m_speller->get_dic_encoding());
+		// Old dictionaries are often KOI8-R or ISO-8859-x; Qt converts those through ICU
+		m_encoding = QByteArray(m_speller->get_dic_encoding());
 	} else {
 		m_speller = 0;
 	}
@@ -144,8 +154,23 @@ QString HunSpellChecker::toPrettyLanguageName(const QString &lang)
 			.arg(lang);
 }
 
-inline QByteArray HunSpellChecker::convert(const QString &word) const
+QByteArray HunSpellChecker::convert(const QString &word) const
 {
-	return m_codec ? m_codec->fromUnicode(word) : word.toUtf8();
+	if (!m_encoding.isEmpty()) {
+		QStringEncoder encoder(m_encoding.constData());
+		if (encoder.isValid())
+			return encoder.encode(word);
+	}
+	return word.toUtf8();
+}
+
+QString HunSpellChecker::toUnicode(const char *text) const
+{
+	if (!m_encoding.isEmpty()) {
+		QStringDecoder decoder(m_encoding.constData());
+		if (decoder.isValid())
+			return decoder.decode(QByteArray(text));
+	}
+	return QString::fromUtf8(text);
 }
 

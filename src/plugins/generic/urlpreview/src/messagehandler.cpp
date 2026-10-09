@@ -70,24 +70,17 @@ UrlHandler::UrlHandler() :
 								 "onload=\"if (this.width>%MAXW%) this.style.maxWidth='%MAXW%px';"
 								 "if (this.height>%MAXH%) { this.style.maxWidth=''; this.style.maxHeight='%MAXH%px'; } "
 								 "this.style.display=''; if(nearBottom() || this.parentNode.getAttribute('data-wasnearbottom') == 'true' ){scrollToBottom();} \"><br>";
-	m_youtubeTemplate =	"<img src=\"http://img.youtube.com/vi/%YTID%/1.jpg\">"
-								   "<img src=\"http://img.youtube.com/vi/%YTID%/2.jpg\">"
-								   "<img onload=\"if(nearBottom() || this.parentNode.getAttribute('data-wasnearbottom') == 'true'){scrollToBottom();}\" src=\"http://img.youtube.com/vi/%YTID%/3.jpg\"><br>";
+	m_youtubeTemplate =	"<img src=\"https://img.youtube.com/vi/%YTID%/1.jpg\">"
+								   "<img src=\"https://img.youtube.com/vi/%YTID%/2.jpg\">"
+								   "<img onload=\"if(nearBottom() || this.parentNode.getAttribute('data-wasnearbottom') == 'true'){scrollToBottom();}\" src=\"https://img.youtube.com/vi/%YTID%/3.jpg\"><br>";
 
 	m_html5AudioTemplate = "<audio controls=\"controls\" preload=\"none\"><source src=\"%AUDIOURL%\" type=\"%FILETYPE%\"/>" % tr("Something went wrong.") % "</audio>";
 
 	m_html5VideoTemplate = "<video controls=\"controls\" preload=\"none\"><source src=\"%VIDEOURL%\" type=\"%VIDEOTYPE%\" />" % tr("Something went wrong.") % "</video>";
-	m_yandexRichContentTemplate = "<div class=\"yandex-rca\" style=\"overflow: hidden;\" >"
-								  "<img class=\"yandex-rca-image\" src=\"%IMAGE%\" style=\"max-width: 30%; float: left; />"
-								  "<b class=\"yandex-rca-title\">%TITLE%</b>"
-								  "<br/>"
-								  "<span class=\"yandex-rca-content\">%CONTENT%</span> <br />"
-								  "</div>";
 	m_enableYoutubePreview = cfg.value("youtubePreview", true);
 	m_enableImagesPreview = cfg.value("imagesPreview", true);
 	m_enableHTML5Audio = cfg.value("HTML5Audio", true);
 	m_enableHTML5Video = cfg.value("HTML5Video", true);
-	m_enableYandexRichContent = cfg.value("yandexRichContent", true);
 	m_exceptionList = cfg.value("exceptionList", QStringList());
 
 	cfg.endGroup();
@@ -117,7 +110,7 @@ MessageHandlerAsyncResult UrlHandler::doHandle(Message &message)
 	return makeAsyncResult(Accept, QString());
 }
 
-void UrlHandler::checkLink(const QStringRef &originalLink, QString &link, ChatUnit *from, qint64 id)
+void UrlHandler::checkLink(QStringView originalLink, QString &link, ChatUnit *from, qint64 id)
 {
 	const char *entitiesIn[] = { "&quot;", "&gt;", "&lt;", "&amp;" };
 	const char *entitiesOut[] = { "\"", ">", "<", "&" };
@@ -155,7 +148,7 @@ void UrlHandler::checkLink(const QStringRef &originalLink, QString &link, ChatUn
 			QString html = m_template;
 			html.replace("%TYPE%", tr("YouTube video"));
 			html += m_youtubeTemplate;
-			html.replace("%YTID%", youtubeId);
+			html.replace("%YTID%", QString::fromLatin1(QUrl::toPercentEncoding(youtubeId)));
 			html.replace("%SIZE%", tr("Unknown"));
 			html.prepend(originalLink.toString() + QLatin1String(" "));
 			link = html;
@@ -186,53 +179,20 @@ void UrlHandler::netmanFinished(QNetworkReply *reply)
 {
 	reply->deleteLater();
 
-	if (reply->property("yandexRCA").toBool()) {
-		QVariantMap data = Json::parse(reply->readAll()).toMap();
-
-		if (data.contains("title") || data.contains("content")) {
-			QString html = m_yandexRichContentTemplate;
-			html.replace("%URL%", data.value("finalurl").toString());
-			html.replace("%IMAGE%", data.value("img").toList().value(0).toString());
-			html.replace("%TITLE%", data.value("title").toString().replace("\n", "<br/>"));
-			html.replace("%CONTENT%", data.value("content").toString().replace("\n", "<br/>"));
-
-			updateData(reply->property("unit").value<ChatUnit *>(),
-					   reply->property("uid").toString(),
-					   html);
-		}
-		return;
-	}
-
-	QString url = reply->url().toString();
-	QByteArray typeheader;
-	QString type;
-	QByteArray sizeheader;
+	// Everything below ends up in HTML: escape what comes from the network
+	const QString url = reply->url().toString(QUrl::FullyEncoded).toHtmlEscaped();
+	// "text/html; charset=utf-8" -> "text/html"
+	QString type = reply->header(QNetworkRequest::ContentTypeHeader).toString()
+			.section(QLatin1Char(';'), 0, 0).trimmed();
+	// We asked for one byte: the full size is after the slash in
+	// "Content-Range: bytes 0-0/12345" (the old code took the first number, 0)
 	quint64 size = 0;
-	QRegExp hrx; hrx.setCaseSensitivity(Qt::CaseInsensitive);
-	foreach (QString header, reply->rawHeaderList()) {
-		if (type.isEmpty()) {
-			hrx.setPattern("^content-type$");
-			if (hrx.indexIn(header)==0) typeheader = header.toLatin1();
-		}
-		if (sizeheader.isEmpty()) {
-			hrx.setPattern("^content-range$");
-			if (hrx.indexIn(header)==0) sizeheader = header.toLatin1();
-		}
-		if (sizeheader.isEmpty()) {
-			hrx.setPattern("^content-length$");
-			if (hrx.indexIn(header)==0) sizeheader = header.toLatin1();
-		}
-	}
-	if (!typeheader.isEmpty()) {
-		hrx.setPattern("^([^\\;]+)");
-		if (hrx.indexIn(reply->rawHeader(typeheader))>=0)
-			type = hrx.cap(1);
-	}
-	if (!sizeheader.isEmpty()) {
-		hrx.setPattern("(\\d+)");
-		if (hrx.indexIn(reply->rawHeader(sizeheader))>=0)
-			size = hrx.cap(1).toInt();
-	}
+	const QByteArray range = reply->rawHeader("Content-Range");
+	const int slash = range.lastIndexOf('/');
+	if (slash >= 0)
+		size = range.mid(slash + 1).toULongLong();
+	if (!size)
+		size = reply->header(QNetworkRequest::ContentLengthHeader).toULongLong();
 
 	if (type.isNull())
 		return;
@@ -241,8 +201,7 @@ void UrlHandler::netmanFinished(QNetworkReply *reply)
 
 	QString pstr;
 	bool showPreviewHead = true;
-	QRegExp typerx("^text/html");
-	if (type.contains(typerx)) {
+	if (type.startsWith(QLatin1String("text/html"))) {
 		showPreviewHead = false;
 	}
 
@@ -258,7 +217,7 @@ void UrlHandler::netmanFinished(QNetworkReply *reply)
 		if (type == QLatin1String("application/ogg")) {
 			pstr.replace("%FILETYPE%", "audio/ogg");
 		} else {
-			pstr.replace("%FILETYPE%", type);
+			pstr.replace("%FILETYPE%", type.toHtmlEscaped());
 		}
 		pstr.replace("%AUDIOURL%", url);
 		pstr.replace("%SIZE%", QString::number(size));
@@ -272,39 +231,19 @@ void UrlHandler::netmanFinished(QNetworkReply *reply)
 		showPreviewHead = false;
 		pstr.replace("%TYPE%", tr("HTML5 Video"));
 		pstr += m_html5VideoTemplate;
-		pstr.replace("%VIDEOTYPE%", type);
+		pstr.replace("%VIDEOTYPE%", type.toHtmlEscaped());
 		pstr.replace("%VIDEOURL%", url);
 		pstr.replace("%SIZE%", QString::number(size));
-	}
-
-	if (m_enableYandexRichContent &&
-			(type == QLatin1String("text/html")
-			 || type == QLatin1String("text/xhtml")
-			 || type == QLatin1String("application/xhtml")
-			 || type == QLatin1String("application/xhtml+xml"))) {
-		QUrl rcaUrl(QLatin1String("http://rca.yandex.com/"));
-		QUrlQuery yaquery;
-		yaquery.addQueryItem("key", "svV1bfH1");
-		yaquery.addQueryItem("url", url.toUtf8().toPercentEncoding("", "+"));
-		rcaUrl.setQuery(yaquery);
-		//rcaUrl.addEncodedQueryItem("key", "svV1bfH1");
-		//rcaUrl.addEncodedQueryItem("url", url.toUtf8().toPercentEncoding("", "+"));
-		QNetworkRequest request(rcaUrl);
-		QNetworkReply *rcaReply = m_netman->get(request);
-		rcaReply->setProperty("yandexRCA", true);
-		rcaReply->setProperty("uid", reply->property("uid"));
-		rcaReply->setProperty("unit", reply->property("unit"));
 	}
 
 	if (showPreviewHead) {
 		QString sizestr = size ? QString::number(size) : tr("Unknown");
 		pstr = m_template;
-		pstr.replace("%TYPE%", type);
+		pstr.replace("%TYPE%", type.toHtmlEscaped());
 		pstr.replace("%SIZE%", sizestr);
 	}
 
-	typerx.setPattern("^image/");
-	if (type.contains(typerx) && 0 < size && size < m_maxFileSize && m_enableImagesPreview) {
+	if (type.startsWith(QLatin1String("image/")) && 0 < size && size < m_maxFileSize && m_enableImagesPreview) {
 		QString amsg = m_imageTemplate;
 		amsg.replace("%URL%", url);
 		amsg.replace("%UID%", uid);

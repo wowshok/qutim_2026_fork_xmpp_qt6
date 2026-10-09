@@ -58,7 +58,7 @@ AccountAdaptor::AccountAdaptor(const QDBusConnection &dbus, const QDBusObjectPat
 	connect(account, SIGNAL(conferenceCreated(qutim_sdk_0_3::Conference*)),
 			this, SLOT(onConferenceCreated(qutim_sdk_0_3::Conference*)));
 	accountHash()->insert(account, m_path);
-	foreach (Contact *contact, qFindChildren<Contact*>(account))
+	foreach (Contact *contact, account->findChildren<Contact*>())
 		ChatUnitAdaptor::ensurePath(m_dbus, contact);
 }
 
@@ -76,7 +76,7 @@ QDBusObjectPath AccountAdaptor::chatUnit(const QString &unitId, bool create)
 QStringList AccountAdaptor::contacts() const
 {
 	QStringList list;
-	foreach (Contact *contact, qFindChildren<Contact*>(m_account))
+	foreach (Contact *contact, m_account->findChildren<Contact*>())
 		list << contact->id();
 	return list;
 }

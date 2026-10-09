@@ -28,9 +28,8 @@
 #ifndef BLOGIMPROVERHANDLER_H
 #define BLOGIMPROVERHANDLER_H
 #include <qutim/messagehandler.h>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QLatin1String>
-#include <QStringRef>
 #include <QTextDocument>
 #include <QChar>
 #include <QMetaMethod>
@@ -77,14 +76,14 @@ private:
 	qutim_sdk_0_3::ConfigValue<bool> m_enablePstoIntegration;
 	qutim_sdk_0_3::ConfigValue<bool> m_enableJuickIntegration;
 	qutim_sdk_0_3::ConfigValue<bool> m_enableBnwIntegration;
-	QRegExp m_pstoNick;
-	QRegExp m_pstoPost;
-	QRegExp m_pstoComment;
-	QRegExp m_pstoTag;
+	QRegularExpression m_pstoNick;
+	QRegularExpression m_pstoPost;
+	QRegularExpression m_pstoComment;
+	QRegularExpression m_pstoTag;
 
-	QRegExp m_juickNick;
-	QRegExp m_juickPost;
-	QRegExp m_juickComment;
+	QRegularExpression m_juickNick;
+	QRegularExpression m_juickPost;
+	QRegularExpression m_juickComment;
 
 	void handlePsto(qutim_sdk_0_3::Message &message, const HtmlLinker &linker);
 	void handleJuick(qutim_sdk_0_3::Message &message, const HtmlLinker &linker);

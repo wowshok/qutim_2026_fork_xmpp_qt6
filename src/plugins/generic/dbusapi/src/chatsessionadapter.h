@@ -84,14 +84,18 @@ private:
 	QDBusObjectPath m_path;
 };
 
+// ChatSession::appendMessage() no longer returns the id; it is assigned on construction
 qint64 ChatSessionAdapter::appendMessage(qutim_sdk_0_3::Message &message)
 {
-	return m_session->appendMessage(message);
+	m_session->appendMessage(message);
+	return message.id();
 }
 
 qint64 ChatSessionAdapter::appendMessage(const QString &text)
 {
-	return m_session->appendMessage(text);
+	qutim_sdk_0_3::Message message(text);
+	m_session->appendMessage(message);
+	return message.id();
 }
 
 #endif // CHATSESSIONADAPTER_H

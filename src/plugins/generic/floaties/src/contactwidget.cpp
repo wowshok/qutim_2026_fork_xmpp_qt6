@@ -30,7 +30,7 @@
 #include <QDebug>
 #include <QToolTip>
 #include <QApplication>
-#include <QDesktopWidget>
+#include <QScreen>
 #include <QAbstractItemView>
 #include <qutim/icon.h>
 #include <qutim/chatsession.h>
@@ -42,7 +42,11 @@ class ItemViewHook : public QAbstractItemView
 {
 public:
 	inline QStyleOptionViewItem viewOptionsHook() const
-	{ return viewOptions(); }
+	{
+		QStyleOptionViewItem option;
+		initViewItemOption(&option);
+		return option;
+	}
 };
 
 ContactWidget::ContactWidget(const QPersistentModelIndex &index, QAbstractItemView *view,
@@ -113,7 +117,7 @@ void ContactWidget::mouseDoubleClickEvent(QMouseEvent *)
 
 void ContactWidget::wheelEvent(QWheelEvent *event)
 {
-	setWindowOpacity(windowOpacity()+event->delta()/2400.0);
+	setWindowOpacity(windowOpacity()+event->angleDelta().y()/2400.0);
 }
 
 void ContactWidget::paintEvent(QPaintEvent *event)
@@ -128,9 +132,9 @@ void ContactWidget::ensureSize()
 	resize(m_view->itemDelegate()->sizeHint(viewOptionV4(), m_index));
 }
 
-QStyleOptionViewItemV4 ContactWidget::viewOptionV4()
+QStyleOptionViewItem ContactWidget::viewOptionV4()
 {
-	QStyleOptionViewItemV4 option = static_cast<ItemViewHook*>(m_view)->viewOptionsHook();
+	QStyleOptionViewItem option = static_cast<ItemViewHook*>(m_view)->viewOptionsHook();
 	option.locale = this->locale();
 	option.locale.setNumberOptions(QLocale::OmitGroupSeparator);
 	option.widget = this;

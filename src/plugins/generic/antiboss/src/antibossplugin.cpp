@@ -26,6 +26,7 @@
 #include "antibossplugin.h"
 #include <QSystemTrayIcon>
 #include <QApplication>
+#include <QWidget>
 #include <qutim/servicemanager.h>
 
 AntiBossPlugin::AntiBossPlugin()
@@ -88,11 +89,14 @@ void AntiBossPlugin::showHide()
 	}
 	if (m_hidden) {
 		qApp->removeEventFilter(this);
-		QMultiHash<Qt::WindowStates, QWeakPointer<QWidget> >::const_iterator it = m_widgets.constBegin();
+		QMultiHash<Qt::WindowStates, QPointer<QWidget> >::const_iterator it = m_widgets.constBegin();
 		for (;it!=m_widgets.constEnd();it++) {
 			Qt::WindowStates state = it.key();
-			it.value().data()->show();
-			it.value().data()->setWindowState(state);
+			// The window may have been closed while hidden
+			if (QWidget *widget = it.value().data()) {
+				widget->show();
+				widget->setWindowState(state);
+			}
 		}
 		m_widgets.clear();
 	} else {

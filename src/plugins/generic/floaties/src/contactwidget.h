@@ -53,7 +53,7 @@ signals:
 protected:
 	virtual bool event(QEvent *event);
 	void ensureSize();
-	QStyleOptionViewItemV4 viewOptionV4();
+	QStyleOptionViewItem viewOptionV4();
 private:
 	QPersistentModelIndex m_index;
 	QAbstractItemView *m_view;

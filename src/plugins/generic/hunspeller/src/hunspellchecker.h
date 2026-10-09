@@ -48,10 +48,11 @@ public:
 	static QString toPrettyLanguageName(const QString &lang);
 	void loadSettings(QString lang);
 	QByteArray convert(const QString &word) const;
+	QString toUnicode(const char *text) const;
 private:
 	Hunspell *m_speller;
 	QString m_dictPath;
-	QTextCodec *m_codec;
+	QByteArray m_encoding;
 	static HunSpellChecker *self;
 };
 

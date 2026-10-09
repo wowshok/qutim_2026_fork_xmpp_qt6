@@ -32,7 +32,7 @@
 #include <qutim/tooltip.h>
 #include <qutim/servicemanager.h>
 #include <qutim/thememanager.h>
-#include <qutim/avatarfilter.h>
+#include <qutim/utils/avatarfilter.h>
 #include <QDir>
 #include <QFile>
 #include <QScrollBar>
@@ -96,7 +96,7 @@ ContactListItemDelegate::~ContactListItemDelegate()
 
 void ContactListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option2, const QModelIndex &index) const
 {
-	QStyleOptionViewItemV4 option(option2);
+	QStyleOptionViewItem option(option2);
 	ContactItemType type = static_cast<ContactItemType>(index.data(ItemTypeRole).toInt());
 	Status status = index.data(StatusRole).value<Status>();
 
@@ -212,7 +212,10 @@ void ContactListItemDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 
 		drawRect(backgroundPainter,rect);
 		backgroundPainter->end();
-		backgroundPixmap.setAlphaChannel(alpha);
+		// QPixmap::setAlphaChannel is gone in Qt 6, QImage keeps the same semantics
+		QImage backgroundImage = backgroundPixmap.toImage();
+		backgroundImage.setAlphaChannel(alpha.toImage());
+		backgroundPixmap = QPixmap::fromImage(backgroundImage);
 		painter->drawPixmap(option.rect,backgroundPixmap);
 		option.rect.adjust(10, 0, -10, 0);
 		painter->restore();
@@ -277,7 +280,7 @@ void ContactListItemDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 				cg = QPalette::Inactive;
 			fontColor = option.palette.color(cg, QPalette::HighlightedText);
 		}
-		QStyleOptionViewItemV4 opt(option2);
+		QStyleOptionViewItem opt(option2);
 		QStyle *style = opt.widget ? opt.widget->style() : QApplication::style();
 		style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, opt.widget);
 		statusColor = fontColor;
@@ -298,7 +301,7 @@ void ContactListItemDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 		bool isExpanded = treeView->isExpanded(index);
 		Icon icon(isExpanded ? "expanded" : "collapsed");
 		if (icon.pixmap(m_tagIconSize).isNull()) {
-			QStyleOptionViewItemV2 branchOption;
+			QStyleOptionViewItem branchOption;
 			static const int i = 9; // ### hardcoded in qcommonstyle.cpp
 			QRect r = option.rect;
 			branchOption.rect = QRect(r.left() + i/2, r.top() + (r.height() - i)/2, i, i);
@@ -390,7 +393,7 @@ void ContactListItemDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 	text = fontMetrics.elidedText(text, Qt::ElideRight, itemSize.width());
 	if (fontMetrics.height() > height)
 		height = fontMetrics.height();
-	int deltaWidth = itemSize.width() - fontMetrics.width(text);
+	int deltaWidth = itemSize.width() - fontMetrics.horizontalAdvance(text);
 	if (type == SeparatorType && deltaWidth > 0) {
 		itemSize.setWidth(itemSize.width() - deltaWidth);
 		deltaWidth /= 2;
@@ -418,7 +421,7 @@ void ContactListItemDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 
 QSize ContactListItemDelegate::sizeHint(const QStyleOptionViewItem &option2, const QModelIndex &index) const
 {
-	QStyleOptionViewItemV4 option(option2);
+	QStyleOptionViewItem option(option2);
 	ContactItemType type = static_cast<ContactItemType>(index.data(ItemTypeRole).toInt());
 	Status status = index.data(StatusRole).value<Status>();
 
@@ -495,19 +498,19 @@ QWidget *ContactListItemDelegate::createEditor(QWidget *parent, const QStyleOpti
 
 void ContactListItemDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
 {
-	debug() << Q_FUNC_INFO;
+	qDebug() << Q_FUNC_INFO;
 	QAbstractItemDelegate::setEditorData(editor, index);
 }
 
 void ContactListItemDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
 {
-	debug() << Q_FUNC_INFO;
+	qDebug() << Q_FUNC_INFO;
 	QAbstractItemDelegate::setModelData(editor, model, index);
 }
 
 void ContactListItemDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-	debug() << Q_FUNC_INFO;
+	qDebug() << Q_FUNC_INFO;
 	QAbstractItemDelegate::updateEditorGeometry(editor, option, index);
 }
 
@@ -547,7 +550,7 @@ QSize ContactListItemDelegate::size(const QStyleOptionViewItem &option, const QM
 		case QVariant::String: {
 			QFont fnt = option.font;
 			QFontMetrics fm(fnt);
-			return QSize(fm.width(value.toString()),fm.height());
+			return QSize(fm.horizontalAdvance(value.toString()),fm.height());
 		}
 		default:
 			break;
@@ -1115,18 +1118,12 @@ QFont ContactListItemDelegate::getFont(QVariant var) const
 
 const QWidget *ContactListItemDelegate::getWidget(const QStyleOptionViewItem &option)
 {
-	if (const QStyleOptionViewItemV3 *v3 = qstyleoption_cast<const QStyleOptionViewItemV3 *>(&option))
-		return v3->widget;
-
-	return 0;
+	return option.widget;
 }
 
 QStyle *ContactListItemDelegate::getStyle(const QStyleOptionViewItem &option)
 {
-	if (const QStyleOptionViewItemV3 *v3 = qstyleoption_cast<const QStyleOptionViewItemV3 *>(&option))
-	return v3->widget ? v3->widget->style() : QApplication::style();
-
-	return QApplication::style();
+	return option.widget ? option.widget->style() : QApplication::style();
 }
 
 int ContactListItemDelegate::statusToID(const Status &status)

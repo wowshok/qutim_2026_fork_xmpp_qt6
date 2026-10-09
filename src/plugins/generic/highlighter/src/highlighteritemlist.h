@@ -33,6 +33,7 @@
 #include <QListWidget>
 #include <QPushButton>
 #include <QWidget>
+#include "highlightpattern.h"
 #include <QEvent>
 
 class HighlighterItemList : public QWidget
@@ -40,15 +41,14 @@ class HighlighterItemList : public QWidget
 	Q_OBJECT
 
 public:
-	HighlighterItemList(const QRegExp &regex, QListWidget *regexList);
+	HighlighterItemList(const HighlightPattern &pattern, QListWidget *regexList);
 	~HighlighterItemList();
 
-	QRegExp regexp() const;
+	HighlightPattern pattern() const;
 
 	QListWidgetItem *item();
 	void setItem(QListWidgetItem *item);
 
-	static QString getTranslatedRegexpType(const QRegExp::PatternSyntax &syntax);
 
 signals:
 	void buttonClicked();
@@ -60,7 +60,8 @@ private:
 	QLabel *m_label;
 	QPushButton *m_button;
 	QListWidgetItem *m_item;
-	QRegExp m_regexp;
+	HighlightPattern m_pattern;
+	QString title() const;
 };
 
 #endif // HIGHLIGHTERITEMLIST_H

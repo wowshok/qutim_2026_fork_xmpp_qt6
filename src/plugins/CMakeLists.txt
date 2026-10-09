@@ -119,7 +119,8 @@ endfunction()
 set(QUTIM_PLUGIN_TEMPLATE "${CMAKE_CURRENT_SOURCE_DIR}/plugintemplate.cpp")
 set(G "${CMAKE_CURRENT_SOURCE_DIR}/generic")
 
-find_package(Qt6 REQUIRED COMPONENTS Xml)
+find_package(Qt6 REQUIRED COMPONENTS Xml DBus)
+find_package(PkgConfig REQUIRED)
 find_package(Qt6Keychain REQUIRED)
 
 # Minimal XMPP client: without these qutim crashes or cannot create an account
@@ -180,6 +181,33 @@ qutim_add_plugin(idledetector DIR "${G}/idledetector" SOURCE_DIR .
 # Notification sounds through Qt Multimedia (replaces the Phonon and SDL backends)
 find_package(Qt6 REQUIRED COMPONENTS Multimedia)
 qutim_add_plugin(qtmultimediasound DIR "${G}/qtmultimediasound" SOURCE_DIR . LINK Qt6::Multimedia)
+
+# Optional chat features
+foreach(p highlighter antispam autoreply urlpreview massmessaging birthdayreminder clconf logger
+          emoedit floaties antiboss formula blogimprover autopaster)
+	qutim_add_plugin(${p} DIR "${G}/${p}")
+endforeach()
+foreach(p idlestatuschanger chatspellchecker sessionhelper)
+	qutim_add_plugin(${p} DIR "${G}/${p}" SOURCE_DIR .)
+endforeach()
+qutim_add_plugin(oldcontactdelegate DIR "${G}/oldcontactdelegate" SOURCE_DIR . LINK qutim-simplecontactlist Qt6::Xml)
+qutim_add_plugin(dbusapi DIR "${G}/dbusapi" LINK Qt6::DBus)
+# Restores account status on start and reconnects after network or connection loss
+qutim_add_plugin(bearermanager DIR "${G}/bearermanager")
+qutim_add_plugin(nowplaying DIR "${G}/nowplaying" SOURCE_DIR .
+	LINK Qt6::DBus INCLUDES "${G}/nowplaying/include" "${G}/nowplaying/src")
+
+# Spell checking backends
+pkg_check_modules(HUNSPELL REQUIRED IMPORTED_TARGET hunspell)
+qutim_add_plugin(hunspeller DIR "${G}/hunspeller" LINK PkgConfig::HUNSPELL)
+find_library(ASPELL_LIBRARY aspell REQUIRED)
+qutim_add_plugin(aspeller DIR "${G}/aspeller" LINK ${ASPELL_LIBRARY})
+
+# Encryption: OTR (libotr 4) and qutim's own AES scheme (QCA)
+pkg_check_modules(LIBOTR REQUIRED IMPORTED_TARGET libotr>=4.0.0)
+qutim_add_plugin(offtherecord DIR "${G}/offtherecord" LINK PkgConfig::LIBOTR)
+find_package(Qca-qt6 REQUIRED)
+qutim_add_plugin(aescrypto DIR "${G}/aescrypto" LINK qca-qt6)
 
 # Linux desktop integration: freedesktop notifications and TCP keepalive
 set(I "${CMAKE_CURRENT_SOURCE_DIR}/integrations")

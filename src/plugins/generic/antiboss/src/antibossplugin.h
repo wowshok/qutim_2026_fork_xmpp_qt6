@@ -29,12 +29,14 @@
 #include <qutim/plugin.h>
 #include <qutim/shortcut.h>
 #include <QSet>
+#include <QPointer>
 
 using namespace qutim_sdk_0_3;
 
 class AntiBossPlugin : public Plugin
 {
 	Q_OBJECT
+	Q_PLUGIN_METADATA(IID "org.qutim.Plugin")
 public:
 	AntiBossPlugin();
 	virtual void init();
@@ -46,7 +48,7 @@ public slots:
 private:
 	bool m_hidden;
 	GlobalShortcut *m_shortcut;
-	QMultiHash<Qt::WindowStates, QWeakPointer<QWidget> > m_widgets;
+	QMultiHash<Qt::WindowStates, QPointer<QWidget> > m_widgets;
 };
 
 #endif // ANTIBOSSPLUGIN_H

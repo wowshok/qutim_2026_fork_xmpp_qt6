@@ -26,16 +26,12 @@
 
 #include "bearermanager.h"
 #include "accountserver.h"
-
-#include <QNetworkConfigurationManager>
-#include <QNetworkConfiguration>
-
+#include <QNetworkInformation>
 #include <qutim/account.h>
 #include <qutim/protocol.h>
 #include <qutim/icon.h>
 #include <qutim/debug.h>
 #include <qutim/utils.h>
-#include <qutim/notification.h>
 #include <qutim/accountmanager.h>
 
 #define BEARER_PROPERTY "qutim_bearer_server"
@@ -43,7 +39,7 @@
 using namespace qutim_sdk_0_3;
 
 BearerManager::BearerManager() :
-	m_isOnline(false), m_confManager(new QNetworkConfigurationManager(this))
+	m_isOnline(false), m_networkInfo(nullptr)
 {
 }
 
@@ -51,7 +47,7 @@ void BearerManager::init()
 {
 	setInfo(QT_TRANSLATE_NOOP("Service", "BearerManager"),
 			QT_TRANSLATE_NOOP("Service", "Connection manager"),
-			PLUGIN_VERSION(0, 0, 2, 0));
+			PLUGIN_VERSION(0, 0, 3, 0));
 	setCapabilities(Loadable);
 	addAuthor(QLatin1String("Sauron"));
 	addAuthor(QLatin1String("trett"));
@@ -60,7 +56,14 @@ void BearerManager::init()
 
 bool BearerManager::load()
 {
-	m_isOnline = m_confManager->isOnline();
+	// Qt 6 replaced the bearer API with QNetworkInformation (NetworkManager,
+	// GLib or ConnMan backends on Linux)
+	if (QNetworkInformation::loadBackendByFeatures(QNetworkInformation::Feature::Reachability))
+		m_networkInfo = QNetworkInformation::instance();
+	else
+		qWarning() << "No network information backend, assuming the network is always reachable";
+
+	m_isOnline = isNetworkOnline();
 
 	auto onAccountAdded = [this] (Account *account) {
 		Q_ASSERT(account->property(BEARER_PROPERTY).isNull());
@@ -70,26 +73,21 @@ bool BearerManager::load()
 		account->setProperty(BEARER_PROPERTY, QVariant::fromValue(server));
 		server->setOnline(isNetworkOnline());
 	};
-
 	AccountManager *manager = AccountManager::instance();
 	connect(manager, &AccountManager::accountAdded, this, onAccountAdded);
-	connect(manager, &AccountManager::accountRemoved, this, [this] (Account *account) {
+	connect(manager, &AccountManager::accountRemoved, this, [] (Account *account) {
 		auto server = account->property(BEARER_PROPERTY).value<Bearer::AccountServer *>();
 		Q_ASSERT(server);
 		account->setProperty(BEARER_PROPERTY, QVariant());
 		delete server;
 	});
-
 	foreach (Account *account, manager->accounts())
 		onAccountAdded(account);
 
-	connect(m_confManager, SIGNAL(onlineStateChanged(bool)), SLOT(onOnlineStatusChanged(bool)));
-
-	QList<QNetworkConfiguration> list = m_confManager->allConfigurations();
-	if (!list.count()) {
-		Notification::send(tr("Unable to find any network configuration. "
-							  "Perhaps Qt or QtMobility network bearer configured incorrectly. "
-							  "Bearer manager will not work properly, refer to your distribution maintainer."));
+	if (m_networkInfo) {
+		connect(m_networkInfo, &QNetworkInformation::reachabilityChanged, this, [this] {
+			onOnlineStatusChanged(isNetworkOnline());
+		});
 	}
 	return true;
 }
@@ -104,17 +102,18 @@ void BearerManager::onOnlineStatusChanged(bool isOnline)
 	if (m_isOnline == isOnline)
 		return;
 	m_isOnline = isOnline;
-
-	qDebug() << "onlineStatusChanged, online:" << isOnline << ", network online:" << isNetworkOnline();
-
-	emit onlineStateChanged(isNetworkOnline());
+	qDebug() << "onlineStatusChanged, online:" << isOnline;
+	emit onlineStateChanged(isOnline);
 }
 
 bool BearerManager::isNetworkOnline() const
 {
-	return m_confManager->isOnline()
-			// We don't have any bearer backend
-			|| m_confManager->allConfigurations().isEmpty();
+	if (!m_networkInfo)
+		return true;
+	// Unknown means the backend cannot tell, don't keep accounts offline then
+	const auto reachability = m_networkInfo->reachability();
+	return reachability == QNetworkInformation::Reachability::Online
+			|| reachability == QNetworkInformation::Reachability::Unknown;
 }
 
 QUTIM_EXPORT_PLUGIN(BearerManager)

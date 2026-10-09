@@ -44,6 +44,7 @@ protected:
 	virtual void saveImpl();
 	virtual void cancelImpl();
 	void clearItems();
+	HighlightPattern inputPattern() const;
 	virtual void changeEvent(QEvent *e);
 
 private slots:

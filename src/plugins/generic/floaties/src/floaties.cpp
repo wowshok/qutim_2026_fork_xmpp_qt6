@@ -29,7 +29,7 @@
 #include <qutim/mimeobjectdata.h>
 #include <qutim/servicemanager.h>
 #include <qutim/event.h>
-#include <QDesktopWidget>
+#include <QScreen>
 #include <QApplication>
 #include <QTime>
 

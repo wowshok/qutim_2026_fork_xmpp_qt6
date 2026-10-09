@@ -29,9 +29,8 @@
 #ifndef HIGHLIGHTER_MESSAGEHANDLER_H
 #define HIGHLIGHTER_MESSAGEHANDLER_H
 #include <qutim/messagehandler.h>
-#include <QRegExp>
+#include "highlightpattern.h"
 #include <QLatin1String>
-#include <QStringRef>
 #include <QTextDocument>
 #include <QChar>
 
@@ -50,7 +49,7 @@ public slots:
 	void loadSettings();
 private:
 	bool m_enableAutoHighlights;
-	QList<QRegExp> m_regexps;
+	QList<QRegularExpression> m_regexps;
 };
 
 } // namespace Highlighter
