@@ -133,6 +133,9 @@ QVariant ContactListBaseModel::data(const QModelIndex &index, int role) const
 		Account *account = node->account.data();
 		switch (role) {
 		case Qt::DisplayRole:
+			// Jabber names the account by its JID: "amil@pfpk.ru (amil@pfpk.ru)"
+			if (account->name().isEmpty() || account->name() == account->id())
+				return account->id();
 			return QString(account->name()
 					% QLatin1String(" (")
 					% account->id()

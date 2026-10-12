@@ -24,6 +24,7 @@
 ****************************************************************************/
 
 #include "contactlistseparatedmodel.h"
+#include <qutim/metacontactmanager.h>
 
 using namespace qutim_sdk_0_3;
 
@@ -54,6 +55,9 @@ void ContactListSeparatedModel::updateContactTags(Contact *contact, const QStrin
 
 void ContactListSeparatedModel::addAccount(Account *account)
 {
+	// The metacontacts "account" is internal: it shows up with its first metacontact
+	if (qobject_cast<MetaContactManager*>(account))
+		return;
 	ensureAccount(account, rootNode());
 }
 
@@ -83,5 +87,9 @@ void ContactListSeparatedModel::removeContact(Contact *contact)
 			TagNode *tagNode = ensureTag(tag, accountNode);
 			eraseContact(contact, tagNode);
 		}
+	}
+	if (qobject_cast<MetaContactManager*>(contact->account())
+			&& accountNode->contacts.isEmpty() && accountNode->tags.isEmpty()) {
+		eraseAccount(contact->account(), rootNode());
 	}
 }

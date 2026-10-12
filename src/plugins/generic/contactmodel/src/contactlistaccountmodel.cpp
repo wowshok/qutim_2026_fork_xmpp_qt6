@@ -24,6 +24,7 @@
 ****************************************************************************/
 
 #include "contactlistaccountmodel.h"
+#include <qutim/metacontactmanager.h>
 
 using namespace qutim_sdk_0_3;
 
@@ -35,6 +36,9 @@ ContactListAccountModel::ContactListAccountModel(QObject *parent) :
 
 void ContactListAccountModel::addAccount(Account *account)
 {
+	// The metacontacts "account" is internal: it shows up with its first metacontact
+	if (qobject_cast<MetaContactManager*>(account))
+		return;
 	ensureAccount(account, rootNode());
 }
 
@@ -54,4 +58,6 @@ void ContactListAccountModel::removeContact(Contact *contact)
 {
 	AccountNode *accountNode = ensureAccount(contact->account(), rootNode());
 	eraseContact(contact, accountNode);
+	if (qobject_cast<MetaContactManager*>(contact->account()) && accountNode->contacts.isEmpty())
+		eraseAccount(contact->account(), rootNode());
 }
