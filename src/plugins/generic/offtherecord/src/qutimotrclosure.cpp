@@ -153,7 +153,9 @@ int OtrClosure::getPolicy() const
 void OtrClosure::updateState()
 {
 	qint16 newState = this->getState();
-	if (prevState == 666) {
+	// 4 is "no OTR context yet", 0 is plain text: libotr creates the context with the
+	// first message, the chat was not private before either, nothing to tell the user
+	if (prevState == 666 || (prevState == 4 && newState == 0)) {
 		prevState = newState;
 	} else if (prevState != newState) {
 		bool enabled = false;
