@@ -71,7 +71,6 @@ public slots:
 	void setStylePath(const QString &path);
 	void setCustomStyle(const QString &style);
 	QString baseTemplateForChat(qutim_sdk_0_3::ChatSession *session);
-	QString baseTemplateForChat(qutim_sdk_0_3::ChatSession *session, const QString &id, const QString &wsUri);
 	QUrl baseUrl();
 	QString templateForContent(const qutim_sdk_0_3::Message &message, bool contentIsSimilar);
 	QString scriptForChangingVariant();
@@ -124,7 +123,6 @@ private:
 	void releaseResources();
 	UnitData getSourceData(const qutim_sdk_0_3::Message &message);
 	QString &fillKeywords(QString &inString, const qutim_sdk_0_3::Message &message, bool contentIsSimilar);
-	QString &injectScript(QString &inString, const QString &id, const QString &wsUri);
 	QString &fillKeywordsForBaseTemplate(QString &inString, qutim_sdk_0_3::ChatSession *session);
 	QString stringWithFormat(const QString &str, const QStringList &args);
 

@@ -3,7 +3,6 @@
 
 var client = (function() {
     var client = {};
-    var clientId = undefined;
     var webChannel = undefined;
     var connection = undefined;
     var pendingCalls = [];
@@ -13,7 +12,6 @@ var client = (function() {
         'appendNick',
         'contextMenu',
         'appendText',
-        'setTopic',
     ];
 
     function createDefaultCallback(name) {
@@ -45,6 +43,7 @@ var client = (function() {
         }
 
         alignChat(true);
+        return true;
     };
 
     client.setDefaultFont = function(family, size) {
@@ -65,41 +64,77 @@ var client = (function() {
         }
     };
 
-    client.initQuickChat = function(id, wsUri) {
-        clientId = id;
-
-        window.onload = function() {
-            var socket = new WebSocket(wsUri);
-            console.log('creating websocket');
-
-            socket.onclose = function() {
-                console.error("web channel closed");
-            };
-            socket.onerror = function(error) {
-                console.error("web channel error: " + error);
-            };
-            socket.onopen = function() {
-                webChannel = new QWebChannel(socket, function(channel) {
-                    connection = channel.objects.client;
-
-                    function createRealCallback(name) {
-                        return connection[name].bind(undefined, clientId);
-                    };
-
-                    for (var i = 0; i < methods.length; ++i) {
-                        var method = methods[i];
-                        client[method] = createRealCallback(method);
-                    }
-
-                    var pending = pendingCalls;
-                    pendingCalls = [];
-
-                    for (i = 0; i < pending.length; ++i)
-                        pending[i]();
-                });
-            }
-        }
+    client.setTopic = function() {
+        var element = document.getElementById('topicEdit');
+        var topic = element ? element.innerText : '';
+        if (connection)
+            connection.setTopic(topic);
+        else
+            pendingCalls.push(function() { connection.setTopic(topic); });
     };
+
+    client.updateTopic = function(html) {
+        var element = document.getElementById('topic');
+        if (element)
+            element.innerHTML = html;
+    };
+
+    client.clearFocus = function() {
+        var elements = document.querySelectorAll('.focus');
+        for (var i = 0; i < elements.length; ++i)
+            elements[i].classList.remove('focus', 'firstFocus');
+    };
+
+    // Called by qutIM once qwebchannel.js is loaded, the C++ side is published as "client"
+    client.initWebChannel = function() {
+        // Pages of the same profile that are not chats (the inspector) have no transport
+        if (typeof qt === 'undefined' || !qt.webChannelTransport)
+            return;
+        webChannel = new QWebChannel(qt.webChannelTransport, function(channel) {
+            connection = channel.objects.client;
+
+            function createRealCallback(name) {
+                return function() {
+                    connection[name].apply(connection, arguments);
+                };
+            }
+
+            for (var i = 0; i < methods.length; ++i) {
+                var method = methods[i];
+                client[method] = createRealCallback(method);
+            }
+
+            var pending = pendingCalls;
+            pendingCalls = [];
+
+            for (i = 0; i < pending.length; ++i)
+                pending[i]();
+        });
+    };
+
+    // Keep the chat scrolled to the bottom while the user has not scrolled up:
+    // the page is built before the view gets its size, and images (url previews,
+    // emoticons) grow the messages after the style has decided about scrolling
+    var stickToBottom = true;
+
+    function isAtBottom() {
+        var root = document.scrollingElement || document.documentElement;
+        return root.scrollHeight - window.innerHeight - window.scrollY < 10;
+    }
+
+    function keepAtBottom() {
+        if (stickToBottom)
+            window.scrollTo(0, (document.scrollingElement || document.documentElement).scrollHeight);
+    }
+
+    window.addEventListener('scroll', function() {
+        stickToBottom = isAtBottom();
+    });
+    window.addEventListener('resize', keepAtBottom);
+    document.addEventListener('DOMContentLoaded', function() {
+        if (window.ResizeObserver)
+            new ResizeObserver(keepAtBottom).observe(document.body);
+    });
 
     return client;
 })();

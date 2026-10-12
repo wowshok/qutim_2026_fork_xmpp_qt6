@@ -31,7 +31,6 @@
 #include <qutim/account.h>
 #include <qutim/notification.h>
 #include <qutim/thememanager.h>
-#include <QWebFrame>
 #include <QLabel>
 #include <QSpacerItem>
 #include <QFormLayout>
@@ -93,7 +92,7 @@ void WebViewAppearance::loadImpl()
 	QString styleName = config.value(QLatin1String("name"), QLatin1String("default"));
 	int index = qMax(0, ui->styleNameBox->findText(styleName));
 	ui->styleNameBox->setCurrentIndex(index);
-	on_styleNameBox_currentIndexChanged(ui->styleNameBox->itemText(index));
+	on_styleNameBox_currentTextChanged(ui->styleNameBox->itemText(index));
 }
 
 void WebViewAppearance::saveImpl()
@@ -160,7 +159,7 @@ QString WebViewAppearance::backgroundPath() const
 void WebViewAppearance::setBackgroundColor(const QColor &color)
 {
 	ui->colorButton->setStyleSheet(QLatin1String("background: ") + color.name());
-	ui->colorButton->setProperty("_webview_color", qVariantFromValue(color));
+	ui->colorButton->setProperty("_webview_color", QVariant::fromValue(color));
 }
 
 QColor WebViewAppearance::backgroundColor() const
@@ -188,7 +187,7 @@ void WebViewAppearance::makeSettings()
 	onVariableChanged();
 }
 
-void WebViewAppearance::on_styleNameBox_currentIndexChanged(const QString &styleName)
+void WebViewAppearance::on_styleNameBox_currentTextChanged(const QString &styleName)
 {
 	// We don't want to receive some of the events
 	SignalBlocker variantBlocker(ui->variantBox);
@@ -292,7 +291,7 @@ void WebViewAppearance::on_styleNameBox_currentIndexChanged(const QString &style
 	rebuildChatView();
 }
 
-void WebViewAppearance::on_variantBox_currentIndexChanged(const QString &variant)
+void WebViewAppearance::on_variantBox_currentTextChanged(const QString &variant)
 {
 	m_style->setActiveVariant(variant);
 	m_controller->evaluateJavaScript(m_style->scriptForChangingVariant());

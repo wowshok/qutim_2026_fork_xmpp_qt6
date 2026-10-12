@@ -27,33 +27,27 @@
 #ifndef ADIUMCHATVIEWWIDGET_H
 #define ADIUMCHATVIEWWIDGET_H
 
-#include <QWebView>
+#include <QWebEngineView>
 #include <qutim/adiumchat/chatviewfactory.h>
-#include <qutim/declarativeview.h>
 #include <QPointer>
 #include "yandexdomaindefine.h"
-
-class QDeclarativeItem;
 
 namespace Adium {
 
 class WebViewController;
-class WebViewWidget : public QWebView, public Core::AdiumChat::ChatViewWidget
+class WebViewWidget : public QWebEngineView, public Core::AdiumChat::ChatViewWidget
 {
 	Q_OBJECT
 	Q_INTERFACES(Core::AdiumChat::ChatViewWidget)
 public:
 	WebViewWidget(QWidget *parent = 0);
 	virtual void setViewController(QObject* controller);
+	QSize sizeHint() const override;
 private:
 	QPointer<WebViewController> m_controller;
 	QString m_searcher;
 	YandexDomainDefine m_yandexDomainDefine;
 	QUrl m_urlForOpen;
-#ifdef Q_WS_MAEMO_5
-	bool mousePressed;
-	virtual bool eventFilter(QObject *, QEvent *e);
-#endif
 public slots:
 	void showCustomContextMenu(const QPoint & point);
 	void insertQuoteText();
@@ -62,6 +56,7 @@ public slots:
 	void setPrevFocus(QObject *);
 	void openChat();
 	void openConference();
+	void inspectElement();
 };
 
 } // namespace Adium

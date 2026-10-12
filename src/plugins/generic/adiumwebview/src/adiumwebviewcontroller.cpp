@@ -24,7 +24,7 @@
 ****************************************************************************/
 
 #include "adiumwebviewcontroller.h"
-#include "../lib/webkitnetworkaccessmanager.h"
+#include "../lib/webkiturlinterceptor.h"
 #include <qutim/utils.h>
 #include <qutim/message.h>
 #include <qutim/thememanager.h>
@@ -37,80 +37,122 @@
 #include <qutim/servicemanager.h>
 #include <qutim/chatsession.h>
 #include <QPlainTextEdit>
-#include <QWebFrame>
-#include <QWebInspector>
-#include <QWebElement>
+#include <QTextEdit>
+#include <QApplication>
 #include <QDesktopServices>
+#include <QWebChannel>
+#include <QWebEngineProfile>
+#include <QWebEngineScript>
+#include <QWebEngineScriptCollection>
+#include <QWebEngineSettings>
+#include <QFile>
+#include <QDir>
+
+namespace qutim_sdk_0_3 {
+// Escapes a string for a double quoted JavaScript literal, from libqutim's utils.cpp
+LIBQUTIM_EXPORT QString &validateCpp(QString &text);
+}
 
 namespace Adium {
 
 using namespace qutim_sdk_0_3;
 using namespace Core::AdiumChat;
 
-WebViewLoaderLoop::WebViewLoaderLoop()
+static QString readFile(const QString &fileName)
 {
-}
-
-WebViewLoaderLoop::~WebViewLoaderLoop()
-{
-}
-
-void WebViewLoaderLoop::addPage(QWebPage *page, const QString &html)
-{
-	for (int i = 0; i < m_pages.size(); ++i) {
-		if (m_pages.at(i).data() == page) {
-			m_htmls[i] = html;
-			return;
-		}
+	QFile file(fileName);
+	if (!file.open(QIODevice::ReadOnly)) {
+		qWarning() << "Unable to read" << fileName << file.errorString();
+		return QString();
 	}
-	connect(page, SIGNAL(loadFinished(bool)), SLOT(onPageLoaded()));
-	connect(page, SIGNAL(destroyed()), SLOT(onPageDestroyed()));
-	m_pages.append(page);
-	m_htmls.append(html);
-	if (m_pages.size() == 1)
-		page->mainFrame()->setHtml(html);
+	return QString::fromUtf8(file.readAll());
 }
 
-void WebViewLoaderLoop::onPageLoaded()
+// Opens links from target="_blank" and window.open() in the system browser
+class ExternalLinkPage : public QWebEnginePage
 {
-	disconnect(m_pages.first().data(), 0, this, 0);
-	m_pages.removeFirst();
-	m_htmls.removeFirst();
-	if (!m_pages.isEmpty()) {
-		QWebPage *page = m_pages.first().data();
-		QString html = m_htmls.first();
-		page->mainFrame()->setHtml(html);
-	}
-}
+public:
+	ExternalLinkPage(QWebEngineProfile *profile, QObject *parent) : QWebEnginePage(profile, parent) {}
 
-void WebViewLoaderLoop::onPageDestroyed()
+protected:
+	bool acceptNavigationRequest(const QUrl &url, NavigationType, bool) override
+	{
+		QDesktopServices::openUrl(url);
+		deleteLater();
+		return false;
+	}
+};
+
+WebViewClient::WebViewClient(WebViewController *controller)
+	: QObject(controller), m_controller(controller)
 {
-	for (int i = 0; i < m_pages.size(); ++i) {
-		if (m_pages.at(i).isNull()) {
-			m_pages.removeAt(i);
-			m_htmls.removeAt(i);
-			--i;
-		}
-	}
 }
 
-Q_GLOBAL_STATIC(WebViewLoaderLoop, loaderLoop)
+void WebViewClient::debugLog(const QString &message)
+{
+	m_controller->debugLog(message);
+}
+
+void WebViewClient::appendNick(const QVariant &nick)
+{
+	m_controller->appendNick(nick);
+}
+
+void WebViewClient::contextMenu(const QVariant &nick)
+{
+	m_controller->contextMenu(nick);
+}
+
+void WebViewClient::appendText(const QVariant &text)
+{
+	m_controller->appendText(text);
+}
+
+void WebViewClient::setTopic(const QString &topic)
+{
+	m_controller->setTopic(topic);
+}
+
+QWebEngineProfile *WebViewController::chatProfile()
+{
+	static QPointer<QWebEngineProfile> profile;
+	if (!profile) {
+		// Off the record: nothing of the chats is cached on disk
+		profile = new QWebEngineProfile(qApp);
+		profile->setUrlRequestInterceptor(new WebKitUrlInterceptor(profile));
+
+		// The style's own scripts may call client.* while the page is still loading,
+		// so the bridge is created before any of them runs
+		QDir shareDir = ThemeManager::path(QStringLiteral("data"), QStringLiteral("webview"));
+		QWebEngineScript script;
+		script.setName(QStringLiteral("qutim-client"));
+		script.setInjectionPoint(QWebEngineScript::DocumentCreation);
+		script.setWorldId(QWebEngineScript::MainWorld);
+		script.setRunsOnSubFrames(false);
+		script.setSourceCode(readFile(QStringLiteral(":/qtwebchannel/qwebchannel.js"))
+							 + QLatin1Char('\n')
+							 + readFile(shareDir.filePath(QStringLiteral("client.js")))
+							 + QLatin1String("\nclient.initWebChannel();\n"));
+		profile->scripts()->insert(script);
+	}
+	return profile;
+}
 
 WebViewController::WebViewController(bool isPreview) :
-	m_isLoading(false), m_isPreview(isPreview)
+	QWebEnginePage(chatProfile()), m_isLoading(false), m_isPreview(isPreview)
 {
 	m_topic.setProperty("topic", true);
-	setNetworkAccessManager(new WebKitNetworkAccessManager(this));
 
-	setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
-	settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
-	QWebInspector *inspector = new QWebInspector;
-	inspector->setPage(this);
-	connect(this, SIGNAL(destroyed()), inspector, SLOT(deleteLater()));
-	connect(this, SIGNAL(loadFinished(bool)), SLOT(onLoadFinished()));
-	connect(this, SIGNAL(linkClicked(QUrl)), SLOT(onLinkClicked(QUrl)));
-	onObjectCleared();
-	connect(mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), SLOT(onObjectCleared()));
+	QWebEngineSettings *webSettings = settings();
+	// Styles live in local files, but messages may show remote images (urlpreview)
+	webSettings->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, true);
+	webSettings->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, true);
+
+	QWebChannel *channel = new QWebChannel(this);
+	channel->registerObject(QStringLiteral("client"), new WebViewClient(this));
+	setWebChannel(channel);
+
+	connect(this, &QWebEnginePage::loadFinished, this, &WebViewController::onLoadFinished);
 }
 
 WebViewController::~WebViewController()
@@ -129,7 +171,6 @@ void WebViewController::setChatSession(ChatSession *session)
 		if (!m_isPreview) {
 			loadSettings(false);
 			clearChat();
-			//loadHistory();
 		}
 	}
 }
@@ -175,7 +216,9 @@ void WebViewController::clearChat()
 	Q_ASSERT(!m_session.isNull());
 	m_last = Message();
 	m_isLoading = true;
-	loaderLoop()->addPage(this, m_style.baseTemplateForChat(m_session.data()));
+	// Whatever was waiting for the old document has nothing to apply to
+	m_pendingScripts.clear();
+	setHtml(m_style.baseTemplateForChat(m_session.data()), m_style.baseUrl());
 	evaluateJavaScript(m_style.scriptForSettingCustomStyle());
 }
 
@@ -191,13 +234,13 @@ WebKitMessageViewStyle *WebViewController::style()
 
 void WebViewController::setDefaultFont(const QString &family, int size)
 {
-	QWebSettings *settings = QWebPage::settings();
+	QWebEngineSettings *settings = QWebEnginePage::settings();
 	QFontInfo info(QFont(family, size));
-	QWebSettings::FontFamily families[] = {
-		QWebSettings::StandardFont,
-		QWebSettings::FixedFont,
-		QWebSettings::SerifFont,
-		QWebSettings::SansSerifFont
+	QWebEngineSettings::FontFamily families[] = {
+		QWebEngineSettings::StandardFont,
+		QWebEngineSettings::FixedFont,
+		QWebEngineSettings::SerifFont,
+		QWebEngineSettings::SansSerifFont
 	};
 	const int familiesSize = sizeof(families) / sizeof(families[0]);
 	if (family.isEmpty()) {
@@ -208,21 +251,21 @@ void WebViewController::setDefaultFont(const QString &family, int size)
 			settings->setFontFamily(families[i], family);
 	}
 	if (size < 0)
-		settings->resetFontSize(QWebSettings::DefaultFontSize);
+		settings->resetFontSize(QWebEngineSettings::DefaultFontSize);
 	else
-		settings->setFontSize(QWebSettings::DefaultFontSize, info.pixelSize());
+		settings->setFontSize(QWebEngineSettings::DefaultFontSize, info.pixelSize());
 }
 
 QString WebViewController::defaultFontFamily() const
 {
-	return QWebPage::settings()->fontFamily(QWebSettings::StandardFont);
+	return QWebEnginePage::settings()->fontFamily(QWebEngineSettings::StandardFont);
 }
 
 int WebViewController::defaultFontSize() const
 {
-	QWebSettings *settings = QWebPage::settings();
-	QString family = settings->fontFamily(QWebSettings::StandardFont);
-	int size = settings->fontSize(QWebSettings::DefaultFontSize);
+	QWebEngineSettings *settings = QWebEnginePage::settings();
+	QString family = settings->fontFamily(QWebEngineSettings::StandardFont);
+	int size = settings->fontSize(QWebEngineSettings::DefaultFontSize);
 	QFont font(family);
 	font.setPixelSize(size);
 	QFontInfo info(font);
@@ -233,50 +276,26 @@ bool WebViewController::eventFilter(QObject *obj, QEvent *ev)
 {
 	if (obj == m_session.data() && ev->type() == MessageReceiptEvent::eventType()) {
 		MessageReceiptEvent *msgEvent = static_cast<MessageReceiptEvent *>(ev);
-		QWebFrame *frame = mainFrame();
-		QWebElement elem = frame->findFirstElement(QLatin1String("#message")
-												   + QString::number(msgEvent->id()));
-		if (!elem.isNull()) {
-			if (msgEvent->success()) {
-				elem.removeClass(QLatin1String("notDelivered"));
-				elem.addClass(QLatin1String("delivered"));
-			} else {
-				elem.addClass(QLatin1String("failedToDeliver"));
-			}
-		}
+		evaluateJavaScript(QStringLiteral("client.markMessage(%1, %2);")
+						   .arg(msgEvent->id())
+						   .arg(msgEvent->success() ? QLatin1String("true") : QLatin1String("false")));
 		return true;
 	}
-	return QWebPage::eventFilter(obj, ev);
+	return QWebEnginePage::eventFilter(obj, ev);
+}
+
+void WebViewController::scrollToBottom()
+{
+	evaluateJavaScript(QStringLiteral("window.scrollTo(0, document.body.scrollHeight);"));
 }
 
 QVariant WebViewController::evaluateJavaScript(const QString &script)
 {
-	// We can't always provide the result, sorry ;)
-	QVariant result;
 	if (!m_session || m_isLoading)
 		m_pendingScripts << script;
 	else
-		result = mainFrame()->evaluateJavaScript(script);
-	return result;
-}
-
-bool WebViewController::zoomImage(QWebElement elem)
-{
-	QString fullClass = QLatin1String("fullSizeImage");
-	QString scaledClass = QLatin1String("scaledToFitImage");
-	QStringList classes = elem.classes();
-	if (classes.contains(fullClass)) {
-		elem.removeClass(fullClass);
-		elem.addClass(scaledClass);
-	} else if (classes.contains(scaledClass)) {
-		elem.removeClass(scaledClass);
-		elem.addClass(fullClass);
-	} else {
-		return false;
-	}
-
-	evaluateJavaScript(QLatin1String("alignChat(true);"));
-	return true;
+		runJavaScript(script);
+	return QVariant();
 }
 
 void WebViewController::debugLog(const QString &message)
@@ -307,6 +326,8 @@ void WebViewController::appendNick(const QVariant &nick)
 
 void WebViewController::contextMenu(const QVariant &nickVar)
 {
+	if (!m_session)
+		return;
 	QString nick = nickVar.toString();
 	foreach (ChatUnit *unit, m_session.data()->unit()->lowerUnits()) {
 		if (Buddy *buddy = qobject_cast<Buddy*>(unit)) {
@@ -382,16 +403,21 @@ void WebViewController::onSettingsSaved()
 	evaluateJavaScript(m_style.scriptForSettingCustomStyle());
 }
 
-void WebViewController::onLoadFinished()
+void WebViewController::onLoadFinished(bool ok)
 {
-	foreach (const QString &script, m_pendingScripts) {
-		mainFrame()->evaluateJavaScript(script);
+	// A load that was replaced by a newer clearChat() also finishes, unsuccessfully;
+	// the scripts wait for the document they were meant for
+	if (!ok) {
+		qDebug() << "Adium: chat page load was interrupted";
+		return;
 	}
 	m_isLoading = false;
+	const QStringList scripts = m_pendingScripts;
 	m_pendingScripts.clear();
-	if (qobject_cast<Conference*>(m_session.data()->unit())) {
+	for (const QString &script : scripts)
+		runJavaScript(script);
+	if (m_session && qobject_cast<Conference*>(m_session.data()->unit()))
 		updateTopic();
-	}
 }
 
 void WebViewController::onTopicChanged(const QString &topic)
@@ -405,9 +431,6 @@ void WebViewController::onTopicChanged(const QString &topic)
 
 void WebViewController::updateTopic()
 {
-	QWebElement element = mainFrame()->findFirstElement(QLatin1String("#topic"));
-	if (element.isNull())
-		return;
 	if (!m_session)
 		return;
 	if (m_topic.text().isEmpty()) {
@@ -423,43 +446,46 @@ void WebViewController::updateTopic()
 		}
 		m_topic.setTime(QDateTime::currentDateTime());
 	}
-	element.setInnerXml(m_style.templateForContent(m_topic, false));
+	QString html = m_style.templateForContent(m_topic, false);
+	evaluateJavaScript(QStringLiteral("client.updateTopic(\"%1\");").arg(validateCpp(html)));
 }
 
-void WebViewController::setTopic()
+void WebViewController::setTopic(const QString &topic)
 {
-	QWebElement element = mainFrame()->findFirstElement(QLatin1String("#topicEdit"));
-	Conference *conference = qobject_cast<Conference*>(m_session.data()->unit());
-	if (element.isNull() || !conference)
+	Conference *conference = m_session ? qobject_cast<Conference*>(m_session.data()->unit()) : nullptr;
+	if (!conference)
 		return;
-	conference->setTopic(element.toPlainText());
+	conference->setTopic(topic);
 	updateTopic();
 }
 
 void WebViewController::clearFocusClass()
 {
-	QWebElementCollection elements = mainFrame()->findAllElements(QLatin1String(".focus"));
-	QString focusClass = QLatin1String("focus");
-	QString firstFocusClass = QLatin1String("firstFocus");
-	foreach (QWebElement element, elements) {
-		element.removeClass(focusClass);
-		element.removeClass(firstFocusClass);
+	evaluateJavaScript(QStringLiteral("client.clearFocus();"));
+}
+
+bool WebViewController::acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame)
+{
+	// Our own setHtml() and the style's frames load, links go to the browser
+	if (type == NavigationTypeLinkClicked) {
+		QDesktopServices::openUrl(url);
+		return false;
 	}
+	return QWebEnginePage::acceptNavigationRequest(url, type, isMainFrame);
 }
 
-void WebViewController::onContentsChanged()
+QWebEnginePage *WebViewController::createWindow(WebWindowType type)
 {
+	Q_UNUSED(type);
+	return new ExternalLinkPage(profile(), this);
 }
 
-void WebViewController::onObjectCleared()
+void WebViewController::javaScriptConsoleMessage(JavaScriptConsoleMessageLevel level,
+												 const QString &message, int lineNumber,
+												 const QString &sourceID)
 {
-	mainFrame()->addToJavaScriptWindowObject(QStringLiteral("client"), this, QWebFrame::QtOwnership);
-}
-
-void WebViewController::onLinkClicked(const QUrl &url)
-{
-	QDesktopServices::openUrl(url);
+	if (level == ErrorMessageLevel || qEnvironmentVariableIsSet("ADIUM_WEBKIT_DEBUG"))
+		qDebug() << "Adium:" << sourceID << lineNumber << message;
 }
 
 } // namespace Adium
-

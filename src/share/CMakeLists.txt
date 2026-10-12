@@ -22,6 +22,9 @@ set(QUTIM_SHARE_DIRS
 	"${ART}/icons/tray/ubuntu-mono-light|icons/ubuntu-mono-light/scalable/status"
 	"${ART}/icons/tray/ubuntu-mono-dark|icons/ubuntu-mono-dark/scalable/status"
 	"${PLUGINS}/kineticpopups/src/quickpopup|quickpopup"
+	# Adium chat styles and the page template/scripts of the adiumwebview plugin
+	"${CMAKE_CURRENT_SOURCE_DIR}/qutim/webkitstyle|webkitstyle"
+	"${PLUGINS}/adiumwebview/data/webview|data/webview"
 )
 
 set(index 0)

@@ -28,11 +28,12 @@
 #include "adiumwebviewcontroller.h"
 #include <qutim/config.h>
 #include <qutim/servicemanager.h>
-#include <QWebFrame>
+#include <QWebEngineContextMenuRequest>
 #include <QApplication>
 #include <QMenu>
 #include <QContextMenuEvent>
 #include <QDesktopServices>
+#include <QUrlQuery>
 #include <qutim/icon.h>
 
 namespace Adium {
@@ -40,7 +41,7 @@ namespace Adium {
 using namespace qutim_sdk_0_3;
 
 WebViewWidget::WebViewWidget(QWidget *parent)
-	: QWebView(parent)
+	: QWebEngineView(parent)
 {
 	if (QObject *scroller = ServiceManager::getByName("Scroller"))
 		QMetaObject::invokeMethod(scroller,
@@ -53,7 +54,13 @@ WebViewWidget::WebViewWidget(QWidget *parent)
 	cfg.beginGroup("chat");
 	m_searcher = cfg.value("defaultSearch", "Yandex");
 	cfg.endGroup();
-	m_urlForOpen = 0;
+}
+
+QSize WebViewWidget::sizeHint() const
+{
+	// QWebEngineView has no size hint until a page is shown, the chat splitter
+	// collapsed the view to nothing. QWebView used to ask for this much.
+	return QSize(800, 600);
 }
 
 void WebViewWidget::setViewController(QObject* object)
@@ -61,55 +68,54 @@ void WebViewWidget::setViewController(QObject* object)
 	if (m_controller.data() == object)
 		return;
 
-	if (!m_controller.isNull()) {
-		m_controller.data()->setView(0);
+	if (!m_controller.isNull())
 		m_controller.data()->disconnect(this);
-	}
 
 	WebViewController *controller = qobject_cast<WebViewController*>(object);
 	m_controller = controller;
 	if (controller) {
 		setPage(controller);
-		controller->mainFrame()->setScrollBarValue(Qt::Vertical, controller->mainFrame()->scrollBarMaximum(Qt::Vertical));
-	} else {
-		setPage(nullptr);
+		controller->scrollToBottom();
 	}
 }
 
 void WebViewWidget::showCustomContextMenu(const QPoint &point)
 {
+	QWebEngineContextMenuRequest *request = lastContextMenuRequest();
+	if (!request || !m_controller)
+		return;
+
 	QMenu *menu = new QMenu(this);
 	menu->setAttribute(Qt::WA_DeleteOnClose, true);
-	menu->popup(mapToGlobal(point));
-	bool linkUnderMouse = !QUrl(page()->frameAt(point)->hitTestContent(point).linkUrl()).isEmpty();
+	bool linkUnderMouse = !request->linkUrl().isEmpty();
 
 	if (linkUnderMouse) {
-		m_urlForOpen = page()->frameAt(point)->hitTestContent(point).linkUrl();
+		m_urlForOpen = request->linkUrl();
 
 		if(m_urlForOpen.toString().startsWith("mailto:")) { // && endsWith("?message")
-			QAction *xmppChat = new QAction(tr("&Open chat"), this);
+			QAction *xmppChat = new QAction(tr("&Open chat"), menu);
 			menu->addAction(xmppChat);
 			connect(xmppChat, SIGNAL(triggered()), SLOT(openChat()));
 
-			QAction *xmppConf = new QAction(tr("&Join conference"), this);
+			QAction *xmppConf = new QAction(tr("&Join conference"), menu);
 			menu->addAction(xmppConf);
 			connect(xmppConf, SIGNAL(triggered()), SLOT(openConference()));
 		}
 
-		QAction *openLink = page()->action(QWebPage::OpenLink);
-		openLink->setIcon(qutim_sdk_0_3::Icon("document-open"));
-		QAction *copyLink = page()->action(QWebPage::CopyLinkToClipboard);
+		// The page's own OpenLink action would navigate the chat away
+		QAction *openLink = new QAction(qutim_sdk_0_3::Icon("document-open"), tr("Open link"), menu);
+		QAction *copyLink = pageAction(QWebEnginePage::CopyLinkToClipboard);
 		copyLink->setIcon(qutim_sdk_0_3::Icon("edit-copy"));
 		menu->addAction(openLink);
 		menu->addAction(copyLink);
 		connect(openLink, SIGNAL(triggered()), SLOT(openLinkFromContextMenu()));
 	}
-	if(!selectedHtml().isEmpty()) {
-		QAction *copy = page()->action(QWebPage::Copy);
+	if(!request->selectedText().isEmpty()) {
+		QAction *copy = pageAction(QWebEnginePage::Copy);
 		copy->setIcon(qutim_sdk_0_3::Icon("edit-copy"));
-		QAction *quote = new QAction(tr("&Quote"), this);
+		QAction *quote = new QAction(tr("&Quote"), menu);
 		quote->setIcon(qutim_sdk_0_3::Icon("insert-text"));
-		QAction *search = new QAction(tr("&Search in %1").arg(m_searcher), this);
+		QAction *search = new QAction(tr("&Search in %1").arg(m_searcher), menu);
 		search->setIcon(qutim_sdk_0_3::Icon("edit-find"));
 		if (!linkUnderMouse)
 			menu->addAction(copy);
@@ -123,10 +129,25 @@ void WebViewWidget::showCustomContextMenu(const QPoint &point)
 
 	menu->addSeparator();
 
-	QAction *inspect = page()->action(QWebPage::InspectElement);
-	inspect->setIcon(qutim_sdk_0_3::Icon("document-properties"));
+	QAction *inspect = new QAction(qutim_sdk_0_3::Icon("document-properties"), tr("Inspect"), menu);
 	menu->addAction(inspect);
+	connect(inspect, SIGNAL(triggered()), SLOT(inspectElement()));
 	connect(menu, SIGNAL(destroyed(QObject*)), SLOT(setPrevFocus(QObject*)));
+	menu->popup(mapToGlobal(point));
+}
+
+void WebViewWidget::inspectElement()
+{
+	QWebEnginePage *chatPage = page();
+	if (!chatPage->devToolsPage()) {
+		QWebEngineView *devTools = new QWebEngineView(chatPage->profile());
+		devTools->setAttribute(Qt::WA_DeleteOnClose, true);
+		devTools->setWindowTitle(tr("Inspect"));
+		devTools->resize(800, 600);
+		chatPage->setDevToolsPage(devTools->page());
+		devTools->show();
+	}
+	chatPage->triggerAction(QWebEnginePage::InspectElement);
 }
 
 void WebViewWidget::insertQuoteText()
@@ -148,6 +169,8 @@ void WebViewWidget::insertQuoteText()
 
 void WebViewWidget::setPrevFocus(QObject *)
 {
+	if (!m_controller)
+		return;
 	QObject *form = ServiceManager::getByName("ChatForm");
 	QObject *obj = 0;
 	if (QMetaObject::invokeMethod(form, "textEdit", Q_RETURN_ARG(QObject*, obj),
@@ -160,19 +183,25 @@ void WebViewWidget::setPrevFocus(QObject *)
 void WebViewWidget::searchSelectedText()
 {
 	QString text = m_controller->quote().trimmed();
+	QUrl url;
+	QUrlQuery query;
 	if (m_searcher == "Yandex") {
-		QString domain = m_yandexDomainDefine.getDomain();
-		text.prepend(domain + "yandsearch?text=");
+		url = QUrl(m_yandexDomainDefine.getDomain() + "search/");
+		query.addQueryItem(QStringLiteral("text"), text);
 	} else if (m_searcher == "Google") {
-		text.prepend("http://www.google.com/search?q=");
+		url = QUrl(QStringLiteral("https://www.google.com/search"));
+		query.addQueryItem(QStringLiteral("q"), text);
+	} else {
+		return;
 	}
-	QDesktopServices::openUrl(QUrl(text));
+	url.setQuery(query);
+	QDesktopServices::openUrl(url);
 }
 
 void WebViewWidget::openLinkFromContextMenu()
 {
 	QDesktopServices::openUrl(m_urlForOpen);
-	m_urlForOpen = 0;
+	m_urlForOpen.clear();
 }
 
 void WebViewWidget::openChat()
@@ -182,7 +211,7 @@ void WebViewWidget::openChat()
 	url += "?message";
 	m_urlForOpen.setUrl(url);
 	QDesktopServices::openUrl(m_urlForOpen);
-	m_urlForOpen = 0;
+	m_urlForOpen.clear();
 }
 
 void WebViewWidget::openConference()
@@ -192,7 +221,7 @@ void WebViewWidget::openConference()
 	url += "?join";
 	m_urlForOpen.setUrl(url);
 	QDesktopServices::openUrl(m_urlForOpen);
-	m_urlForOpen = 0;
+	m_urlForOpen.clear();
 }
 
 } // namespace Adium

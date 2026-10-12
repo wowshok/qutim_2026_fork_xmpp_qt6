@@ -23,8 +23,7 @@
 **
 ****************************************************************************/
 
-#include "webkitnetworkaccessmanager.h"
-#include <QNetworkRequest>
+#include "webkiturlinterceptor.h"
 #include <QFileInfo>
 #include <QDir>
 #include <QDebug>
@@ -32,24 +31,22 @@
 #define DEBUG() if (!(*isDebug())) {} else qDebug()
 Q_GLOBAL_STATIC_WITH_ARGS(bool, isDebug, (qgetenv("ADIUM_WEBKIT_DEBUG").toInt() > 0))
 
-WebKitNetworkAccessManager::WebKitNetworkAccessManager(QObject *parent) :
-	QNetworkAccessManager(parent)
+WebKitUrlInterceptor::WebKitUrlInterceptor(QObject *parent) :
+	QWebEngineUrlRequestInterceptor(parent)
 {
 }
 
-QNetworkReply *WebKitNetworkAccessManager::createRequest(QNetworkAccessManager::Operation op,
-														 const QNetworkRequest &request,
-														 QIODevice *outgoingData)
+void WebKitUrlInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 {
-	QNetworkRequest fixedRequest = request;
-	QUrl url = request.url();
+	QUrl url = info.requestUrl();
+	if (!url.isLocalFile())
+		return;
 	fixLocalUrl(url);
-	if (url != request.url())
-		fixedRequest.setUrl(url);
-	return QNetworkAccessManager::createRequest(op, fixedRequest, outgoingData);
+	if (url != info.requestUrl())
+		info.redirect(url);
 }
 
-void WebKitNetworkAccessManager::fixLocalUrl(QUrl &url)
+void WebKitUrlInterceptor::fixLocalUrl(QUrl &url)
 {
 	DEBUG() << "Try to fix" << url.toString();
 	// We want to work with files in case-insensitive way

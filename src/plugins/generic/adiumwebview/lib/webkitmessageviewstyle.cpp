@@ -31,6 +31,7 @@
 #include <QFileInfo>
 #include <QFile>
 #include <QDebug>
+#include <QLocale>
 #include <QVariantMap>
 #include <QUrl>
 #include <QTextDocument>
@@ -264,7 +265,7 @@ QStringList WebKitMessageViewStyle::variants()
 		d->allowedVariants.clear();
 		QDir dir = d->stylePath + QLatin1String("/Variants");
 		QStringList variants = dir.entryList(QStringList(QLatin1String("*.css")));
-		const QRegExp regexp(QLatin1String("\\.css$"));
+		static const QRegularExpression regexp(QStringLiteral("\\.css$"));
 		variants.replaceInStrings(regexp, QString());
 		if (d->styleVersion < 3)
 			d->allowedVariants.append(noVariantName());
@@ -453,12 +454,6 @@ QString WebKitMessageViewStyle::baseTemplateForChat(qutim_sdk_0_3::ChatSession *
 	return fillKeywordsForBaseTemplate(templateHTML, session);
 }
 
-QString WebKitMessageViewStyle::baseTemplateForChat(qutim_sdk_0_3::ChatSession *session, const QString &id, const QString &wsUri)
-{
-	QString html = baseTemplateForChat(session);
-	return injectScript(html, id, wsUri);
-}
-
 QUrl WebKitMessageViewStyle::baseUrl()
 {
 	Q_D(WebKitMessageViewStyle);
@@ -521,37 +516,6 @@ QString WebKitMessageViewStyle::scriptForAppendingContent(const qutim_sdk_0_3::M
 	}
 
 	return script.arg(validateCpp(newHTML));
-}
-
-QString &WebKitMessageViewStyle::injectScript(QString &inString, const QString &id, const QString &wsUri)
-{
-	QDir shareDir = ThemeManager::path(QStringLiteral("data"), QStringLiteral("webview"));
-	Q_ASSERT(shareDir.exists(QStringLiteral("qwebchannel.js")));
-	Q_ASSERT(shareDir.exists(QStringLiteral("client.js")));
-
-	QString idCopy = id;
-	QString wsUriCopy = wsUri;
-
-	QString script = QStringLiteral(
-			"\n" \
-			"<script src=\"%1\"></script>\n" \
-			"<script src=\"%2\"></script>\n" \
-			"<script>client.initQuickChat(\"%3\", \"%4\");</script>\n"
-		).arg(
-			QUrl::fromLocalFile(shareDir.filePath(QStringLiteral("qwebchannel.js"))).toString(),
-			QUrl::fromLocalFile(shareDir.filePath(QStringLiteral("client.js"))).toString(),
-			validateCpp(idCopy),
-			validateCpp(wsUriCopy)
-		);
-
-	static QRegularExpression regexp("<\\s*head\\s*>");
-	Q_ASSERT(regexp.isValid());
-
-	QRegularExpressionMatchIterator it = regexp.globalMatch(inString);
-	Q_ASSERT(it.hasNext());
-
-	auto match = it.next();
-	return inString.insert(match.capturedEnd(), script);
 }
 
 QString &WebKitMessageViewStyle::fillKeywordsForBaseTemplate(QString &inString, qutim_sdk_0_3::ChatSession *session)
@@ -619,7 +583,7 @@ QString &WebKitMessageViewStyle::fillKeywordsForBaseTemplate(QString &inString, 
 		}
 	} while (range != -1);
 
-	inString.replace(QLatin1String("%dateOpened%"), session->dateOpened().toString(Qt::SystemLocaleLongDate));
+	inString.replace(QLatin1String("%dateOpened%"), QLocale::system().toString(session->dateOpened(), QLocale::LongFormat));
 
 	//Background
 	{
@@ -654,7 +618,7 @@ QString &WebKitMessageViewStyle::fillKeywordsForBaseTemplate(QString &inString, 
 					}
 				}
 				if (d->customBackgroundColor.isValid()) {
-					qreal red, green, blue, alpha;
+					float red, green, blue, alpha;
 					d->customBackgroundColor.getRgbF(&red, &green, &blue, &alpha);
 					bodyTag.append(QString::fromLatin1("background-color: rgba(%1, %2, %3, %4); ")
 								   .arg(QString::number(int(red * 255.0)),
@@ -690,7 +654,8 @@ void WebKitMessageViewStyle::loadTemplates()
 		QDir shareDir = ThemeManager::path(QLatin1String("data"), QLatin1String("webview"));
 		Q_ASSERT(shareDir.exists(QLatin1String("Template.html")));
 		QFile file(shareDir.filePath(QLatin1String("Template.html")));
-		file.open(QFile::ReadOnly);
+		if (!file.open(QFile::ReadOnly))
+			qWarning() << "Unable to read" << file.fileName() << file.errorString();
 		d->baseHTML = QString::fromUtf8(file.readAll());
 		d->usingCustomTemplateHTML = false;
 	} else {
@@ -930,7 +895,7 @@ QString &WebKitMessageViewStyle::fillKeywords(QString &inString, const qutim_sdk
 	if (messageId.isEmpty())
 		messageId = QString::number(message.id());
 	inString.replace(QLatin1String("%messageId%"), QLatin1String("message") + messageId);
-	inString.replace(QLatin1String("%shortTime%"), date.toString(Qt::SystemLocaleShortDate));
+	inString.replace(QLatin1String("%shortTime%"), QLocale::system().toString(date, QLocale::ShortFormat));
 
 	// FIXME: Implement
 //	inString.replace(QLatin1String("%senderStatusIcon%"), QUrl)
@@ -1112,7 +1077,10 @@ QString WebKitMessageViewStyle::loadResourceFile(const QString &name, const QStr
 	if (fileName.isEmpty())
 		return QString();
 	QFile file(fileName);
-	file.open(QFile::ReadOnly);
+	if (!file.open(QFile::ReadOnly)) {
+		qWarning() << "Unable to read" << fileName << file.errorString();
+		return QString();
+	}
 	QByteArray content = file.readAll();
 	return QString::fromUtf8(content.constData(), content.size());
 }

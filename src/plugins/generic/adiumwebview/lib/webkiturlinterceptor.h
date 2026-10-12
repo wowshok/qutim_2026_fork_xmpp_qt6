@@ -23,14 +23,24 @@
 **
 ****************************************************************************/
 
-#include <QtGui/QApplication>
-#include "widget.h"
+#ifndef WEBKITURLINTERCEPTOR_H
+#define WEBKITURLINTERCEPTOR_H
 
-int main(int argc, char *argv[])
+#include <QWebEngineUrlRequestInterceptor>
+
+class QUrl;
+
+// Adium styles come from case-insensitive file systems and often refer
+// to their resources with the wrong case, find the real files for them
+class WebKitUrlInterceptor : public QWebEngineUrlRequestInterceptor
 {
-	QApplication a(argc, argv);
-	Widget w;
-	w.show();
+	Q_OBJECT
+public:
+	explicit WebKitUrlInterceptor(QObject *parent = 0);
 
-	return a.exec();
-}
+	void interceptRequest(QWebEngineUrlRequestInfo &info) override;
+private:
+	void fixLocalUrl(QUrl &url);
+};
+
+#endif // WEBKITURLINTERCEPTOR_H

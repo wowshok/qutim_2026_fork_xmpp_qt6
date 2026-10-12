@@ -251,7 +251,13 @@ cmake --build build
   chatspellchecker + hunspeller/aspeller, floaties, antiboss, formula, blogimprover, autopaster,
   oldcontactdelegate, offtherecord, aescrypto; bearermanager переписать на `QNetworkInformation`.
   Не переносятся (мёртвые сервисы/платформы): weather, updater, plugman, control, imagepub,
-  migration02x03, plistconfig, qrcicons, sdlsound (заменён Qt Multimedia).
+  migration02x03, qrcicons, sdlsound (заменён Qt Multimedia).
+- 7.6a `adiumwebview` возвращён и перенесён с QtWebKit на Qt WebEngine (страница «Внешний вид → Chat»,
+  Adium-стили из `share/webkitstyle`): QWebPage → QWebEnginePage, мост `client` для JS через QWebChannel
+  (`data/webview/client.js`, вставляется user-script'ом), операции с DOM через JS, регистронезависимые
+  пути стилей — через QWebEngineUrlRequestInterceptor. Под root выставляется QTWEBENGINE_DISABLE_SANDBOX.
+  Для Info.plist стилей нужен `plistconfig` — тоже перенесён. Цена: +~140 МБ в процессе qutim и
+  ~120 МБ вспомогательных процессов Chromium; текстовый вид остаётся в «Plugins → Service chooser».
 - 7.5 Сплошная проверка кода: все `SIGNAL()/SLOT()` против реальных сигнатур, все места с изменившимся
   поведением Qt 6, предупреждения компилятора об устаревшем API.
 - 7.6 Проверка в работе: каждая страница настроек, каждое окно, сценарии чата/ростера/уведомлений/трея в Xvfb

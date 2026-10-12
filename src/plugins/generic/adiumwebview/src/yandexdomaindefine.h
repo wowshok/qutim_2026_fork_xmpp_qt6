@@ -30,13 +30,13 @@ struct YandexDomainDefine
 	YandexDomainDefine(){}
 	~YandexDomainDefine(){}
 	QString defineDomain(){
-		switch(QLocale::system().country()) {
+		switch(QLocale::system().territory()) {
 		case QLocale::Kazakhstan:
 			return "kz";
 		case QLocale::Ukraine:
 			return "ua";
 		case QLocale::Belarus:
-			return "bl";
+			return "by";
 		case QLocale::Russia:
 			return "ru";
 		case QLocale::Turkey:
@@ -46,6 +46,6 @@ struct YandexDomainDefine
 		}
 	}
 	QString getDomain(){
-		return "http://yandex." + defineDomain() + "/";
+		return "https://yandex." + defineDomain() + "/";
 	}
 };

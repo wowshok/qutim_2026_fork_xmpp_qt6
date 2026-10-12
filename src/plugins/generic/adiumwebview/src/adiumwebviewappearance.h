@@ -34,7 +34,6 @@ namespace Ui
 {
 	class chatAppearance;
 }
-class QWebPage;
 class QLabel;
 
 namespace Adium
@@ -56,8 +55,8 @@ public:
 
 private slots:
 	void onVariableChanged();
-	void on_styleNameBox_currentIndexChanged(const QString &styleName);
-	void on_variantBox_currentIndexChanged(const QString &variant);
+	void on_styleNameBox_currentTextChanged(const QString &styleName);
+	void on_variantBox_currentTextChanged(const QString &variant);
 	void on_showUserIconBox_clicked(bool checked);
 	void on_showHeaderBox_clicked(bool checked);
 	void on_fontButton_clicked();

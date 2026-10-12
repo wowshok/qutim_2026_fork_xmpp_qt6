@@ -29,6 +29,7 @@
 #include "adiumwebviewappearance.h"
 #include <qutim/settingslayer.h>
 #include <qutim/icon.h>
+#include <unistd.h>
 
 namespace Adium {
 
@@ -36,6 +37,11 @@ using namespace qutim_sdk_0_3;
 
 WebViewFactory::WebViewFactory()
 {
+	// Chromium refuses to start its sandbox as root, and qutIM is run as root
+	// on some setups. Must be set before the first page is created.
+	if (geteuid() == 0 && !qEnvironmentVariableIsSet("QTWEBENGINE_DISABLE_SANDBOX"))
+		qputenv("QTWEBENGINE_DISABLE_SANDBOX", "1");
+
 	m_appearanceSettings = new GeneralSettingsItem<WebViewAppearance>(
 				Settings::Appearance, Icon("view-choose"), QT_TRANSLATE_NOOP("Settings","Chat"));
 	m_appearanceSettings->connect(SIGNAL(saved()), this, SIGNAL(settingsSaved()));

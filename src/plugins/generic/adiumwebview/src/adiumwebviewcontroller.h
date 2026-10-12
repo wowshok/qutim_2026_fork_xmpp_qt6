@@ -29,42 +29,43 @@
 #include "../lib/webkitmessageviewstyle.h"
 #include <qutim/adiumchat/chatviewfactory.h>
 #include <qutim/message.h>
-#include <QWebPage>
-#include <QWebElement>
+#include <QWebEnginePage>
 #include <QVariant>
 #include <QPointer>
 
-class QDeclarativeEngine;
-class QDeclarativeItem;
-class QDeclarativeContext;
+class QWebEngineProfile;
 
 namespace Adium {
 
-class WebViewLoaderLoop : public QObject
+class WebViewController;
+
+// Published to the page as "client" through QWebChannel, see data/webview/client.js
+class WebViewClient : public QObject
 {
 	Q_OBJECT
 public:
-	WebViewLoaderLoop();
-	~WebViewLoaderLoop();
+	explicit WebViewClient(WebViewController *controller);
 
-	void addPage(QWebPage *page, const QString &html);
-
-private slots:
-	void onPageLoaded();
-	void onPageDestroyed();
+public slots:
+	void debugLog(const QString &message);
+	void appendNick(const QVariant &nick);
+	void contextMenu(const QVariant &nick);
+	void appendText(const QVariant &text);
+	void setTopic(const QString &topic);
 
 private:
-	QList<QPointer<QWebPage> > m_pages;
-	QStringList m_htmls;
+	WebViewController *m_controller;
 };
 
-class WebViewController : public QWebPage, public Core::AdiumChat::ChatViewController
+class WebViewController : public QWebEnginePage, public Core::AdiumChat::ChatViewController
 {
 	Q_OBJECT
 	Q_INTERFACES(Core::AdiumChat::ChatViewController)
 public:
 	WebViewController(bool isPreview = false);
 	virtual ~WebViewController();
+
+	static QWebEngineProfile *chatProfile();
 
 	virtual void setChatSession(qutim_sdk_0_3::ChatSession *session);
 	virtual qutim_sdk_0_3::ChatSession *getSession() const;
@@ -76,29 +77,31 @@ public:
 	QString defaultFontFamily() const;
 	int defaultFontSize() const;
 	bool eventFilter(QObject *obj, QEvent *);
+	void scrollToBottom();
 
 public slots:
+	// The result is not available, scripts run asynchronously
 	QVariant evaluateJavaScript(const QString &script);
-	bool zoomImage(QWebElement elem);
 	void debugLog(const QString &message);
 	void appendNick(const QVariant &nick);
 	void contextMenu(const QVariant &nickVar);
 	void appendText(const QVariant &text);
-	void setTopic();
+	void setTopic(const QString &topic);
 
 protected:
 	void clearFocusClass();
 	bool isContentSimiliar(const qutim_sdk_0_3::Message &a, const qutim_sdk_0_3::Message &b);
 	void loadSettings(bool onFly);
+	bool acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame) override;
+	QWebEnginePage *createWindow(WebWindowType type) override;
+	void javaScriptConsoleMessage(JavaScriptConsoleMessageLevel level, const QString &message,
+								  int lineNumber, const QString &sourceID) override;
 
 private slots:
 	void onSettingsSaved();
-	void onLoadFinished();
+	void onLoadFinished(bool ok);
 	void onTopicChanged(const QString &topic);
 	void updateTopic();
-	void onContentsChanged();
-	void onObjectCleared();
-	void onLinkClicked(const QUrl &url);
 
 private:
 	QPointer<qutim_sdk_0_3::ChatSession> m_session;
@@ -114,4 +117,3 @@ private:
 } // namespace Adium
 
 #endif // QUICKCHATVIEWCONTROLLER_H
-

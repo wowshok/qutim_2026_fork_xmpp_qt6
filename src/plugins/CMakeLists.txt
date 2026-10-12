@@ -148,6 +148,10 @@ qutim_add_plugin(adiumchat DIR "${G}/adiumchat" SOURCE_DIR chatlayer LINK qutim-
 qutim_add_plugin(textchat DIR "${G}/adiumchat/chatfactories/textchat" SOURCE_DIR . LINK qutim-adiumchat)
 # Apple plist config backend: Adium chat styles describe themselves in Info.plist
 qutim_add_plugin(plistconfig DIR "${G}/plistconfig" SOURCE_DIR . LINK Qt6::Xml)
+# Adium chat styles; the old QtWebKit view, ported to Qt WebEngine
+find_package(Qt6 REQUIRED COMPONENTS WebEngineWidgets WebChannel)
+qutim_add_plugin(adiumwebview DIR "${G}/adiumwebview" SOURCE_DIR .
+	LINK qutim-adiumchat Qt6::WebEngineWidgets Qt6::WebChannel DEFINES ADIUMWEBVIEW_LIBRARY)
 qutim_add_plugin(tabbedchatform DIR "${G}/adiumchat/chatforms/tabbedchatform" SOURCE_DIR . LINK qutim-adiumchat)
 qutim_add_plugin(stackedchatform DIR "${G}/adiumchat/chatforms/stackedchatform" SOURCE_DIR . LINK qutim-adiumchat)
 

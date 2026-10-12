@@ -24,6 +24,7 @@
 ****************************************************************************/
 #include "adiumwebviewvariable.h"
 #include <QStringBuilder>
+#include <QRegularExpression>
 
 namespace Adium
 {
@@ -31,7 +32,7 @@ namespace Adium
 WebViewFont::WebViewFont(const WebViewCustomStyle &style, QWidget *parent) : QWidget(parent)
 {
 	QHBoxLayout *layout = new QHBoxLayout();
-	layout->setMargin(0);
+	layout->setContentsMargins(0, 0, 0, 0);
 	setLayout(layout);
 	fontLabel = new QLabel();
 	QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
@@ -43,15 +44,16 @@ WebViewFont::WebViewFont(const WebViewCustomStyle &style, QWidget *parent) : QWi
 	layout->addWidget(changeButton);
 	QString cvalue = style.value;
 	QFont fvalue;
-	QRegExp rxBold("(bold)");
-	QRegExp rxItalic("(italic)");
-	QRegExp rxSCaps("(small-caps)");
-	QRegExp rxSize("(\\d+)(pt|px)");
-	if (cvalue.contains(rxSize)) {
-		if (rxSize.cap(2) == "pt")
-			fvalue.setPointSize(rxSize.cap(1).toInt());
+	static const QRegularExpression rxBold(QStringLiteral("(bold)"));
+	static const QRegularExpression rxItalic(QStringLiteral("(italic)"));
+	static const QRegularExpression rxSCaps(QStringLiteral("(small-caps)"));
+	static const QRegularExpression rxSize(QStringLiteral("(\\d+)(pt|px)"));
+	QRegularExpressionMatch size = rxSize.match(cvalue);
+	if (size.hasMatch()) {
+		if (size.captured(2) == QLatin1String("pt"))
+			fvalue.setPointSize(size.captured(1).toInt());
 		else
-			fvalue.setPixelSize(rxSize.cap(1).toInt());
+			fvalue.setPixelSize(size.captured(1).toInt());
 		cvalue.remove(rxSize);
 	}
 	if (cvalue.contains(rxBold)) {
@@ -64,7 +66,7 @@ WebViewFont::WebViewFont(const WebViewCustomStyle &style, QWidget *parent) : QWi
 	}
 	if (cvalue.contains(rxSCaps)) {
 		fvalue.setCapitalization(QFont::SmallCaps);
-		cvalue.remove(rxBold);
+		cvalue.remove(rxSCaps);
 	}
 	cvalue = cvalue.simplified();
 	fvalue.setFamily(cvalue);
