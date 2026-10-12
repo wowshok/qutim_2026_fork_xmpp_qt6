@@ -44,6 +44,8 @@ class Manager : public qutim_sdk_0_3::MetaContactManager
 {
 	Q_OBJECT
 	Q_CLASSINFO("Uses", "RosterStorage")
+	// Adds its item to the main menu in the constructor
+	Q_CLASSINFO("Uses", "ContactList")
 public:
 	Manager();
 	virtual ~Manager();

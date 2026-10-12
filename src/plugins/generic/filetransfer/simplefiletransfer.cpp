@@ -30,6 +30,7 @@
 #include <qutim/systemintegration.h>
 #include <qutim/servicemanager.h>
 #include <QMessageBox>
+#include <QPushButton>
 #include <QFileDialog>
 #include <QUrl>
 
@@ -183,16 +184,16 @@ void SimpleFileTransfer::confirmDownloading(FileTransferJob *job)
 	if (!path.isEmpty())
 		return;
 
-	int result = QMessageBox::question(
-			m_dialog.data(),
-			tr("Incoming file"),
-			tr("%1 wants to send you %2 (%3)")
-				.arg(job->chatUnit()->title())
-				.arg(job->title())
-				.arg(bytesToString(job->totalSize())),
-			tr("Accept"),
-			tr("Ignore"));
-	if (result != 0)
+	QMessageBox box(QMessageBox::Question, tr("Incoming file"),
+					tr("%1 wants to send you %2 (%3)")
+						.arg(job->chatUnit()->title())
+						.arg(job->title())
+						.arg(bytesToString(job->totalSize())),
+					QMessageBox::NoButton, m_dialog.data());
+	QPushButton *accept = box.addButton(tr("Accept"), QMessageBox::AcceptRole);
+	box.addButton(tr("Ignore"), QMessageBox::RejectRole);
+	box.exec();
+	if (box.clickedButton() != accept)
 		return;
 
 	if (job->filesCount() == 1) {

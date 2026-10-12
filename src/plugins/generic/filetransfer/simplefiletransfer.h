@@ -53,6 +53,8 @@ class SimpleFileTransfer : public FileTransferManager
 {
 	Q_OBJECT
 	Q_CLASSINFO("Uses", "IconLoader")
+	// Adds its item to the main menu in the constructor
+	Q_CLASSINFO("Uses", "ContactList")
 public:
 	explicit SimpleFileTransfer();
 	virtual QIODevice *doOpenFile(FileTransferJob *job);
