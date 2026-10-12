@@ -30,6 +30,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QTranslator>
+#include <QLabel>
 #include <qutim/icon.h>
 #include <qutim/thememanager.h>
 
@@ -42,6 +43,10 @@ LocalizationSettings::LocalizationSettings() :
 	m_ui(new Ui::LocalizationSettings)
 {
 	m_ui->setupUi(this);
+	// The open windows keep their texts, only new ones come up in the new language
+	QLabel *restartLabel = new QLabel(tr("To take effect you must restart qutIM"), this);
+	restartLabel->setWordWrap(true);
+	m_ui->verticalLayout->addWidget(restartLabel);
 	QStringList langs = ThemeManager::list("languages");
 	Icon icon("preferences-desktop-locale");
 	if (!langs.contains(QLatin1String("en_EN"))) {
@@ -53,15 +58,15 @@ LocalizationSettings::LocalizationSettings() :
 	foreach (const QString &lang, langs) {
 		QString text;
 		QDir dir = ThemeManager::path("languages", lang);
-		if (dir.exists("core.qm")) {
-			QTranslator translator;
-			translator.load(QLatin1String("core.qm"), dir.absolutePath());
+		QTranslator translator;
+		if (dir.exists("core.qm") && translator.load(QLatin1String("core.qm"), dir.absolutePath())) {
 			QString language = translator.translate("Localization", "<Language>", "Localized language name");
-			if (!language.isEmpty()) {
+			// Some translations copied the placeholders instead of translating them
+			if (!language.isEmpty() && !language.startsWith(QLatin1Char('<'))) {
 				text = language;
 				QString country = translator.translate("Localization", "<Country>",
 													   "Localized country name, empty if localization is country-independent");
-				if (!country.isEmpty()) {
+				if (!country.isEmpty() && !country.startsWith(QLatin1Char('<'))) {
 					text += QLatin1String(" (");
 					text += country;
 					text += QLatin1String(")");
@@ -70,18 +75,24 @@ LocalizationSettings::LocalizationSettings() :
 		}
 		if (text.isEmpty()) {
 			QLocale locale(lang);
-			text = QLocale::languageToString(locale.language());
-			if (locale.country() != QLocale::AnyCountry) {
-				text += QString(QLatin1String(" (")
-								% QLocale::countryToString(locale.country())
-								% QLatin1String(")"));
-			}
+			text = locale.nativeLanguageName();
+			if (!text.isEmpty())
+				text[0] = text[0].toUpper();
+			if (lang.contains(QLatin1Char('_')) && !locale.nativeTerritoryName().isEmpty())
+				text += QLatin1String(" (") % locale.nativeTerritoryName() % QLatin1String(")");
+			if (text.isEmpty())
+				text = lang;
 		}
 		QListWidgetItem *item = new QListWidgetItem(icon, text, m_ui->languagesList);
 		m_items.insert(lang, item);
 		item->setData(Qt::UserRole, lang);
 	}
 	m_ui->languagesList->sortItems();
+	// Empty value: follow the system (LANGUAGE/LANG) on every start
+	QListWidgetItem *systemItem = new QListWidgetItem(icon, tr("System language"));
+	systemItem->setData(Qt::UserRole, QString());
+	m_ui->languagesList->insertItem(0, systemItem);
+	m_items.insert(QString(), systemItem);
 	listenChildrenStates();
 }
 
@@ -95,7 +106,7 @@ void LocalizationSettings::loadImpl()
 	Config cfg;
 	cfg.beginGroup("localization");
 	QString lang = cfg.value("lang", QString());
-	m_ui->languagesList->setCurrentItem(m_items.value(lang, 0));
+	m_ui->languagesList->setCurrentItem(m_items.value(lang, m_items.value(QString())));
 }
 
 void LocalizationSettings::saveImpl()

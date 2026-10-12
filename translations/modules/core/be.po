@@ -4243,3 +4243,13 @@ msgstr "Закрыць"
 #~ msgctxt "Core::SimpleContactList::AbstractContactModel|"
 #~ msgid "Would you like to merge metacontacts \"%1\" and \"%2\"?"
 #~ msgstr "Жадаеце аб'яднаць метакантакты \"%1\" і \"%2\"?"
+
+#: ../../../src/plugins/generic/localization/localizationsettings.cpp
+msgctxt "Core::LocalizationSettings|"
+msgid "System language"
+msgstr "Мова сістэмы"
+
+#: ../../../src/plugins/generic/localization/localizationsettings.cpp
+msgctxt "Core::LocalizationSettings|"
+msgid "To take effect you must restart qutIM"
+msgstr "Каб пабачыць вынік патрэбна перазапусціць qutIM"

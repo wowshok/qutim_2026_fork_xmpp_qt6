@@ -4058,3 +4058,13 @@ msgstr ""
 msgctxt "userInformationClass|"
 msgid "Close"
 msgstr ""
+
+#: ../../../src/plugins/generic/localization/localizationsettings.cpp
+msgctxt "Core::LocalizationSettings|"
+msgid "System language"
+msgstr ""
+
+#: ../../../src/plugins/generic/localization/localizationsettings.cpp
+msgctxt "Core::LocalizationSettings|"
+msgid "To take effect you must restart qutIM"
+msgstr ""

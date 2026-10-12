@@ -4248,3 +4248,13 @@ msgstr "Закрити"
 #~ msgctxt "Plugin|"
 #~ msgid "Contact list model, which shows only contacts"
 #~ msgstr "Список контактів в якому показуються тільки контакти"
+
+#: ../../../src/plugins/generic/localization/localizationsettings.cpp
+msgctxt "Core::LocalizationSettings|"
+msgid "System language"
+msgstr "Мова системи"
+
+#: ../../../src/plugins/generic/localization/localizationsettings.cpp
+msgctxt "Core::LocalizationSettings|"
+msgid "To take effect you must restart qutIM"
+msgstr "Щоб зміни набули чинності, перезапустіть qutIM"
