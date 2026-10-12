@@ -59,6 +59,10 @@ private:
 WebViewAppearance::WebViewAppearance(): ui(new Ui::chatAppearance), m_isFillingState(false)
 {
 	ui->setupUi(this);
+	// Translated background types are long, don't let them widen the page
+	ui->backgroundTypeBox->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLengthWithIcon);
+	ui->backgroundTypeBox->setMinimumContentsLength(10);
+	ui->horizontalLayout->setStretchFactor(ui->fontLabel, 1);
 	QDir shareDir = ThemeManager::path(QLatin1String("data"), QLatin1String("webview"));
 	Q_ASSERT(shareDir.exists(QLatin1String("Preview.plist")));
 	m_preview = WebKitPreviewLoader().loadPreview(shareDir.filePath(QLatin1String("Preview.plist")));
