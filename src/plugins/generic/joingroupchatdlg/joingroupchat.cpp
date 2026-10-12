@@ -136,10 +136,10 @@ void JoinGroupChat::onAccountBoxActivated(int index)
 		m_bookmarksViewModel->clear();
 		return;
 	}
-	fillBookmarks(account);
 	ui->joinPage->setAccount(account);
 	ui->uriPage->setAccount(account);
 	ui->bookmarksPage->setAccount(account);
+	fillBookmarks(account);
 	ui->bookmarksPage->setModel(m_bookmarksBoxModel);
 }
 

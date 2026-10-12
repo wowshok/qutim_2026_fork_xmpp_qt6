@@ -132,8 +132,11 @@ bool BookmarksPage::isRecent(int index)
 
 DataItem BookmarksPage::fields(int index)
 {
-	if(!index)
-		return account()->groupChatManager()->fields();
+	if(!index) {
+		// The bookmark model is refilled before the page gets the account
+		GroupChatManager *manager = account() ? account()->groupChatManager() : nullptr;
+		return manager ? manager->fields() : DataItem();
+	}
 	BookmarksModel *model = static_cast<BookmarksModel*>(m_bookmarksBox->model());
 	return model->data(index, Qt::UserRole).value<DataItem>();
 }

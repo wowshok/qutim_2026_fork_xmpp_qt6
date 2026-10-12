@@ -46,7 +46,7 @@ public:
 protected:
 	QVBoxLayout *m_layout;
 private:
-	qutim_sdk_0_3::Account *m_account;
+	qutim_sdk_0_3::Account *m_account = nullptr;
 
 };
 
