@@ -84,9 +84,11 @@ public:
 	MessagePrivate() :
 		time(QDateTime::currentDateTime()), in(false),
 		id(++message_id) {}
+	// A detached copy is still the same message: it is how a message changed by
+	// the handlers after sending is matched with its delivery receipt
 	MessagePrivate(const MessagePrivate &o) :
 		DynamicPropertyData(o), text(o.text), html(o.html), time(o.time),
-		in(o.in), chatUnit(o.chatUnit), id(++message_id) {}
+		in(o.in), chatUnit(o.chatUnit), id(o.id) {}
 	~MessagePrivate() {}
 	QString text;
 	QString html;
