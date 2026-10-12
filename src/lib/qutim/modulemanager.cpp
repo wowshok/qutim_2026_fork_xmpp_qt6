@@ -833,7 +833,10 @@ void ModuleManager::initExtensions()
 void ModuleManager::onQuit()
 {
 	foreach (Account *account, d->accountManager.accounts()) {
-		Status status = account->status();
+		// The status the user asked for, not the current one: an account that is
+		// reconnecting (or waiting for a password) at quit is offline right now,
+		// and saving that kept qutIM offline on every following start
+		Status status = account->userStatus();
 		account->config().setValue("lastStatus", status);
 		status.setType(Status::Offline);
 		status.setChangeReason(Status::ByQuit);
