@@ -8,6 +8,8 @@ set(PLUGINS "${CMAKE_SOURCE_DIR}/src/plugins/generic")
 set(QUTIM_SHARE_DIRS
 	"${CMAKE_SOURCE_DIR}/config/generic|config"
 	"${CMAKE_CURRENT_SOURCE_DIR}/qutim/ca-certs|ca-certs"
+	# Kopete format emoticon themes (default, Breeze, Konqi); see the README there
+	"${CMAKE_CURRENT_SOURCE_DIR}/qutim/emoticons|emoticons"
 	"${ART}/sounds|sounds"
 	"${ART}/icons/qutim-default|icons/qutim-default"
 	"${ART}/icons/oxygen|icons/oxygen"

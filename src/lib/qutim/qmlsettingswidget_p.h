@@ -22,7 +22,6 @@ protected:
 	void cancelImpl();
 
 private:
-	QScopedPointer<QObject> m_wrapper;
 	QObject *m_object;
 };
 

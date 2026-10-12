@@ -138,7 +138,7 @@ void EmoEditPlugin::onDocumentContentsChanged(QTextDocument *doc)
 	QTextBlock block = doc->firstBlock();
 	while (block.length() > 0) {
 		QString text = block.text();
-		const QList<EmoticonsTheme::Token> tokens = m_theme->tokenize(text);
+		const QList<EmoticonsTheme::Token> tokens = m_theme->tokenize(text, EmoticonsTheme::PlainText);
 		if (tokens.isEmpty()
 			|| (tokens.size() == 1 && tokens.at(0).type == EmoticonsTheme::Text)) {
 			block = block.next();

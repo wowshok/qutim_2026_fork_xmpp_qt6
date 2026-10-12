@@ -203,7 +203,8 @@ void TextViewController::appendText(QTextCursor &cursor, const QString &text,
 			cursor.insertText(textToken.text.toString(), format);
 			continue;
 		}
-		const QList<EmoticonsTheme::Token> tokens = Emoticons::theme().tokenize(textToken.text.toString());
+		const QList<EmoticonsTheme::Token> tokens = Emoticons::theme().tokenize(
+					textToken.text.toString(), EmoticonsTheme::PlainText);
 		QString objectReplacement(QChar::ObjectReplacementCharacter);
 		QTextCharFormat emoticonFormat;
 		emoticonFormat.setObjectType(EmoticonObjectType);

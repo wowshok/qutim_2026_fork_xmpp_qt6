@@ -28,7 +28,8 @@ SettingsItem {
         var index = 0;
 
         // Lists coming from C++ are read-only in Qt 6, copy before sorting
-        var themes = Array.from(emoticons.themeList);
+        // The list starts with the null theme (""), shown as "No emoticons" above
+        var themes = Array.from(emoticons.themeList).filter(function(name) { return name !== ""; });
         themes.sort();
         for (var i = 0; i < themes.length; ++i) {
             if (themes[i] === emoticons.themeName)

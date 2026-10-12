@@ -43,6 +43,8 @@ public:
 	{
 		DefaultParse = 0,
 		StrictParse  = 0x01,
+		// The text is plain, not HTML: '<' and '&' are ordinary characters
+		PlainText    = 0x02,
 	};
 	Q_DECLARE_FLAGS(ParseMode, ParseModeFlag)
 

@@ -47,6 +47,7 @@ target_include_directories(libqutim
 
 target_link_libraries(libqutim
 	PUBLIC Qt6::Core Qt6::Gui Qt6::Widgets Qt6::Network Qt6::Qml Qt6::Quick
+	PRIVATE Qt6::QuickWidgets
 	PRIVATE k8json qtsolutions
 )
 

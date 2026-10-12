@@ -4,6 +4,7 @@
 #include <QQmlProperty>
 #include <QQmlComponent>
 #include <QQuickItem>
+#include <QQuickWidget>
 #include "systeminfo.h"
 #include "declarativeview.h"
 #include <QVBoxLayout>
@@ -44,25 +45,24 @@ QmlSettingsWidget::QmlSettingsWidget(const QString &name, QWidget *parent) :
 	QFileSelector selector;
 	QString selectedPath = selector.select(path);
 
-	QQuickView *window = new DeclarativeView;
-	window->setResizeMode(QQuickView::SizeRootObjectToView);
-	window->setSource(QUrl::fromLocalFile(selectedPath));
-	window->setColor(palette().window().color());
+	// A QQuickWidget, not a QQuickView in createWindowContainer(): under X11 a
+	// click on a ComboBox popup item in an embedded window closed the popup
+	// without selecting anything (the keyboard worked)
+	QQuickWidget *view = new QQuickWidget(DeclarativeView::globalEngine(), this);
+	view->setResizeMode(QQuickWidget::SizeRootObjectToView);
+	view->setClearColor(palette().window().color());
+	view->setSource(QUrl::fromLocalFile(selectedPath));
 
-	m_wrapper.reset(window);
-	m_object = window->rootObject();
+	m_object = view->rootObject();
 
 	if (!m_object) {
-		qDebug() << window->errors();
+		qDebug() << view->errors();
 		return;
 	}
 
 	QVBoxLayout *layout = new QVBoxLayout(this);
 	setLayout(layout);
-
-	QWidget *contentWidget = QWidget::createWindowContainer(window, this);
-
-	layout->addWidget(contentWidget);
+	layout->addWidget(view);
 
 	QQmlProperty modified(m_object, QStringLiteral("__modified"));
 	modified.connectNotifySignal(this, SLOT(onModifiedChanged()));

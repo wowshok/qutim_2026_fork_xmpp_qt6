@@ -187,7 +187,8 @@ void EmoticonsProvider::appendEmoticon(const QString &imgPath, const QStringList
 		e.matchTextEscaped = code.toHtmlEscaped().toLower();
 		if (e.matchText.isEmpty() || e.matchTextEscaped.isEmpty())
 			continue;
-		QChar c1 = code.at(0);
+		// tokenize() looks the index up by the lower-case character
+		QChar c1 = e.matchText.at(0);
 		QChar c2 = e.matchTextEscaped.at(0);
 		appendEmoticonToHash(p->indexes[c1], e);
 		if (c1 != c2)
@@ -205,24 +206,14 @@ void EmoticonsProvider::removeEmoticon(const QString &imgPath, const QStringList
 			continue;
 		QHash<QChar, QList<Emoticon> >::iterator it;
 
-		it = p->indexes.find(code.at(0));
+		it = p->indexes.find(code.at(0).toLower());
 		if (it != p->indexes.end()) {
-			QList<Emoticon> &ls = it.value();
-			for (int i = 0; i < ls.size(); ++i) {
-				if (ls.at(i).picPath == imgPath) {
-					ls.removeAt(i);
-				}
-			}
+			it.value().removeIf([&imgPath](const Emoticon &e) { return e.picPath == imgPath; });
 		}
 
-		it = p->indexes.find(escaped.at(0));
+		it = p->indexes.find(escaped.at(0).toLower());
 		if (it != p->indexes.end()) {
-			QList<Emoticon> &ls = it.value();
-			for (int i = 0; i < ls.size(); ++i) {
-				if (ls.at(i).picPath == imgPath) {
-					ls.removeAt(i);
-				}
-			}
+			it.value().removeIf([&imgPath](const Emoticon &e) { return e.picPath == imgPath; });
 		}
 	}
 }
@@ -337,6 +328,7 @@ QList<EmoticonsTheme::Token> EmoticonsTheme::tokenize(const QString &message, Pa
 	}
 	HtmlState state = OutsideHtml;
 	bool at_amp = false;
+	const bool plain = mode & PlainText;
 	const QChar *begin = message.constData();
 	const QChar *chars = message.constData();
 	QChar cur;
@@ -346,7 +338,7 @@ QList<EmoticonsTheme::Token> EmoticonsTheme::tokenize(const QString &message, Pa
 	QList<Emoticon>::const_iterator it;
 	while (!chars->isNull()) {
 		cur = *chars;
-		if (cur == '<') {
+		if (cur == '<' && !plain) {
 			if (state == OutsideHtml)
 				state = FirstTag;
 			else
@@ -374,13 +366,14 @@ QList<EmoticonsTheme::Token> EmoticonsTheme::tokenize(const QString &message, Pa
 			at_amp = false;
 		} else if (state != TagText) {
 			bool found = false;
-			at_amp = cur == '&';
+			at_amp = !plain && cur == '&';
 			if (!(mode & StrictParse) || chars == begin || (chars-1)->isSpace()) {
 				const QList<Emoticon> emoticons = allEmoticons.value(cur.toLower());
 				for (it = emoticons.constBegin(); it != emoticons.constEnd(); it++ ) {
 					const Emoticon &emo = *it;
-					int length = emo.matchTextEscaped.length();
-					if (compareEmoticon(chars, emo.matchTextEscaped)
+					const QString &match = plain ? emo.matchText : emo.matchTextEscaped;
+					int length = match.length();
+					if (compareEmoticon(chars, match)
 							&& (!(mode&StrictParse) || (chars+length)->isNull() || (chars+length)->isSpace())) {
 						if (!text.isEmpty()) {
 							tokens << Token(text);
@@ -429,14 +422,20 @@ QString currentThemeName()
 		return currentTheme()->themeName();
 	ConfigGroup config = Config("appearance").group("emoticons");
 	QString name = config.value<QString>("theme", QString());
-	if (name.isEmpty()) {
-		QStringList themes = themeList();
-		if (themes.isEmpty() || themes.contains(QLatin1String("default")))
-			name = QLatin1String("default");
-		else
-			name = themes.first();
-		config.setValue("theme", name);
-		config.sync();
+	const QStringList themes = themeList();
+	if (!themes.contains(name)) {
+		// Not set, or a theme that is not installed (the old default config
+		// named Kolobok, which was never shipped): use the bundled one, but
+		// keep the setting, the theme may be installed later
+		name.clear();
+		for (const QString &theme : themes) {
+			if (theme.compare(QLatin1String("default"), Qt::CaseInsensitive) == 0) {
+				name = theme;
+				break;
+			}
+			if (name.isEmpty())
+				name = theme;
+		}
 	}
 	return name;
 	//			return Config().group("emoticons").value<QString>("theme", "default");

@@ -25,7 +25,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${QUTIM_LIB_DIR}")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${QUTIM_LIB_DIR}")
 set(CMAKE_INSTALL_RPATH "$ORIGIN/../${QUTIM_LIB_DIR}")
 
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Network Qml Quick)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Network Qml Quick QuickWidgets)
 
 add_subdirectory(src/3rdparty)
 add_subdirectory(src/lib)
