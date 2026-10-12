@@ -1,0 +1,437 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-27 13:46+0000\n"
+"PO-Revision-Date: 2012-04-11 08:35+0000\n"
+"Last-Translator: Alexander Gavrilov <wowemuh@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-06-28 12:52+0000\n"
+"X-Generator: Launchpad (build 15505)\n"
+"X-Qt-Contexts: true\n"
+"X-Language: ru\n"
+
+#: ../../../protocols/mrim/src/ui/wizards/accountwizardmain.ui:14
+msgctxt "AccountWizardMain|"
+msgid "WizardPage"
+msgstr "Мастер"
+
+#: ../../../protocols/mrim/src/ui/wizards/accountwizardmain.ui:20
+msgctxt "AccountWizardMain|"
+msgid "Email:"
+msgstr "Электронная почта:"
+
+#: ../../../protocols/mrim/src/ui/wizards/accountwizardmain.ui:33
+msgctxt "AccountWizardMain|"
+msgid "@mail.ru"
+msgstr "@mail.ru"
+
+#: ../../../protocols/mrim/src/ui/wizards/accountwizardmain.ui:38
+msgctxt "AccountWizardMain|"
+msgid "@inbox.ru"
+msgstr "@inbox.ru"
+
+#: ../../../protocols/mrim/src/ui/wizards/accountwizardmain.ui:43
+msgctxt "AccountWizardMain|"
+msgid "@bk.ru"
+msgstr "@bk.ru"
+
+#: ../../../protocols/mrim/src/ui/wizards/accountwizardmain.ui:48
+msgctxt "AccountWizardMain|"
+msgid "@list.ru"
+msgstr "@list.ru"
+
+#: ../../../protocols/mrim/src/ui/wizards/accountwizardmain.ui:53
+msgctxt "AccountWizardMain|"
+msgid "@corp.mail.ru"
+msgstr "@corp.mail.ru"
+
+#: ../../../protocols/mrim/src/ui/wizards/accountwizardmain.ui:63
+msgctxt "AccountWizardMain|"
+msgid "Password:"
+msgstr "Пароль:"
+
+#: ../../../protocols/mrim/src/base/mrimplugin.cpp:49
+msgctxt "Author|"
+msgid "Peter Rusanov"
+msgstr "Русанов Пётр"
+
+#: ../../../protocols/mrim/src/base/mrimaccount.cpp:90
+#, qt-format
+msgctxt "MrimAccount|"
+msgid ""
+"Messages in mailbox: %1\n"
+"Unread messages: %2"
+msgstr ""
+"Сообщений в ящике: %1\n"
+"Непрочитанных: %2"
+
+#: ../../../protocols/mrim/src/base/mrimconnection.cpp:258
+msgctxt "MrimConnection|"
+msgid "Another client with same login connected!"
+msgstr "Другой клиент подключился с тем же логином!"
+
+#: ../../../protocols/mrim/src/base/mrimconnection.cpp:479
+#, qt-format
+msgctxt "MrimConnection|"
+msgid ""
+"Authentication failed!\n"
+"Reason: %1"
+msgstr ""
+"Ошибка авторизации!\n"
+"Причина: %1"
+
+#: ../../../protocols/mrim/src/base/messages.cpp:155
+msgctxt "MrimMessages|"
+msgid "No such user"
+msgstr "Нет такого пользователя"
+
+#: ../../../protocols/mrim/src/base/messages.cpp:158
+msgctxt "MrimMessages|"
+msgid "Message too large"
+msgstr "Сообщение слишком велико"
+
+#: ../../../protocols/mrim/src/base/messages.cpp:161
+msgctxt "MrimMessages|"
+msgid "Limit exceeded"
+msgstr "Лимит исчерпан."
+
+#: ../../../protocols/mrim/src/base/messages.cpp:164
+msgctxt "MrimMessages|"
+msgid "User denied receiving offline messages"
+msgstr "Пользователь не принимает оффлайн сообщения"
+
+#: ../../../protocols/mrim/src/base/messages.cpp:167
+msgctxt "MrimMessages|"
+msgid "User denied receiving offline flash movies"
+msgstr "Пользователь не принимает мульты оффлайн"
+
+#: ../../../protocols/mrim/src/base/messages.cpp:170
+msgctxt "MrimMessages|"
+msgid "Internal error"
+msgstr "Внутренняя ошибка"
+
+#: ../../../protocols/mrim/src/base/messages.cpp:179
+msgctxt "MrimMessages|"
+msgid "Message was not delivered!"
+msgstr "Сообщение не было доставлено!"
+
+# !?
+#: ../../../protocols/mrim/src/base/mrimpacket.cpp:188
+msgctxt "MrimPacket|"
+msgid "No error"
+msgstr "Без ошибок"
+
+#: ../../../protocols/mrim/src/base/mrimpacket.cpp:190
+msgctxt "MrimPacket|"
+msgid "Cannot read from socket"
+msgstr "Ошибка чтения из сокета"
+
+#: ../../../protocols/mrim/src/base/mrimpacket.cpp:192
+msgctxt "MrimPacket|"
+msgid "Header is corrupted"
+msgstr "Заголовок поврежден"
+
+#: ../../../protocols/mrim/src/base/mrimpacket.cpp:194
+msgctxt "MrimPacket|"
+msgid "Unknown error"
+msgstr "Неизвестная ошибка"
+
+#: ../../../protocols/mrim/src/base/roster.cpp:256
+msgctxt "MrimRoster|"
+msgid "Phone contacts"
+msgstr "Телефонные контакты"
+
+#: ../../../protocols/mrim/__data_from_cmakelists_txt.cpp:1
+msgctxt "Plugin|"
+msgid "MRIM protocol"
+msgstr "Протокол Mail.ru Agent"
+
+#: ../../../protocols/mrim/__data_from_cmakelists_txt.cpp:2
+msgctxt "Plugin|"
+msgid "Implementation of MRIM protocol"
+msgstr "Реализация протокола Mail.ru Agent"
+
+#: ../../../protocols/mrim/src/base/mrimplugin.cpp:43
+msgctxt "Plugin|"
+msgid "Module-based realization of Mail.Ru IM protocol"
+msgstr "Модуль реализации Mail.ru IM протокола (MRIM)"
+
+#: ../../../protocols/mrim/src/base/mrimplugin.cpp:44
+msgctxt "Plugin|"
+msgid "MRIM"
+msgstr "Mail.ru IM"
+
+#: ../../../protocols/mrim/src/base/mrimplugin.cpp:57
+msgctxt "Plugin|"
+msgid "MRIM account creator"
+msgstr "Мастер создания учетной записи MRIM"
+
+#: ../../../protocols/mrim/src/base/mrimplugin.cpp:58
+msgctxt "Plugin|"
+msgid "Account creator for module-based realization of Mail.Ru IM protocol"
+msgstr "Создание учетной записи, модуля реализации Mail.ru агента"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:85
+msgctxt "QObject|"
+msgid "Possible client"
+msgstr "Возможный клиент"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:100
+msgctxt "QObject|"
+msgid "Not authorized"
+msgstr "Нет авторизации"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:190
+msgctxt "Status|"
+msgid "Sick"
+msgstr "Болею"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:192
+msgctxt "Status|"
+msgid "At home"
+msgstr "Дома"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:194
+msgctxt "Status|"
+msgid "Lunch"
+msgstr "Ем"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:196
+msgctxt "Status|"
+msgid "Where am I?"
+msgstr "Где я?"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:198
+msgctxt "Status|"
+msgid "WC"
+msgstr "Ватерклозет"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:200
+msgctxt "Status|"
+msgid "Cooking"
+msgstr "Готовка"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:202
+msgctxt "Status|"
+msgid "Walking"
+msgstr "Прогулка"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:204
+msgctxt "Status|"
+msgid "I'm an alien!"
+msgstr "Я инопланетянко!"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:206
+msgctxt "Status|"
+msgid "I'm a shrimp!"
+msgstr "Йа креведко!"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:208
+msgctxt "Status|"
+msgid "I'm lost :("
+msgstr "Я потерялся :("
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:210
+msgctxt "Status|"
+msgid "Crazy %)"
+msgstr "Веселюсь %)"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:212
+msgctxt "Status|"
+msgid "Duck"
+msgstr "Утя"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:214
+msgctxt "Status|"
+msgid "Playing"
+msgstr "Играю"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:216
+msgctxt "Status|"
+msgid "Smoke"
+msgstr "Курю"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:218
+msgctxt "Status|"
+msgid "At work"
+msgstr "На работе"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:220
+msgctxt "Status|"
+msgid "Meeting"
+msgstr "Встреча"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:222
+msgctxt "Status|"
+msgid "Beer"
+msgstr "Пивасик"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:224
+msgctxt "Status|"
+msgid "Coffee"
+msgstr "Кофе"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:226
+msgctxt "Status|"
+msgid "Shovel"
+msgstr "Лопата"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:228
+msgctxt "Status|"
+msgid "Sleeping"
+msgstr "Сплю"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:230
+msgctxt "Status|"
+msgid "On the phone"
+msgstr "На телефоне"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:232
+msgctxt "Status|"
+msgid "University"
+msgstr "Универ"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:234
+msgctxt "Status|"
+msgid "School"
+msgstr "Школа"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:236
+msgctxt "Status|"
+msgid "Wrong number!"
+msgstr "Неправильный номер!"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:238
+msgctxt "Status|"
+msgid "LOL"
+msgstr "ЛОЛ"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:240
+msgctxt "Status|"
+msgid "Tongue"
+msgstr "Язык"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:242
+msgctxt "Status|"
+msgid "Smiley"
+msgstr "Лыбюсь"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:244
+msgctxt "Status|"
+msgid "Hippy"
+msgstr "Хиппи"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:246
+msgctxt "Status|"
+msgid "Depression"
+msgstr "Депрессия"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:248
+msgctxt "Status|"
+msgid "Crying"
+msgstr "Плачу"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:250
+msgctxt "Status|"
+msgid "Surprised"
+msgstr "Сюрприз"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:252
+msgctxt "Status|"
+msgid "Angry"
+msgstr "Злой"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:254
+msgctxt "Status|"
+msgid "Evil"
+msgstr "Злой"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:256
+msgctxt "Status|"
+msgid "Ass"
+msgstr "Задница"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:258
+msgctxt "Status|"
+msgid "Heart"
+msgstr "Сердечко"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:260
+msgctxt "Status|"
+msgid "Crescent"
+msgstr "Полумесяц"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:262
+msgctxt "Status|"
+msgid "Coool!"
+msgstr "Клево!"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:264
+msgctxt "Status|"
+msgid "Horns"
+msgstr "Рога"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:266
+msgctxt "Status|"
+msgid "Figa"
+msgstr "Фига"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:268
+msgctxt "Status|"
+msgid "F*ck you!"
+msgstr "ПНХ!"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:270
+msgctxt "Status|"
+msgid "Skull"
+msgstr "Череп"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:272
+msgctxt "Status|"
+msgid "Rocket"
+msgstr "Ракета"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:274
+msgctxt "Status|"
+msgid "Ktulhu"
+msgstr "Ктулху"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:276
+msgctxt "Status|"
+msgid "Goat"
+msgstr "Коза"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:278
+msgctxt "Status|"
+msgid "Must die!"
+msgstr "Должен сдохнуть!"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:280
+msgctxt "Status|"
+msgid "Squirrel"
+msgstr "Белка"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:282
+msgctxt "Status|"
+msgid "Party!"
+msgstr "Вечеринка!"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:284
+msgctxt "Status|"
+msgid "Music"
+msgstr "Музыка"
+
+#: ../../../protocols/mrim/src/base/mrimstatus.cpp:286
+msgctxt "Status|"
+msgid "?"
+msgstr "?"
+
+#: ../../../protocols/mrim/src/base/mrimplugin.cpp:50
+msgctxt "Task|"
+msgid "Author"
+msgstr "Автор"

@@ -1,0 +1,631 @@
+# English (United Kingdom) translation for qutim
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the qutim package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: qutim\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-28 19:33+0000\n"
+"PO-Revision-Date: 2013-07-24 15:54+0000\n"
+"Last-Translator: Anthony Harrington <untaintableangel@ubuntu.com>\n"
+"Language-Team: English (United Kingdom) <en_GB@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-07-25 05:38+0000\n"
+"X-Generator: Launchpad (build 16700)\n"
+"X-Qt-Contexts: true\n"
+"Language: en_GB\n"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:14
+msgctxt "ChooseCategoryPage|"
+msgid "WizardPage"
+msgstr "WizardPage"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:23
+msgctxt "ChooseCategoryPage|"
+msgid "Package category:"
+msgstr "Package category:"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:31
+msgctxt "ChooseCategoryPage|"
+msgid "Art"
+msgstr "Art"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:36
+msgctxt "ChooseCategoryPage|"
+msgid "Core"
+msgstr "Core"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:41
+msgctxt "ChooseCategoryPage|"
+msgid "Lib"
+msgstr "Lib"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:46
+msgctxt "ChooseCategoryPage|"
+msgid "Plugin"
+msgstr "Plugin"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:66
+msgctxt "ChooseCategoryPage|"
+msgid "..."
+msgstr "..."
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.cpp:66
+msgctxt "ChooseCategoryPage|"
+msgid "Select art"
+msgstr "Select art"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.cpp:75
+msgctxt "ChooseCategoryPage|"
+msgid "Select core"
+msgstr "Select core"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.cpp:80
+msgctxt "ChooseCategoryPage|"
+msgid "Library (*.dll)"
+msgstr "Library (*.dll)"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.cpp:82
+msgctxt "ChooseCategoryPage|"
+msgid "Library (*.dylib *.bundle *.so)"
+msgstr "Library (*.dylib *.bundle *.so)"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.cpp:84
+msgctxt "ChooseCategoryPage|"
+msgid "Library (*.so)"
+msgstr "Library (*.so)"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.cpp:86
+msgctxt "ChooseCategoryPage|"
+msgid "Select library"
+msgstr "Select library"
+
+#: ../../../plugins/plugman/tools/packgen/choosepathpage.ui:14
+msgctxt "ChoosePathPage|"
+msgid "WizardPage"
+msgstr "WizardPage"
+
+#: ../../../plugins/plugman/tools/packgen/choosepathpage.ui:35
+msgctxt "ChoosePathPage|"
+msgid "..."
+msgstr "..."
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:14
+msgctxt "ConfigPackagePage|"
+msgid "WizardPage"
+msgstr "WizardPage"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:29
+msgctxt "ConfigPackagePage|"
+msgid "Name:"
+msgstr "Name:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:41
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:62
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:113
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:134
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:165
+msgctxt "ConfigPackagePage|"
+msgid "*"
+msgstr "*"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:50
+msgctxt "ConfigPackagePage|"
+msgid "Version:"
+msgstr "Version:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:71
+msgctxt "ConfigPackagePage|"
+msgid "Category:"
+msgstr "Category:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:90
+msgctxt "ConfigPackagePage|"
+msgid "Art"
+msgstr "Art"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:95
+msgctxt "ConfigPackagePage|"
+msgid "Core"
+msgstr "Core"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:100
+msgctxt "ConfigPackagePage|"
+msgid "Lib"
+msgstr "Lib"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:105
+msgctxt "ConfigPackagePage|"
+msgid "Plugin"
+msgstr "Plugin"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:122
+msgctxt "ConfigPackagePage|"
+msgid "Type:"
+msgstr "Type:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:143
+msgctxt "ConfigPackagePage|"
+msgid "Short description:"
+msgstr "Short description:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:153
+msgctxt "ConfigPackagePage|"
+msgid "Url:"
+msgstr "Url:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:174
+msgctxt "ConfigPackagePage|"
+msgid "Author:"
+msgstr "Author:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:184
+msgctxt "ConfigPackagePage|"
+msgid "License:"
+msgstr "Licence:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:194
+msgctxt "ConfigPackagePage|"
+msgid "Platform:"
+msgstr "Platform:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:211
+msgctxt "ConfigPackagePage|"
+msgid "Package name:"
+msgstr "Package name:"
+
+#: ../../../plugins/plugman/qml/plugman/default/InstallButton.qml:20
+msgctxt "InstallButton|"
+msgid "Install"
+msgstr "Install"
+
+#: ../../../plugins/plugman/qml/plugman/default/InstallButton.qml:24
+msgctxt "InstallButton|"
+msgid "Update"
+msgstr "Update"
+
+#: ../../../plugins/plugman/qml/plugman/default/InstallButton.qml:28
+msgctxt "InstallButton|"
+msgid "Installing"
+msgstr "Installing"
+
+#: ../../../plugins/plugman/qml/plugman/default/InstallButton.qml:32
+msgctxt "InstallButton|"
+msgid "Updating"
+msgstr "Updating"
+
+#: ../../../plugins/plugman/qml/plugman/default/InstallButton.qml:36
+msgctxt "InstallButton|"
+msgid "Uninstall"
+msgstr "Uninstall"
+
+#: ../../../plugins/plugman/src/packagedownloaddialog.cpp:52
+msgctxt "PackageDownloadDialog|"
+msgid "Get Hot New Stuff"
+msgstr "Get Hot New Stuff"
+
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:99
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:102
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:105
+#, qt-format
+msgctxt "PackageEntryWidget|"
+msgid "By <i>%1</i>"
+msgstr "By <i>%1</i>"
+
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:121
+msgctxt "PackageEntryWidget|"
+msgid "Install"
+msgstr "Install"
+
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:125
+msgctxt "PackageEntryWidget|"
+msgid "Update"
+msgstr "Update"
+
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:129
+msgctxt "PackageEntryWidget|"
+msgid "Installing"
+msgstr "Installing"
+
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:134
+msgctxt "PackageEntryWidget|"
+msgid "Updating"
+msgstr "Updating"
+
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:139
+msgctxt "PackageEntryWidget|"
+msgid "Uninstall"
+msgstr "Uninstall"
+
+#: ../../../plugins/plugman/src/plugman.cpp:65
+msgctxt "PackageManager|"
+msgid "Manage packages"
+msgstr "Manage packages"
+
+#: ../../../plugins/plugman/__data_from_cmakelists_txt.cpp:1
+msgctxt "Plugin|"
+msgid "Package Manager"
+msgstr "Package Manager"
+
+#: ../../../plugins/plugman/__data_from_cmakelists_txt.cpp:2
+#: ../../../plugins/plugman/src/plugman.cpp:53
+msgctxt "Plugin|"
+msgid "Provides possibility to Get Hot New Stuff from open community"
+msgstr "Provides possibility to Get Hot New Stuff from open community"
+
+#: ../../../plugins/plugman/src/plugman.cpp:52
+msgctxt "Plugin|"
+msgid "Package manager"
+msgstr "Package manager"
+
+#: ../../../plugins/plugman/qml/plugman/default/main.qml:24
+msgctxt "main|"
+msgid "Search"
+msgstr "Search"
+
+#: ../../../plugins/plugman/qml/plugman/default/main.qml:36
+msgctxt "main|"
+msgid "Order By"
+msgstr "Order By"
+
+#: ../../../plugins/plugman/qml/plugman/default/main.qml:59
+msgctxt "main|"
+msgid "Order by: "
+msgstr "Order by: "
+
+#: ../../../plugins/plugman/qml/plugman/default/main.qml:69
+msgctxt "main|"
+msgid "Get emoticons"
+msgstr "Get emoticons"
+
+#~ msgctxt "PackageDownloadDialog|"
+#~ msgid "Order by:"
+#~ msgstr "Order by:"
+
+#~ msgctxt "PackageDownloadDialog|"
+#~ msgid "Form"
+#~ msgstr "Form"
+
+#~ msgctxt "PackageDownloadDialog|"
+#~ msgid "Newest"
+#~ msgstr "Newest"
+
+#~ msgctxt "PackageDownloadDialog|"
+#~ msgid "Most downloads"
+#~ msgstr "Most downloads"
+
+#~ msgctxt "PackageDownloadDialog|"
+#~ msgid "Rating"
+#~ msgstr "Rating"
+
+#~ msgctxt "PackageDownloadDialog|"
+#~ msgid "Installed"
+#~ msgstr "Installed"
+
+#~ msgctxt "PackageDownloadDialog|"
+#~ msgid "Search:"
+#~ msgstr "Search:"
+
+#~ msgctxt "QObject|"
+#~ msgid "Insufficient permissions in target directory."
+#~ msgstr "Insufficient permissions in target directory."
+
+#~ msgctxt "QObject|"
+#~ msgid "Already opened."
+#~ msgstr "Already opened."
+
+#~ msgctxt "QObject|"
+#~ msgid "No target filename has been given."
+#~ msgstr "No target filename has been given."
+
+#~ msgctxt "QObject|"
+#~ msgid "Package name is empty"
+#~ msgstr "Package name is empty"
+
+#~ msgctxt "QObject|"
+#~ msgid "Error during rename."
+#~ msgstr "Error during rename."
+
+#~ msgctxt "QObject|"
+#~ msgid "Synchronization to disk failed"
+#~ msgstr "Synchronization to disk failed"
+
+#~ msgctxt "QObject|"
+#~ msgid "Unable to open temporary file."
+#~ msgstr "Unable to open temporary file."
+
+#~ msgctxt "QObject|"
+#~ msgid "Invalid package version"
+#~ msgstr "Invalid package version"
+
+#~ msgctxt "QObject|"
+#~ msgid "Package type is empty"
+#~ msgstr "Package type is empty"
+
+#~ msgctxt "manager|"
+#~ msgid "Not yet implemented"
+#~ msgstr "Not yet implemented"
+
+#~ msgctxt "manager|"
+#~ msgid "Apply"
+#~ msgstr "Apply"
+
+#~ msgctxt "QObject|"
+#~ msgid "Wrong platform"
+#~ msgstr "Wrong platform"
+
+#~ msgctxt "manager|"
+#~ msgid "Plugman"
+#~ msgstr "Plugman"
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "Unable to open archive: %1"
+#~ msgstr "Unable to open archive: %1"
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "Need restart!"
+#~ msgstr "Need restart!"
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "Unable to extract archive: %1 to %2"
+#~ msgstr "Unable to extract archive: %1 to %2"
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "warning: trying to overwrite existing files!"
+#~ msgstr "warning: trying to overwrite existing files!"
+
+#~ msgctxt "plugDownloader|"
+#~ msgid "bytes/sec"
+#~ msgstr "bytes/sec"
+
+#~ msgctxt "plugDownloader|"
+#~ msgid "kB/s"
+#~ msgstr "kB/s"
+
+#~ msgctxt "manager|"
+#~ msgid "Actions"
+#~ msgstr "Actions"
+
+#~ msgctxt "manager|"
+#~ msgid "find"
+#~ msgstr "find"
+
+#~ msgctxt "plugDownloader|"
+#~ msgid "MB/s"
+#~ msgstr "MB/s"
+
+#~ msgctxt "plugDownloader|"
+#~ msgid "Downloading: %1%, speed: %2 %3"
+#~ msgstr "Downloading: %1%, speed: %2 %3"
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "Invalid package: %1"
+#~ msgstr "Invalid package: %1"
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "Installing:"
+#~ msgstr "Installing:"
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "Unable to update package %1: installed version is later"
+#~ msgstr "Unable to update package %1: installed version is later"
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "Removing:"
+#~ msgstr "Removing:"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "isUpgradable"
+#~ msgstr "isUpgradable"
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "Unable to install package: %1"
+#~ msgstr "Unable to install package: %1"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "isInstallable"
+#~ msgstr "isInstallable"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "isDowngradable"
+#~ msgstr "isDowngradable"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "installed"
+#~ msgstr "installed"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "Unknown"
+#~ msgstr "Unknown"
+
+#~ msgctxt "plugXMLHandler|"
+#~ msgid "Unable to set content"
+#~ msgstr "Unable to set content"
+
+#~ msgctxt "plugXMLHandler|"
+#~ msgid "Unable to open file"
+#~ msgstr "Unable to open file"
+
+#~ msgctxt "plugPackageModel|"
+#~ msgid "Packages"
+#~ msgstr "Packages"
+
+#~ msgctxt "plugManager|"
+#~ msgid "Revert changes"
+#~ msgstr "Revert changes"
+
+#~ msgctxt "plugManager|"
+#~ msgid "Update packages list"
+#~ msgstr "Update packages list"
+
+#~ msgctxt "plugManager|"
+#~ msgid "Upgrade all"
+#~ msgstr "Upgrade all"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "Install"
+#~ msgstr "Install"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "Remove"
+#~ msgstr "Remove"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "Upgrade"
+#~ msgstr "Upgrade"
+
+#~ msgctxt "plugManager|"
+#~ msgid "Actions"
+#~ msgstr "Actions"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "Form"
+#~ msgstr "Form"
+
+#~ msgctxt "plugXMLHandler|"
+#~ msgid "unable to set content"
+#~ msgstr "unable to set content"
+
+#~ msgctxt "plugXMLHandler|"
+#~ msgid "unable to open file"
+#~ msgstr "unable to open file"
+
+#~ msgctxt "plugXMLHandler|"
+#~ msgid "Broken package database"
+#~ msgstr "Broken package database"
+
+#~ msgctxt "plugXMLHandler|"
+#~ msgid "Can't read database. Check your pesmissions."
+#~ msgstr "Can't read database. Check your pesmissions."
+
+#~ msgctxt "plugXMLHandler|"
+#~ msgid "Unable to write file"
+#~ msgstr "Unable to write file"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "weight:600;\">Mirror list</span></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "weight:600;\">Mirror list</span></p></body></html>"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "Add"
+#~ msgstr "Add"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "Settings"
+#~ msgstr "Settings"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "group packages"
+#~ msgstr "group packages"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Verdana'; font-size:8pt; font-"
+#~ "weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "family:'Bitstream Vera Sans'; font-size:10pt;\">simple qutIM extentions "
+#~ "manager.</span></p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+#~ "font-family:'Bitstream Vera Sans'; font-size:10pt;\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "family:'Bitstream Vera Sans'; font-size:10pt; font-weight:600;\">Author: "
+#~ "</span><span style=\" font-family:'Bitstream Vera Sans'; font-size:10pt;"
+#~ "\">Sidorov Aleksey</span></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "family:'Bitstream Vera Sans'; font-size:10pt; font-weight:600;"
+#~ "\">Contacts: </span><a href=\"mailto::sauron@citadelspb.com\"><span style="
+#~ "\" font-family:'Bitstream Vera Sans'; font-size:10pt; text-decoration: "
+#~ "underline; color:#0000ff;\">sauron@citadeslpb.com</span></a></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "family:'Droid Serif'; font-size:10pt;\"><br /></span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Droid Serif'; font-size:10pt;\">2008-2009</span></"
+#~ "p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Verdana'; font-size:8pt; font-"
+#~ "weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "family:'Bitstream Vera Sans'; font-size:10pt;\">simple qutIM extentions "
+#~ "manager.</span></p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+#~ "font-family:'Bitstream Vera Sans'; font-size:10pt;\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "family:'Bitstream Vera Sans'; font-size:10pt; font-weight:600;\">Author: "
+#~ "</span><span style=\" font-family:'Bitstream Vera Sans'; font-size:10pt;"
+#~ "\">Sidorov Aleksey</span></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "family:'Bitstream Vera Sans'; font-size:10pt; font-weight:600;"
+#~ "\">Contacts: </span><a href=\"mailto::sauron@citadelspb.com\"><span style="
+#~ "\" font-family:'Bitstream Vera Sans'; font-size:10pt; text-decoration: "
+#~ "underline; color:#0000ff;\">sauron@citadeslpb.com</span></a></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "family:'Droid Serif'; font-size:10pt;\"><br /></span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Droid Serif'; font-size:10pt;\">2008-2009</span></"
+#~ "p></body></html>"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "Name"
+#~ msgstr "Name"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "Not yet implemented"
+#~ msgstr "Not yet implemented"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "About"
+#~ msgstr "About"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "Description"
+#~ msgstr "Description"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "Url"
+#~ msgstr "Url"

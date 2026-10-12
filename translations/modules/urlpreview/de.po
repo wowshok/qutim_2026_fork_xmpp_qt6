@@ -1,0 +1,135 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-29 12:42+0000\n"
+"PO-Revision-Date: 2012-04-07 14:59+0000\n"
+"Last-Translator: Vsevolod Velichko <Unknown>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-01-30 04:52+0000\n"
+"X-Generator: Launchpad (build 16455)\n"
+"X-Qt-Contexts: true\n"
+"Language: de\n"
+"X-Language: de\n"
+"X-Source-Language: en_US\n"
+
+#: ../../../plugins/urlpreview/__data_from_cmakelists_txt.cpp:1
+#: ../../../plugins/urlpreview/src/urlpreview.cpp:41
+#: ../../../plugins/urlpreview/src/urlpreview.cpp:54
+msgctxt "Plugin|"
+msgid "UrlPreview"
+msgstr "UrlPreview"
+
+#: ../../../plugins/urlpreview/__data_from_cmakelists_txt.cpp:2
+#: ../../../plugins/urlpreview/src/urlpreview.cpp:42
+msgctxt "Plugin|"
+msgid "Preview images directly in the chat window"
+msgstr "Links mit Bildern und mehr direkt im Nachrichtenfenster anzeigen"
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:66
+msgctxt "UrlPreview::UrlHandler|"
+msgid "URL Preview"
+msgstr "URL Vorschau"
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:66
+msgctxt "UrlPreview::UrlHandler|"
+msgid "bytes"
+msgstr "Bytes"
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:75
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:77
+msgctxt "UrlPreview::UrlHandler|"
+msgid "Something went wrong."
+msgstr "Irgendetwas ist schiefgegangen."
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:136
+msgctxt "UrlPreview::UrlHandler|"
+msgid "YouTube video"
+msgstr "YouTube-Video"
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:139
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:240
+msgctxt "UrlPreview::UrlHandler|"
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:215
+msgctxt "UrlPreview::UrlHandler|"
+msgid "HTML5 Audio"
+msgstr "HTML5 Audio"
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:232
+msgctxt "UrlPreview::UrlHandler|"
+msgid "HTML5 Video"
+msgstr "HTML5 Video"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:14
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Form"
+msgstr "Form"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:26
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Max filesize"
+msgstr "Max. Dateigröße"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:33
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Max picture size to preview "
+msgstr ""
+"Bilder die größer sind als der Einstellungswert, werden nicht "
+"heruntergeladen "
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:36
+msgctxt "UrlPreviewSettingsForm|"
+msgid " bytes"
+msgstr " Bytes"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:49
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Height"
+msgstr "Höhe"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:56
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Max height of images preview."
+msgstr "Maximale Höhe der Vorschaubilder (in Pixel)."
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:59
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:88
+msgctxt "UrlPreviewSettingsForm|"
+msgid "px"
+msgstr "px"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:78
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Width"
+msgstr "Breite"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:85
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Max width of images preview."
+msgstr "Maximale Breite der Vorschaubilder (in Pixel)."
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:107
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Images preview"
+msgstr "Vorschau für Bilder"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:117
+msgctxt "UrlPreviewSettingsForm|"
+msgid "YouTube preview"
+msgstr "Vorschau für YouTube"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:127
+msgctxt "UrlPreviewSettingsForm|"
+msgid "HTML5 Audio"
+msgstr "Vorschau für HTML5-Audio"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:137
+msgctxt "UrlPreviewSettingsForm|"
+msgid "HTML5 Video"
+msgstr "Vorschau für HTML5-Videos"

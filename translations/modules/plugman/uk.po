@@ -1,0 +1,632 @@
+# Ukrainian translation for qutim
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the qutim package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: qutim\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-28 19:33+0000\n"
+"PO-Revision-Date: 2013-02-09 08:21+0000\n"
+"Last-Translator: ma$terok <Unknown>\n"
+"Language-Team: Ukrainian <uk@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-02-10 05:11+0000\n"
+"X-Generator: Launchpad (build 16482)\n"
+"X-Qt-Contexts: true\n"
+"Language: uk\n"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:14
+msgctxt "ChooseCategoryPage|"
+msgid "WizardPage"
+msgstr "Майстер міграції"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:23
+msgctxt "ChooseCategoryPage|"
+msgid "Package category:"
+msgstr "Категорія пакунку"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:31
+msgctxt "ChooseCategoryPage|"
+msgid "Art"
+msgstr "Оформлення"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:36
+msgctxt "ChooseCategoryPage|"
+msgid "Core"
+msgstr "Ядро"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:41
+msgctxt "ChooseCategoryPage|"
+msgid "Lib"
+msgstr "Бібліотека"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:46
+msgctxt "ChooseCategoryPage|"
+msgid "Plugin"
+msgstr "Плагін"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:66
+msgctxt "ChooseCategoryPage|"
+msgid "..."
+msgstr "…"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.cpp:66
+msgctxt "ChooseCategoryPage|"
+msgid "Select art"
+msgstr "Вибір оформлення"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.cpp:75
+msgctxt "ChooseCategoryPage|"
+msgid "Select core"
+msgstr "Обрати ядро"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.cpp:80
+msgctxt "ChooseCategoryPage|"
+msgid "Library (*.dll)"
+msgstr "Бібліотека (*.dll)"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.cpp:82
+msgctxt "ChooseCategoryPage|"
+msgid "Library (*.dylib *.bundle *.so)"
+msgstr "Бібліотека (*.dylib *.bundle *.so)"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.cpp:84
+msgctxt "ChooseCategoryPage|"
+msgid "Library (*.so)"
+msgstr "Бібліотека (*.so)"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.cpp:86
+msgctxt "ChooseCategoryPage|"
+msgid "Select library"
+msgstr "Вибрати бібліотеку"
+
+#: ../../../plugins/plugman/tools/packgen/choosepathpage.ui:14
+msgctxt "ChoosePathPage|"
+msgid "WizardPage"
+msgstr "Майстер міграції"
+
+#: ../../../plugins/plugman/tools/packgen/choosepathpage.ui:35
+msgctxt "ChoosePathPage|"
+msgid "..."
+msgstr "…"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:14
+msgctxt "ConfigPackagePage|"
+msgid "WizardPage"
+msgstr "Майстер міграції"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:29
+msgctxt "ConfigPackagePage|"
+msgid "Name:"
+msgstr "Ім'я:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:41
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:62
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:113
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:134
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:165
+msgctxt "ConfigPackagePage|"
+msgid "*"
+msgstr "*"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:50
+msgctxt "ConfigPackagePage|"
+msgid "Version:"
+msgstr "Версія:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:71
+msgctxt "ConfigPackagePage|"
+msgid "Category:"
+msgstr "Категорія:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:90
+msgctxt "ConfigPackagePage|"
+msgid "Art"
+msgstr "Оформлення"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:95
+msgctxt "ConfigPackagePage|"
+msgid "Core"
+msgstr "Ядро"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:100
+msgctxt "ConfigPackagePage|"
+msgid "Lib"
+msgstr "Бібліотека"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:105
+msgctxt "ConfigPackagePage|"
+msgid "Plugin"
+msgstr "Плагін"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:122
+msgctxt "ConfigPackagePage|"
+msgid "Type:"
+msgstr "Тип:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:143
+msgctxt "ConfigPackagePage|"
+msgid "Short description:"
+msgstr "Короткий опис:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:153
+msgctxt "ConfigPackagePage|"
+msgid "Url:"
+msgstr "Адреса:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:174
+msgctxt "ConfigPackagePage|"
+msgid "Author:"
+msgstr "Автор:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:184
+msgctxt "ConfigPackagePage|"
+msgid "License:"
+msgstr "Ліцензія:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:194
+msgctxt "ConfigPackagePage|"
+msgid "Platform:"
+msgstr "Платформа:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:211
+msgctxt "ConfigPackagePage|"
+msgid "Package name:"
+msgstr "Назва пакунку:"
+
+#: ../../../plugins/plugman/qml/plugman/default/InstallButton.qml:20
+msgctxt "InstallButton|"
+msgid "Install"
+msgstr "Встановити"
+
+#: ../../../plugins/plugman/qml/plugman/default/InstallButton.qml:24
+msgctxt "InstallButton|"
+msgid "Update"
+msgstr "Оновити"
+
+#: ../../../plugins/plugman/qml/plugman/default/InstallButton.qml:28
+msgctxt "InstallButton|"
+msgid "Installing"
+msgstr "Встановлення"
+
+#: ../../../plugins/plugman/qml/plugman/default/InstallButton.qml:32
+msgctxt "InstallButton|"
+msgid "Updating"
+msgstr "Оновлення"
+
+#: ../../../plugins/plugman/qml/plugman/default/InstallButton.qml:36
+msgctxt "InstallButton|"
+msgid "Uninstall"
+msgstr "Вилучити"
+
+#: ../../../plugins/plugman/src/packagedownloaddialog.cpp:52
+msgctxt "PackageDownloadDialog|"
+msgid "Get Hot New Stuff"
+msgstr "Отримати свіжі матеріали"
+
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:99
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:102
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:105
+#, qt-format
+msgctxt "PackageEntryWidget|"
+msgid "By <i>%1</i>"
+msgstr "<i>%1</i>"
+
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:121
+msgctxt "PackageEntryWidget|"
+msgid "Install"
+msgstr "Встановити"
+
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:125
+msgctxt "PackageEntryWidget|"
+msgid "Update"
+msgstr "Оновити"
+
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:129
+msgctxt "PackageEntryWidget|"
+msgid "Installing"
+msgstr "Встановлення"
+
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:134
+msgctxt "PackageEntryWidget|"
+msgid "Updating"
+msgstr "Оновлення"
+
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:139
+msgctxt "PackageEntryWidget|"
+msgid "Uninstall"
+msgstr "Видалити"
+
+#: ../../../plugins/plugman/src/plugman.cpp:65
+msgctxt "PackageManager|"
+msgid "Manage packages"
+msgstr "Керування пакунками"
+
+#: ../../../plugins/plugman/__data_from_cmakelists_txt.cpp:1
+msgctxt "Plugin|"
+msgid "Package Manager"
+msgstr "Менеджер пакунків"
+
+#: ../../../plugins/plugman/__data_from_cmakelists_txt.cpp:2
+#: ../../../plugins/plugman/src/plugman.cpp:53
+msgctxt "Plugin|"
+msgid "Provides possibility to Get Hot New Stuff from open community"
+msgstr ""
+"Надає можливість отримати новий контент (плагіни, теми і т.п.) від спільноти"
+
+#: ../../../plugins/plugman/src/plugman.cpp:52
+msgctxt "Plugin|"
+msgid "Package manager"
+msgstr "Менеджер пакунків"
+
+#: ../../../plugins/plugman/qml/plugman/default/main.qml:24
+msgctxt "main|"
+msgid "Search"
+msgstr "Пошук"
+
+#: ../../../plugins/plugman/qml/plugman/default/main.qml:36
+msgctxt "main|"
+msgid "Order By"
+msgstr "Сортування"
+
+#: ../../../plugins/plugman/qml/plugman/default/main.qml:59
+msgctxt "main|"
+msgid "Order by: "
+msgstr "Сортувати по: "
+
+#: ../../../plugins/plugman/qml/plugman/default/main.qml:69
+msgctxt "main|"
+msgid "Get emoticons"
+msgstr "Отримати смайлики"
+
+#~ msgctxt "QObject|"
+#~ msgid "Invalid package version"
+#~ msgstr "Невірна версія пакунку"
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "Unable to open archive: %1"
+#~ msgstr "Не вдалось відкрити архів: %1"
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "Need restart!"
+#~ msgstr "Потрібен перезапуск"
+
+#~ msgctxt "plugDownloader|"
+#~ msgid "Downloading: %1%, speed: %2 %3"
+#~ msgstr "Завантажено: %1%, Швидкість: %2 %3"
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "Invalid package: %1"
+#~ msgstr "Недісний пакунок: %1"
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "Installing:"
+#~ msgstr "Встановлення:"
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "Removing:"
+#~ msgstr "Вилучення:"
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "Unable to extract archive: %1 to %2"
+#~ msgstr "Неможливо розпакувати архів : %1 в %2"
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "Unable to install package: %1"
+#~ msgstr "Неможливо встановити пакунок: %1"
+
+#~ msgctxt "plugManager|"
+#~ msgid "Update packages list"
+#~ msgstr "Оновлення списку пакунків"
+
+#~ msgctxt "plugManager|"
+#~ msgid "Upgrade all"
+#~ msgstr "Оновити всі пакунки"
+
+#~ msgctxt "plugXMLHandler|"
+#~ msgid "unable to open file"
+#~ msgstr "неможливо відкрити файл"
+
+#~ msgctxt "plugXMLHandler|"
+#~ msgid "Broken package database"
+#~ msgstr "Збій бази даних пакунків"
+
+#~ msgctxt "plugXMLHandler|"
+#~ msgid "Unable to write file"
+#~ msgstr "Неможливо записати файл"
+
+#~ msgctxt "plugXMLHandler|"
+#~ msgid "Can't read database. Check your pesmissions."
+#~ msgstr "Невдалось прочитати базу даних. Перевірте свої права доступу"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "group packages"
+#~ msgstr "Групи пакунків"
+
+#~ msgctxt "PackageDownloadDialog|"
+#~ msgid "Form"
+#~ msgstr "Стиль"
+
+#~ msgctxt "PackageDownloadDialog|"
+#~ msgid "Newest"
+#~ msgstr "Даті створення"
+
+#~ msgctxt "PackageDownloadDialog|"
+#~ msgid "Order by:"
+#~ msgstr "Сортувати по:"
+
+#~ msgctxt "PackageDownloadDialog|"
+#~ msgid "Most downloads"
+#~ msgstr "Кількості завантажень"
+
+#~ msgctxt "PackageDownloadDialog|"
+#~ msgid "Rating"
+#~ msgstr "Рейтингу"
+
+#~ msgctxt "PackageDownloadDialog|"
+#~ msgid "Installed"
+#~ msgstr "Кількості встановлень"
+
+#~ msgctxt "PackageDownloadDialog|"
+#~ msgid "Search:"
+#~ msgstr "Пошук:"
+
+#~ msgctxt "QObject|"
+#~ msgid "Already opened."
+#~ msgstr "Вже відкрито."
+
+#~ msgctxt "QObject|"
+#~ msgid "No target filename has been given."
+#~ msgstr "Не вказано файл призначення."
+
+#~ msgctxt "manager|"
+#~ msgid "Not yet implemented"
+#~ msgstr "Ще не реалізовано"
+
+#~ msgctxt "QObject|"
+#~ msgid "Package name is empty"
+#~ msgstr "Не вказано ім’я пакету"
+
+#~ msgctxt "QObject|"
+#~ msgid "Error during rename."
+#~ msgstr "Помилка при перейменуванні."
+
+#~ msgctxt "QObject|"
+#~ msgid "Synchronization to disk failed"
+#~ msgstr "Спроба синхронізації з диском спіткала невдача"
+
+#~ msgctxt "QObject|"
+#~ msgid "Unable to open temporary file."
+#~ msgstr "Неможливо відкрити тимчасовий файл."
+
+#~ msgctxt "QObject|"
+#~ msgid "Insufficient permissions in target directory."
+#~ msgstr "Недостатньо прав для доступу в цільовий каталог."
+
+#~ msgctxt "QObject|"
+#~ msgid "Package type is empty"
+#~ msgstr "Не вказано тип пакету"
+
+#~ msgctxt "QObject|"
+#~ msgid "Wrong platform"
+#~ msgstr "Неправильна платформа"
+
+#~ msgctxt "manager|"
+#~ msgid "Plugman"
+#~ msgstr "ПлагМен"
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "warning: trying to overwrite existing files!"
+#~ msgstr "Увага: ви намагаєтеся перезаписати існуючі файли"
+
+#~ msgctxt "plugDownloader|"
+#~ msgid "MB/s"
+#~ msgstr "МБ/с"
+
+#~ msgctxt "manager|"
+#~ msgid "Apply"
+#~ msgstr "Застосувати"
+
+#~ msgctxt "plugDownloader|"
+#~ msgid "bytes/sec"
+#~ msgstr "байт/сек"
+
+#~ msgctxt "plugDownloader|"
+#~ msgid "kB/s"
+#~ msgstr "кБ/с"
+
+#~ msgctxt "manager|"
+#~ msgid "Actions"
+#~ msgstr "Дії"
+
+#~ msgctxt "manager|"
+#~ msgid "find"
+#~ msgstr "Знайти"
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "Unable to update package %1: installed version is later"
+#~ msgstr "Неможливо оновити пакунок %1: встановлена новіша версія"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "isUpgradable"
+#~ msgstr "Оновлення"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "isDowngradable"
+#~ msgstr "Пониження версії"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "installed"
+#~ msgstr "Встановлений"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "isInstallable"
+#~ msgstr "Установка"
+
+#~ msgctxt "plugXMLHandler|"
+#~ msgid "Unable to open file"
+#~ msgstr "Не вдалося відкрити файл"
+
+#~ msgctxt "plugPackageModel|"
+#~ msgid "Packages"
+#~ msgstr "Пакунки"
+
+#~ msgctxt "plugManager|"
+#~ msgid "Revert changes"
+#~ msgstr "Скасувати зміни"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "Unknown"
+#~ msgstr "Невідомо"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "Install"
+#~ msgstr "Встановити"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "Remove"
+#~ msgstr "Видалити"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "Upgrade"
+#~ msgstr "Оновити"
+
+#~ msgctxt "plugManager|"
+#~ msgid "Actions"
+#~ msgstr "Дії"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "Form"
+#~ msgstr "Стиль"
+
+#~ msgctxt "plugXMLHandler|"
+#~ msgid "unable to set content"
+#~ msgstr "неможливо встановити зміст"
+
+#~ msgctxt "plugXMLHandler|"
+#~ msgid "Unable to set content"
+#~ msgstr "Неможливо встановити вміст"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Droid Sans'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "weight:600;\">Mirror list</span></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ " <html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ " p, li { white-space: pre-wrap; }\n"
+#~ " </style></head><body style=\" font-family:'Droid Sans'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ " <p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "weight:600;\">Дзеркала</span></p></body></html>"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "Settings"
+#~ msgstr "Налаштування"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Verdana'; font-size:8pt; font-"
+#~ "weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "family:'Bitstream Vera Sans'; font-size:10pt;\">simple qutIM extentions "
+#~ "manager.</span></p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+#~ "font-family:'Bitstream Vera Sans'; font-size:10pt;\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "family:'Bitstream Vera Sans'; font-size:10pt; font-weight:600;\">Author: "
+#~ "</span><span style=\" font-family:'Bitstream Vera Sans'; font-size:10pt;"
+#~ "\">Sidorov Aleksey</span></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "family:'Bitstream Vera Sans'; font-size:10pt; font-weight:600;"
+#~ "\">Contacts: </span><a href=\"mailto::sauron@citadelspb.com\"><span style="
+#~ "\" font-family:'Bitstream Vera Sans'; font-size:10pt; text-decoration: "
+#~ "underline; color:#0000ff;\">sauron@citadeslpb.com</span></a></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "family:'Droid Serif'; font-size:10pt;\"><br /></span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Droid Serif'; font-size:10pt;\">2008-2009</span></"
+#~ "p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ " <html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ " p, li { white-space: pre-wrap; }\n"
+#~ " </style></head><body style=\" font-family:'Verdana'; font-size:8pt; font-"
+#~ "weight:400; font-style:normal;\">\n"
+#~ " <p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "family:'Bitstream Vera Sans'; font-size:10pt;\">простий менеджер "
+#~ "розширень qutIM.</span></p>\n"
+#~ " <p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+#~ "font-family:'Bitstream Vera Sans'; font-size:10pt;\"></p>\n"
+#~ " <p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "family:'Bitstream Vera Sans'; font-size:10pt; font-weight:600;\">Автор: </"
+#~ "span><span style=\" font-family:'Bitstream Vera Sans'; font-size:10pt;"
+#~ "\">Сидоров Олексій</span></p>\n"
+#~ " <p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "family:'Bitstream Vera Sans'; font-size:10pt; font-weight:600;"
+#~ "\">Контакти: </span><a href=\"mailto::sauron@citadelspb.com\"><span style="
+#~ "\" font-family:'Bitstream Vera Sans'; font-size:10pt; text-decoration: "
+#~ "underline; color:#0000ff;\">sauron@citadeslpb.com</span></a></p>\n"
+#~ " <p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "family:'Droid Serif'; font-size:10pt;\"><br /></span></p>\n"
+#~ " <p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Droid Serif'; font-size:10pt;\">2008-2011</span></"
+#~ "p></body></html>"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "Name"
+#~ msgstr "Ім'я"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "Not yet implemented"
+#~ msgstr "Ще не реалізовано"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "About"
+#~ msgstr "Про програму"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "Add"
+#~ msgstr "Додати"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "Description"
+#~ msgstr "Опис"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "Url"
+#~ msgstr "Url"

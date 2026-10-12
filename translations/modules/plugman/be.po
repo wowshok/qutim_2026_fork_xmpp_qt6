@@ -1,0 +1,365 @@
+# Belarusian translation for qutim
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the qutim package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: qutim\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-28 19:33+0000\n"
+"PO-Revision-Date: 2013-03-26 17:44+0000\n"
+"Last-Translator: Yauhen Bugamol <haxycgm@gmail.com>\n"
+"Language-Team: Belarusian <be@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-03-27 05:23+0000\n"
+"X-Generator: Launchpad (build 16540)\n"
+"X-Qt-Contexts: true\n"
+"Language: be\n"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:14
+msgctxt "ChooseCategoryPage|"
+msgid "WizardPage"
+msgstr "Майстра пераносу"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:23
+msgctxt "ChooseCategoryPage|"
+msgid "Package category:"
+msgstr "Тып пакунка"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:31
+msgctxt "ChooseCategoryPage|"
+msgid "Art"
+msgstr "Выгляд"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:36
+msgctxt "ChooseCategoryPage|"
+msgid "Core"
+msgstr "Асноўныя"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:41
+msgctxt "ChooseCategoryPage|"
+msgid "Lib"
+msgstr "Бібліятэка"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:46
+msgctxt "ChooseCategoryPage|"
+msgid "Plugin"
+msgstr "Модуль"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.ui:66
+msgctxt "ChooseCategoryPage|"
+msgid "..."
+msgstr "…"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.cpp:66
+msgctxt "ChooseCategoryPage|"
+msgid "Select art"
+msgstr "Змяніць выгляд"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.cpp:75
+msgctxt "ChooseCategoryPage|"
+msgid "Select core"
+msgstr "Выбар ядра"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.cpp:80
+msgctxt "ChooseCategoryPage|"
+msgid "Library (*.dll)"
+msgstr "Бібліятэка (*.dll)"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.cpp:82
+msgctxt "ChooseCategoryPage|"
+msgid "Library (*.dylib *.bundle *.so)"
+msgstr "Бібліятэка (*.dylib *.bundle *.so)"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.cpp:84
+msgctxt "ChooseCategoryPage|"
+msgid "Library (*.so)"
+msgstr "Бібліятэка (*.so)"
+
+#: ../../../plugins/plugman/tools/packgen/choosecategorypage.cpp:86
+msgctxt "ChooseCategoryPage|"
+msgid "Select library"
+msgstr "Выбраць бібліятэку"
+
+#: ../../../plugins/plugman/tools/packgen/choosepathpage.ui:14
+msgctxt "ChoosePathPage|"
+msgid "WizardPage"
+msgstr "Майстра пераносу"
+
+#: ../../../plugins/plugman/tools/packgen/choosepathpage.ui:35
+msgctxt "ChoosePathPage|"
+msgid "..."
+msgstr "…"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:14
+msgctxt "ConfigPackagePage|"
+msgid "WizardPage"
+msgstr "Майстра пераносу"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:29
+msgctxt "ConfigPackagePage|"
+msgid "Name:"
+msgstr "Імя:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:41
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:62
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:113
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:134
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:165
+msgctxt "ConfigPackagePage|"
+msgid "*"
+msgstr "*"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:50
+msgctxt "ConfigPackagePage|"
+msgid "Version:"
+msgstr "Версія:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:71
+msgctxt "ConfigPackagePage|"
+msgid "Category:"
+msgstr "Катэгорыя:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:90
+msgctxt "ConfigPackagePage|"
+msgid "Art"
+msgstr "Выгляд"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:95
+msgctxt "ConfigPackagePage|"
+msgid "Core"
+msgstr "Асноўныя"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:100
+msgctxt "ConfigPackagePage|"
+msgid "Lib"
+msgstr "Бібліятэка"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:105
+msgctxt "ConfigPackagePage|"
+msgid "Plugin"
+msgstr "Модуль"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:122
+msgctxt "ConfigPackagePage|"
+msgid "Type:"
+msgstr "Тып:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:143
+msgctxt "ConfigPackagePage|"
+msgid "Short description:"
+msgstr "Кароткае апісанне:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:153
+msgctxt "ConfigPackagePage|"
+msgid "Url:"
+msgstr "URL:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:174
+msgctxt "ConfigPackagePage|"
+msgid "Author:"
+msgstr "Аўтар:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:184
+msgctxt "ConfigPackagePage|"
+msgid "License:"
+msgstr "Ліцэнзія:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:194
+msgctxt "ConfigPackagePage|"
+msgid "Platform:"
+msgstr "Платформа:"
+
+#: ../../../plugins/plugman/tools/packgen/configpackagepage.ui:211
+msgctxt "ConfigPackagePage|"
+msgid "Package name:"
+msgstr "Імя пакунка"
+
+#: ../../../plugins/plugman/qml/plugman/default/InstallButton.qml:20
+msgctxt "InstallButton|"
+msgid "Install"
+msgstr "Усталяваць"
+
+#: ../../../plugins/plugman/qml/plugman/default/InstallButton.qml:24
+msgctxt "InstallButton|"
+msgid "Update"
+msgstr "Абнавіць"
+
+#: ../../../plugins/plugman/qml/plugman/default/InstallButton.qml:28
+msgctxt "InstallButton|"
+msgid "Installing"
+msgstr "Усталёўка"
+
+#: ../../../plugins/plugman/qml/plugman/default/InstallButton.qml:32
+msgctxt "InstallButton|"
+msgid "Updating"
+msgstr "Абнаўленне"
+
+#: ../../../plugins/plugman/qml/plugman/default/InstallButton.qml:36
+msgctxt "InstallButton|"
+msgid "Uninstall"
+msgstr "Выдаліць"
+
+#: ../../../plugins/plugman/src/packagedownloaddialog.cpp:52
+msgctxt "PackageDownloadDialog|"
+msgid "Get Hot New Stuff"
+msgstr "Атрымаць найновыя пашырэнні"
+
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:99
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:102
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:105
+#, qt-format
+msgctxt "PackageEntryWidget|"
+msgid "By <i>%1</i>"
+msgstr "<i>%1</i>"
+
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:121
+msgctxt "PackageEntryWidget|"
+msgid "Install"
+msgstr "Усталяваць"
+
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:125
+msgctxt "PackageEntryWidget|"
+msgid "Update"
+msgstr "Абнавіць"
+
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:129
+msgctxt "PackageEntryWidget|"
+msgid "Installing"
+msgstr "Усталёўка"
+
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:134
+msgctxt "PackageEntryWidget|"
+msgid "Updating"
+msgstr "Абнаўленне"
+
+#: ../../../plugins/plugman/src/packageentrywidget.cpp:139
+msgctxt "PackageEntryWidget|"
+msgid "Uninstall"
+msgstr "Выдаленне"
+
+#: ../../../plugins/plugman/src/plugman.cpp:65
+msgctxt "PackageManager|"
+msgid "Manage packages"
+msgstr "Кіраванне пакункамі"
+
+#: ../../../plugins/plugman/__data_from_cmakelists_txt.cpp:1
+msgctxt "Plugin|"
+msgid "Package Manager"
+msgstr "Кіраўнік пакункаў"
+
+#: ../../../plugins/plugman/__data_from_cmakelists_txt.cpp:2
+#: ../../../plugins/plugman/src/plugman.cpp:53
+msgctxt "Plugin|"
+msgid "Provides possibility to Get Hot New Stuff from open community"
+msgstr ""
+"Дазваляе атрымліваць найновыя пакункі (пашырэнні, тэмы выгляду)  ад "
+"супольнасці."
+
+#: ../../../plugins/plugman/src/plugman.cpp:52
+msgctxt "Plugin|"
+msgid "Package manager"
+msgstr "Кіраўнік пакункаў"
+
+#: ../../../plugins/plugman/qml/plugman/default/main.qml:24
+msgctxt "main|"
+msgid "Search"
+msgstr "Пошук"
+
+#: ../../../plugins/plugman/qml/plugman/default/main.qml:36
+msgctxt "main|"
+msgid "Order By"
+msgstr "Упарадкаваць па"
+
+#: ../../../plugins/plugman/qml/plugman/default/main.qml:59
+msgctxt "main|"
+msgid "Order by: "
+msgstr "Упарадкаваць па "
+
+#: ../../../plugins/plugman/qml/plugman/default/main.qml:69
+msgctxt "main|"
+msgid "Get emoticons"
+msgstr "Атрымаць смайлы"
+
+#~ msgctxt "QObject|"
+#~ msgid "Already opened."
+#~ msgstr "Ужо адкрыты."
+
+#~ msgctxt "QObject|"
+#~ msgid "Error during rename."
+#~ msgstr "Памылка падчас пераназвання файла."
+
+#~ msgctxt "QObject|"
+#~ msgid "Insufficient permissions in target directory."
+#~ msgstr "Недастаткова правоў доступу ў тэчцы прызначэння."
+
+#~ msgctxt "plugInstaller|"
+#~ msgid "Need restart!"
+#~ msgstr "Патрэбен перазапуск"
+
+#~ msgctxt "manager|"
+#~ msgid "Apply"
+#~ msgstr "Ужыць"
+
+#~ msgctxt "plugDownloader|"
+#~ msgid "kB/s"
+#~ msgstr "кБ/с"
+
+#~ msgctxt "manager|"
+#~ msgid "Actions"
+#~ msgstr "Дзеянні"
+
+#~ msgctxt "manager|"
+#~ msgid "find"
+#~ msgstr "Знайсці"
+
+#~ msgctxt "plugDownloader|"
+#~ msgid "MB/s"
+#~ msgstr "МБ/с"
+
+#~ msgctxt "plugDownloader|"
+#~ msgid "Downloading: %1%, speed: %2 %3"
+#~ msgstr "Запампоўка: %1%, хуткасць: %2 %3"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "installed"
+#~ msgstr "усталяваны"
+
+#~ msgctxt "plugManager|"
+#~ msgid "Update packages list"
+#~ msgstr "Абнавіць спіс пакункаў"
+
+#~ msgctxt "plugPackageModel|"
+#~ msgid "Packages"
+#~ msgstr "Пакункі"
+
+#~ msgctxt "plugManager|"
+#~ msgid "Upgrade all"
+#~ msgstr "Абнавіць усё"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "Install"
+#~ msgstr "Усталяваць"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "Unknown"
+#~ msgstr "Невядома"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "Remove"
+#~ msgstr "Выдаліць"
+
+#~ msgctxt "plugItemDelegate|"
+#~ msgid "Upgrade"
+#~ msgstr "Абнавіць"
+
+#~ msgctxt "plugManager|"
+#~ msgid "Actions"
+#~ msgstr "Дзеянні"
+
+#~ msgctxt "plugmanSettings|"
+#~ msgid "Settings"
+#~ msgstr "Налады"

@@ -1,0 +1,2639 @@
+# Ukrainian translation for qutim
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the qutim package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: qutim\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-28 19:33+0000\n"
+"PO-Revision-Date: 2012-07-01 22:58+0000\n"
+"Last-Translator: ma$terok <Unknown>\n"
+"Language-Team: Ukrainian <uk@li.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-01-29 05:42+0000\n"
+"X-Generator: Launchpad (build 16451)\n"
+"X-Qt-Contexts: true\n"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:35
+msgctxt "Activity|"
+msgid "Doing chores"
+msgstr "Виконую обов’язки"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:36
+msgctxt "Activity|"
+msgid "Drinking"
+msgstr "П'ю"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:37
+msgctxt "Activity|"
+msgid "Eating"
+msgstr "Їм"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:38
+msgctxt "Activity|"
+msgid "Exercising"
+msgstr "Займаюся спортом"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:39
+msgctxt "Activity|"
+msgid "Grooming"
+msgstr "Доглядаю за собою"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:40
+msgctxt "Activity|"
+msgid "Having appointment"
+msgstr "На нараді"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:41
+msgctxt "Activity|"
+msgid "Inactive"
+msgstr "Байдикую"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:42
+msgctxt "Activity|"
+msgid "Relaxing"
+msgstr "Розслабляюся"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:43
+msgctxt "Activity|"
+msgid "Talking"
+msgstr "Розмовляю"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:44
+msgctxt "Activity|"
+msgid "Traveling"
+msgstr "Подорожую"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:45
+msgctxt "Activity|"
+msgid "Undefined"
+msgstr "Не визначено"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:46
+msgctxt "Activity|"
+msgid "Working"
+msgstr "Працюю"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:51
+msgctxt "Activity|"
+msgid "At the spa"
+msgstr "В спа"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:52
+msgctxt "Activity|"
+msgid "Brushing teeth"
+msgstr "Чищу зуби"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:53
+msgctxt "Activity|"
+msgid "Buying groceries"
+msgstr "Купляю продукти"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:54
+msgctxt "Activity|"
+msgid "Cleaning"
+msgstr "Прибираю"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:55
+msgctxt "Activity|"
+msgid "Coding"
+msgstr "Програмую"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:56
+msgctxt "Activity|"
+msgid "Commuting"
+msgstr "Їду на роботу або з роботи"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:57
+msgctxt "Activity|"
+msgid "Cooking"
+msgstr "Куховарю"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:58
+msgctxt "Activity|"
+msgid "Cycling"
+msgstr "Катаюся на велосипеді"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:59
+msgctxt "Activity|"
+msgid "Dancing"
+msgstr "Танцюю"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:60
+msgctxt "Activity|"
+msgid "Day off"
+msgstr "Вихідний"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:61
+msgctxt "Activity|"
+msgid "Doing maintenance"
+msgstr "Ремонтую"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:62
+msgctxt "Activity|"
+msgid "Doing the dishes"
+msgstr "Готую їжу"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:63
+msgctxt "Activity|"
+msgid "Doing the laundry"
+msgstr "Перу одяг"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:64
+msgctxt "Activity|"
+msgid "Driving"
+msgstr "Веду машину"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:65
+msgctxt "Activity|"
+msgid "Fishing"
+msgstr "Рибалю"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:66
+msgctxt "Activity|"
+msgid "Gaming"
+msgstr "Граю гру"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:67
+msgctxt "Activity|"
+msgid "Gardening"
+msgstr "Займаюся садівництвом"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:68
+msgctxt "Activity|"
+msgid "Getting a haircut"
+msgstr "Підстригаюся"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:69
+msgctxt "Activity|"
+msgid "Going out"
+msgstr "Вийшов"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:70
+msgctxt "Activity|"
+msgid "Hanging out"
+msgstr "Тиняюся"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:71
+msgctxt "Activity|"
+msgid "Having a beer"
+msgstr "П'ю пиво"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:72
+msgctxt "Activity|"
+msgid "Having a snack"
+msgstr "Перекусую"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:73
+msgctxt "Activity|"
+msgid "Having breakfast"
+msgstr "Снідаю"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:74
+msgctxt "Activity|"
+msgid "Having coffee"
+msgstr "П'ю каву"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:75
+msgctxt "Activity|"
+msgid "Having dinner"
+msgstr "Обідаю"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:76
+msgctxt "Activity|"
+msgid "Having lunch"
+msgstr "Ланч"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:77
+msgctxt "Activity|"
+msgid "Having tea"
+msgstr "П'ю чай"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:78
+msgctxt "Activity|"
+msgid "Hiding"
+msgstr "Ховаюся"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:79
+msgctxt "Activity|"
+msgid "Hiking"
+msgstr "Займаюся туризмом"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:80
+msgctxt "Activity|"
+msgid "In a car"
+msgstr "В авто"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:81
+msgctxt "Activity|"
+msgid "In a meeting"
+msgstr "На зустрічі"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:82
+msgctxt "Activity|"
+msgid "In real life"
+msgstr "В реальному житті"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:83
+msgctxt "Activity|"
+msgid "Jogging"
+msgstr "Бігаю"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:84
+msgctxt "Activity|"
+msgid "On a bus"
+msgstr "В автобусі"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:85
+msgctxt "Activity|"
+msgid "On a plane"
+msgstr "На літаку"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:86
+msgctxt "Activity|"
+msgid "On a train"
+msgstr "На поїзді"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:87
+msgctxt "Activity|"
+msgid "On a trip"
+msgstr "Подорожую"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:88
+msgctxt "Activity|"
+msgid "On the phone"
+msgstr "Розмовляю по телефону"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:89
+msgctxt "Activity|"
+msgid "On vacation"
+msgstr "У відпустці"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:90
+msgctxt "Activity|"
+msgid "On video phone"
+msgstr "Балакаю по відеофону"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:91
+msgctxt "Activity|"
+msgid "Other"
+msgstr "Інше"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:92
+msgctxt "Activity|"
+msgid "Partying"
+msgstr "На вечірці"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:93
+msgctxt "Activity|"
+msgid "Playing sports"
+msgstr "Граю спортивні ігри"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:94
+msgctxt "Activity|"
+msgid "Praying"
+msgstr "Молюся"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:95
+msgctxt "Activity|"
+msgid "Reading"
+msgstr "Читаю"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:96
+msgctxt "Activity|"
+msgid "Rehearsing"
+msgstr "Репетирую"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:97
+msgctxt "Activity|"
+msgid "Running"
+msgstr "Рухаюсь"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:98
+msgctxt "Activity|"
+msgid "Running an errand"
+msgstr "Виконую доручення"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:99
+msgctxt "Activity|"
+msgid "Scheduled holiday"
+msgstr "Відпустка"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:100
+msgctxt "Activity|"
+msgid "Shaving"
+msgstr "Голюся"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:101
+msgctxt "Activity|"
+msgid "Shopping"
+msgstr "Роблю покупки"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:102
+msgctxt "Activity|"
+msgid "Skiing"
+msgstr "Катаюся на лижах"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:103
+msgctxt "Activity|"
+msgid "Sleeping"
+msgstr "Сплю"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:104
+msgctxt "Activity|"
+msgid "Smoking"
+msgstr "Курю"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:105
+msgctxt "Activity|"
+msgid "Socializing"
+msgstr "Спілкуюся"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:106
+msgctxt "Activity|"
+msgid "Studying"
+msgstr "Вчуся"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:107
+msgctxt "Activity|"
+msgid "Sunbathing"
+msgstr "Засмагаю"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:108
+msgctxt "Activity|"
+msgid "Swimming"
+msgstr "Займаюся плаванням"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:109
+msgctxt "Activity|"
+msgid "Taking a bath"
+msgstr "Приймаю ванну"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:110
+msgctxt "Activity|"
+msgid "Taking a shower"
+msgstr "Приймаю душ"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:111
+msgctxt "Activity|"
+msgid "Thinking"
+msgstr "Думаю"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:112
+msgctxt "Activity|"
+msgid "Walking"
+msgstr "Гуляю"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:113
+msgctxt "Activity|"
+msgid "Walking the dog"
+msgstr "Вигулюю собаку"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:114
+msgctxt "Activity|"
+msgid "Watching a movie"
+msgstr "Дивлюсь кіно"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:115
+msgctxt "Activity|"
+msgid "Watching TV"
+msgstr "Дивлюсь телевізор"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:116
+msgctxt "Activity|"
+msgid "Working out"
+msgstr "Ладнаю справи"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:117
+msgctxt "Activity|"
+msgid "Writing"
+msgstr "Пишу"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:201
+msgctxt "Activity|"
+msgid "Activity"
+msgstr "Щось роблю"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jpersonactivityconverter.cpp:203
+msgctxt "Activity|"
+msgid "Show contact activity icon"
+msgstr "Показувати ікону активності контакту"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:59
+msgctxt "Author|"
+msgid "Nikita Belov"
+msgstr "Микита Белов"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucuser.cpp:152
+msgctxt "Conference|"
+msgid "Real JID"
+msgstr "Справжній JID"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucuser.cpp:169
+msgctxt "Conference|"
+msgid "Affiliation"
+msgstr "Приналежність"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucuser.cpp:185
+msgctxt "Conference|"
+msgid "Role"
+msgstr "Роль"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucuser.cpp:187
+msgctxt "Conference|"
+msgid "Possible client"
+msgstr "Можливий клієнт"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucuser.cpp:194
+msgctxt "Conference|"
+msgid "OS"
+msgstr "ОС"
+
+#: ../../../protocols/jabber/src/protocol/jprotocol.cpp:205
+msgctxt "Conference|"
+msgid "Kick"
+msgstr "Викинути"
+
+#: ../../../protocols/jabber/src/protocol/jprotocol.cpp:211
+msgctxt "Conference|"
+msgid "Ban"
+msgstr "Заблокувати"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:79
+msgctxt "ContactInfo|"
+msgid "Nickname"
+msgstr "Нік"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:80
+msgctxt "ContactInfo|"
+msgid "First name"
+msgstr "Ім’я"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:81
+msgctxt "ContactInfo|"
+msgid "Middle name"
+msgstr "По батькові"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:82
+msgctxt "ContactInfo|"
+msgid "Last name"
+msgstr "Прізвище"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:83
+msgctxt "ContactInfo|"
+msgid "Birthday"
+msgstr "День народження"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:84
+msgctxt "ContactInfo|"
+msgid "Homepage"
+msgstr "Домашня сторінка"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:85
+msgctxt "ContactInfo|"
+msgid "Home phone"
+msgstr "Домашній телефон"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:86
+msgctxt "ContactInfo|"
+msgid "Work phone"
+msgstr "Робочий телефон"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:87
+msgctxt "ContactInfo|"
+msgid "Mobile phone"
+msgstr "Мобільний телефон"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:88
+msgctxt "ContactInfo|"
+msgid "Phone"
+msgstr "Телефон"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:89
+msgctxt "ContactInfo|"
+msgid "Personal email"
+msgstr "Особиста ел. пошта"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:90
+msgctxt "ContactInfo|"
+msgid "Work email"
+msgstr "Робоча ел. пошта"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:91
+msgctxt "ContactInfo|"
+msgid "Email"
+msgstr "Ел. пошта"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:92
+msgctxt "ContactInfo|"
+msgid "Home address"
+msgstr "Домашня адреса"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:93
+msgctxt "ContactInfo|"
+msgid "Work address"
+msgstr "Робоча адреса"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:94
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:100
+msgctxt "ContactInfo|"
+msgid "Address"
+msgstr "Адреса"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:95
+msgctxt "ContactInfo|"
+msgid "Country"
+msgstr "Країна"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:96
+msgctxt "ContactInfo|"
+msgid "Region"
+msgstr "Область"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:97
+msgctxt "ContactInfo|"
+msgid "City"
+msgstr "Місто"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:98
+msgctxt "ContactInfo|"
+msgid "Postcode"
+msgstr "Індекс"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:99
+msgctxt "ContactInfo|"
+msgid "Street"
+msgstr "Вулиця"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:101
+msgctxt "ContactInfo|"
+msgid "Postbox"
+msgstr "Поштова скринька"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:102
+msgctxt "ContactInfo|"
+msgid "Company"
+msgstr "Компанія"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:103
+msgctxt "ContactInfo|"
+msgid "Department"
+msgstr "Відділ"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:104
+msgctxt "ContactInfo|"
+msgid "Position"
+msgstr "Положення"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:105
+msgctxt "ContactInfo|"
+msgid "Role"
+msgstr "Посада"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:106
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:260
+msgctxt "ContactInfo|"
+msgid "About"
+msgstr "Про себе"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:170
+msgctxt "ContactInfo|"
+msgid "General"
+msgstr "Загальні"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:178
+msgctxt "ContactInfo|"
+msgid "Avatar"
+msgstr "Аватар"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:218
+msgctxt "ContactInfo|"
+msgid "Phones"
+msgstr "Телефони"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:227
+msgctxt "ContactInfo|"
+msgid "E-mails"
+msgstr "Електронні пошти"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:237
+msgctxt "ContactInfo|"
+msgid "Addresses"
+msgstr "Адреси"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:251
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:407
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:428
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:447
+msgctxt "ContactInfo|"
+msgid "Work"
+msgstr "Робота"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:395
+msgctxt "ContactInfo|"
+msgid "Type"
+msgstr "Тип"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:406
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:427
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:446
+msgctxt "ContactInfo|"
+msgid "Home"
+msgstr "Дім"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:408
+msgctxt "ContactInfo|"
+msgid "Cell"
+msgstr "Мобілка"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:418
+msgctxt "ContactInfo|"
+msgid "Number"
+msgstr "Номер"
+
+#: ../../../protocols/jabber/src/protocol/modules/vcard/jinforequest.cpp:437
+msgctxt "ContactInfo|"
+msgid "E-mail"
+msgstr "Ел. пошта"
+
+#: ../../../protocols/jabber/src/protocol/account/roster/jcontactresource.cpp:184
+msgctxt "ContactResource|"
+msgid "Resource"
+msgstr "Ресурс"
+
+#: ../../../protocols/jabber/src/protocol/account/roster/jcontactresource.cpp:191
+msgctxt "ContactResource|"
+msgid "Possible client"
+msgstr "Можливий клієнт"
+
+#: ../../../protocols/jabber/src/protocol/account/roster/jcontactresource.cpp:198
+msgctxt "ContactResource|"
+msgid "OS"
+msgstr "ОС"
+
+#: ../../../protocols/jabber/jreen/3rdparty/icesupport/httpconnect.cpp:320
+msgctxt "HttpConnect|"
+msgid "Authentication failed"
+msgstr "Помилка аутентифікації"
+
+#: ../../../protocols/jabber/jreen/3rdparty/icesupport/httpconnect.cpp:324
+msgctxt "HttpConnect|"
+msgid "Host not found"
+msgstr "Сервер не знайдено"
+
+#: ../../../protocols/jabber/jreen/3rdparty/icesupport/httpconnect.cpp:328
+msgctxt "HttpConnect|"
+msgid "Access denied"
+msgstr "Доступ заборонено"
+
+#: ../../../protocols/jabber/jreen/3rdparty/icesupport/httpconnect.cpp:332
+msgctxt "HttpConnect|"
+msgid "Connection refused"
+msgstr "Відмовлено в з'єднанні"
+
+#: ../../../protocols/jabber/jreen/3rdparty/icesupport/httpconnect.cpp:336
+msgctxt "HttpConnect|"
+msgid "Invalid reply"
+msgstr "Неправильна відповідь"
+
+#: ../../../protocols/jabber/src/protocol/jaccountregistrationpage.ui:14
+msgctxt "JAccountRegistrationPage|"
+msgid "WizardPage"
+msgstr "Майстер міграції"
+
+#: ../../../protocols/jabber/src/protocol/jaccountwizardpage.ui:14
+msgctxt "JAccountWizardPage|"
+msgid "WizardPage"
+msgstr "Майстер міграції"
+
+#: ../../../protocols/jabber/src/protocol/jaccountwizardpage.ui:41
+msgctxt "JAccountWizardPage|"
+msgid "I already have account"
+msgstr "У мене вже э обліковий запис"
+
+#: ../../../protocols/jabber/src/protocol/jaccountwizardpage.ui:63
+msgctxt "JAccountWizardPage|"
+msgid "Login:"
+msgstr "Логін:"
+
+#: ../../../protocols/jabber/src/protocol/jaccountwizardpage.ui:81
+msgctxt "JAccountWizardPage|"
+msgid "TextLabel"
+msgstr "Текстова мітка"
+
+#: ../../../protocols/jabber/src/protocol/jaccountwizardpage.ui:90
+msgctxt "JAccountWizardPage|"
+msgid "Password:"
+msgstr "Пароль:"
+
+#: ../../../protocols/jabber/src/protocol/jaccountwizardpage.ui:107
+msgctxt "JAccountWizardPage|"
+msgid "Save password"
+msgstr "Зберегти пароль"
+
+#: ../../../protocols/jabber/src/protocol/jaccountwizardpage.ui:117
+msgctxt "JAccountWizardPage|"
+msgid "I want to create new account"
+msgstr "Я хочу створити новий обліковий запис"
+
+#: ../../../protocols/jabber/src/protocol/jaccountwizardpage.ui:133
+msgctxt "JAccountWizardPage|"
+msgid "Server:"
+msgstr "Сервер:"
+
+#: ../../../protocols/jabber/src/protocol/modules/adhoc/jadhocwidget.ui:14
+msgctxt "JAdHocWidget|"
+msgid "Form"
+msgstr "Стиль"
+
+#: ../../../protocols/jabber/src/protocol/account/connection/jcertinfo.ui:14
+msgctxt "JCertInfo|"
+msgid "Cert Info"
+msgstr "Інформація про сертифікат"
+
+#: ../../../protocols/jabber/src/protocol/account/connection/jcertinfo.ui:22
+msgctxt "JCertInfo|"
+msgid "Cipher:"
+msgstr "Шифр"
+
+#: ../../../protocols/jabber/src/protocol/account/connection/jcertinfo.ui:29
+msgctxt "JCertInfo|"
+msgid "Compression:"
+msgstr "Стиснення:"
+
+#: ../../../protocols/jabber/src/protocol/account/connection/jcertinfo.ui:36
+msgctxt "JCertInfo|"
+msgid "Server:"
+msgstr "Сервер:"
+
+#: ../../../protocols/jabber/src/protocol/account/connection/jcertinfo.ui:43
+msgctxt "JCertInfo|"
+msgid "From:"
+msgstr "Від:"
+
+#: ../../../protocols/jabber/src/protocol/account/connection/jcertinfo.ui:50
+msgctxt "JCertInfo|"
+msgid "To:"
+msgstr "До:"
+
+#: ../../../protocols/jabber/src/protocol/account/connection/jcertinfo.ui:107
+msgctxt "JCertInfo|"
+msgid "Accept"
+msgstr "Прийняти"
+
+#: ../../../protocols/jabber/src/protocol/account/connection/jcertinfo.ui:114
+msgctxt "JCertInfo|"
+msgid "Reject"
+msgstr "Відхилити"
+
+#: ../../../protocols/jabber/src/protocol/account/connection/jcertinfo.ui:123
+msgctxt "JCertInfo|"
+msgid "Remember choice for this server"
+msgstr "Запам'ятати вибір для цього сервера"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:14
+msgctxt "JMainSettings|"
+msgid "Form"
+msgstr "Стиль"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:26
+msgctxt "JMainSettings|"
+msgid "Default resource:"
+msgstr "Типовий ресурс:"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:36
+msgctxt "JMainSettings|"
+msgid "Password:"
+msgstr "Пароль:"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:43
+msgctxt "JMainSettings|"
+msgid "Don't send request for avatars"
+msgstr "Не відсилати запити на аватари"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:59
+msgctxt "JMainSettings|"
+msgid "Listen port for filetransfer:"
+msgstr "Приймаючий порт для файлового передавача"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:85
+msgctxt "JMainSettings|"
+msgid "Priority depends on status"
+msgstr "Пріоритет залежить від статусу"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:91
+msgctxt "JMainSettings|"
+msgid "Online:"
+msgstr "В мережі:"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:108
+msgctxt "JMainSettings|"
+msgid "Free for chat:"
+msgstr "Готовий до розмов:"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:125
+msgctxt "JMainSettings|"
+msgid "Away:"
+msgstr "Відсутній:"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:142
+msgctxt "JMainSettings|"
+msgid "NA:"
+msgstr "Недоступний:"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:159
+msgctxt "JMainSettings|"
+msgid "DND:"
+msgstr "Не турьувати:"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:179
+msgctxt "JMainSettings|"
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:198
+msgctxt "JMainSettings|"
+msgid "Select Key"
+msgstr "Вибір ключа"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:205
+msgctxt "JMainSettings|"
+msgid "Use none"
+msgstr "Не використовувати"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:222
+msgctxt "JMainSettings|"
+msgid "Connection settings"
+msgstr "Налаштування з’єднання"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:228
+msgctxt "JMainSettings|"
+msgid "Autodetect connection settings"
+msgstr "Автовизначення налаштувань з’єднання"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:238
+msgctxt "JMainSettings|"
+msgid "Server:"
+msgstr "Сервер:"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:252
+msgctxt "JMainSettings|"
+msgid "Port:"
+msgstr "Порт:"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:269
+msgctxt "JMainSettings|"
+msgid "Use encryption"
+msgstr "Використовувати шифрування"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:276
+msgctxt "JMainSettings|"
+msgid "Use compression"
+msgstr "Використовувати стиснення"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:284
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:303
+msgctxt "JMainSettings|"
+msgid "Always"
+msgstr "Завжди"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:289
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:308
+msgctxt "JMainSettings|"
+msgid "Never"
+msgstr "Ніколи"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:294
+#: ../../../protocols/jabber/src/protocol/jmainsettings.ui:313
+msgctxt "JMainSettings|"
+msgid "If server has support"
+msgstr "Якщо сервер підтримує"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jbookmarkmanager.cpp:197
+msgctxt "Jabber|"
+msgid "Name"
+msgstr "Ім'я"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jbookmarkmanager.cpp:203
+msgctxt "Jabber|"
+msgid "Conference"
+msgstr "Конференція"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jbookmarkmanager.cpp:213
+msgctxt "Jabber|"
+msgid "Nick"
+msgstr "Нік"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jbookmarkmanager.cpp:218
+msgctxt "Jabber|"
+msgid "Password"
+msgstr "Пароль"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jbookmarkmanager.cpp:224
+msgctxt "Jabber|"
+msgid "Auto-join"
+msgstr "Входити автоматично"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:813
+msgctxt "Jabber|"
+msgid "You are already in conference with another nick"
+msgstr "Ви вже в конференції під іншим нікнеймом"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:829
+msgctxt "Jabber|"
+msgid "Please select another nickname"
+msgstr "Будь ласка, виберіть інакший нікнейм"
+
+#: ../../../protocols/jabber/src/protocol/account/roster/jcontact.cpp:216
+msgctxt "Jabber|"
+msgid "None"
+msgstr "Нічого"
+
+#: ../../../protocols/jabber/src/protocol/account/roster/jcontact.cpp:219
+msgctxt "Jabber|"
+msgid "From"
+msgstr "Від"
+
+#: ../../../protocols/jabber/src/protocol/account/roster/jcontact.cpp:222
+msgctxt "Jabber|"
+msgid "To"
+msgstr "Кому"
+
+#: ../../../protocols/jabber/src/protocol/account/roster/jcontact.cpp:225
+msgctxt "Jabber|"
+msgid "Both"
+msgstr "Обидва"
+
+#: ../../../protocols/jabber/src/protocol/account/roster/jcontact.cpp:228
+msgctxt "Jabber|"
+msgid "Remove"
+msgstr "Вилучити"
+
+#: ../../../protocols/jabber/src/protocol/account/roster/jcontact.cpp:233
+#: ../../../protocols/jabber/src/protocol/jprotocol.cpp:234
+msgctxt "Jabber|"
+msgid "Subscription"
+msgstr "Підписка"
+
+#: ../../../protocols/jabber/src/protocol/jprotocol.cpp:97
+msgctxt "Jabber|"
+msgid "Remove subscription"
+msgstr "Відписатися"
+
+#: ../../../protocols/jabber/src/protocol/jprotocol.cpp:102
+msgctxt "Jabber|"
+msgid "Request subscription"
+msgstr "Запит підписки"
+
+#: ../../../protocols/jabber/src/protocol/jprotocol.cpp:116
+#: ../../../protocols/jabber/src/protocol/jprotocol.cpp:227
+msgctxt "Jabber|"
+msgid "Save to bookmarks"
+msgstr "Зберегти до закладок"
+
+#: ../../../protocols/jabber/src/protocol/jprotocol.cpp:117
+msgctxt "Jabber|"
+msgid "Remove from bookmarks"
+msgstr "Вилучити закладку"
+
+#: ../../../protocols/jabber/src/protocol/jprotocol.cpp:221
+msgctxt "Jabber|"
+msgid "Room's configuration"
+msgstr "Налаштування кімнати"
+
+#: ../../../protocols/jabber/src/protocol/modules/jinglesupport/jinglesupport.cpp:72
+msgctxt "Jabber|"
+msgid "Voice call"
+msgstr "Голосовий виклик"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.cpp:59
+msgctxt "Jabber|"
+msgid "Service discovery"
+msgstr "Вивчення сервісу"
+
+#: ../../../protocols/jabber/src/protocol/modules/xmlconsole/xmlconsole.cpp:134
+msgctxt "Jabber|"
+msgid "Xml console"
+msgstr "Консоль xml"
+
+#: ../../../protocols/jabber/src/protocol/account/jaccount.cpp:243
+msgctxt "Jabber::JAccount|Local qutIM's name"
+msgid "qutIM"
+msgstr "qutIM"
+
+#: ../../../protocols/jabber/src/protocol/account/jaccount.cpp:244
+msgctxt "Jabber::JAccount|Default language"
+msgid "en"
+msgstr "en"
+
+#: ../../../protocols/jabber/src/protocol/jaccountfinishpage.ui:13
+msgctxt "Jabber::JAccountFinishPage|"
+msgid "WizardPage"
+msgstr "Майстер міграції"
+
+#: ../../../protocols/jabber/src/protocol/jaccountfinishpage.cpp:52
+#, qt-format
+msgctxt "Jabber::JAccountFinishPage|"
+msgid "Congratulations! Account creation is finished, your Jabber ID is \"%1\""
+msgstr ""
+"Вітаємо! Створення облікового запису завершено, ваш Jabber ID тепер \"%1\""
+
+#: ../../../protocols/jabber/src/protocol/jaccountregistrationpage.cpp:235
+msgctxt "Jabber::JAccountRegistrationPage|"
+msgid "Unknown error"
+msgstr "Невідома помилка"
+
+#: ../../../protocols/jabber/src/protocol/jaccountregistrationpage.cpp:239
+msgctxt "Jabber::JAccountRegistrationPage|"
+msgid "The desired username is already in use by another user"
+msgstr "Бажаний нік вже використовується іншим користувачем"
+
+#: ../../../protocols/jabber/src/protocol/jaccountregistrationpage.cpp:282
+#, qt-format
+msgctxt "Jabber::JAccountRegistrationPage|"
+msgid "Sorry, but server \"%1\" does not support in-band registration"
+msgstr "Вибачте, але сервер \"%1\" не підтримує даний тип реєстрації"
+
+#: ../../../protocols/jabber/src/protocol/jaccountwizardpage.cpp:41
+msgctxt "Jabber::JAccountWizardPage|"
+msgid ""
+"Account information.\n"
+"If you don't have account yet, press \"Register\" button."
+msgstr ""
+"Інформація про обліковий запис.\n"
+"Якщо у вас немає облікового запису, натисніть кнопку \"Зареєструватися\"."
+
+#: ../../../protocols/jabber/src/protocol/jaccountwizardpage.cpp:73
+msgctxt "Jabber::JAccountWizardPage|"
+msgid "Register"
+msgstr "Зареєструватися"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jactivitychooser.cpp:252
+msgctxt "Jabber::JActivityChooser|"
+msgid "Set activity"
+msgstr "Вибрати активність"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jactivitychooser.ui:20
+msgctxt "Jabber::JActivityChooserWindow|"
+msgid "Form"
+msgstr "Стиль"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jactivitychooser.cpp:175
+msgctxt "Jabber::JActivityChooserWindow|"
+msgid "Choose your activity"
+msgstr "Виберіть вашу активність"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jactivitychooser.cpp:176
+msgctxt "Jabber::JActivityChooserWindow|"
+msgid "Choose"
+msgstr "Вибрати"
+
+#: ../../../protocols/jabber/src/protocol/modules/activitypep/jactivitychooser.cpp:214
+msgctxt "Jabber::JActivityChooserWindow|"
+msgid "No activity"
+msgstr "Активність відсутня"
+
+#: ../../../protocols/jabber/src/protocol/modules/attention/jattention.cpp:124
+#, qt-format
+msgctxt "Jabber::JAttention|"
+msgid "%1 trying to attract your attention!"
+msgstr "%1 намагається привернути вашу увагу!"
+
+#: ../../../protocols/jabber/src/protocol/modules/attention/jattention.cpp:134
+msgctxt "Jabber::JAttention|"
+msgid "Contact's client does not suppoort attentions"
+msgstr "Контакт не звертає на вас увагу"
+
+#: ../../../protocols/jabber/src/protocol/modules/attention/jattention.cpp:136
+msgctxt "Jabber::JAttention|"
+msgid "Trying to attract attention."
+msgstr "Спроба привернути увагу"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jbookmarkmanager.cpp:241
+msgctxt "Jabber::JBookmarkManager|"
+msgid "Unable to join groupchat"
+msgstr "Не вдалося приєднатися до групової розмови"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucmanager.cpp:198
+#, qt-format
+msgctxt "Jabber::JMUCManager|"
+msgid "Join groupchat on %1"
+msgstr "Приєднатися до групової розмови %1"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucmanager.cpp:199
+msgctxt "Jabber::JMUCManager|"
+msgid "You already in conference with another nick"
+msgstr "Ви вже в конференції під іншим нікнеймом"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:348
+msgctxt "Jabber::JMUCSession|"
+msgid " has been banned"
+msgstr " був заблокований"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:348
+msgctxt "Jabber::JMUCSession|"
+msgid " has been kicked"
+msgstr " викинули"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:352
+msgctxt "Jabber::JMUCSession|"
+msgid "You has been banned at "
+msgstr "Ви були заблоковані в "
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:352
+msgctxt "Jabber::JMUCSession|"
+msgid "You has been kicked from "
+msgstr "Вас викинули з "
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:354
+msgctxt "Jabber::JMUCSession|"
+msgid "with reason: "
+msgstr "по причині: "
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:356
+msgctxt "Jabber::JMUCSession|"
+msgid "Do you want to rejoin?"
+msgstr "Ви бажаєте приєднатися знов?"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:358
+msgctxt "Jabber::JMUCSession|"
+msgid "You have been kicked"
+msgstr "Вас викинули"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:366
+msgctxt "Jabber::JMUCSession|"
+msgid "You have been banned"
+msgstr "Вас заблокували"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:382
+msgctxt "Jabber::JMUCSession|"
+msgid " is now known as "
+msgstr " тепер відомий як "
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:407
+msgctxt "Jabber::JMUCSession|"
+msgid " has joined the room"
+msgstr " зайшов в кімнату"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:409
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:411
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:413
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:415
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:417
+msgctxt "Jabber::JMUCSession|"
+msgid " as"
+msgstr " як"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:409
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:437
+msgctxt "Jabber::JMUCSession|"
+msgid " owner"
+msgstr " власник"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:411
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:439
+msgctxt "Jabber::JMUCSession|"
+msgid " administrator"
+msgstr " адміністратор"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:413
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:445
+msgctxt "Jabber::JMUCSession|"
+msgid " registered member"
+msgstr " зареєстрований учасник"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:415
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:441
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:453
+msgctxt "Jabber::JMUCSession|"
+msgid " participant"
+msgstr " учасник"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:417
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:443
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:449
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:455
+msgctxt "Jabber::JMUCSession|"
+msgid " visitor"
+msgstr " відвідувач"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:427
+msgctxt "Jabber::JMUCSession|"
+msgid " has left the room"
+msgstr " вийшов з кімнати"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:435
+msgctxt "Jabber::JMUCSession|"
+msgid " now is"
+msgstr " тепер є"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:441
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:443
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:447
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:449
+msgctxt "Jabber::JMUCSession|"
+msgid " and"
+msgstr " і"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:447
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:451
+msgctxt "Jabber::JMUCSession|"
+msgid " moderator"
+msgstr " модератор"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:542
+#, qt-format
+msgctxt "Jabber::JMUCSession|"
+msgid "Conference \"%1\" requires you to fill the captcha to enter the room"
+msgstr "Конференція \"%1\" потребує введення капчі для входу у кімнату"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucsession.cpp:590
+msgctxt "Jabber::JMUCSession|"
+msgid "Subject:"
+msgstr "Тема:"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucuser.cpp:157
+msgctxt "Jabber::JMUCUser|"
+msgid "Owner"
+msgstr "Власник"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucuser.cpp:160
+msgctxt "Jabber::JMUCUser|"
+msgid "Administrator"
+msgstr "Адміністратор"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucuser.cpp:163
+msgctxt "Jabber::JMUCUser|"
+msgid "Registered member"
+msgstr "Зареєстрований учасник"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucuser.cpp:173
+msgctxt "Jabber::JMUCUser|"
+msgid "Moderator"
+msgstr "Модератор"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucuser.cpp:176
+msgctxt "Jabber::JMUCUser|"
+msgid "Participant"
+msgstr "Учасник"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jmucuser.cpp:179
+msgctxt "Jabber::JMUCUser|"
+msgid "Visitor"
+msgstr "Відвідувач"
+
+#: ../../../protocols/jabber/src/protocol/jmainsettings.cpp:53
+msgctxt "Jabber::JMainSettings|"
+msgid "No key selected"
+msgstr "Не обрано ключ"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jmoodchooser.cpp:101
+msgctxt "Jabber::JMoodChooser|"
+msgid "Set mood"
+msgstr "Ввести настрій"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jmoodchooser.ui:14
+msgctxt "Jabber::JMoodChooserWindow|"
+msgid "Form"
+msgstr "Стиль"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jmoodchooser.cpp:44
+msgctxt "Jabber::JMoodChooserWindow|"
+msgid "Choose your mood"
+msgstr "Виберіть ваш настрій"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jmoodchooser.cpp:45
+msgctxt "Jabber::JMoodChooserWindow|"
+msgid "Choose"
+msgstr "Обрати"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jmoodchooser.cpp:65
+msgctxt "Jabber::JMoodChooserWindow|"
+msgid "No mood"
+msgstr "Без настрою"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpkeydialog.ui:14
+msgctxt "Jabber::JPGPKeyDialog|"
+msgid "Dialog"
+msgstr "Діалогове вікно"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpkeydialog.ui:27
+msgctxt "Jabber::JPGPKeyDialog|"
+msgid "Filter:"
+msgstr "Фільтр:"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpkeydialog.ui:57
+msgctxt "Jabber::JPGPKeyDialog|"
+msgid "Paste ASCII-armored PGP here in field below"
+msgstr "Вставте у поле нижче PGP ключ в ASCII форматі"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpkeydialog.cpp:66
+msgctxt "Jabber::JPGPKeyDialog|"
+msgid "Add key"
+msgstr "Додати ключ"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpkeydialog.cpp:70
+msgctxt "Jabber::JPGPKeyDialog|"
+msgid "Key ID"
+msgstr "ІД ключа"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpkeydialog.cpp:70
+msgctxt "Jabber::JPGPKeyDialog|"
+msgid "User ID"
+msgstr "ІД користувача"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpkeydialog.cpp:138
+#: ../../../protocols/jabber/src/protocol/account/jpgpkeydialog.cpp:141
+msgctxt "Jabber::JPGPKeyDialog|"
+msgid "PGP key importing error"
+msgstr "Помилка імпортування PGP ключа"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpkeydialog.cpp:138
+msgctxt "Jabber::JPGPKeyDialog|"
+msgid "Entered invalid passphrase"
+msgstr "Введено невірний пароль"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpkeydialog.cpp:141
+msgctxt "Jabber::JPGPKeyDialog|"
+msgid "Provided key is invalid"
+msgstr "Запропонований ключ невірний"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpsupport.cpp:69
+msgctxt "Jabber::JPGPSupport|"
+msgid "Assign PGP key"
+msgstr "Призначити PGP ключ"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpsupport.cpp:71
+msgctxt "Jabber::JPGPSupport|"
+msgid "Remove PGP key"
+msgstr "Видалити  PGP ключ"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpsupport.cpp:96
+msgctxt "Jabber::JPGPSupport|"
+msgid "Disable PGP encryption"
+msgstr "Відключити  PGP шифрування"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpsupport.cpp:99
+msgctxt "Jabber::JPGPSupport|"
+msgid "Enable PGP encryption"
+msgstr "Ввімкнути  PGP шифрування"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpsupport.cpp:377
+#, qt-format
+msgctxt "Jabber::JPGPSupport|"
+msgid ""
+"There was an error trying to sign your status.\n"
+"Reason: %1"
+msgstr ""
+"При спробі змінити статус сталася помилка.\n"
+"Причиною стало: %1"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpsupport.cpp:439
+msgctxt "Jabber::JPGPSupport|"
+msgid "[ERROR: This message is encrypted, and you are unable to decrypt it.]"
+msgstr "[Помилка. Це повідомлення зашифроване, і ви не в змозі розшифрувати.]"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpsupport.cpp:558
+#, qt-format
+msgctxt "Jabber::JPGPSupport|"
+msgid "%1 : OpenPGP Passphrase"
+msgstr "%1 : пароль OpenPGP"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpsupport.cpp:559
+msgctxt "Jabber::JPGPSupport|"
+msgid "Your passphrase is needed to use OpenPGP security."
+msgstr "Ваш пароль необхідний для використання OpenPGP"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpsupport.cpp:691
+msgctxt "Jabber::JPGPSupport|"
+msgid "Invalid passphrase"
+msgstr "Невірний пароль"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpsupport.cpp:694
+msgctxt "Jabber::JPGPSupport|"
+msgid "Invalid input format"
+msgstr "Невірний формат введення"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpsupport.cpp:697
+msgctxt "Jabber::JPGPSupport|"
+msgid "Signing key expired"
+msgstr "Ключ підпису минув"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpsupport.cpp:700
+msgctxt "Jabber::JPGPSupport|"
+msgid "Invalid key"
+msgstr "Невірний ключ"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpsupport.cpp:703
+msgctxt "Jabber::JPGPSupport|"
+msgid "Encrypting key expired"
+msgstr "Ключ шифрування минув"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpsupport.cpp:706
+msgctxt "Jabber::JPGPSupport|"
+msgid "Encrypting key is untrusted"
+msgstr "Шифрування ключа ненадійне"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpsupport.cpp:709
+msgctxt "Jabber::JPGPSupport|"
+msgid "Encrypting key is invalid"
+msgstr "Ключ шифрування невірний"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpsupport.cpp:712
+msgctxt "Jabber::JPGPSupport|"
+msgid "PGP card is missing"
+msgstr "PGP карта відсутня"
+
+#: ../../../protocols/jabber/src/protocol/account/jpgpsupport.cpp:715
+msgctxt "Jabber::JPGPSupport|"
+msgid "Unknown error"
+msgstr "Невідома помилка"
+
+#: ../../../protocols/jabber/src/protocol/jprotocol.cpp:266
+msgctxt "Jabber::JProtocol|"
+msgid "Kick"
+msgstr "Викинути"
+
+#: ../../../protocols/jabber/src/protocol/jprotocol.cpp:267
+#, qt-format
+msgctxt "Jabber::JProtocol|"
+msgid "Enter kick reason for %1"
+msgstr "Вкажіть причину викидання для %1"
+
+#: ../../../protocols/jabber/src/protocol/jprotocol.cpp:289
+msgctxt "Jabber::JProtocol|"
+msgid "Ban"
+msgstr "Заблокувати"
+
+#: ../../../protocols/jabber/src/protocol/jprotocol.cpp:290
+#, qt-format
+msgctxt "Jabber::JProtocol|"
+msgid "Enter ban reason for %1"
+msgstr "Введітьи причину блокування для %1"
+
+#: ../../../protocols/jabber/src/protocol/jprotocol.cpp:544
+msgctxt "Jabber::JProtocol|"
+msgid "Possible client"
+msgstr "Можливий клієнт"
+
+#: ../../../protocols/jabber/src/protocol/jprotocol.cpp:545
+msgctxt "Jabber::JProtocol|"
+msgid "Show client icon"
+msgstr "Показувати іконку клієнта"
+
+#: ../../../protocols/jabber/src/protocol/account/roster/jroster.cpp:172
+#, qt-format
+msgctxt "Jabber::JRoster|"
+msgid "Contact %1 has been added to roster"
+msgstr "Контакт %1 доданий до списку контактів"
+
+#: ../../../protocols/jabber/src/protocol/account/roster/jroster.cpp:201
+#, qt-format
+msgctxt "Jabber::JRoster|"
+msgid "Contact %1 has been removed from roster"
+msgstr "Контакт %1 видалений з списку контактів"
+
+#: ../../../protocols/jabber/src/protocol/account/roster/jroster.cpp:450
+msgctxt "Jabber::JRoster|"
+msgid "Received a request for removal from the subscribers"
+msgstr "Надійшов запит про вилучення вас з підписників"
+
+#: ../../../protocols/jabber/src/protocol/account/roster/jroster.cpp:458
+msgctxt "Jabber::JRoster|"
+msgid "You have been removed from the list of subscribers"
+msgstr "Вас було вилучено з списку підписників"
+
+#: ../../../protocols/jabber/src/protocol/account/roster/jroster.cpp:466
+msgctxt "Jabber::JRoster|"
+msgid "You have been added to the list of subscribers"
+msgstr "Вас було додано до списку підписників"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.cpp:94
+msgctxt "Jabber::JServiceBrowser|"
+msgid "Search service"
+msgstr "Пошук сервісів"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.cpp:132
+msgctxt "Jabber::JServiceBrowser|"
+msgid "Close"
+msgstr "Закрити"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.cpp:193
+msgctxt "Jabber::JServiceBrowser|"
+msgid "type: "
+msgstr "тип: "
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.cpp:194
+msgctxt "Jabber::JServiceBrowser|"
+msgid "category: "
+msgstr "категорія: "
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.cpp:196
+msgctxt "Jabber::JServiceBrowser|"
+msgid "Identities:"
+msgstr "Ідентифікатори:"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.cpp:346
+msgctxt "Jabber::JServiceBrowser|"
+msgid "Features:"
+msgstr "Можливості:"
+
+#: ../../../protocols/jabber/src/protocol/account/roster/jsoftwaredetection.cpp:314
+msgctxt "Jabber::JSoftwareDetection|"
+msgid "Possible client"
+msgstr "Можливий клієнт"
+
+#: ../../../protocols/jabber/src/protocol/modules/xmlconsole/xmlconsole.cpp:69
+msgctxt "Jabber::XmlConsole|"
+msgid "Filter"
+msgstr "Фільтр"
+
+#: ../../../protocols/jabber/src/protocol/modules/xmlconsole/xmlconsole.cpp:71
+msgctxt "Jabber::XmlConsole|"
+msgid "Disabled"
+msgstr "Вимкнено"
+
+#: ../../../protocols/jabber/src/protocol/modules/xmlconsole/xmlconsole.cpp:74
+msgctxt "Jabber::XmlConsole|"
+msgid "By JID"
+msgstr "По JID"
+
+#: ../../../protocols/jabber/src/protocol/modules/xmlconsole/xmlconsole.cpp:77
+msgctxt "Jabber::XmlConsole|"
+msgid "By namespace uri"
+msgstr "По простору імен uri"
+
+#: ../../../protocols/jabber/src/protocol/modules/xmlconsole/xmlconsole.cpp:80
+msgctxt "Jabber::XmlConsole|"
+msgid "By all attributes"
+msgstr "За всіма атрибутами"
+
+#: ../../../protocols/jabber/src/protocol/modules/xmlconsole/xmlconsole.cpp:85
+msgctxt "Jabber::XmlConsole|"
+msgid "Visible stanzas"
+msgstr "Видимі строфи"
+
+#: ../../../protocols/jabber/src/protocol/modules/xmlconsole/xmlconsole.cpp:88
+msgctxt "Jabber::XmlConsole|"
+msgid "Information query"
+msgstr "Запит інформаціїї"
+
+#: ../../../protocols/jabber/src/protocol/modules/xmlconsole/xmlconsole.cpp:92
+msgctxt "Jabber::XmlConsole|"
+msgid "Message"
+msgstr "Повідомлення"
+
+#: ../../../protocols/jabber/src/protocol/modules/xmlconsole/xmlconsole.cpp:96
+msgctxt "Jabber::XmlConsole|"
+msgid "Presence"
+msgstr "Присутність"
+
+#: ../../../protocols/jabber/src/protocol/modules/xmlconsole/xmlconsole.cpp:100
+msgctxt "Jabber::XmlConsole|"
+msgid "Custom"
+msgstr "Власний"
+
+#: ../../../protocols/jabber/src/protocol/modules/xmlconsole/xmlconsole.cpp:118
+msgctxt "Jabber::XmlConsole|"
+msgid "Close"
+msgstr "Закрити"
+
+#: ../../../protocols/jabber/src/protocol/modules/xmlconsole/xmlconsole.cpp:403
+msgctxt "Jabber::XmlConsole|"
+msgid "Save XMPP log to file"
+msgstr "Зберегти XMPP лог до файлу"
+
+#: ../../../protocols/jabber/src/protocol/modules/xmlconsole/xmlconsole.cpp:404
+msgctxt "Jabber::XmlConsole|"
+msgid "OpenDocument Format (*.odf);;HTML file (*.html);;Plain text (*.txt)"
+msgstr "Формат OpenDocument (*.odf);;HTML файл (*.html);;Простий текст (*.txt)"
+
+#: ../../../protocols/jabber/src/protocol/jaccountregistrationpage.cpp:133
+msgctxt "Jreen|"
+msgid "Username"
+msgstr "Ім'я користувача"
+
+#: ../../../protocols/jabber/src/protocol/jaccountregistrationpage.cpp:135
+msgctxt "Jreen|"
+msgid "Familiar name"
+msgstr "Нік"
+
+#: ../../../protocols/jabber/src/protocol/jaccountregistrationpage.cpp:137
+msgctxt "Jreen|"
+msgid "Password"
+msgstr "Пароль"
+
+#: ../../../protocols/jabber/src/protocol/jaccountregistrationpage.cpp:139
+msgctxt "Jreen|"
+msgid "Full name"
+msgstr "Повне ім'я"
+
+#: ../../../protocols/jabber/src/protocol/jaccountregistrationpage.cpp:141
+msgctxt "Jreen|"
+msgid "Given name"
+msgstr "Ім'я"
+
+#: ../../../protocols/jabber/src/protocol/jaccountregistrationpage.cpp:143
+msgctxt "Jreen|"
+msgid "Family name"
+msgstr "Прізвище"
+
+#: ../../../protocols/jabber/src/protocol/jaccountregistrationpage.cpp:145
+msgctxt "Jreen|"
+msgid "Email"
+msgstr "Ел. пошта"
+
+#: ../../../protocols/jabber/src/protocol/jaccountregistrationpage.cpp:147
+msgctxt "Jreen|"
+msgid "Street"
+msgstr "Вулиця"
+
+#: ../../../protocols/jabber/src/protocol/jaccountregistrationpage.cpp:149
+msgctxt "Jreen|"
+msgid "City"
+msgstr "Місто"
+
+#: ../../../protocols/jabber/src/protocol/jaccountregistrationpage.cpp:151
+msgctxt "Jreen|"
+msgid "Region"
+msgstr "Область"
+
+#: ../../../protocols/jabber/src/protocol/jaccountregistrationpage.cpp:153
+msgctxt "Jreen|"
+msgid "Postal code"
+msgstr "Поштовий індекс"
+
+#: ../../../protocols/jabber/src/protocol/jaccountregistrationpage.cpp:155
+msgctxt "Jreen|"
+msgid "Phone number"
+msgstr "Номер телефону"
+
+#: ../../../protocols/jabber/src/protocol/jaccountregistrationpage.cpp:157
+msgctxt "Jreen|"
+msgid "Web page url"
+msgstr "Домашня сторінка"
+
+#: ../../../protocols/jabber/src/protocol/jaccountregistrationpage.cpp:159
+msgctxt "Jreen|"
+msgid "Birth date"
+msgstr "Дата народження"
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:77
+msgctxt "Jreen::Error|"
+msgid "The sender has sent XML that is malformed or that cannot be processed."
+msgstr ""
+"Відправник послав XML, який не може бути оброблений або оброблений "
+"неправильно."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:80
+msgctxt "Jreen::Error|"
+msgid ""
+"Access cannot be granted because an existing resource or session exists with "
+"the same name or address."
+msgstr ""
+"Доступ не може бути надано, оскільки існуючий ресурс або сесія існує з тим "
+"же ім'ям або адресою."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:83
+msgctxt "Jreen::Error|"
+msgid ""
+"The feature requested is not implemented by the recipient or server and "
+"therefore cannot be processed."
+msgstr ""
+"Функція не може бути виконана оскільки не підтримується одержувачем або "
+"сервером."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:86
+msgctxt "Jreen::Error|"
+msgid ""
+"The requesting entity does not possess the required permissions to perform "
+"the action."
+msgstr "Запитуюча особа не має необхідних дозволів для виконання дії."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:89
+msgctxt "Jreen::Error|"
+msgid "The recipient or server can no longer be contacted at this address."
+msgstr "Не можливо зв'язатися з одержувачем або сервером за цією адресою."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:92
+msgctxt "Jreen::Error|"
+msgid ""
+"The server could not process the stanza because of a misconfiguration or an "
+"otherwise-undefined internal server error."
+msgstr ""
+"Сервер не може обробити строфу через неправильну конфігурацію чи іншу "
+"невизначену внутрішню помилку сервера."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:95
+msgctxt "Jreen::Error|"
+msgid "The addressed JID or item requested cannot be found."
+msgstr "Адресований JID або елемент запиту не може бути знайдено."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:98
+msgctxt "Jreen::Error|"
+msgid ""
+"The sending entity has provided or communicated an XMPP address or aspect "
+"thereof that does not adhere to the syntax defined in Addressing Scheme."
+msgstr ""
+"Об'єкт відправи пред'явив чи передав XMPP адресу, яка не спів падає з "
+"синтаксисом, заявленому в схемі адресації."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:101
+msgctxt "Jreen::Error|"
+msgid ""
+"The recipient or server understands the request but is refusing to process "
+"it because it does not meet criteria defined by the recipient or server."
+msgstr ""
+"Одержувач або сервер розуміє запит, але відмовляється обробляти, бо він не "
+"відповідає критеріям, визначеним одержувачем або сервером."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:104
+msgctxt "Jreen::Error|"
+msgid ""
+"The recipient or server does not allow any entity to perform the action."
+msgstr "Одержувач або сервер не дозволяють жодному об'єкту виконувати дії."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:107
+msgctxt "Jreen::Error|"
+msgid ""
+"The sender must provide proper credentials before being allowed to perform "
+"the action, or has provided impreoper credentials."
+msgstr ""
+"Відправник повинен забезпечити належні права, перш ніж його буде допущено "
+"виконувати дію інакше права будуть недійсні."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:110
+msgctxt "Jreen::Error|"
+msgid "The item requested has not changed since it was last requested."
+msgstr "Запитуваний елемент не змінювався з моменту останнього доступу."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:113
+msgctxt "Jreen::Error|"
+msgid ""
+"The requesting entity is not authorized to access the requested service "
+"because payment is required."
+msgstr ""
+"Запитуваний об'єкт не авторизований для доступу до цього сервісу, тому що "
+"там вимагається оплата."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:116
+msgctxt "Jreen::Error|"
+msgid "The intended recipient is temporarily unavailable."
+msgstr "Одержувач тимчасово недоступний."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:119
+msgctxt "Jreen::Error|"
+msgid ""
+"The recipient or server is redirecting requests for this information to "
+"another entity, usually temporarily."
+msgstr ""
+"Одержувач або сервер, тимчасово, переадресовують запити на цю інформацію на "
+"інший об'єкт."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:122
+msgctxt "Jreen::Error|"
+msgid ""
+"The requesting entity is not authorized to access the requested service "
+"because registration is required."
+msgstr ""
+"Запитуюча особа не має права доступу до запитаної послуги, тому що "
+"вимагається реєстрація."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:125
+msgctxt "Jreen::Error|"
+msgid ""
+"A remote server or service specified as part or all of the JID of the "
+"intended recipient does not exist."
+msgstr ""
+"Віддалений сервер чи сервіс, зазначений як частина JID отримувача, не існує."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:128
+msgctxt "Jreen::Error|"
+msgid ""
+"A remote server or service specified as part or all of the JID of the "
+"intended recipient could not be contacted within a reasonable amount of time."
+msgstr ""
+"Не вдалося отримати відповідь від сервера чи сервісу, вказаного в JID "
+"повністю чи частково, протягом розумного періоду часу."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:131
+msgctxt "Jreen::Error|"
+msgid ""
+"The server or recipient lacks the system resources necessary to service the "
+"request."
+msgstr ""
+"Серверу або одержувачу не вистачає системних ресурсів, необхідних для "
+"обслуговування запиту."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:134
+msgctxt "Jreen::Error|"
+msgid ""
+"The server or recipient does not currently provide the requested service."
+msgstr "Сервер або одержувач, в даний час, не підтримує необхідну послугу."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:137
+msgctxt "Jreen::Error|"
+msgid ""
+"The requesting entity is not authorized to access the requested service "
+"because a subscription is required."
+msgstr "Відсутній доступ до запитуваного об'єкту, тому що необхідна підписка."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:140
+msgctxt "Jreen::Error|"
+msgid "The unknown error condition."
+msgstr "Невідомий стан помилки."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:143
+msgctxt "Jreen::Error|"
+msgid ""
+"The recipient or server understood the request but was not expecting it at "
+"this time."
+msgstr "Отримувач чи сервер зрозуміли запит але не очікували його в цей час."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:146
+msgctxt "Jreen::Error|"
+msgid ""
+"The stanza 'from' address specified by a connected client is not valid for "
+"the stream."
+msgstr "Некоректне поле 'from' виставлене адресатом в строфі."
+
+#: ../../../protocols/jabber/jreen/src/error.cpp:149
+msgctxt "Jreen::Error|"
+msgid "No stanza error occured. You're just sleeping."
+msgstr "Помилог у строфі немає. Ти спиш."
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.cpp:50
+msgctxt "Menu|"
+msgid "Additional"
+msgstr "Додатково"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:38
+msgctxt "Mood|"
+msgid "Afraid"
+msgstr "Зляканий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:39
+msgctxt "Mood|"
+msgid "Amazed"
+msgstr "Вражений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:40
+msgctxt "Mood|"
+msgid "Amorous"
+msgstr "Закоханий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:41
+msgctxt "Mood|"
+msgid "Angry"
+msgstr "Злий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:42
+msgctxt "Mood|"
+msgid "Annoyed"
+msgstr "Роздратований"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:43
+msgctxt "Mood|"
+msgid "Anxious"
+msgstr "Стурбований"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:44
+msgctxt "Mood|"
+msgid "Aroused"
+msgstr "Збуджений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:45
+msgctxt "Mood|"
+msgid "Ashamed"
+msgstr "Засоромлений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:46
+msgctxt "Mood|"
+msgid "Bored"
+msgstr "Знудьгований"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:47
+msgctxt "Mood|"
+msgid "Brave"
+msgstr "Хоробрий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:48
+msgctxt "Mood|"
+msgid "Calm"
+msgstr "Спокійний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:49
+msgctxt "Mood|"
+msgid "Cautious"
+msgstr "Обережний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:50
+msgctxt "Mood|"
+msgid "Cold"
+msgstr "Замерзаючий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:51
+msgctxt "Mood|"
+msgid "Confident"
+msgstr "Впевнений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:52
+msgctxt "Mood|"
+msgid "Confused"
+msgstr "Збентежений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:53
+msgctxt "Mood|"
+msgid "Contemplative"
+msgstr "Задумливий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:54
+msgctxt "Mood|"
+msgid "Contented"
+msgstr "Задоволений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:55
+msgctxt "Mood|"
+msgid "Cranky"
+msgstr "Недужий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:56
+msgctxt "Mood|"
+msgid "Crazy"
+msgstr "Божевільний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:57
+msgctxt "Mood|"
+msgid "Creative"
+msgstr "Творчий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:58
+msgctxt "Mood|"
+msgid "Curious"
+msgstr "Допитливий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:59
+msgctxt "Mood|"
+msgid "Dejected"
+msgstr "Засмучений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:60
+msgctxt "Mood|"
+msgid "Depressed"
+msgstr "Пригнічений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:61
+msgctxt "Mood|"
+msgid "Disappointed"
+msgstr "Розчарований"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:62
+msgctxt "Mood|"
+msgid "Disgusted"
+msgstr "Бридливий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:63
+msgctxt "Mood|"
+msgid "Dismayed"
+msgstr "Збентежений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:64
+msgctxt "Mood|"
+msgid "Distracted"
+msgstr "Спантеличений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:65
+msgctxt "Mood|"
+msgid "Embarrassed"
+msgstr "Стурбований"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:66
+msgctxt "Mood|"
+msgid "Envious"
+msgstr "Заздрісний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:67
+msgctxt "Mood|"
+msgid "Excited"
+msgstr "Схвильований"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:68
+msgctxt "Mood|"
+msgid "Flirtatious"
+msgstr "Кокетливий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:69
+msgctxt "Mood|"
+msgid "Frustrated"
+msgstr "Зневірений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:70
+msgctxt "Mood|"
+msgid "Grateful"
+msgstr "Вдячний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:71
+msgctxt "Mood|"
+msgid "Grieving"
+msgstr "Засмучений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:72
+msgctxt "Mood|"
+msgid "Grumpy"
+msgstr "Сердитий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:73
+msgctxt "Mood|"
+msgid "Guilty"
+msgstr "Винуватий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:74
+msgctxt "Mood|"
+msgid "Happy"
+msgstr "Щасливий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:75
+msgctxt "Mood|"
+msgid "Hopeful"
+msgstr "Сповнений надій"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:76
+msgctxt "Mood|"
+msgid "Hot"
+msgstr "Гарячий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:77
+msgctxt "Mood|"
+msgid "Humbled"
+msgstr "Скромний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:78
+msgctxt "Mood|"
+msgid "Humiliated"
+msgstr "Ображений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:79
+msgctxt "Mood|"
+msgid "Hungry"
+msgstr "Голодний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:80
+msgctxt "Mood|"
+msgid "Hurt"
+msgstr "Поранений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:81
+msgctxt "Mood|"
+msgid "Impressed"
+msgstr "Вражений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:82
+msgctxt "Mood|"
+msgid "In awe"
+msgstr "Наляканий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:83
+msgctxt "Mood|"
+msgid "In love"
+msgstr "Закоханий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:84
+msgctxt "Mood|"
+msgid "Indignant"
+msgstr "Обурений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:85
+msgctxt "Mood|"
+msgid "Interested"
+msgstr "Зацікавлений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:86
+msgctxt "Mood|"
+msgid "Intoxicated"
+msgstr "П'яний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:87
+msgctxt "Mood|"
+msgid "Invincible"
+msgstr "Невидимий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:88
+msgctxt "Mood|"
+msgid "Jealous"
+msgstr "Заздрісний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:89
+msgctxt "Mood|"
+msgid "Lonely"
+msgstr "Одинокий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:90
+msgctxt "Mood|"
+msgid "Lost"
+msgstr "Загублений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:91
+msgctxt "Mood|"
+msgid "Lucky"
+msgstr "Щасливий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:92
+msgctxt "Mood|"
+msgid "Mean"
+msgstr "Підлий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:93
+msgctxt "Mood|"
+msgid "Moody"
+msgstr "Похмурий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:94
+msgctxt "Mood|"
+msgid "Nervous"
+msgstr "Знервований"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:95
+msgctxt "Mood|"
+msgid "Neutral"
+msgstr "Байдужий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:96
+msgctxt "Mood|"
+msgid "Offended"
+msgstr "Ображений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:97
+msgctxt "Mood|"
+msgid "Outraged"
+msgstr "Обурений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:98
+msgctxt "Mood|"
+msgid "Playful"
+msgstr "Грайливий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:99
+msgctxt "Mood|"
+msgid "Proud"
+msgstr "Гордий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:100
+msgctxt "Mood|"
+msgid "Relaxed"
+msgstr "Розслаблений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:101
+msgctxt "Mood|"
+msgid "Relieved"
+msgstr "Заспокоєний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:102
+msgctxt "Mood|"
+msgid "Remorseful"
+msgstr "Жалісливий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:103
+msgctxt "Mood|"
+msgid "Restless"
+msgstr "Невгамовний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:104
+msgctxt "Mood|"
+msgid "Sad"
+msgstr "Сумний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:105
+msgctxt "Mood|"
+msgid "Sarcastic"
+msgstr "Саркастичний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:106
+msgctxt "Mood|"
+msgid "Satisfied"
+msgstr "Задоволений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:107
+msgctxt "Mood|"
+msgid "Serious"
+msgstr "Серйозний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:108
+msgctxt "Mood|"
+msgid "Shocked"
+msgstr "Вражений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:109
+msgctxt "Mood|"
+msgid "Shy"
+msgstr "Сором’язливий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:110
+msgctxt "Mood|"
+msgid "Sick"
+msgstr "Хворий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:111
+msgctxt "Mood|"
+msgid "Sleepy"
+msgstr "Сонний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:112
+msgctxt "Mood|"
+msgid "Spontaneous"
+msgstr "Спонтанний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:113
+msgctxt "Mood|"
+msgid "Stressed"
+msgstr "Напружений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:114
+msgctxt "Mood|"
+msgid "Strong"
+msgstr "Сильний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:115
+msgctxt "Mood|"
+msgid "Surprised"
+msgstr "Здивований"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:116
+msgctxt "Mood|"
+msgid "Thankful"
+msgstr "Вдячний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:117
+msgctxt "Mood|"
+msgid "Thirsty"
+msgstr "Спраглий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:118
+msgctxt "Mood|"
+msgid "Tired"
+msgstr "Втомлений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:119
+msgctxt "Mood|"
+msgid "Undefined"
+msgstr "Невизначений"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:120
+msgctxt "Mood|"
+msgid "Weak"
+msgstr "Слабкий"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:121
+msgctxt "Mood|"
+msgid "Worried"
+msgstr "Занепокоєний"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:187
+msgctxt "Mood|"
+msgid "Mood"
+msgstr "Настрій"
+
+#: ../../../protocols/jabber/src/protocol/modules/moodpep/jpersonmoodconverter.cpp:189
+msgctxt "Mood|"
+msgid "Show contact mood icon"
+msgstr "Показувати іконку настрою контакту"
+
+#: ../../../protocols/jabber/__data_from_cmakelists_txt.cpp:1
+#: ../../../protocols/jabber/src/jplugin.cpp:55
+#: ../../../protocols/jabber/src/jplugin.cpp:65
+msgctxt "Plugin|"
+msgid "Jabber protocol"
+msgstr "Протокол Jabber"
+
+#: ../../../protocols/jabber/__data_from_cmakelists_txt.cpp:2
+msgctxt "Plugin|"
+msgid "Implementation of jabber protocol based on jreen library"
+msgstr "Реалізація протоколу  jabber, що базується на jreen бібліотеці"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:54
+#: ../../../protocols/jabber/src/jplugin.cpp:64
+msgctxt "Plugin|"
+msgid "Jabber"
+msgstr "Jabber"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:68
+msgctxt "Plugin|"
+msgid "Jabber account creator"
+msgstr "Створювач акаунта Jabber"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:69
+msgctxt "Plugin|"
+msgid "Account creator for Jabber protocol"
+msgstr "Створення облікового запису Jabber"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:72
+msgctxt "Plugin|"
+msgid "LiveJournal account creator"
+msgstr "Створювач облікового запису LiveJournal"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:73
+msgctxt "Plugin|"
+msgid "Account creator for LiveJournal"
+msgstr "Створення облікового запису LiveJournal"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:76
+msgctxt "Plugin|"
+msgid "Google Talk account creator"
+msgstr "Створювач облікового запису Google Talk"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:77
+msgctxt "Plugin|"
+msgid "Account creator for Google Talk"
+msgstr "Створення облікового запису Google Talk"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:80
+msgctxt "Plugin|"
+msgid "Yandex.Online account creator"
+msgstr "Створювач облікового запису Yandex.Online"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:81
+msgctxt "Plugin|"
+msgid "Account creator for Yandex.Online"
+msgstr "Створення облікового запису Yandex.Online"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:84
+msgctxt "Plugin|"
+msgid "QIP account creator"
+msgstr "Створювач облікового запису QIP"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:85
+msgctxt "Plugin|"
+msgid "Account creator for QIP"
+msgstr "Створення облікового запису QIP"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:89
+msgctxt "Plugin|"
+msgid "Jabber XML console"
+msgstr "Консоль XML (Jabber)"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:90
+msgctxt "Plugin|"
+msgid "XML console for low-level protocol debugging"
+msgstr "XML консоль для поглибленого налагодження"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:102
+msgctxt "Plugin|"
+msgid "Jabber Service Browser"
+msgstr "Огляд служб Jabber"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:103
+msgctxt "Plugin|"
+msgid "Implementation of service browser"
+msgstr "Реалызація браузера служб"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:110
+msgctxt "Plugin|"
+msgid "Jabber Personal Events support"
+msgstr "Підтримка персональних сповіщень в Jabber"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:111
+msgctxt "Plugin|"
+msgid "Implementation of personal events protocol"
+msgstr "Реалізація протоколу персональних сповіщень"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:114
+msgctxt "Plugin|"
+msgid "Jabber VCard support"
+msgstr "Підтримка Jabber VCard"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:115
+msgctxt "Plugin|"
+msgid "Implementation of VCard info requests"
+msgstr "Реалізація запиту інформації VCard"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:118
+msgctxt "Plugin|"
+msgid "Jabber User Mood support"
+msgstr "Підтримка настроїв в Jabber"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:119
+msgctxt "Plugin|"
+msgid "Convertes internal XMPP data of mood to Qt data types"
+msgstr "Конвертує вбудовану інформацію про настрії типу XMPP в тип Qt"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:122
+msgctxt "Plugin|"
+msgid "Jabber Mood Chooser"
+msgstr "Вибір настрою в Jabber"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:123
+msgctxt "Plugin|"
+msgid "Provides the dialog to set your mood"
+msgstr "Показує діалог для встановлення вашого настрою"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:126
+msgctxt "Plugin|"
+msgid "Jabber User Tune support"
+msgstr "Підтримка служби \"Зараз грає\" в Jabber"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:127
+msgctxt "Plugin|"
+msgid "Convertes internal XMPP data of tune to Qt data types"
+msgstr "Конвертує дані XMPP про поточну пісню в тип даних Qt"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:130
+msgctxt "Plugin|"
+msgid "Jabber User Activity support"
+msgstr "Підтримка сповіщень про активність в Jabber"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:131
+msgctxt "Plugin|"
+msgid "Convertes internal XMPP data of activity to Qt data types"
+msgstr "Конвертує дані XMPP про активність в тип даних Qt"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:134
+msgctxt "Plugin|"
+msgid "Jabber Activity Chooser"
+msgstr "Вибір активності в Jabber"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:135
+msgctxt "Plugin|"
+msgid "Provides the dialog to set your activity"
+msgstr "Виводить діалог вибору поточного стану активності"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:138
+#: ../../../protocols/jabber/src/jplugin.cpp:139
+msgctxt "Plugin|"
+msgid "Jabber proxy support"
+msgstr "Підтримка проксі в Jabber"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:142
+msgctxt "Plugin|"
+msgid "Jabber Attention support"
+msgstr "Функція привертання уваги Jabber"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:143
+msgctxt "Plugin|"
+msgid "Jabber Attention support (XEP-0224)"
+msgstr "Підтримка привертання уваги Jabber (XEP-0224)"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:148
+msgctxt "Plugin|"
+msgid "Jabber VoIP support"
+msgstr "Підтримка VoIP в Jabber"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:149
+msgctxt "Plugin|"
+msgid "Allows to talk by voice and video"
+msgstr "Дозволяє спілкуватися за допомогою голосу і відео"
+
+#: ../../../protocols/jabber/src/protocol/modules/attention/jattention.cpp:89
+msgctxt "QObject|"
+msgid "Send Attention"
+msgstr "Звернути увагу"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jconferenceconfig.ui:14
+msgctxt "RoomConfig|"
+msgid "Form"
+msgstr "Стиль"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jconferenceconfig.ui:58
+msgctxt "RoomConfig|"
+msgid "Apply"
+msgstr "Застосувати"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jconferenceconfig.ui:65
+msgctxt "RoomConfig|"
+msgid "Ok"
+msgstr "Гаразд"
+
+#: ../../../protocols/jabber/src/protocol/account/muc/jconferenceconfig.ui:72
+msgctxt "RoomConfig|"
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.ui:14
+msgctxt "ServiceBrowser|"
+msgid "jServiceBrowser"
+msgstr "Огляд сервісів"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.ui:31
+msgctxt "ServiceBrowser|"
+msgid "Server:"
+msgstr "Сервер:"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.ui:77
+msgctxt "ServiceBrowser|"
+msgid "Filter:"
+msgstr "Фільтр:"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.ui:150
+msgctxt "ServiceBrowser|"
+msgid "Name"
+msgstr "Ім'я"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.ui:168
+msgctxt "ServiceBrowser|"
+msgid "Searching..."
+msgstr "Пошук..."
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.ui:190
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.ui:193
+msgctxt "ServiceBrowser|"
+msgid "Join conference"
+msgstr "Приєднатися до конференції"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.ui:198
+msgctxt "ServiceBrowser|"
+msgid "Register"
+msgstr "Реєстрація"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.ui:201
+msgctxt "ServiceBrowser|"
+msgid "Register on the service"
+msgstr "Зарейструватися на сервісі"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.ui:206
+msgctxt "ServiceBrowser|"
+msgid "Search"
+msgstr "Пошук"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.ui:209
+msgctxt "ServiceBrowser|"
+msgid "Search on the service"
+msgstr "Пошук по сервісу"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.ui:214
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.ui:217
+msgctxt "ServiceBrowser|"
+msgid "Execute command"
+msgstr "Виконати команду"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.ui:222
+msgctxt "ServiceBrowser|"
+msgid "Show vCard"
+msgstr "Показати vCard"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.ui:225
+msgctxt "ServiceBrowser|"
+msgid "Show information about service"
+msgstr "Показати інформацію про сервіс"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.ui:230
+msgctxt "ServiceBrowser|"
+msgid "Add to roster"
+msgstr "Додати до списку"
+
+#: ../../../protocols/jabber/src/protocol/modules/servicediscovery/jservicebrowser.ui:233
+msgctxt "ServiceBrowser|"
+msgid "Add service to roster"
+msgstr "Додати сервіс в список"
+
+#: ../../../protocols/jabber/src/protocol/jprotocol.cpp:195
+msgctxt "Settings|"
+msgid "Main settings"
+msgstr "Основні налаштування"
+
+#: ../../../protocols/jabber/src/protocol/jprotocol.cpp:202
+msgctxt "Settings|"
+msgid "Room configuration"
+msgstr "Налаштування кімнати"
+
+#: ../../../protocols/jabber/src/jplugin.cpp:60
+msgctxt "Task|"
+msgid "Author"
+msgstr "Автор"
+
+#: ../../../protocols/jabber/src/protocol/modules/tunepep/jpersontuneconverter.cpp:101
+msgctxt "Tune|"
+msgid "Now listening"
+msgstr "Зараз грає"
+
+#: ../../../protocols/jabber/src/protocol/modules/tunepep/jpersontuneconverter.cpp:123
+msgctxt "Tune|"
+msgid "Tune"
+msgstr "Музика"
+
+#: ../../../protocols/jabber/src/protocol/modules/tunepep/jpersontuneconverter.cpp:125
+msgctxt "Tune|"
+msgid "Show tune icon"
+msgstr "Показувати іконку музики"
+
+#: ../../../protocols/jabber/jreen/deffered/gui/xmlconsole.ui:14
+msgctxt "XmlConsole|"
+msgid "Form"
+msgstr "Стиль"
+
+#: ../../../protocols/jabber/src/protocol/modules/xmlconsole/xmlconsole.ui:14
+msgctxt "XmlConsole|"
+msgid "Xml stream console"
+msgstr "Консоль Xml потоку"
+
+#: ../../../protocols/jabber/src/protocol/modules/xmlconsole/xmlconsole.ui:33
+msgctxt "XmlConsole|"
+msgid "Filter"
+msgstr "Фільтр"
+
+#: ../../../protocols/jabber/src/protocol/modules/xmlconsole/xmlconsole.ui:40
+msgctxt "XmlConsole|"
+msgid "Save log"
+msgstr "Зберегти звіт"

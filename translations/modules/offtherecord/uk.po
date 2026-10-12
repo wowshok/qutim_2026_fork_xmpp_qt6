@@ -1,0 +1,568 @@
+# Ukrainian translation for qutim
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the qutim package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: qutim\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-28 19:33+0000\n"
+"PO-Revision-Date: 2012-06-06 19:38+0000\n"
+"Last-Translator: ma$terok <Unknown>\n"
+"Language-Team: Ukrainian <uk@li.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-01-29 05:43+0000\n"
+"X-Generator: Launchpad (build 16451)\n"
+"X-Qt-Contexts: true\n"
+
+#: ../../../plugins/offtherecord/src/otrcrypt.cpp:55
+msgctxt "OTRCrypt|"
+msgid "OTR"
+msgstr "OTR"
+
+#: ../../../plugins/offtherecord/src/otrcrypt.cpp:65
+msgctxt "OTRCrypt|"
+msgid "Start private Conversation"
+msgstr "Розпочати приватну бесіду"
+
+#: ../../../plugins/offtherecord/src/otrcrypt.cpp:68
+msgctxt "OTRCrypt|"
+msgid "End private Conversation"
+msgstr "Закінчити приватну бесіду"
+
+#: ../../../plugins/offtherecord/src/otrcrypt.cpp:72
+msgctxt "OTRCrypt|"
+msgid "Verify Fingerprint"
+msgstr "Перевірка відбитку пальця"
+
+#: ../../../plugins/offtherecord/src/otrcrypt.cpp:75
+msgctxt "OTRCrypt|"
+msgid "Show secure Session ID"
+msgstr "Показати ІД сесії"
+
+#: ../../../plugins/offtherecord/src/otrcrypt.cpp:78
+msgctxt "OTRCrypt|"
+msgid "Show own Fingerprint"
+msgstr "Показати власний відбиток пальця"
+
+#: ../../../plugins/offtherecord/src/otrcrypt.cpp:82
+msgctxt "OTRCrypt|"
+msgid "Personal settings"
+msgstr "Особисті налаштування"
+
+#: ../../../plugins/offtherecord/src/otrcrypt.cpp:93
+msgctxt "OTRCrypt|"
+msgid "System settings"
+msgstr "Системні налаштування"
+
+#: ../../../plugins/offtherecord/src/otrcrypt.cpp:94
+msgctxt "OTRCrypt|"
+msgid "OTR disabled"
+msgstr "OTR відключено"
+
+#: ../../../plugins/offtherecord/src/otrcrypt.cpp:95
+msgctxt "OTRCrypt|"
+msgid "Manual"
+msgstr "Вручну"
+
+#: ../../../plugins/offtherecord/src/otrcrypt.cpp:96
+msgctxt "OTRCrypt|"
+msgid "Auto"
+msgstr "Автоматично"
+
+#: ../../../plugins/offtherecord/src/otrcrypt.cpp:97
+msgctxt "OTRCrypt|"
+msgid "Force OTR"
+msgstr "Примусовий OTR"
+
+#: ../../../plugins/offtherecord/src/otrcrypt.cpp:120
+#, qt-format
+msgctxt "OTRCrypt|"
+msgid "OTR Plugin [%1]"
+msgstr "Плагін OTR [%1]"
+
+#: ../../../plugins/offtherecord/src/otrcrypt.cpp:218
+msgctxt "OTRCrypt|"
+msgid "OTR Messaging"
+msgstr "Повідомлення OTR"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:47
+msgctxt "OtrInternal|"
+msgid "no OTR Message"
+msgstr "Немає повідомлень OTR"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:51
+msgctxt "OtrInternal|"
+msgid "OTR TaggedPlaintexMessage"
+msgstr "OTR міткою текст повідомлення"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:55
+msgctxt "OtrInternal|"
+msgid "OTR QueryMessage"
+msgstr "Повідомлення OTR запитів"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:59
+msgctxt "OtrInternal|"
+msgid "OTR DH-Commit Message"
+msgstr "OTR DH-Commit повідомлення"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:63
+msgctxt "OtrInternal|"
+msgid "OTR DH-Key Message"
+msgstr "OTR DH-Key повідомлення"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:67
+msgctxt "OtrInternal|"
+msgid "OTR Reveal Signature Message"
+msgstr "Показати OTR підпис повідомлення"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:71
+msgctxt "OtrInternal|"
+msgid "OTR Signature Message"
+msgstr "OTR підпис повідомлення"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:75
+msgctxt "OtrInternal|"
+msgid "OTR Version 1 Key Exchange Message"
+msgstr "OTR Версія 1 Обмін ключами повідомлення"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:79
+msgctxt "OtrInternal|"
+msgid "OTR Data Message"
+msgstr "OTR дані повідомлення"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:83
+msgctxt "OtrInternal|"
+msgid "OTR Error Message"
+msgstr "OTR повідомлення про помилки"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:87
+msgctxt "OtrInternal|"
+msgid "OTR Unknown Message"
+msgstr "Невідоме OTR повідомлення"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:91
+msgctxt "OtrInternal|"
+msgid "Unknown OTR Message Type"
+msgstr "Невідомий тип OTR повідомлення"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:159
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:676
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:710
+msgctxt "OtrInternal|"
+msgid "qutim-otr"
+msgstr "qutim-otr"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:160
+#, qt-format
+msgctxt "OtrInternal|"
+msgid "Encrypting message from %1 to %2 failed."
+msgstr "Не вдалося шифрування повідомлень з %1 в %2."
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:161
+msgctxt "OtrInternal|"
+msgid "The message was not sent."
+msgstr "Повідомлення не було надіслано."
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:206
+#, qt-format
+msgctxt "OtrInternal|"
+msgid "%1 has ended the OTR session. You should do the same."
+msgstr "%1 закінчив OTR сесію. Ви повинні зробити те ж саме."
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:227
+msgctxt "OtrInternal|"
+msgid "Auth"
+msgstr "Авторизація"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:227
+#, qt-format
+msgctxt "OtrInternal|"
+msgid ""
+"Please, answer the question to be authorised by %1.<br>Question: <b>%2</b>"
+msgstr ""
+"Щоб авторизуватися, дайте будь-ласка відповідь на питання %1.<br>Запитання: "
+"<b>%2</b>"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:242
+msgctxt "OtrInternal|"
+msgid "Authorysing"
+msgstr "Авторизувати"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:242
+#, qt-format
+msgctxt "OtrInternal|"
+msgid "Please, enter passphrase to authorise %1"
+msgstr "Будь-ласка, введіть пароль для авторизації %1"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:265
+msgctxt "OtrInternal|"
+msgid ""
+"Your buddy has successfully authenticated you. The conversation is now "
+"secure!"
+msgstr ""
+"Ваш приятель успішно пройшов вашу аутентифікацію. Тепер можна розмовляти "
+"безпечно!"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:269
+msgctxt "OtrInternal|"
+msgid ""
+"Your buddy has successfully authenticated you. You may want to authenticate "
+"your buddy as well by asking your own question."
+msgstr ""
+"Ваш приятель успішно пройшов вашу аутентифікацію. Проте ви можете перевірити "
+"справжність вашого співрозмовника задавши своє питання."
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:283
+msgctxt "OtrInternal|"
+msgid "Authentication successful. The conversation is now secure!"
+msgstr "Аутентифікація успішна. Розмовляти тепер безпечно."
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:286
+msgctxt "OtrInternal|"
+msgid "Authentication failed. The conversation is now insecure!"
+msgstr "Невдала аутентифікація. Розмовляти зараз небезпечно!"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:295
+msgctxt "OtrInternal|"
+msgid "Authentication error!"
+msgstr "Помилка аутентифікації!"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:310
+#, qt-format
+msgctxt "OtrInternal|"
+msgid ""
+"received %1 \n"
+"OTR state now is [%2]"
+msgstr ""
+"прийнято %1 \n"
+"стан OTR тепер [%2]"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:314
+msgctxt "OtrInternal|"
+msgid ""
+"\n"
+"sessionId: "
+msgstr ""
+"\n"
+"Id сесії: "
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:582
+msgctxt "OtrInternal|"
+msgid "not private"
+msgstr "не особисті"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:592
+msgctxt "OtrInternal|"
+msgid "private"
+msgstr "особисті"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:594
+msgctxt "OtrInternal|"
+msgid "unverifed"
+msgstr "неперевірені"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:598
+msgctxt "OtrInternal|"
+msgid "finished"
+msgstr "завершені"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:601
+msgctxt "OtrInternal|"
+msgid "unknown"
+msgstr "невідомі"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:677
+#, qt-format
+msgctxt "OtrInternal|"
+msgid ""
+"Generating keys for account %1\n"
+"This may take a while.\n"
+"Please, move mouse and use keyoard to decrease generation time."
+msgstr ""
+"Генерація ключа для облікового запису %1\n"
+"Це може зайняти деякий час.\n"
+"Будь ласка, по рухайте мишею і по натискайте клавіші на клавіатурі, щоб "
+"зменшити час генерації."
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:681
+msgctxt "OtrInternal|"
+msgid "please wait..."
+msgstr "зачекайте, будь ласка..."
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:711
+#, qt-format
+msgctxt "OtrInternal|"
+msgid ""
+"Failed to generate key for account %1\n"
+"The OTR Plugin will not work."
+msgstr ""
+"Не вдалося створити ключ для облікового запису %1\n"
+"Плагін OTR працювати не буде."
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:718
+#, qt-format
+msgctxt "OtrInternal|"
+msgid "The fingerprint for account %1 is\n"
+msgstr "Відбитки пальців для облікового запису %1\n"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:843
+#, qt-format
+msgctxt "OtrInternal|"
+msgid ""
+"Account %1 has received new fingerprint from %2 :\n"
+" %3"
+msgstr ""
+"Обліковий запис %1 отримав нові відбитки %2:\n"
+"  %3"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:860
+msgctxt "OtrInternal|"
+msgid "Authentication aborded. The conversation is now insecure!"
+msgstr "Аутентифікація перервана. Розмовляти небезпечно!"
+
+#: ../../../plugins/offtherecord/src/otrinternal.cpp:873
+msgctxt "OtrInternal|"
+msgid "Authenticating contact..."
+msgstr "Розпізнавання контакту…"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:14
+msgctxt "OtrSettingsWidget|"
+msgid "Form"
+msgstr "Стиль"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:24
+msgctxt "OtrSettingsWidget|"
+msgid "Config"
+msgstr "Налаштування"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:30
+msgctxt "OtrSettingsWidget|"
+msgid "Add OTR state notification to chat window"
+msgstr "Додати повідомлення стану OTR до вікна чату"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:40
+msgctxt "OtrSettingsWidget|"
+msgid "OTR policy"
+msgstr "Політики OTR"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:46
+msgctxt "OtrSettingsWidget|"
+msgid "Enable private messaging"
+msgstr "Включити захист особистих повідомлень"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:56
+msgctxt "OtrSettingsWidget|"
+msgid "Automatically start private messaging"
+msgstr "Автоматично починати безпечну розмову"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:66
+msgctxt "OtrSettingsWidget|"
+msgid "Require private messaging"
+msgstr "Вимагати захищену розмову"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:90
+msgctxt "OtrSettingsWidget|"
+msgid "Known fingerprints"
+msgstr "Відомі відбитки пальців"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:112
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:171
+msgctxt "OtrSettingsWidget|"
+msgid "Account"
+msgstr "Обліковий запис"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:117
+msgctxt "OtrSettingsWidget|"
+msgid "Pecipient"
+msgstr "Отримувач"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:122
+msgctxt "OtrSettingsWidget|"
+msgid "Fingerprint"
+msgstr "Відбиток пальця"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:127
+msgctxt "OtrSettingsWidget|"
+msgid "Trust"
+msgstr "Довірений"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:132
+msgctxt "OtrSettingsWidget|"
+msgid "Message state"
+msgstr "Повідомлення стану"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:142
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:189
+msgctxt "OtrSettingsWidget|"
+msgid "Forget"
+msgstr "Забути"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:152
+msgctxt "OtrSettingsWidget|"
+msgid "My private keys"
+msgstr "Мої особисті ключі"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:176
+msgctxt "OtrSettingsWidget|"
+msgid "Protocol"
+msgstr "Протокол"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.ui:181
+msgctxt "OtrSettingsWidget|"
+msgid "Key"
+msgstr "Ключ"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.cpp:155
+#, qt-format
+msgctxt "OtrSettingsWidget|"
+msgid ""
+"Are you sure you want to delete the fingerprint:\n"
+"account: %1\n"
+"buddy: %2\n"
+"fingerprint: %3"
+msgstr ""
+"Ви дійсно хочете видалити відбитки пальців:\n"
+"Обліковий запис: %1\n"
+"Приятель: %2\n"
+"Відбитки пальців: %3"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.cpp:160
+#: ../../../plugins/offtherecord/src/otrsettingswidget.cpp:180
+msgctxt "OtrSettingsWidget|"
+msgid "qutim-otr"
+msgstr "qutim-otr"
+
+#: ../../../plugins/offtherecord/src/otrsettingswidget.cpp:175
+#, qt-format
+msgctxt "OtrSettingsWidget|"
+msgid ""
+"Are you sure you want to delete the private key:\n"
+"account: %1\n"
+"protocol: %2\n"
+" fingerptint: %3"
+msgstr ""
+"Ви дійсно хочете видалити закритий ключ:\n"
+"Обліковий запис: %1\n"
+"Протокол: %2\n"
+" відбитки пальців: %3"
+
+#: ../../../plugins/offtherecord/src/qutimotrclosure.cpp:103
+msgctxt "OtrSupport::OtrClosure|"
+msgid "no active encrypted session"
+msgstr "немає активних зашифрованих сесій"
+
+#: ../../../plugins/offtherecord/src/qutimotrclosure.cpp:107
+#, qt-format
+msgctxt "OtrSupport::OtrClosure|"
+msgid "Session ID of connection from account %1 to %2 is: "
+msgstr "Ідентифікатор з'єднання (SID) від %1 до %2s: "
+
+#: ../../../plugins/offtherecord/src/qutimotrclosure.cpp:130
+msgctxt "OtrSupport::OtrClosure|"
+msgid "no private key for "
+msgstr "немає закритого ключа для "
+
+#: ../../../plugins/offtherecord/src/qutimotrclosure.cpp:133
+#, qt-format
+msgctxt "OtrSupport::OtrClosure|"
+msgid "Fingerprint for account %1 is:"
+msgstr "Немає закритого ключа для %1:"
+
+#: ../../../plugins/offtherecord/src/qutimotrclosure.cpp:180
+#, qt-format
+msgctxt "OtrSupport::OtrClosure|"
+msgid "OTR state is changed. New state is [%1]"
+msgstr "OTR статус змінено. Новий статус - [%1]"
+
+#: ../../../plugins/offtherecord/__data_from_cmakelists_txt.cpp:1
+#: ../../../plugins/offtherecord/src/otrcrypt.cpp:179
+msgctxt "Plugin|"
+msgid "Off-the-Record Messaging"
+msgstr "Стан OTR змінено. Тепер OTR [%1]"
+
+#: ../../../plugins/offtherecord/__data_from_cmakelists_txt.cpp:2
+#: ../../../plugins/offtherecord/src/otrcrypt.cpp:180
+msgctxt "Plugin|"
+msgid "Plugin provides encryption of messages by OTR"
+msgstr "Модуль забезпечує шифрування повідомлень з допомогою OTR"
+
+#: ../../../plugins/offtherecord/src/smpdialog.ui:14
+msgctxt "SMPdialog|"
+msgid "Authorisation"
+msgstr "Авторизація"
+
+#: ../../../plugins/offtherecord/src/smpdialog.ui:28
+msgctxt "SMPdialog|"
+msgid "Choose auth type"
+msgstr "Виберіть тип аутентифікації"
+
+#: ../../../plugins/offtherecord/src/smpdialog.ui:42
+msgctxt "SMPdialog|"
+msgid "Question/Answer"
+msgstr "Питання/Відповідь"
+
+#: ../../../plugins/offtherecord/src/smpdialog.ui:47
+#: ../../../plugins/offtherecord/src/smpdialog.ui:146
+msgctxt "SMPdialog|"
+msgid "Secret phrase"
+msgstr "Секретна фраза"
+
+#: ../../../plugins/offtherecord/src/smpdialog.ui:52
+msgctxt "SMPdialog|"
+msgid "Manual"
+msgstr "Вручну"
+
+#: ../../../plugins/offtherecord/src/smpdialog.ui:62
+msgctxt "SMPdialog|"
+msgid "TextLabel"
+msgstr "Текстова мітка"
+
+#: ../../../plugins/offtherecord/src/smpdialog.ui:88
+msgctxt "SMPdialog|"
+msgid "Question"
+msgstr "Питання"
+
+#: ../../../plugins/offtherecord/src/smpdialog.ui:102
+msgctxt "SMPdialog|"
+msgid "Answer"
+msgstr "Відповідь"
+
+#: ../../../plugins/offtherecord/src/smpdialog.ui:188
+msgctxt "SMPdialog|"
+msgid "Is this fingerprint right?"
+msgstr "Чи правильні ці відбитки пальців?"
+
+#: ../../../plugins/offtherecord/src/smpdialog.ui:197
+msgctxt "SMPdialog|"
+msgid "I agree"
+msgstr "Я згоден"
+
+#: ../../../plugins/offtherecord/src/smpdialog.ui:204
+msgctxt "SMPdialog|"
+msgid "I disagree"
+msgstr "Я не згоден"
+
+#: ../../../plugins/offtherecord/src/smpdialog.cpp:39
+msgctxt "SMPdialog|"
+msgid "Auth canceled"
+msgstr "Аутентифікацію скасовано"
+
+#: ../../../plugins/offtherecord/src/smpdialog.cpp:39
+msgctxt "SMPdialog|"
+msgid "Could not find any fingerprints for this user."
+msgstr "Не вдалося знайти відбитки пальців для цього користувача."
+
+#: ../../../plugins/offtherecord/src/smpdialog.cpp:44
+#, qt-format
+msgctxt "SMPdialog|"
+msgid ""
+"Protocol %0.<br>Authorisation of user <b>%1</b> <br>with fingerprint <b>%2</"
+"b>"
+msgstr ""
+"Протокол %0.<br>Авторизація користувача <b>%1</b> <br>з відбитком пальця <b>"
+"%2</b>"

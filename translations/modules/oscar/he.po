@@ -1,0 +1,3836 @@
+# Hebrew translation for qutim
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# This file is distributed under the same license as the qutim package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: qutim\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-28 19:33+0000\n"
+"PO-Revision-Date: 2013-07-11 07:14+0000\n"
+"Last-Translator: GenghisKhan <genghiskhan@gmx.ca>\n"
+"Language-Team: Hebrew <he@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-07-12 06:22+0000\n"
+"X-Generator: Launchpad (build 16696)\n"
+"X-Qt-Contexts: true\n"
+
+#: ../../../protocols/oscar/src/ui/addaccountform.ui:14
+msgctxt "AddAccountForm|"
+msgid "AddAccountForm"
+msgstr "טופסהוספתחשבון"
+
+#: ../../../protocols/oscar/src/ui/addaccountform.ui:25
+msgctxt "AddAccountForm|"
+msgid "UIN:"
+msgstr "‏UIN‏:"
+
+#: ../../../protocols/oscar/src/ui/addaccountform.ui:35
+msgctxt "AddAccountForm|"
+msgid "Password:"
+msgstr "סיסמה:"
+
+#: ../../../protocols/oscar/src/ui/addaccountform.ui:49
+msgctxt "AddAccountForm|"
+msgid "Save password"
+msgstr "שמור סיסמה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:563
+msgctxt "Affiliation|"
+msgid "Alumni Org."
+msgstr "ארגון חינוך"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:564
+msgctxt "Affiliation|"
+msgid "Charity Org."
+msgstr "ארגון צדקה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:565
+msgctxt "Affiliation|"
+msgid "Club/Social Org."
+msgstr "ארגון מועדון/חברתי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:566
+msgctxt "Affiliation|"
+msgid "Community Org."
+msgstr "ארגון קהילתי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:567
+msgctxt "Affiliation|"
+msgid "Cultural Org."
+msgstr "ארגון תרבותי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:568
+msgctxt "Affiliation|"
+msgid "Fan Clubs"
+msgstr "מועדון מעריצים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:569
+msgctxt "Affiliation|"
+msgid "Fraternity/Sorority"
+msgstr "אחוות סטודנטים/סטודנטיות"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:570
+msgctxt "Affiliation|"
+msgid "Hobbyists Org."
+msgstr "ארגון תחביבנים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:571
+msgctxt "Affiliation|"
+msgid "International Org."
+msgstr "ארגון בינלאומי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:572
+msgctxt "Affiliation|"
+msgid "Nature and Environment Org."
+msgstr "ארגון טבע וסביבה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:573
+msgctxt "Affiliation|"
+msgid "Professional Org."
+msgstr "ארגון מקצועי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:574
+msgctxt "Affiliation|"
+msgid "Scientific/Technical Org."
+msgstr "ארגון מדעי/טכני"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:575
+msgctxt "Affiliation|"
+msgid "Self Improvement Group"
+msgstr "קבוצת שיפור עצמי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:576
+msgctxt "Affiliation|"
+msgid "Spiritual/Religious Org."
+msgstr "ארגון רוחני/דתי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:577
+msgctxt "Affiliation|"
+msgid "Sports Org."
+msgstr "ארגון ספורט"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:578
+msgctxt "Affiliation|"
+msgid "Support Org."
+msgstr "ארגון תמיכה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:579
+msgctxt "Affiliation|"
+msgid "Trade and Business Org."
+msgstr "ארגון מסחר ועסקים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:580
+msgctxt "Affiliation|"
+msgid "Union"
+msgstr "איחוד"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:581
+msgctxt "Affiliation|"
+msgid "Volunteer Org."
+msgstr "ארגון התנדבותי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:582
+msgctxt "Affiliation|"
+msgid "Other"
+msgstr "אחר"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:595
+msgctxt "Age|"
+msgid "13-17"
+msgstr "17-13"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:596
+msgctxt "Age|"
+msgid "18-22"
+msgstr "22-18"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:597
+msgctxt "Age|"
+msgid "23-29"
+msgstr "29-23"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:598
+msgctxt "Age|"
+msgid "30-39"
+msgstr "39-30"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:599
+msgctxt "Age|"
+msgid "40-49"
+msgstr "49-40"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:600
+msgctxt "Age|"
+msgid "50-59"
+msgstr "59-50"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:601
+msgctxt "Age|"
+msgid "60-above"
+msgstr "60-צפונה"
+
+#: ../../../protocols/oscar/plugins/identify/clientidentify.cpp:52
+msgctxt "Author|"
+msgid "Alexey Ignatiev"
+msgstr "אלכסיי איגנטיב"
+
+#: ../../../protocols/oscar/plugins/identify/clientidentify.cpp:55
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:217
+#: ../../../protocols/oscar/src/oscarplugin.cpp:57
+msgctxt "Author|"
+msgid "Alexey Prokhin"
+msgstr "אלקסיי פרוקהין (Alexey Prokhin)"
+
+#: ../../../protocols/oscar/src/ui/icqmainsettings.cpp:52
+msgctxt "Codec|"
+msgid "System"
+msgstr "מערכת"
+
+#: ../../../protocols/oscar/src/connection.cpp:308
+msgctxt "ConnectionError|"
+msgid "Invalid nick or password"
+msgstr "כינוי או סיסמה לא תקינים"
+
+#: ../../../protocols/oscar/src/connection.cpp:310
+msgctxt "ConnectionError|"
+msgid "Service temporarily unavailable"
+msgstr "שירות לא זמין זמנית"
+
+#: ../../../protocols/oscar/src/connection.cpp:312
+msgctxt "ConnectionError|"
+msgid "Incorrect nick or password"
+msgstr "כינוי או סיסמה לא מדויקים"
+
+#: ../../../protocols/oscar/src/connection.cpp:314
+msgctxt "ConnectionError|"
+msgid "Mismatch nick or password"
+msgstr "כינוי או סיסמה לא תואמים"
+
+#: ../../../protocols/oscar/src/connection.cpp:316
+msgctxt "ConnectionError|"
+msgid "Internal client error (bad input to authorizer)"
+msgstr ""
+
+#: ../../../protocols/oscar/src/connection.cpp:318
+msgctxt "ConnectionError|"
+msgid "Invalid account"
+msgstr "חשבון לא תקף"
+
+#: ../../../protocols/oscar/src/connection.cpp:320
+msgctxt "ConnectionError|"
+msgid "Deleted account"
+msgstr "חשבון מחוק"
+
+#: ../../../protocols/oscar/src/connection.cpp:322
+msgctxt "ConnectionError|"
+msgid "Expired account"
+msgstr "חשבון פקוע"
+
+#: ../../../protocols/oscar/src/connection.cpp:324
+msgctxt "ConnectionError|"
+msgid "No access to database"
+msgstr "אין גישה אל מסד נתונים"
+
+#: ../../../protocols/oscar/src/connection.cpp:326
+msgctxt "ConnectionError|"
+msgid "No access to resolver"
+msgstr "אין גישה אל פותר"
+
+#: ../../../protocols/oscar/src/connection.cpp:328
+msgctxt "ConnectionError|"
+msgid "Invalid database fields"
+msgstr "שדות מסד נתונים שגויות"
+
+#: ../../../protocols/oscar/src/connection.cpp:330
+msgctxt "ConnectionError|"
+msgid "Bad database status"
+msgstr "מצב רע של מסד נתונים"
+
+#: ../../../protocols/oscar/src/connection.cpp:332
+msgctxt "ConnectionError|"
+msgid "Bad resolver status"
+msgstr "מצב רע של פותר"
+
+#: ../../../protocols/oscar/src/connection.cpp:334
+msgctxt "ConnectionError|"
+msgid "Internal error"
+msgstr "שגיאה פנימית"
+
+#: ../../../protocols/oscar/src/connection.cpp:336
+msgctxt "ConnectionError|"
+msgid "Service temporarily offline"
+msgstr "שירות לא מקוון זמנית"
+
+#: ../../../protocols/oscar/src/connection.cpp:338
+msgctxt "ConnectionError|"
+msgid "Suspended account"
+msgstr "חשבון מושעה"
+
+#: ../../../protocols/oscar/src/connection.cpp:340
+msgctxt "ConnectionError|"
+msgid "DB send error"
+msgstr "מסד נתונים שלח שגיאה"
+
+#: ../../../protocols/oscar/src/connection.cpp:342
+msgctxt "ConnectionError|"
+msgid "DB link error"
+msgstr "שגיאת קישור מסד נתונים"
+
+#: ../../../protocols/oscar/src/connection.cpp:344
+msgctxt "ConnectionError|"
+msgid "Reservation map error"
+msgstr "שגיאת מפה שמורה"
+
+#: ../../../protocols/oscar/src/connection.cpp:346
+msgctxt "ConnectionError|"
+msgid "Reservation link error"
+msgstr "שגיאת קישור שמור"
+
+#: ../../../protocols/oscar/src/connection.cpp:348
+msgctxt "ConnectionError|"
+msgid "The users num connected from this IP has reached the maximum"
+msgstr "מספר המשתמשים המחוברים מן IP זה הגיע למקסימום"
+
+#: ../../../protocols/oscar/src/connection.cpp:350
+msgctxt "ConnectionError|"
+msgid ""
+"The number of users connected from this IP has reached the maximum "
+"(reservation)"
+msgstr "מספר המשתמשים המחוברים מן IP זה הגיע למקסימום (שמור)"
+
+#: ../../../protocols/oscar/src/connection.cpp:352
+msgctxt "ConnectionError|"
+msgid ""
+"Rate limit exceeded (reservation). Please try to reconnect in a few minutes"
+msgstr "מגבלת שיעור נחצתה (שמור). אנא נסה להתחבר שוב בעוד דקות אחדות"
+
+#: ../../../protocols/oscar/src/connection.cpp:354
+msgctxt "ConnectionError|"
+msgid "User too heavily warned"
+msgstr ""
+
+#: ../../../protocols/oscar/src/connection.cpp:356
+msgctxt "ConnectionError|"
+msgid "Reservation timeout"
+msgstr "אגירת זמן תפוגה"
+
+#: ../../../protocols/oscar/src/connection.cpp:358
+msgctxt "ConnectionError|"
+msgid "You are using an older version of ICQ. Upgrade required"
+msgstr "אתה משתמש בגרסא ישנה יותר של ICQ. שדרוג נדרש"
+
+#: ../../../protocols/oscar/src/connection.cpp:360
+msgctxt "ConnectionError|"
+msgid "You are using an older version of ICQ. Upgrade recommended"
+msgstr "אתה משתמש בגרסא ישנה יותר של ICQ. שדרוג מומלץ"
+
+#: ../../../protocols/oscar/src/connection.cpp:362
+msgctxt "ConnectionError|"
+msgid "Rate limit exceeded. Please try to reconnect in a few minutes"
+msgstr "מגבלת שיעור נחצתה. אנא נסה להתחבר שוב בעוד דקות אחדות"
+
+#: ../../../protocols/oscar/src/connection.cpp:364
+msgctxt "ConnectionError|"
+msgid "Can't register on the ICQ network. Reconnect in a few minutes"
+msgstr "אין אפשרות להירשם ברשת התקשורת ICQ. התחבר שוב בעוד דקות אחדות"
+
+#: ../../../protocols/oscar/src/connection.cpp:366
+msgctxt "ConnectionError|"
+msgid "Invalid SecurID"
+msgstr "SecurID שגוי"
+
+#: ../../../protocols/oscar/src/connection.cpp:368
+msgctxt "ConnectionError|"
+msgid "Account suspended because of your age (age < 13)"
+msgstr "החשבון מושהה משום גילך (גיל < 13)"
+
+#: ../../../protocols/oscar/src/connection.cpp:370
+msgctxt "ConnectionError|"
+msgid "Another client is logging with this UIN"
+msgstr "לקוח אחר מחובר עם UIN זה"
+
+#: ../../../protocols/oscar/src/connection.cpp:372
+msgctxt "ConnectionError|"
+msgid "No IP addresses were found for the host"
+msgstr "לא נמצאו כתובות IP עבור המארח"
+
+#: ../../../protocols/oscar/src/connection.cpp:376
+msgctxt "ConnectionError|"
+msgid "Unknown error"
+msgstr "שגיאה לא מוכרת"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:146
+msgctxt "ContactInfo|"
+msgid "General"
+msgstr "כללי"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:149
+msgctxt "ContactInfo|"
+msgid "Avatar"
+msgstr "אווטאר"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:157
+msgctxt "ContactInfo|"
+msgid "Name"
+msgstr "שם"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:164
+msgctxt "ContactInfo|"
+msgid "Account info"
+msgstr "מידע חשבון"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:166
+msgctxt "ContactInfo|"
+msgid "UIN"
+msgstr ""
+
+#: ../../../protocols/oscar/src/inforequest.cpp:167
+msgctxt "ContactInfo|"
+msgid "Registration"
+msgstr "רישום"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:171
+msgctxt "ContactInfo|"
+msgid " (private)"
+msgstr " (פרטי)"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:172
+#: ../../../protocols/oscar/src/inforequest.cpp:174
+msgctxt "ContactInfo|"
+msgid "Email"
+msgstr "דוא״ל"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:184
+msgctxt "ContactInfo|"
+msgid "Home"
+msgstr "בית"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:186
+msgctxt "ContactInfo|"
+msgid "Home address"
+msgstr "כתובת מגורים"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:198
+msgctxt "ContactInfo|"
+msgid "Originally from"
+msgstr "במקור מן"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:208
+msgctxt "ContactInfo|"
+msgid "Work"
+msgstr "עבודה"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:210
+msgctxt "ContactInfo|"
+msgid "Work address"
+msgstr "כתובת עבודה"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:221
+msgctxt "ContactInfo|"
+msgid "Company"
+msgstr "תאגיד"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:233
+#: ../../../protocols/oscar/src/inforequest.cpp:235
+msgctxt "ContactInfo|"
+msgid "Personal"
+msgstr "אישי"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:249
+msgctxt "ContactInfo|"
+msgid "About"
+msgstr "אודות"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:251
+msgctxt "ContactInfo|"
+msgid "Notes"
+msgstr "הערות"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:260
+msgctxt "ContactInfo|"
+msgid "Other"
+msgstr "אחר"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:263
+msgctxt "ContactInfo|"
+msgid "Internal IP"
+msgstr "IP פנימית"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:264
+msgctxt "ContactInfo|"
+msgid "External IP"
+msgstr "IP חיצונית"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:265
+msgctxt "ContactInfo|"
+msgid "Port"
+msgstr "פורט"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:266
+msgctxt "ContactInfo|"
+msgid "Protocol version"
+msgstr "גרסת פרוטוקול"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:271
+msgctxt "ContactInfo|"
+msgid "Capabilities"
+msgstr "יכולות"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:274
+msgctxt "ContactInfo|"
+msgid "Direct connection extra info"
+msgstr "מידע נוסף חיבור ישיר"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:275
+msgctxt "ContactInfo|"
+msgid "Last info update"
+msgstr "עדכון מידע אחרון"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:277
+msgctxt "ContactInfo|"
+msgid "Last ext info update"
+msgstr "עדכון אחרון של מידע נוסף"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:279
+msgctxt "ContactInfo|"
+msgid "Last ext status update"
+msgstr "עדכון מצב של מידע נוסף"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:281
+msgctxt "ContactInfo|"
+msgid "Client features"
+msgstr "תכונות לקוח"
+
+#: ../../../protocols/oscar/src/inforequest.cpp:283
+msgctxt "ContactInfo|"
+msgid "Cookie"
+msgstr "עוגייה"
+
+#: ../../../protocols/oscar/src/authorization.cpp:45
+msgctxt "ContactList|"
+msgid "Reask authorization"
+msgstr "בקש שוב הרשאה"
+
+#: ../../../protocols/oscar/src/authorization.cpp:46
+msgctxt "ContactList|"
+msgid "Ask authorization"
+msgstr "בקש הרשאה"
+
+#: ../../../protocols/oscar/src/authorization.cpp:105
+msgctxt "ContactList|"
+msgid "Authorization request accepted"
+msgstr "בקשת הרשאה התקבלה"
+
+#: ../../../protocols/oscar/src/authorization.cpp:106
+msgctxt "ContactList|"
+msgid "Authorization request declined"
+msgstr "בקשת הרשאה נדחתה"
+
+#: ../../../protocols/oscar/src/authorization.cpp:144
+msgctxt "ContactList|"
+msgid "Please, authorize me"
+msgstr "בבקשה, אשר אותי"
+
+#: ../../../protocols/oscar/src/icqcontact.cpp:379
+msgctxt "ContactList|"
+msgid "Online time"
+msgstr "זמן מקוון"
+
+#: ../../../protocols/oscar/src/icqcontact.cpp:386
+msgctxt "ContactList|"
+msgid "Signed on"
+msgstr ""
+
+#: ../../../protocols/oscar/src/icqcontact.cpp:391
+msgctxt "ContactList|"
+msgid "Away since"
+msgstr "נעדר מאז"
+
+#: ../../../protocols/oscar/src/icqcontact.cpp:396
+msgctxt "ContactList|"
+msgid "Reg. date"
+msgstr ""
+
+#: ../../../protocols/oscar/src/privacylists.cpp:181
+msgctxt "ContactList|"
+msgid "Add to visible list"
+msgstr "הוסף לרשימה נראית"
+
+#: ../../../protocols/oscar/src/privacylists.cpp:182
+msgctxt "ContactList|"
+msgid "Remove from visible list"
+msgstr "הסר מרשימה נראית"
+
+#: ../../../protocols/oscar/src/privacylists.cpp:184
+msgctxt "ContactList|"
+msgid "Add to invisible list"
+msgstr "הוסף לרשימה בלתי נראית"
+
+#: ../../../protocols/oscar/src/privacylists.cpp:185
+msgctxt "ContactList|"
+msgid "Remove from invisible list"
+msgstr "הסר מרשימה בלתי נראית"
+
+#: ../../../protocols/oscar/src/privacylists.cpp:187
+msgctxt "ContactList|"
+msgid "Add to ignore list"
+msgstr "הוסף לרשימה מנוכרת"
+
+#: ../../../protocols/oscar/src/privacylists.cpp:188
+msgctxt "ContactList|"
+msgid "Remove from ignore list"
+msgstr "הסר מרשימה מנוכרת"
+
+#: ../../../protocols/oscar/src/contactsearch.cpp:96
+msgctxt "ContactSearch|"
+msgid "UIN"
+msgstr ""
+
+#: ../../../protocols/oscar/src/contactsearch.cpp:98
+msgctxt "ContactSearch|"
+msgid "Nick"
+msgstr "כינוי"
+
+#: ../../../protocols/oscar/src/contactsearch.cpp:100
+msgctxt "ContactSearch|"
+msgid "First name"
+msgstr "שם פרטי"
+
+#: ../../../protocols/oscar/src/contactsearch.cpp:102
+msgctxt "ContactSearch|"
+msgid "Last name"
+msgstr "שם משפחה"
+
+#: ../../../protocols/oscar/src/contactsearch.cpp:104
+msgctxt "ContactSearch|"
+msgid "Email"
+msgstr "דוא״ל"
+
+#: ../../../protocols/oscar/src/contactsearch.cpp:106
+msgctxt "ContactSearch|"
+msgid "Gender"
+msgstr "מין"
+
+#: ../../../protocols/oscar/src/contactsearch.cpp:108
+msgctxt "ContactSearch|"
+msgid "Age"
+msgstr "גיל"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:35
+msgctxt "Country|"
+msgid "Other"
+msgstr "אחר"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:36
+msgctxt "Country|"
+msgid "Afghanistan"
+msgstr "אפגניסטן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:37
+msgctxt "Country|"
+msgid "Albania"
+msgstr "אלבניה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:38
+msgctxt "Country|"
+msgid "Algeria"
+msgstr "אלג'יריה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:39
+msgctxt "Country|"
+msgid "Andorra"
+msgstr "אנדורה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:40
+msgctxt "Country|"
+msgid "Angola"
+msgstr "אנגולה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:41
+msgctxt "Country|"
+msgid "Anguilla"
+msgstr "אנגווילה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:42
+msgctxt "Country|"
+msgid "Antigua and Barbuda"
+msgstr "אנטיגואה וברבודה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:43
+msgctxt "Country|"
+msgid "Antilles"
+msgstr "איי האנטילים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:44
+msgctxt "Country|"
+msgid "Argentina"
+msgstr "ארגנטינה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:45
+msgctxt "Country|"
+msgid "Armenia"
+msgstr "ארמניה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:46
+msgctxt "Country|"
+msgid "Aruba"
+msgstr "ארובה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:47
+msgctxt "Country|"
+msgid "Ascension Island"
+msgstr "אי התרוממות"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:48
+msgctxt "Country|"
+msgid "Australia"
+msgstr "אוסטרליה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:49
+msgctxt "Country|"
+msgid "Austria"
+msgstr "אוסטריה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:50
+msgctxt "Country|"
+msgid "Azerbaijan"
+msgstr "אזרביג'אן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:51
+msgctxt "Country|"
+msgid "Bahamas"
+msgstr "בהאמה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:52
+msgctxt "Country|"
+msgid "Bahrain"
+msgstr "בחריין"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:53
+msgctxt "Country|"
+msgid "Bangladesh"
+msgstr "בנגלדש"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:54
+msgctxt "Country|"
+msgid "Barbados"
+msgstr "ברבדוס"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:55
+msgctxt "Country|"
+msgid "Barbuda"
+msgstr "ברבודה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:56
+msgctxt "Country|"
+msgid "Belarus"
+msgstr "בלארוס"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:57
+msgctxt "Country|"
+msgid "Belgium"
+msgstr "בלגיה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:58
+msgctxt "Country|"
+msgid "Belize"
+msgstr "בליז"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:59
+msgctxt "Country|"
+msgid "Benin"
+msgstr "בנין"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:60
+msgctxt "Country|"
+msgid "Bermuda"
+msgstr "ברמודה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:61
+msgctxt "Country|"
+msgid "Bhutan"
+msgstr "בהוטן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:62
+msgctxt "Country|"
+msgid "Bolivia"
+msgstr "בוליביה‬"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:63
+msgctxt "Country|"
+msgid "Bosnia and Herzegovina"
+msgstr "בוסניה והרצגובינה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:64
+msgctxt "Country|"
+msgid "Botswana"
+msgstr "בוטסואנה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:65
+msgctxt "Country|"
+msgid "Brazil"
+msgstr "ברזיל"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:66
+msgctxt "Country|"
+msgid "British Virgin Islands"
+msgstr "איי הבתולה הבריטיים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:67
+msgctxt "Country|"
+msgid "Brunei"
+msgstr "ברוניי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:68
+msgctxt "Country|"
+msgid "Bulgaria"
+msgstr "בולגריה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:69
+msgctxt "Country|"
+msgid "Burkina Faso"
+msgstr "בורקינה פאסו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:70
+msgctxt "Country|"
+msgid "Burundi"
+msgstr "בורונדי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:71
+msgctxt "Country|"
+msgid "Cambodia"
+msgstr "קמבודיה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:72
+msgctxt "Country|"
+msgid "Cameroon"
+msgstr "קמרון"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:73
+msgctxt "Country|"
+msgid "Canada"
+msgstr "קנדה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:74
+msgctxt "Country|"
+msgid "Canary Islands"
+msgstr "האיים הקנריים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:75
+msgctxt "Country|"
+msgid "Cape Verde Islands"
+msgstr "איי קייפ ורדה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:76
+msgctxt "Country|"
+msgid "Cayman Islands"
+msgstr "איי קיימאן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:77
+msgctxt "Country|"
+msgid "Central African Republic"
+msgstr "הרפובליקה המרכז אפריקאית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:78
+msgctxt "Country|"
+msgid "Chad"
+msgstr "צ'אד"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:79
+msgctxt "Country|"
+msgid "Chile, Republic of"
+msgstr "צ'ילה, הרפובליקה של"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:80
+msgctxt "Country|"
+msgid "China"
+msgstr "סין"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:81
+msgctxt "Country|"
+msgid "Christmas Island"
+msgstr "אי קריסמס"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:82
+msgctxt "Country|"
+msgid "Cocos (Keeling) Islands"
+msgstr "איי קוקוס (קילינג)"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:83
+msgctxt "Country|"
+msgid "Colombia"
+msgstr "קולומביה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:84
+msgctxt "Country|"
+msgid "Comoros"
+msgstr "קומורו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:85
+msgctxt "Country|"
+msgid "Congo, (Republic of the)"
+msgstr "הקונגו, (הרפובליקה של)"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:86
+msgctxt "Country|"
+msgid "Congo, Democratic Republic of (Zaire)"
+msgstr "הקונגו, הרפובליקה הדמוקרטית של (זאיר)"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:87
+msgctxt "Country|"
+msgid "Cook Islands"
+msgstr "איי קוק"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:88
+msgctxt "Country|"
+msgid "Costa Rica"
+msgstr "קוסטה ריקה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:89
+msgctxt "Country|"
+msgid "Cote d'Ivoire (Ivory Coast)"
+msgstr "חוף השנהב"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:90
+msgctxt "Country|"
+msgid "Croatia"
+msgstr "קרואטיה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:91
+msgctxt "Country|"
+msgid "Cuba"
+msgstr "קובה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:92
+msgctxt "Country|"
+msgid "Cyprus"
+msgstr "קפריסין"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:93
+msgctxt "Country|"
+msgid "Czech Republic"
+msgstr "הרפובליקה הצ'כית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:94
+msgctxt "Country|"
+msgid "Denmark"
+msgstr "דנמרק"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:95
+msgctxt "Country|"
+msgid "Diego Garcia"
+msgstr "דייגו גרסייה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:96
+msgctxt "Country|"
+msgid "Djibouti"
+msgstr "דג'יבוטי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:97
+msgctxt "Country|"
+msgid "Dominica"
+msgstr "דומיניקה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:98
+msgctxt "Country|"
+msgid "Dominican Republic"
+msgstr "רפובליקה דומיניקנית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:99
+msgctxt "Country|"
+msgid "Ecuador"
+msgstr "אקוודור"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:100
+msgctxt "Country|"
+msgid "Egypt"
+msgstr "מצרים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:101
+msgctxt "Country|"
+msgid "El Salvador"
+msgstr "אל סלבדור"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:102
+msgctxt "Country|"
+msgid "Equatorial Guinea"
+msgstr "גינאה המשוונית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:103
+msgctxt "Country|"
+msgid "Eritrea"
+msgstr "אריתריאה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:104
+msgctxt "Country|"
+msgid "Estonia"
+msgstr "אסטוניה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:105
+msgctxt "Country|"
+msgid "Ethiopia"
+msgstr "אתיופיה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:106
+msgctxt "Country|"
+msgid "Faeroe Islands"
+msgstr "איי פארו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:107
+msgctxt "Country|"
+msgid "Falkland Islands"
+msgstr "איי פוקלנד"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:108
+msgctxt "Country|"
+msgid "Fiji"
+msgstr "פיג'י"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:109
+msgctxt "Country|"
+msgid "Finland"
+msgstr "פינלנד"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:110
+msgctxt "Country|"
+msgid "France"
+msgstr "צרפת"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:111
+msgctxt "Country|"
+msgid "French Antilles"
+msgstr "אנטילים צרפתים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:112
+msgctxt "Country|"
+msgid "French Guiana"
+msgstr "גיאנה צרפתית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:113
+msgctxt "Country|"
+msgid "French Polynesia"
+msgstr "פולינזיה צרפתית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:114
+msgctxt "Country|"
+msgid "Gabon"
+msgstr "גבון"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:115
+msgctxt "Country|"
+msgid "Gambia"
+msgstr "גמביה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:116
+msgctxt "Country|"
+msgid "Georgia"
+msgstr "גרוזיה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:117
+msgctxt "Country|"
+msgid "Germany"
+msgstr "גרמניה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:118
+msgctxt "Country|"
+msgid "Ghana"
+msgstr "גאנה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:119
+msgctxt "Country|"
+msgid "Gibraltar"
+msgstr "ג'יברלטר"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:120
+msgctxt "Country|"
+msgid "Greece"
+msgstr "יוון"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:121
+msgctxt "Country|"
+msgid "Greenland"
+msgstr "גרינלנד"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:122
+msgctxt "Country|"
+msgid "Grenada"
+msgstr "גרנדה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:123
+msgctxt "Country|"
+msgid "Guadeloupe"
+msgstr "גוואדלופ"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:124
+msgctxt "Country|"
+msgid "Guam, US Territory of"
+msgstr "גואם, טריטוריית ארה\"ב של"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:125
+msgctxt "Country|"
+msgid "Guatemala"
+msgstr "גואטמלה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:126
+msgctxt "Country|"
+msgid "Guinea"
+msgstr "גינאה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:127
+msgctxt "Country|"
+msgid "Guinea-Bissau"
+msgstr "גינאה-ביסאו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:128
+msgctxt "Country|"
+msgid "Guyana"
+msgstr "גיאנה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:129
+msgctxt "Country|"
+msgid "Haiti"
+msgstr "האיטי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:130
+msgctxt "Country|"
+msgid "Honduras"
+msgstr "הונדורס"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:131
+msgctxt "Country|"
+msgid "Hong Kong"
+msgstr "הונג קונג"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:132
+msgctxt "Country|"
+msgid "Hungary"
+msgstr "הונגריה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:133
+msgctxt "Country|"
+msgid "Iceland"
+msgstr "איסלנד"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:134
+msgctxt "Country|"
+msgid "India"
+msgstr "הודו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:135
+msgctxt "Country|"
+msgid "Indonesia"
+msgstr "אינדונזיה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:136
+msgctxt "Country|"
+msgid "Iran (Islamic Republic of)"
+msgstr "איראן (הרפובליקה האיסלאמית של)"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:137
+msgctxt "Country|"
+msgid "Iraq"
+msgstr "עיראק"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:138
+msgctxt "Country|"
+msgid "Ireland"
+msgstr "אירלנד"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:139
+msgctxt "Country|"
+msgid "Israel"
+msgstr "ישראל"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:140
+msgctxt "Country|"
+msgid "Italy"
+msgstr "איטליה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:141
+msgctxt "Country|"
+msgid "Jamaica"
+msgstr "ג'מייקה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:142
+msgctxt "Country|"
+msgid "Japan"
+msgstr "יפן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:143
+msgctxt "Country|"
+msgid "Jordan"
+msgstr "ירדן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:144
+msgctxt "Country|"
+msgid "Kazakhstan"
+msgstr "קזחסטן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:145
+msgctxt "Country|"
+msgid "Kenya"
+msgstr "קניה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:146
+msgctxt "Country|"
+msgid "Kiribati"
+msgstr "קיריבאטי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:147
+msgctxt "Country|"
+msgid "Korea (North Korea), Democratic People's Republic of"
+msgstr "קוריאה (צפון קוריאה), הרפובליקה העממית דמוקרטית של"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:148
+msgctxt "Country|"
+msgid "Korea (South Korea), Republic of"
+msgstr "קוריאה (דרום קוריאה), הרפובליקה של"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:149
+msgctxt "Country|"
+msgid "Kuwait"
+msgstr "כווית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:150
+msgctxt "Country|"
+msgid "Kyrgyzstan"
+msgstr "קירגיסטן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:151
+msgctxt "Country|"
+msgid "Lao People's Democratic Republic"
+msgstr "הרפובליקה הדמוקרטית העממית של לאוס"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:152
+msgctxt "Country|"
+msgid "Latvia"
+msgstr "לטוויה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:153
+msgctxt "Country|"
+msgid "Lebanon"
+msgstr "לבנון"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:154
+msgctxt "Country|"
+msgid "Lesotho"
+msgstr "לסוטו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:155
+msgctxt "Country|"
+msgid "Liberia"
+msgstr "ליבריה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:156
+msgctxt "Country|"
+msgid "Libyan Arab Jamahiriya"
+msgstr "הג'מהיריה הלובית ערבית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:157
+msgctxt "Country|"
+msgid "Liechtenstein"
+msgstr "ליכטנשטיין"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:158
+msgctxt "Country|"
+msgid "Lithuania"
+msgstr "ליטא"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:159
+msgctxt "Country|"
+msgid "Luxembourg"
+msgstr "לוקסמבורג"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:160
+msgctxt "Country|"
+msgid "Macau"
+msgstr "מקאו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:161
+msgctxt "Country|"
+msgid "Macedonia (F.Y.R.O.M.)"
+msgstr "מקדוניה (הרפובליקה היוגוסלבית לשעבר של)"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:162
+msgctxt "Country|"
+msgid "Madagascar"
+msgstr "מדגסקר"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:163
+msgctxt "Country|"
+msgid "Malawi"
+msgstr "מלאווי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:164
+msgctxt "Country|"
+msgid "Malaysia"
+msgstr "מלזיה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:165
+msgctxt "Country|"
+msgid "Maldives"
+msgstr "המלדיביים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:166
+msgctxt "Country|"
+msgid "Mali"
+msgstr "מאלי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:167
+msgctxt "Country|"
+msgid "Malta"
+msgstr "מלטה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:168
+msgctxt "Country|"
+msgid "Marshall Islands"
+msgstr "איי מרשל"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:169
+msgctxt "Country|"
+msgid "Martinique"
+msgstr "מרטיניק"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:170
+msgctxt "Country|"
+msgid "Mauritania"
+msgstr "מאוריטניה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:171
+msgctxt "Country|"
+msgid "Mauritius"
+msgstr "מאוריציוס"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:172
+msgctxt "Country|"
+msgid "Mayotte Island"
+msgstr "אי מאיוט"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:173
+msgctxt "Country|"
+msgid "Mexico"
+msgstr "מכסיקו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:174
+msgctxt "Country|"
+msgid "Micronesia, Federated States of"
+msgstr "מיקרונזיה, מדינות פדרליות של"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:175
+msgctxt "Country|"
+msgid "Moldova, Republic of"
+msgstr "מולדובה, הרפובליקה של"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:176
+msgctxt "Country|"
+msgid "Monaco"
+msgstr "מונקו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:177
+msgctxt "Country|"
+msgid "Mongolia"
+msgstr "מונגוליה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:178
+msgctxt "Country|"
+msgid "Montserrat"
+msgstr "מונטסרט"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:179
+msgctxt "Country|"
+msgid "Morocco"
+msgstr "מרוקו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:180
+msgctxt "Country|"
+msgid "Mozambique"
+msgstr "מוזמביק"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:181
+msgctxt "Country|"
+msgid "Myanmar"
+msgstr "מיאנמר"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:182
+msgctxt "Country|"
+msgid "Namibia"
+msgstr "נמיביה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:183
+msgctxt "Country|"
+msgid "Nauru"
+msgstr "נאורו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:184
+msgctxt "Country|"
+msgid "Nepal"
+msgstr "נפאל"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:185
+msgctxt "Country|"
+msgid "Netherlands"
+msgstr "ארצות השפלה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:186
+msgctxt "Country|"
+msgid "Netherlands Antilles"
+msgstr "האנטילים של ארצות השפלה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:187
+msgctxt "Country|"
+msgid "Nevis"
+msgstr "נוויס"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:188
+msgctxt "Country|"
+msgid "New Caledonia"
+msgstr "קלדוניה החדשה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:189
+msgctxt "Country|"
+msgid "New Zealand"
+msgstr "ניו זילנד"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:190
+msgctxt "Country|"
+msgid "Nicaragua"
+msgstr "ניקרגואה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:191
+msgctxt "Country|"
+msgid "Niger"
+msgstr "ניז'ר"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:192
+msgctxt "Country|"
+msgid "Nigeria"
+msgstr "ניגריה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:193
+msgctxt "Country|"
+msgid "Niue"
+msgstr "ניווה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:194
+msgctxt "Country|"
+msgid "Norfolk Island"
+msgstr "אי נורפולק"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:195
+msgctxt "Country|"
+msgid "Norway"
+msgstr "נורבגיה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:196
+msgctxt "Country|"
+msgid "Oman"
+msgstr "עומן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:197
+msgctxt "Country|"
+msgid "Pakistan"
+msgstr "פקיסטן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:198
+msgctxt "Country|"
+msgid "Palau"
+msgstr "פָּלָאו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:199
+msgctxt "Country|"
+msgid "Panama"
+msgstr "פנמה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:200
+msgctxt "Country|"
+msgid "Papua New Guinea"
+msgstr "פפואה גינאה החדשה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:201
+msgctxt "Country|"
+msgid "Paraguay"
+msgstr "פרגוואי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:202
+msgctxt "Country|"
+msgid "Peru"
+msgstr "פרו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:203
+msgctxt "Country|"
+msgid "Philippines"
+msgstr "פיליפינים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:204
+msgctxt "Country|"
+msgid "Poland"
+msgstr "פולין"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:205
+msgctxt "Country|"
+msgid "Portugal"
+msgstr "פורטוגל"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:206
+msgctxt "Country|"
+msgid "Puerto Rico, Common Wealth of"
+msgstr "פוארטו ריקו, קהיליית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:207
+msgctxt "Country|"
+msgid "Qatar"
+msgstr "קטאר"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:208
+msgctxt "Country|"
+msgid "Reunion Island"
+msgstr "אי ראוניון"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:209
+msgctxt "Country|"
+msgid "Romania"
+msgstr "רומניה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:210
+msgctxt "Country|"
+msgid "Rota Island"
+msgstr "אי רוטה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:211
+msgctxt "Country|"
+msgid "Russia"
+msgstr "רוסיה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:212
+msgctxt "Country|"
+msgid "Rwanda"
+msgstr "רואנדה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:213
+msgctxt "Country|"
+msgid "Saint Helena"
+msgstr "סיינט הלנה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:214
+msgctxt "Country|"
+msgid "Saint Kitts"
+msgstr "סיינט קיטס"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:215
+msgctxt "Country|"
+msgid "Saint Kitts and Nevis"
+msgstr "סיינט קיטס ונוויס"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:216
+msgctxt "Country|"
+msgid "Saint Lucia"
+msgstr "סיינט לוסיה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:217
+msgctxt "Country|"
+msgid "Saint Pierre and Miquelon"
+msgstr "סיינט פייר ומיקלון"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:218
+msgctxt "Country|"
+msgid "Saint Vincent and the Grenadines"
+msgstr "סיינט וינסנט והגרנדינים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:219
+msgctxt "Country|"
+msgid "Saipan Island"
+msgstr "אי סייפן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:220
+msgctxt "Country|"
+msgid "Samoa"
+msgstr "סמואה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:221
+msgctxt "Country|"
+msgid "San Marino"
+msgstr "סאן מארינו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:222
+msgctxt "Country|"
+msgid "Sao Tome & Principe"
+msgstr "סאו תומה ופרינסיפה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:223
+msgctxt "Country|"
+msgid "Saudi Arabia"
+msgstr "ערב הסעודית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:224
+msgctxt "Country|"
+msgid "Scotland"
+msgstr "סקוטלנד"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:225
+msgctxt "Country|"
+msgid "Senegal"
+msgstr "סנגל"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:226
+msgctxt "Country|"
+msgid "Seychelles"
+msgstr "סיישל"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:227
+msgctxt "Country|"
+msgid "Sierra Leone"
+msgstr "סיירה לאונה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:228
+msgctxt "Country|"
+msgid "Singapore"
+msgstr "סינגפור"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:229
+msgctxt "Country|"
+msgid "Slovakia"
+msgstr "סלובקיה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:230
+msgctxt "Country|"
+msgid "Slovenia"
+msgstr "סלובניה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:231
+msgctxt "Country|"
+msgid "Solomon Islands"
+msgstr "איי שלמה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:232
+msgctxt "Country|"
+msgid "Somalia"
+msgstr "סומליה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:233
+msgctxt "Country|"
+msgid "South Africa"
+msgstr "דרום אפריקה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:234
+msgctxt "Country|"
+msgid "Spain"
+msgstr "ספרד"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:235
+msgctxt "Country|"
+msgid "Sri Lanka"
+msgstr "סרי לנקה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:236
+msgctxt "Country|"
+msgid "Sudan"
+msgstr "סודן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:237
+msgctxt "Country|"
+msgid "Suriname"
+msgstr "סורינאם"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:238
+msgctxt "Country|"
+msgid "Swaziland"
+msgstr "סְוָוזִילַנְד"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:239
+msgctxt "Country|"
+msgid "Sweden"
+msgstr "שבדיה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:240
+msgctxt "Country|"
+msgid "Switzerland"
+msgstr "שוויץ"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:241
+msgctxt "Country|"
+msgid "Syrian Arab Republic"
+msgstr "הרפובליקה הסורית ערבית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:242
+msgctxt "Country|"
+msgid "Taiwan"
+msgstr "טיוואן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:243
+msgctxt "Country|"
+msgid "Tajikistan"
+msgstr "טג'יקיסטן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:244
+msgctxt "Country|"
+msgid "Tanzania, United Republic of"
+msgstr "טנזניה, הרפובליקה המאוחדת של"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:245
+msgctxt "Country|"
+msgid "Thailand"
+msgstr "תאילנד"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:246
+msgctxt "Country|"
+msgid "Tinian Island"
+msgstr "אי טיניאן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:247
+msgctxt "Country|"
+msgid "Togo"
+msgstr "טוגו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:248
+msgctxt "Country|"
+msgid "Tokelau"
+msgstr "טוקלאו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:249
+msgctxt "Country|"
+msgid "Tonga"
+msgstr "טונגה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:250
+msgctxt "Country|"
+msgid "Trinidad and Tobago"
+msgstr "טרינידד וטובגו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:251
+msgctxt "Country|"
+msgid "Tunisia"
+msgstr "טוניסיה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:252
+msgctxt "Country|"
+msgid "Turkey"
+msgstr "טורקיה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:253
+msgctxt "Country|"
+msgid "Turkmenistan"
+msgstr "טורקמניסטן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:254
+msgctxt "Country|"
+msgid "Turks and Caicos Islands"
+msgstr "איי טרקס וקאיקוס"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:255
+msgctxt "Country|"
+msgid "Tuvalu"
+msgstr "טובלו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:256
+msgctxt "Country|"
+msgid "Uganda"
+msgstr "אוגנדה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:257
+msgctxt "Country|"
+msgid "Ukraine"
+msgstr "אוקראינה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:258
+msgctxt "Country|"
+msgid "United Arab Emirates"
+msgstr "איחוד האמירויות הערביות"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:259
+msgctxt "Country|"
+msgid "United Kingdom"
+msgstr "הממלכה המאוחדת"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:260
+msgctxt "Country|"
+msgid "Uruguay"
+msgstr "אורוגוואי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:261
+msgctxt "Country|"
+msgid "USA"
+msgstr "ארצות הברית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:262
+msgctxt "Country|"
+msgid "Uzbekistan"
+msgstr "אוזבקיסטן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:263
+msgctxt "Country|"
+msgid "Vanuatu"
+msgstr "ונואטו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:264
+msgctxt "Country|"
+msgid "Vatican City"
+msgstr "קריית הוותיקן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:265
+msgctxt "Country|"
+msgid "Venezuela"
+msgstr "ונצואלה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:266
+msgctxt "Country|"
+msgid "Viet Nam"
+msgstr "וייטנאם"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:267
+msgctxt "Country|"
+msgid "Virgin Islands of the United States"
+msgstr "איי הבתולה של ארצות הברית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:268
+msgctxt "Country|"
+msgid "Wales"
+msgstr "ווילס"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:269
+msgctxt "Country|"
+msgid "Wallis and Futuna Islands"
+msgstr "איי ואליס ופוטונה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:270
+msgctxt "Country|"
+msgid "Western Samoa"
+msgstr "סמואה המערבית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:271
+msgctxt "Country|"
+msgid "Yemen"
+msgstr "תימן"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:272
+msgctxt "Country|"
+msgid "Yugoslavia"
+msgstr "יוגוסלביה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:273
+msgctxt "Country|"
+msgid "Yugoslavia - Montenegro"
+msgstr "יוגוסלביה - מונטנגרו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:274
+msgctxt "Country|"
+msgid "Yugoslavia - Serbia"
+msgstr "יוגוסלביה - סרביה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:275
+msgctxt "Country|"
+msgid "Zambia"
+msgstr "זמביה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:276
+msgctxt "Country|"
+msgid "Zimbabwe"
+msgstr "זימבבואה"
+
+#: ../../../protocols/oscar/src/feedbag.cpp:178
+msgctxt "FeedbagError|"
+msgid "No error"
+msgstr "אין שגיאה"
+
+#: ../../../protocols/oscar/src/feedbag.cpp:180
+msgctxt "FeedbagError|"
+msgid "Item you want to modify not found in list"
+msgstr "פריט שברצונך לשנות לא נמצא ברשימה"
+
+#: ../../../protocols/oscar/src/feedbag.cpp:182
+msgctxt "FeedbagError|"
+msgid "Item you want to add allready exists"
+msgstr "פריט שברצונך להוסיף כבר קיים"
+
+#: ../../../protocols/oscar/src/feedbag.cpp:184
+msgctxt "FeedbagError|"
+msgid "Error adding item (invalid id, allready in list, invalid data)"
+msgstr "שגיאה בהוספת פריט (מזהה לא תקף, כבר ברשימה, נתונים לא תקפים)"
+
+#: ../../../protocols/oscar/src/feedbag.cpp:186
+msgctxt "FeedbagError|"
+msgid "Can't add item. Limit for this type of items exceeded"
+msgstr "אן אפשרות להוסיף פריט. גבול עבור טיפוס של פריטים מוצה"
+
+#: ../../../protocols/oscar/src/feedbag.cpp:188
+msgctxt "FeedbagError|"
+msgid "Trying to add ICQ contact to an AIM list"
+msgstr "מנסה כעת להוסיף איש קשר ICQ לרשימת AIM"
+
+#: ../../../protocols/oscar/src/feedbag.cpp:190
+msgctxt "FeedbagError|"
+msgid "Can't add this contact because it requires authorization"
+msgstr "אן אפשרות להוסיף איש קשר משום שזה מצריך הרשאה"
+
+#: ../../../protocols/oscar/src/feedbag.cpp:192
+#, qt-format
+msgctxt "FeedbagError|"
+msgid "Unknown error (Code: %1)"
+msgstr "שגיאה לא מוכרת (קוד: %1)"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:455
+msgctxt "Gender|"
+msgid "Male"
+msgstr "זכר"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:456
+msgctxt "Gender|"
+msgid "Female"
+msgstr "נקבה"
+
+#: ../../../protocols/oscar/src/ui/icqaccountmainsettings.ui:14
+msgctxt "IcqAccountMainSettings|"
+msgid "Form"
+msgstr "טופס"
+
+#: ../../../protocols/oscar/src/ui/icqaccountmainsettings.ui:23
+msgctxt "IcqAccountMainSettings|"
+msgid "UIN:"
+msgstr "‏UIN‏:"
+
+#: ../../../protocols/oscar/src/ui/icqaccountmainsettings.ui:33
+msgctxt "IcqAccountMainSettings|"
+msgid "Password:"
+msgstr "סיסמה:"
+
+#: ../../../protocols/oscar/src/ui/icqaccountmainsettings.ui:50
+msgctxt "IcqAccountMainSettings|"
+msgid "User name:"
+msgstr "שם משתמש:"
+
+#: ../../../protocols/oscar/src/ui/icqaccountmainsettings.ui:60
+msgctxt "IcqAccountMainSettings|"
+msgid "Server:"
+msgstr "שרת:"
+
+#: ../../../protocols/oscar/src/ui/icqaccountmainsettings.ui:80
+msgctxt "IcqAccountMainSettings|"
+msgid "Port:"
+msgstr "פורט:"
+
+#: ../../../protocols/oscar/src/ui/icqaccountmainsettings.ui:106
+msgctxt "IcqAccountMainSettings|"
+msgid "Use SSL authorization (experimental)"
+msgstr "השתמש בהרשאת SSL (ניסיוני)"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:493
+msgctxt "Industry|"
+msgid "Agriculture"
+msgstr "חקלאות"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:494
+msgctxt "Industry|"
+msgid "Arts"
+msgstr "אומנות"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:495
+msgctxt "Industry|"
+msgid "Construction"
+msgstr "בנייה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:496
+msgctxt "Industry|"
+msgid "Consumer Goods"
+msgstr "מוצרי צריכה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:497
+msgctxt "Industry|"
+msgid "Corporate Services"
+msgstr "שירותי תאגיד"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:498
+msgctxt "Industry|"
+msgid "Education"
+msgstr "חינוך"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:499
+msgctxt "Industry|"
+msgid "Finance"
+msgstr "פיננסים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:500
+msgctxt "Industry|"
+msgid "Government"
+msgstr "ממשל"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:501
+msgctxt "Industry|"
+msgid "High Tech"
+msgstr "היי-טק"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:502
+msgctxt "Industry|"
+msgid "Legal"
+msgstr "משפט"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:503
+msgctxt "Industry|"
+msgid "Manufacturing"
+msgstr "ייצור"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:504
+msgctxt "Industry|"
+msgid "Media"
+msgstr "תקשורת"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:505
+msgctxt "Industry|"
+msgid "Medical & Health Care"
+msgstr "רפואה ושירותי בריאות"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:506
+msgctxt "Industry|"
+msgid "Non-Profit Organization Management"
+msgstr "ניהול מלכ״ר"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:507
+msgctxt "Industry|"
+msgid "Other"
+msgstr "אחר"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:508
+msgctxt "Industry|"
+msgid "Recreation, Travel & Entertainment"
+msgstr "שעשועים, נסיעות ובידור"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:509
+msgctxt "Industry|"
+msgid "Service Industry"
+msgstr "תעשיית שירות"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:510
+msgctxt "Industry|"
+msgid "Transportation"
+msgstr "תחבורה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:289
+msgctxt "Interest|"
+msgid "50's"
+msgstr "שנות החמישים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:290
+msgctxt "Interest|"
+msgid "60's"
+msgstr "שנות השישים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:291
+msgctxt "Interest|"
+msgid "70's"
+msgstr "שנות השבעים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:292
+msgctxt "Interest|"
+msgid "80's"
+msgstr "שנות השמונים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:293
+msgctxt "Interest|"
+msgid "Art"
+msgstr "אומנות"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:294
+msgctxt "Interest|"
+msgid "Astronomy"
+msgstr "אסטרונומיה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:295
+msgctxt "Interest|"
+msgid "Audio and Visual"
+msgstr "שמע וחזות"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:296
+msgctxt "Interest|"
+msgid "Business"
+msgstr "עסקים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:297
+msgctxt "Interest|"
+msgid "Business Services"
+msgstr "שירותי עסקים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:298
+msgctxt "Interest|"
+msgid "Cars"
+msgstr "מכוניות"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:299
+msgctxt "Interest|"
+msgid "Celebrity Fans"
+msgstr "מעריצי סלבריטי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:300
+msgctxt "Interest|"
+msgid "Clothing"
+msgstr "הלבשה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:301
+msgctxt "Interest|"
+msgid "Collections"
+msgstr "אוספים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:302
+msgctxt "Interest|"
+msgid "Computers"
+msgstr "מחשבים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:303
+msgctxt "Interest|"
+msgid "Culture"
+msgstr "תרבות"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:304
+msgctxt "Interest|"
+msgid "Ecology"
+msgstr "אקולוגיה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:305
+msgctxt "Interest|"
+msgid "Entertainment"
+msgstr "בידור"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:306
+msgctxt "Interest|"
+msgid "Finance and Corporate"
+msgstr "פיננסים ותאגידים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:307
+msgctxt "Interest|"
+msgid "Fitness"
+msgstr "כושר"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:308
+msgctxt "Interest|"
+msgid "Health and Beauty"
+msgstr "בריאות ויופי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:309
+msgctxt "Interest|"
+msgid "Hobbies"
+msgstr "תחביבים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:310
+msgctxt "Interest|"
+msgid "Home Automation"
+msgstr "מיכון ביתי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:311
+msgctxt "Interest|"
+msgid "Household Products"
+msgstr "מוצרי משק בית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:312
+msgctxt "Interest|"
+msgid "Games"
+msgstr "משחקים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:313
+msgctxt "Interest|"
+msgid "Government"
+msgstr "ממשל"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:314
+msgctxt "Interest|"
+msgid "ICQ - Help"
+msgstr "ICQ - עזרה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:315
+msgctxt "Interest|"
+msgid "Internet"
+msgstr "מרשתת"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:316
+msgctxt "Interest|"
+msgid "Lifestyle"
+msgstr "סגנון חיים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:317
+msgctxt "Interest|"
+msgid "Mail Order Catalog"
+msgstr ""
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:318
+msgctxt "Interest|"
+msgid "Media"
+msgstr "תקשורת"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:319
+msgctxt "Interest|"
+msgid "Movies and TV"
+msgstr "תשקורת וטלוויזיה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:320
+msgctxt "Interest|"
+msgid "Music"
+msgstr "מוזיקה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:321
+msgctxt "Interest|"
+msgid "Mystics"
+msgstr "מיסטיקה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:322
+msgctxt "Interest|"
+msgid "News and Media"
+msgstr "חדשות ותקשורת"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:323
+msgctxt "Interest|"
+msgid "Outdoors"
+msgstr "טבע באוויר הצח"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:324
+msgctxt "Interest|"
+msgid "Parenting"
+msgstr "הורות"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:325
+msgctxt "Interest|"
+msgid "Parties"
+msgstr "מסיבות"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:326
+msgctxt "Interest|"
+msgid "Pets and Animals"
+msgstr "חיות מחמד ובעלי חיים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:327
+msgctxt "Interest|"
+msgid "Publishing"
+msgstr "הוצאה לאור"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:328
+msgctxt "Interest|"
+msgid "Religion"
+msgstr "דת"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:329
+msgctxt "Interest|"
+msgid "Retail Stores"
+msgstr "חנויות קמעונאות"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:330
+msgctxt "Interest|"
+msgid "Science"
+msgstr "מדע"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:331
+msgctxt "Interest|"
+msgid "Skills"
+msgstr "מיומנויות"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:332
+msgctxt "Interest|"
+msgid "Social science"
+msgstr "מדעי חברה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:333
+msgctxt "Interest|"
+msgid "Space"
+msgstr "חלל חיצון"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:334
+msgctxt "Interest|"
+msgid "Sporting and Athletic"
+msgstr "ספורט ואתלטיקה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:335
+msgctxt "Interest|"
+msgid "Sports"
+msgstr "ספורט"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:336
+msgctxt "Interest|"
+msgid "Travel"
+msgstr "מסע"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:337
+msgctxt "Interest|"
+msgid "Web Design"
+msgstr "עיצוב רשת"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:338
+msgctxt "Interest|"
+msgid "Women"
+msgstr "נשים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:351
+msgctxt "Language|"
+msgid "Afrikaans"
+msgstr "אפריקאנס"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:352
+msgctxt "Language|"
+msgid "Albanian"
+msgstr "אלבנית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:353
+msgctxt "Language|"
+msgid "Arabic"
+msgstr "ערבית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:354
+msgctxt "Language|"
+msgid "Armenian"
+msgstr "ארמנית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:355
+msgctxt "Language|"
+msgid "Azerbaijani"
+msgstr "אזרבאיז'אנית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:356
+msgctxt "Language|"
+msgid "Belorussian"
+msgstr "בלארוסית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:357
+msgctxt "Language|"
+msgid "Bhojpuri"
+msgstr ""
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:358
+msgctxt "Language|"
+msgid "Bosnian"
+msgstr "בוסנית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:359
+msgctxt "Language|"
+msgid "Bulgarian"
+msgstr "בולגרית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:360
+msgctxt "Language|"
+msgid "Burmese"
+msgstr "בורמזי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:361
+msgctxt "Language|"
+msgid "Cantonese"
+msgstr "קנטוני"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:362
+msgctxt "Language|"
+msgid "Catalan"
+msgstr "קטלאנית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:363
+msgctxt "Language|"
+msgid "Chamorro"
+msgstr "צ'אמורו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:364
+msgctxt "Language|"
+msgid "Chinese"
+msgstr "סינית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:365
+msgctxt "Language|"
+msgid "Croatian"
+msgstr "קרואטית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:366
+msgctxt "Language|"
+msgid "Czech"
+msgstr "צ'כית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:367
+msgctxt "Language|"
+msgid "Danish"
+msgstr "דנית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:368
+msgctxt "Language|"
+msgid "Dutch"
+msgstr "הולנדית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:369
+msgctxt "Language|"
+msgid "English"
+msgstr "אנגלית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:370
+msgctxt "Language|"
+msgid "Esperanto"
+msgstr "אספרנטו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:371
+msgctxt "Language|"
+msgid "Estonian"
+msgstr "אסטונית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:372
+msgctxt "Language|"
+msgid "Farsi"
+msgstr "פרסית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:373
+msgctxt "Language|"
+msgid "Finnish"
+msgstr "פינית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:374
+msgctxt "Language|"
+msgid "French"
+msgstr "צרפתית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:375
+msgctxt "Language|"
+msgid "Gaelic"
+msgstr "גאלית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:376
+msgctxt "Language|"
+msgid "German"
+msgstr "גרמנית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:377
+msgctxt "Language|"
+msgid "Greek"
+msgstr "יוונית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:378
+msgctxt "Language|"
+msgid "Gujarati"
+msgstr "גוז'אראטי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:379
+msgctxt "Language|"
+msgid "Hebrew"
+msgstr "עברית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:380
+msgctxt "Language|"
+msgid "Hindi"
+msgstr "הינדית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:381
+msgctxt "Language|"
+msgid "Hungarian"
+msgstr "הונגרית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:382
+msgctxt "Language|"
+msgid "Icelandic"
+msgstr "איסלנדית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:383
+msgctxt "Language|"
+msgid "Indonesian"
+msgstr "אינדונזית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:384
+msgctxt "Language|"
+msgid "Italian"
+msgstr "איטלקית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:385
+msgctxt "Language|"
+msgid "Japanese"
+msgstr "יפנית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:386
+msgctxt "Language|"
+msgid "Khmer"
+msgstr "חמר"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:387
+msgctxt "Language|"
+msgid "Korean"
+msgstr "קוריאנית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:388
+msgctxt "Language|"
+msgid "Kurdish"
+msgstr "כורדית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:389
+msgctxt "Language|"
+msgid "Lao"
+msgstr "לאו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:390
+msgctxt "Language|"
+msgid "Latvian"
+msgstr "לטבית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:391
+msgctxt "Language|"
+msgid "Lithuanian"
+msgstr "ליטאית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:392
+msgctxt "Language|"
+msgid "Macedonian"
+msgstr "מקדונית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:393
+msgctxt "Language|"
+msgid "Malay"
+msgstr "מאלאית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:394
+msgctxt "Language|"
+msgid "Mandarin"
+msgstr "מנדרין"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:395
+msgctxt "Language|"
+msgid "Mongolian"
+msgstr "מונגולי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:396
+msgctxt "Language|"
+msgid "Norwegian"
+msgstr "נורבגית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:397
+msgctxt "Language|"
+msgid "Persian"
+msgstr "פרסית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:398
+msgctxt "Language|"
+msgid "Polish"
+msgstr "פולנית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:399
+msgctxt "Language|"
+msgid "Portuguese"
+msgstr "פורטוגזית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:400
+msgctxt "Language|"
+msgid "Punjabi"
+msgstr "פונג'בית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:401
+msgctxt "Language|"
+msgid "Romanian"
+msgstr "רומנית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:402
+msgctxt "Language|"
+msgid "Russian"
+msgstr "רוסית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:403
+msgctxt "Language|"
+msgid "Serbian"
+msgstr "סרבית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:404
+msgctxt "Language|"
+msgid "Sindhi"
+msgstr "סינדהית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:405
+msgctxt "Language|"
+msgid "Slovak"
+msgstr "סלובקית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:406
+msgctxt "Language|"
+msgid "Slovenian"
+msgstr "סלובנית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:407
+msgctxt "Language|"
+msgid "Somali"
+msgstr "סומלי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:408
+msgctxt "Language|"
+msgid "Spanish"
+msgstr "ספרדית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:409
+msgctxt "Language|"
+msgid "Swahili"
+msgstr "סווהילית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:410
+msgctxt "Language|"
+msgid "Swedish"
+msgstr "שוודית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:411
+msgctxt "Language|"
+msgid "Tagalog"
+msgstr "טגלוג"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:412
+msgctxt "Language|"
+msgid "Taiwanese"
+msgstr "טאיוואנית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:413
+msgctxt "Language|"
+msgid "Tamil"
+msgstr "טמילי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:414
+msgctxt "Language|"
+msgid "Tatar"
+msgstr "טאטרית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:415
+msgctxt "Language|"
+msgid "Thai"
+msgstr "תאית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:416
+msgctxt "Language|"
+msgid "Turkish"
+msgstr "טורקית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:417
+msgctxt "Language|"
+msgid "Ukrainian"
+msgstr "אוקראינית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:418
+msgctxt "Language|"
+msgid "Urdu"
+msgstr "אורדו"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:419
+msgctxt "Language|"
+msgid "Vietnamese"
+msgstr "וייטנאמית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:420
+msgctxt "Language|"
+msgid "Welsh"
+msgstr "וולשית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:421
+msgctxt "Language|"
+msgid "Yiddish"
+msgstr "יידיש"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:422
+msgctxt "Language|"
+msgid "Yoruba"
+msgstr "יורובה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:614
+msgctxt "Marital|"
+msgid "Single"
+msgstr "רווק/ה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:615
+msgctxt "Marital|"
+msgid "Close relationships"
+msgstr "יחסי קרבה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:616
+msgctxt "Marital|"
+msgid "Engaged"
+msgstr "מאורס/ת"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:617
+msgctxt "Marital|"
+msgid "Married"
+msgstr "נשוי/אה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:618
+msgctxt "Marital|"
+msgid "Divorced"
+msgstr "גרוש/ה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:619
+msgctxt "Marital|"
+msgid "Separated"
+msgstr "פרוד/ה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:620
+msgctxt "Marital|"
+msgid "Widowed"
+msgstr "אלמן/ה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:621
+msgctxt "Marital|"
+msgid "Open relationship"
+msgstr "יחסים פתוחים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:622
+msgctxt "Marital|"
+msgid "Other"
+msgstr "אחר"
+
+#: ../../../protocols/oscar/src/privacylists.cpp:207
+msgctxt "Menu|"
+msgid "Privacy status"
+msgstr "מצב פרטיות"
+
+#: ../../../protocols/oscar/src/metainfo/metafield.cpp:33
+msgctxt "MetaInfo|"
+msgid "Not specified"
+msgstr "לא צוין"
+
+#: ../../../protocols/oscar/src/metainfo/metafield.cpp:108
+msgctxt "MetaInfo|"
+msgid "Basic"
+msgstr "בסיסי"
+
+#: ../../../protocols/oscar/src/metainfo/metafield.cpp:110
+msgctxt "MetaInfo|"
+msgid "More"
+msgstr "עוד"
+
+#: ../../../protocols/oscar/src/metainfo/metafield.cpp:112
+msgctxt "MetaInfo|"
+msgid "Work"
+msgstr "עבודה"
+
+#: ../../../protocols/oscar/src/metainfo/metafield.cpp:114
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:676
+msgctxt "MetaInfo|"
+msgid "Affilations"
+msgstr "סינופים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:635
+msgctxt "MetaInfo|"
+msgid "Nick"
+msgstr "כינוי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:636
+msgctxt "MetaInfo|"
+msgid "First name"
+msgstr "שם פרטי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:637
+msgctxt "MetaInfo|"
+msgid "Last name"
+msgstr "שם משפחה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:638
+msgctxt "MetaInfo|"
+msgid "Email"
+msgstr "דוא״ל"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:644
+msgctxt "MetaInfo|"
+msgid "Cell phone"
+msgstr "טלפון סלולרי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:647
+msgctxt "MetaInfo|"
+msgid "GMT"
+msgstr ""
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:648
+msgctxt "MetaInfo|"
+msgid "Authorization"
+msgstr "הרשאה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:649
+msgctxt "MetaInfo|"
+msgid "Webaware"
+msgstr ""
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:650
+msgctxt "MetaInfo|"
+msgid "Direct connection"
+msgstr "חיבור ישיר"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:651
+msgctxt "MetaInfo|"
+msgid "Public primary email"
+msgstr "דוא״ל פומבי עיקרי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:652
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:678
+msgctxt "MetaInfo|"
+msgid "Age"
+msgstr "גיל"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:653
+msgctxt "MetaInfo|"
+msgid "Gender"
+msgstr "מין"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:654
+msgctxt "MetaInfo|"
+msgid "Homepage"
+msgstr "עמוד בית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:655
+msgctxt "MetaInfo|"
+msgid "Birthday"
+msgstr "יום הולדת"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:656
+msgctxt "MetaInfo|"
+msgid "Languages"
+msgstr "שפות"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:672
+msgctxt "MetaInfo|"
+msgid "Emails"
+msgstr "דוא״ל"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:673
+msgctxt "MetaInfo|"
+msgid "Notes"
+msgstr "הערות"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:674
+msgctxt "MetaInfo|"
+msgid "Interests"
+msgstr "תחומיי עניין"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:675
+msgctxt "MetaInfo|"
+msgid "Pasts"
+msgstr "היסטוריה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:677
+msgctxt "MetaInfo|"
+msgid "UIN"
+msgstr ""
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:679
+msgctxt "MetaInfo|"
+msgid "online only"
+msgstr "מקוון בלבד"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:639
+msgctxt "MetaInfoHome|"
+msgid "City"
+msgstr "עיר"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:640
+msgctxt "MetaInfoHome|"
+msgid "State"
+msgstr "מצב"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:641
+msgctxt "MetaInfoHome|"
+msgid "Phone"
+msgstr "טלפון"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:642
+msgctxt "MetaInfoHome|"
+msgid "Fax"
+msgstr "פקס"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:643
+msgctxt "MetaInfoHome|"
+msgid "Address"
+msgstr "כתובת"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:645
+msgctxt "MetaInfoHome|"
+msgid "Zip code"
+msgstr "מיקוד"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:646
+msgctxt "MetaInfoHome|"
+msgid "Country"
+msgstr "ארץ"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:657
+msgctxt "MetaInfoOriginal|"
+msgid "City"
+msgstr "עיר"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:658
+msgctxt "MetaInfoOriginal|"
+msgid "State"
+msgstr "מצב"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:659
+msgctxt "MetaInfoOriginal|"
+msgid "Country"
+msgstr "ארץ"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:660
+msgctxt "MetaInfoWork|"
+msgid "City"
+msgstr "עיר"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:661
+msgctxt "MetaInfoWork|"
+msgid "State"
+msgstr "מצב"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:662
+msgctxt "MetaInfoWork|"
+msgid "Phone"
+msgstr "טלפון"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:663
+msgctxt "MetaInfoWork|"
+msgid "Fax"
+msgstr "פקס"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:664
+msgctxt "MetaInfoWork|"
+msgid "Address"
+msgstr "כתובת"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:665
+msgctxt "MetaInfoWork|"
+msgid "Zip"
+msgstr "מיקוד"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:666
+msgctxt "MetaInfoWork|"
+msgid "Country"
+msgstr "ארץ"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:667
+msgctxt "MetaInfoWork|"
+msgid "Company"
+msgstr "תאגיד"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:668
+msgctxt "MetaInfoWork|"
+msgid "Department"
+msgstr "מחלקה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:669
+msgctxt "MetaInfoWork|"
+msgid "Position"
+msgstr "מיקום"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:670
+msgctxt "MetaInfoWork|"
+msgid "Occupation"
+msgstr "עיסוק"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:671
+msgctxt "MetaInfoWork|"
+msgid "Webpage"
+msgstr "עמוד רשת"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:523
+msgctxt "Occupation|"
+msgid "Academic"
+msgstr "אקדמי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:524
+msgctxt "Occupation|"
+msgid "Administrative"
+msgstr "אדמיניסטרטיבי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:525
+msgctxt "Occupation|"
+msgid "Art/Entertainment"
+msgstr "אמנות/בידור"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:526
+msgctxt "Occupation|"
+msgid "College Student"
+msgstr "סטודנט מכללה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:527
+msgctxt "Occupation|"
+msgid "Computers"
+msgstr "מיחשוב"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:528
+msgctxt "Occupation|"
+msgid "Community & Social"
+msgstr "קהילה וחברה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:529
+msgctxt "Occupation|"
+msgid "Education"
+msgstr "חינוך"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:530
+msgctxt "Occupation|"
+msgid "Engineering"
+msgstr "הנדסה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:531
+msgctxt "Occupation|"
+msgid "Financial Services"
+msgstr "שירותים פיננסים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:532
+msgctxt "Occupation|"
+msgid "Government"
+msgstr "ממשל"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:533
+msgctxt "Occupation|"
+msgid "High School Student"
+msgstr "תלמיד בי״ס תיכון"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:534
+msgctxt "Occupation|"
+msgid "Home"
+msgstr "בית"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:535
+msgctxt "Occupation|"
+msgid "ICQ - Providing Help"
+msgstr ""
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:536
+msgctxt "Occupation|"
+msgid "Law"
+msgstr "משפטים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:537
+msgctxt "Occupation|"
+msgid "Managerial"
+msgstr "ניהולי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:538
+msgctxt "Occupation|"
+msgid "Manufacturing"
+msgstr "ייצור"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:539
+msgctxt "Occupation|"
+msgid "Medical/Health"
+msgstr "רפואי/בריאות"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:540
+msgctxt "Occupation|"
+msgid "Military"
+msgstr "צבא"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:541
+msgctxt "Occupation|"
+msgid "Non-Government Organization"
+msgstr "ארגון חוץ-ממשלתי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:542
+msgctxt "Occupation|"
+msgid "Professional"
+msgstr "מקצועי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:543
+msgctxt "Occupation|"
+msgid "Retail"
+msgstr "קמעוני"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:544
+msgctxt "Occupation|"
+msgid "Retired"
+msgstr "בדימוס"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:545
+msgctxt "Occupation|"
+msgid "Science & Research"
+msgstr "מדע ופיתוח"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:546
+msgctxt "Occupation|"
+msgid "Sports"
+msgstr "ספורט"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:547
+msgctxt "Occupation|"
+msgid "Technical"
+msgstr "טכני"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:548
+msgctxt "Occupation|"
+msgid "University Student"
+msgstr "סטודנט אוניברסיטה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:549
+msgctxt "Occupation|"
+msgid "Web Building"
+msgstr "בניית אתרים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:550
+msgctxt "Occupation|"
+msgid "Other Services"
+msgstr "שירותים אחרים"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:435
+msgctxt "Past|"
+msgid "Elementary School"
+msgstr "בית ספר יסודי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:436
+msgctxt "Past|"
+msgid "High School"
+msgstr "בית ספר תיכון"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:437
+msgctxt "Past|"
+msgid "College"
+msgstr "מכללה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:438
+msgctxt "Past|"
+msgid "University"
+msgstr "אוניברסיטה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:439
+msgctxt "Past|"
+msgid "Military"
+msgstr "צבא"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:440
+msgctxt "Past|"
+msgid "Past Work Place"
+msgstr "מקום עבודה קודם"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:441
+msgctxt "Past|"
+msgid "Past Organization"
+msgstr "ארגון קודם"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:442
+msgctxt "Past|"
+msgid "Other"
+msgstr "אחר"
+
+#: ../../../protocols/oscar/__data_from_cmakelists_txt.cpp:1
+#: ../../../protocols/oscar/__data_from_cmakelists_txt.cpp:2
+msgctxt "Plugin|"
+msgid "Client identification of oscar contacts"
+msgstr "זיהוי לקוח של אנשי קשר oscar"
+
+#: ../../../protocols/oscar/__data_from_cmakelists_txt.cpp:3
+msgctxt "Plugin|"
+msgid "Oscar additional statuses"
+msgstr "מצבי Oscar נוספים"
+
+#: ../../../protocols/oscar/__data_from_cmakelists_txt.cpp:4
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:213
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:222
+msgctxt "Plugin|"
+msgid "Additional statuses for oscar protocol"
+msgstr "מצבים נוספים עבור פרוטוקול oscar"
+
+#: ../../../protocols/oscar/__data_from_cmakelists_txt.cpp:5
+msgctxt "Plugin|"
+msgid "Oscar protocol"
+msgstr "פרוטוקול Oscar"
+
+#: ../../../protocols/oscar/__data_from_cmakelists_txt.cpp:6
+#: ../../../protocols/oscar/src/oscarplugin.cpp:54
+msgctxt "Plugin|"
+msgid "Module-based implementation of Oscar protocol"
+msgstr "המחשה מבוססת-מודול של פרוטוקול Oscar"
+
+#: ../../../protocols/oscar/plugins/identify/clientidentify.cpp:48
+msgctxt "Plugin|"
+msgid "OscarIdentify"
+msgstr ""
+
+#: ../../../protocols/oscar/plugins/identify/clientidentify.cpp:49
+#: ../../../protocols/oscar/plugins/identify/clientidentify.cpp:59
+msgctxt "Plugin|"
+msgid "Client identificaton for oscar contacts"
+msgstr "זיהוי לקוח עבור אנשי קשר oscar"
+
+#: ../../../protocols/oscar/plugins/identify/clientidentify.cpp:58
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:221
+#: ../../../protocols/oscar/src/oscarplugin.cpp:60
+msgctxt "Plugin|"
+msgid "ICQ"
+msgstr ""
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:212
+msgctxt "Plugin|"
+msgid "OscarXStatus"
+msgstr ""
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:226
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:227
+msgctxt "Plugin|"
+msgid "XStatus settings"
+msgstr "הגדרות XStatus"
+
+#: ../../../protocols/oscar/src/oscarplugin.cpp:53
+msgctxt "Plugin|"
+msgid "Oscar"
+msgstr ""
+
+#: ../../../protocols/oscar/src/oscarplugin.cpp:61
+msgctxt "Plugin|"
+msgid "Module-based implementation of ICQ protocol"
+msgstr "המחשה מבוססת-מודול של פרוטוקול ICQ"
+
+#: ../../../protocols/oscar/src/oscarplugin.cpp:64
+msgctxt "Plugin|"
+msgid "ICQ account creator"
+msgstr "מחולל חשבון ICQ"
+
+#: ../../../protocols/oscar/src/oscarplugin.cpp:65
+msgctxt "Plugin|"
+msgid "Account creator for module-based implementation of ICQ protocol"
+msgstr "מחולל חשבון עבור המחשה מבוססת-מודול של פרוטוקול ICQ"
+
+#: ../../../protocols/oscar/src/oscarplugin.cpp:68
+#: ../../../protocols/oscar/src/oscarplugin.cpp:69
+msgctxt "Plugin|"
+msgid "Oscar roster"
+msgstr "רשימת Oscar"
+
+#: ../../../protocols/oscar/src/oscarplugin.cpp:72
+#: ../../../protocols/oscar/src/oscarplugin.cpp:73
+msgctxt "Plugin|"
+msgid "Oscar messages"
+msgstr "הודעות Oscar"
+
+#: ../../../protocols/oscar/src/oscarplugin.cpp:76
+#: ../../../protocols/oscar/src/oscarplugin.cpp:77
+msgctxt "Plugin|"
+msgid "Oscar file transfer protocol"
+msgstr "פרוטוקול העברת קובץ Oscar"
+
+#: ../../../protocols/oscar/src/oscarplugin.cpp:80
+#: ../../../protocols/oscar/src/oscarplugin.cpp:81
+msgctxt "Plugin|"
+msgid "Oscar file transfer settings"
+msgstr "הגדרות העברת קובץ Oscar"
+
+#: ../../../protocols/oscar/src/oscarplugin.cpp:84
+#: ../../../protocols/oscar/src/oscarplugin.cpp:85
+msgctxt "Plugin|"
+msgid "MetaInfo icq service"
+msgstr ""
+
+#: ../../../protocols/oscar/src/oscarplugin.cpp:88
+#: ../../../protocols/oscar/src/oscarplugin.cpp:89
+msgctxt "Plugin|"
+msgid "Oscar authorization support"
+msgstr "תמיכת הרשאה Oscar"
+
+#: ../../../protocols/oscar/src/oscarplugin.cpp:92
+#: ../../../protocols/oscar/src/oscarplugin.cpp:93
+msgctxt "Plugin|"
+msgid "Oscar privacy lists"
+msgstr "רשימות פרטיות Oscar"
+
+#: ../../../protocols/oscar/src/oscarplugin.cpp:96
+msgctxt "Plugin|"
+msgid "Oscar contact search"
+msgstr "חיפוש איש קשר Oscar"
+
+#: ../../../protocols/oscar/src/oscarplugin.cpp:97
+msgctxt "Plugin|"
+msgid "Oscar contact search implementation"
+msgstr "המחשה של חיפוש איש קשר Oscar"
+
+#: ../../../protocols/oscar/src/oscarplugin.cpp:100
+#: ../../../protocols/oscar/src/oscarplugin.cpp:101
+msgctxt "Plugin|"
+msgid "Oscar proxy support"
+msgstr "תמיכת פרוקסי Oscar"
+
+#: ../../../protocols/oscar/src/privacylists.cpp:90
+msgctxt "Privacy|"
+msgid "Visible for all"
+msgstr "נראה לכולי עלמא"
+
+#: ../../../protocols/oscar/src/privacylists.cpp:92
+msgctxt "Privacy|"
+msgid "Invisible for all"
+msgstr "בלתי נראה לכולי עלמא"
+
+#: ../../../protocols/oscar/src/privacylists.cpp:94
+msgctxt "Privacy|"
+msgid "Visible only for visible list"
+msgstr "נראה רק לרשימה נראית"
+
+#: ../../../protocols/oscar/src/privacylists.cpp:96
+msgctxt "Privacy|"
+msgid "Invisible only for invisible list"
+msgstr "בלתי נראה רק לרשימה בלתי נראית"
+
+#: ../../../protocols/oscar/src/privacylists.cpp:98
+msgctxt "Privacy|"
+msgid "Visible only for contact list"
+msgstr "נראה רק לרשימת קשר"
+
+#: ../../../protocols/oscar/src/privacylists.cpp:100
+msgctxt "Privacy|"
+msgid "Unknown privacy"
+msgstr "פרטיות לא ידועה"
+
+#: ../../../protocols/oscar/src/connection.cpp:53
+msgctxt "ProtocolError|"
+msgid "Invalid SNAC header"
+msgstr "תקורת SNAC שגויה"
+
+#: ../../../protocols/oscar/src/connection.cpp:55
+msgctxt "ProtocolError|"
+msgid "Server rate limit exceeded"
+msgstr "גבול שיעור שרת מוצה"
+
+#: ../../../protocols/oscar/src/connection.cpp:57
+msgctxt "ProtocolError|"
+msgid "Client rate limit exceeded"
+msgstr "גבול שיעור לקוח מוצה"
+
+#: ../../../protocols/oscar/src/connection.cpp:59
+msgctxt "ProtocolError|"
+msgid "Recipient is not logged in"
+msgstr "מקבל אינו מחובר"
+
+#: ../../../protocols/oscar/src/connection.cpp:61
+msgctxt "ProtocolError|"
+msgid "Requested service unavailable"
+msgstr "שירות מבוקש לא זמין"
+
+#: ../../../protocols/oscar/src/connection.cpp:63
+msgctxt "ProtocolError|"
+msgid "Requested service not defined"
+msgstr "שירות מבוקש לא הוגדר"
+
+#: ../../../protocols/oscar/src/connection.cpp:65
+msgctxt "ProtocolError|"
+msgid "You sent obsolete SNAC"
+msgstr "שלחת SNAC נפסד"
+
+#: ../../../protocols/oscar/src/connection.cpp:67
+msgctxt "ProtocolError|"
+msgid "Not supported by server"
+msgstr "לא נתמך על ידי שרת"
+
+#: ../../../protocols/oscar/src/connection.cpp:69
+msgctxt "ProtocolError|"
+msgid "Not supported by client"
+msgstr "לא נתמך על ידי לקוח"
+
+#: ../../../protocols/oscar/src/connection.cpp:71
+msgctxt "ProtocolError|"
+msgid "Refused by client"
+msgstr "סורב על ידי לקוח"
+
+#: ../../../protocols/oscar/src/connection.cpp:73
+msgctxt "ProtocolError|"
+msgid "Reply too big"
+msgstr "מענה גדול מדי"
+
+#: ../../../protocols/oscar/src/connection.cpp:75
+msgctxt "ProtocolError|"
+msgid "Responses lost"
+msgstr "משובים אבדו"
+
+#: ../../../protocols/oscar/src/connection.cpp:77
+msgctxt "ProtocolError|"
+msgid "Request denied"
+msgstr "בקשה נדחתה"
+
+#: ../../../protocols/oscar/src/connection.cpp:79
+msgctxt "ProtocolError|"
+msgid "Incorrect SNAC format"
+msgstr "פורמט SNAC שגוי"
+
+#: ../../../protocols/oscar/src/connection.cpp:81
+msgctxt "ProtocolError|"
+msgid "Insufficient rights"
+msgstr "הרשאות לא מספיקות"
+
+#: ../../../protocols/oscar/src/connection.cpp:83
+msgctxt "ProtocolError|"
+msgid "In local permit/deny (recipient blocked)"
+msgstr ""
+
+#: ../../../protocols/oscar/src/connection.cpp:85
+msgctxt "ProtocolError|"
+msgid "Sender too evil"
+msgstr "ממען רשע מדי"
+
+#: ../../../protocols/oscar/src/connection.cpp:87
+msgctxt "ProtocolError|"
+msgid "Receiver too evil"
+msgstr "נמען רשע מדי"
+
+#: ../../../protocols/oscar/src/connection.cpp:89
+msgctxt "ProtocolError|"
+msgid "User temporarily unavailable"
+msgstr "משתמש לא זמין באופן זמני"
+
+#: ../../../protocols/oscar/src/connection.cpp:91
+msgctxt "ProtocolError|"
+msgid "No match"
+msgstr "אין התאמה"
+
+#: ../../../protocols/oscar/src/connection.cpp:93
+msgctxt "ProtocolError|"
+msgid "List overflow"
+msgstr "גלישת רשימה"
+
+#: ../../../protocols/oscar/src/connection.cpp:95
+msgctxt "ProtocolError|"
+msgid "Request ambiguous"
+msgstr "בקשה מעורפלת"
+
+#: ../../../protocols/oscar/src/connection.cpp:97
+msgctxt "ProtocolError|"
+msgid "Server queue full"
+msgstr "תור שרת מלא"
+
+#: ../../../protocols/oscar/src/connection.cpp:99
+msgctxt "ProtocolError|"
+msgid "Not while on AOL"
+msgstr "לא בזמן שהות אצל AOL"
+
+#: ../../../protocols/oscar/src/connection.cpp:101
+msgctxt "ProtocolError|"
+msgid "Unknown error"
+msgstr "שגיאה לא מוכרת"
+
+#: ../../../protocols/oscar/src/icqprotocol.cpp:72
+msgctxt "Settings|"
+msgid "Icq"
+msgstr ""
+
+#: ../../../protocols/oscar/src/icqprotocol.cpp:77
+msgctxt "Settings|"
+msgid "Icq account settings"
+msgstr "הגדרות חשבון Icq"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:261
+msgctxt "Status|"
+msgid "Angry"
+msgstr "כועס"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:263
+msgctxt "Status|"
+msgid "Depression"
+msgstr "דיכאון"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:265
+msgctxt "Status|"
+msgid "At home"
+msgstr "בבית"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:267
+msgctxt "Status|"
+msgid "At work"
+msgstr "בעבודה"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:269
+msgctxt "Status|"
+msgid "Eating"
+msgstr "אוכל"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:276
+msgctxt "Status|"
+msgid "Custom status"
+msgstr "מצב מותאם"
+
+#: ../../../protocols/oscar/src/oscarstatus.cpp:48
+msgctxt "Status|"
+msgid "Busy"
+msgstr "עסוק"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:473
+msgctxt "StudyLevel|"
+msgid "Associated degree"
+msgstr "לימודי תעודה (תואר נספח)"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:474
+msgctxt "StudyLevel|"
+msgid "Bachelor's degree"
+msgstr "תואר ראשון"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:475
+msgctxt "StudyLevel|"
+msgid "Elementary"
+msgstr "יסודי"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:476
+msgctxt "StudyLevel|"
+msgid "High-school"
+msgstr "בית ספר תיכון"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:477
+msgctxt "StudyLevel|"
+msgid "Master's degree"
+msgstr "תואר שני (תואר מוסמך)"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:478
+msgctxt "StudyLevel|"
+msgid "PhD"
+msgstr "דוקטור לפילוסופיה"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:479
+msgctxt "StudyLevel|"
+msgid "Postdoctoral"
+msgstr "פוסט-דוקטורט"
+
+#: ../../../protocols/oscar/src/metainfo/metafields.cpp:480
+msgctxt "StudyLevel|"
+msgid "University / College"
+msgstr "אוניברסיטה / מכללה"
+
+#: ../../../protocols/oscar/plugins/identify/clientidentify.cpp:53
+#: ../../../protocols/oscar/plugins/identify/clientidentify.cpp:56
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:218
+#: ../../../protocols/oscar/src/oscarplugin.cpp:58
+msgctxt "Task|"
+msgid "Author"
+msgstr "מחבר"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:54
+msgctxt "XStatus|"
+msgid "Angry"
+msgstr "כועס"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:57
+msgctxt "XStatus|"
+msgid "Taking a bath"
+msgstr "מתרחץ"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:60
+msgctxt "XStatus|"
+msgid "Tired"
+msgstr "עייף"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:63
+msgctxt "XStatus|"
+msgid "Party"
+msgstr "מסיבה"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:66
+msgctxt "XStatus|"
+msgid "Drinking beer"
+msgstr "שותה בירה"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:69
+msgctxt "XStatus|"
+msgid "Thinking"
+msgstr "חושב"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:72
+msgctxt "XStatus|"
+msgid "Eating"
+msgstr "אוכל"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:75
+msgctxt "XStatus|"
+msgid "Watching TV"
+msgstr "צופה בטלוויזיה"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:78
+msgctxt "XStatus|"
+msgid "Meeting"
+msgstr "בפגישה"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:81
+msgctxt "XStatus|"
+msgid "Coffee"
+msgstr "קפה"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:84
+msgctxt "XStatus|"
+msgid "Listening to music"
+msgstr "מאזין למוזיקה"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:87
+msgctxt "XStatus|"
+msgid "Business"
+msgstr "עסקים"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:90
+msgctxt "XStatus|"
+msgid "Shooting"
+msgstr "יורה"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:93
+msgctxt "XStatus|"
+msgid "Having fun"
+msgstr "מכייף"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:96
+msgctxt "XStatus|"
+msgid "On the phone"
+msgstr "בטלפון"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:99
+msgctxt "XStatus|"
+msgid "Gaming"
+msgstr "משחק"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:102
+msgctxt "XStatus|"
+msgid "Studying"
+msgstr "לומד"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:105
+msgctxt "XStatus|"
+msgid "Shopping"
+msgstr "בקניות"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:108
+msgctxt "XStatus|"
+msgid "Feeling sick"
+msgstr "חש בחילה"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:111
+msgctxt "XStatus|"
+msgid "Sleeping"
+msgstr "יושן"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:114
+msgctxt "XStatus|"
+msgid "Surfing"
+msgstr "גולש"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:117
+msgctxt "XStatus|"
+msgid "Browsing"
+msgstr "מעלעל"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:120
+msgctxt "XStatus|"
+msgid "Working"
+msgstr "עובד"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:123
+msgctxt "XStatus|"
+msgid "Typing"
+msgstr "מקליד"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:126
+msgctxt "XStatus|"
+msgid "Picnic"
+msgstr "פיקניק"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:129
+msgctxt "XStatus|"
+msgid "Cooking"
+msgstr "מבשל"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:132
+msgctxt "XStatus|"
+msgid "Mobile"
+msgstr "נייד"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:135
+msgctxt "XStatus|"
+msgid "I'm high"
+msgstr "אני במרומים"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:138
+msgctxt "XStatus|"
+msgid "On WC"
+msgstr "בשירותים"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:141
+msgctxt "XStatus|"
+msgid "To be or not to be"
+msgstr "להיות או לא להיות"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:144
+msgctxt "XStatus|"
+msgid "Watching movie"
+msgstr "צופה בסרט"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:147
+msgctxt "XStatus|"
+msgid "Love"
+msgstr "מאוהב"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:150
+msgctxt "XStatus|"
+msgid "Searching"
+msgstr "מחפש"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:153
+msgctxt "XStatus|"
+msgid "Writing"
+msgstr "כותב"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:156
+msgctxt "XStatus|"
+msgid "Sex"
+msgstr "סקס"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:159
+msgctxt "XStatus|"
+msgid "Smoking"
+msgstr "מעשן"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:163
+msgctxt "XStatus|"
+msgid "Cold"
+msgstr "קר"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:164
+msgctxt "XStatus|"
+msgid "Crying"
+msgstr "בוכה"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:165
+msgctxt "XStatus|"
+msgid "Fear"
+msgstr "מפוחד"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:166
+msgctxt "XStatus|"
+msgid "Reading"
+msgstr "קורא"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:167
+msgctxt "XStatus|"
+msgid "Sport"
+msgstr "ספורט"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:168
+msgctxt "XStatus|"
+msgid "In tansport"
+msgstr ""
+
+#: ../../../protocols/oscar/src/metainfo/abstractmetarequest.cpp:77
+msgctxt "qutim_sdk_0_3::oscar::AbstractMetaRequest|"
+msgid "The metarequest cancelled by user"
+msgstr "הבקשה המוצמדת (metarequest) בוטלה על ידי משתמש"
+
+#: ../../../protocols/oscar/src/metainfo/abstractmetarequest.cpp:82
+msgctxt "qutim_sdk_0_3::oscar::AbstractMetaRequest|"
+msgid "The server did not answer on the metarequest"
+msgstr "השרת לא ענה על הבקשה המוצמדת (metarequest)"
+
+#: ../../../protocols/oscar/src/authorization.cpp:74
+msgctxt "qutim_sdk_0_3::oscar::Authorization|"
+msgid "Grant authorization"
+msgstr ""
+
+#: ../../../protocols/oscar/src/authorization.cpp:170
+msgctxt "qutim_sdk_0_3::oscar::Authorization|"
+msgid "Not authorized"
+msgstr "לא מורשה"
+
+#: ../../../protocols/oscar/plugins/identify/clientidentify.cpp:83
+#: ../../../protocols/oscar/plugins/identify/clientidentify.cpp:210
+msgctxt "qutim_sdk_0_3::oscar::ClientIdentify|"
+msgid "Possible client"
+msgstr "לקוח אפשרי"
+
+#: ../../../protocols/oscar/plugins/identify/clientidentify.cpp:84
+msgctxt "qutim_sdk_0_3::oscar::ClientIdentify|"
+msgid "Show client icon"
+msgstr "הצג צלמית לקוח"
+
+#: ../../../protocols/oscar/src/metainfo/infometarequest.cpp:292
+msgctxt "qutim_sdk_0_3::oscar::FullInfoMetaRequest|"
+msgid "Incorrect format of the metarequest"
+msgstr "פורמט לא מדויק של הבקשה המוצמדת (metarequest)"
+
+#: ../../../protocols/oscar/src/ui/icqaccountmainsettings.cpp:54
+msgctxt "qutim_sdk_0_3::oscar::IcqAccountMainSettings|"
+msgid "Use SSL (experimental)"
+msgstr "נצל SSL (ניסיוני)"
+
+#: ../../../protocols/oscar/src/ui/icqmainsettings.cpp:156
+msgctxt "qutim_sdk_0_3::oscar::IcqMainSettings|"
+msgid "General"
+msgstr "כלליות"
+
+#: ../../../protocols/oscar/src/ui/icqmainsettings.cpp:157
+msgctxt "qutim_sdk_0_3::oscar::IcqMainSettings|"
+msgid "Codec"
+msgstr "מקודד"
+
+#: ../../../protocols/oscar/src/ui/icqmainsettings.cpp:158
+msgctxt "qutim_sdk_0_3::oscar::IcqMainSettings|"
+msgid "Don't send requests for avatarts"
+msgstr "אל תשלח בקשות עבור אווטארים"
+
+#: ../../../protocols/oscar/src/ui/icqmainsettings.cpp:160
+msgctxt "qutim_sdk_0_3::oscar::IcqMainSettings|"
+msgid "Support AIM contacts"
+msgstr ""
+
+#: ../../../protocols/oscar/src/md5login.cpp:92
+#, qt-format
+msgctxt "qutim_sdk_0_3::oscar::Md5Login|"
+msgid "No IP addresses were found for the host '%1'"
+msgstr "לא נמצאו כתובות IP עבור המארח '%1'"
+
+#: ../../../protocols/oscar/src/metainfo/metainfo.cpp:78
+msgctxt "qutim_sdk_0_3::oscar::MetaInfo|"
+msgid "Incorrect format of the metarequest"
+msgstr "פורמט לא מדויק של הבקשה המוצמדת (metarequest)"
+
+#: ../../../protocols/oscar/src/oscarfiletransfer.cpp:871
+#, qt-format
+msgctxt "qutim_sdk_0_3::oscar::OftConnection|"
+msgid "Could not open %1"
+msgstr "לא היתה אפשרות לפתוח את %1"
+
+#: ../../../protocols/oscar/src/oscarfiletransfer.cpp:1044
+msgctxt "qutim_sdk_0_3::oscar::OftFileTransferFactory|"
+msgid "Oscar"
+msgstr ""
+
+#: ../../../protocols/oscar/src/oscarfiletransfer.cpp:243
+msgctxt "qutim_sdk_0_3::oscar::OftSocket|"
+msgid "The file transfer proxy server is not available"
+msgstr "שרת מתווך (proxy) העברת קובץ אינו זמין"
+
+#: ../../../protocols/oscar/src/oscarfiletransfer.cpp:1232
+msgctxt "qutim_sdk_0_3::oscar::OscarFileTransferSettings|"
+msgid "File transfer"
+msgstr "העברת קובץ"
+
+#: ../../../protocols/oscar/src/oscarfiletransfer.cpp:1235
+msgctxt "qutim_sdk_0_3::oscar::OscarFileTransferSettings|"
+msgid "Always use file transfer proxy"
+msgstr "תמיד תשתמש במתווך (proxy) העברת קובץ"
+
+#: ../../../protocols/oscar/src/oscarfiletransfer.cpp:1241
+msgctxt "qutim_sdk_0_3::oscar::OscarFileTransferSettings|"
+msgid "Accept incoming connections on any port"
+msgstr "הסכם לחיבורים נכנסים בכל פורט"
+
+#: ../../../protocols/oscar/src/oscarfiletransfer.cpp:1253
+msgctxt "qutim_sdk_0_3::oscar::OscarFileTransferSettings|"
+msgid "Local ports"
+msgstr "פורטים מקומיים"
+
+#: ../../../protocols/oscar/src/privacylists.cpp:352
+msgctxt "qutim_sdk_0_3::oscar::PrivacyLists|"
+msgid "Show \"visible\" icon if contact in visible list"
+msgstr "הצג צלמית \"נראה\" אם איש קשר מצוי ברשימה נראית"
+
+#: ../../../protocols/oscar/src/privacylists.cpp:356
+msgctxt "qutim_sdk_0_3::oscar::PrivacyLists|"
+msgid "Show \"invisible\" icon if contact in invisible list"
+msgstr "הצג צלמית \"בלתי נראה\" אם איש קשר מצוי ברשימה בלתי נראית"
+
+#: ../../../protocols/oscar/src/privacylists.cpp:360
+msgctxt "qutim_sdk_0_3::oscar::PrivacyLists|"
+msgid "Show \"ignore\" icon if contact in ignore list"
+msgstr "הצג צלמית \"מנוכר\" אם איש קשר מצוי ברשימה מנוכרת"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:437
+msgctxt "qutim_sdk_0_3::oscar::XStatusHandler|"
+msgid "X-Status"
+msgstr ""
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatus.cpp:438
+msgctxt "qutim_sdk_0_3::oscar::XStatusHandler|"
+msgid "Show contact X-Status icon"
+msgstr "הצג צלמית X-Status של איש קשר"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatussettings.cpp:39
+msgctxt "qutim_sdk_0_3::oscar::XStatusSettings|"
+msgid "Extended status"
+msgstr "מצב מורחב"
+
+#: ../../../protocols/oscar/plugins/xstatus/xstatussettings.cpp:42
+msgctxt "qutim_sdk_0_3::oscar::XStatusSettings|"
+msgid "Ask for XStatuses automatically"
+msgstr "בקש אוטומטית עבור XStatus"
+
+#: ../../../protocols/oscar/plugins/xstatus/statusdialog.ui:14
+msgctxt "statusDialogClass|"
+msgid "Custom status"
+msgstr "מצב מותאם"
+
+#: ../../../protocols/oscar/plugins/xstatus/statusdialog.ui:99
+msgctxt "statusDialogClass|"
+msgid "Set birthday/happy flag"
+msgstr "קבע דגל שמחה/יום הולדת"

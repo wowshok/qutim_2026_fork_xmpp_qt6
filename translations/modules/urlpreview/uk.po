@@ -1,0 +1,137 @@
+# Ukrainian translation for qutim
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the qutim package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: qutim\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-29 12:42+0000\n"
+"PO-Revision-Date: 2012-05-19 11:21+0000\n"
+"Last-Translator: ma$terok <Unknown>\n"
+"Language-Team: Ukrainian <uk@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-01-30 04:52+0000\n"
+"X-Generator: Launchpad (build 16455)\n"
+"X-Qt-Contexts: true\n"
+"Language: uk\n"
+
+#: ../../../plugins/urlpreview/__data_from_cmakelists_txt.cpp:1
+#: ../../../plugins/urlpreview/src/urlpreview.cpp:41
+#: ../../../plugins/urlpreview/src/urlpreview.cpp:54
+msgctxt "Plugin|"
+msgid "UrlPreview"
+msgstr "Попередній перегляд посилань"
+
+#: ../../../plugins/urlpreview/__data_from_cmakelists_txt.cpp:2
+#: ../../../plugins/urlpreview/src/urlpreview.cpp:42
+msgctxt "Plugin|"
+msgid "Preview images directly in the chat window"
+msgstr "Попередній перегляд зображень у вікні розмови"
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:66
+msgctxt "UrlPreview::UrlHandler|"
+msgid "URL Preview"
+msgstr "Попередній перегляд посилань"
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:66
+msgctxt "UrlPreview::UrlHandler|"
+msgid "bytes"
+msgstr "байтів"
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:75
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:77
+msgctxt "UrlPreview::UrlHandler|"
+msgid "Something went wrong."
+msgstr "Щось пішло не так."
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:136
+msgctxt "UrlPreview::UrlHandler|"
+msgid "YouTube video"
+msgstr "Відео з YouTube"
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:139
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:240
+msgctxt "UrlPreview::UrlHandler|"
+msgid "Unknown"
+msgstr "Невідомо"
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:215
+msgctxt "UrlPreview::UrlHandler|"
+msgid "HTML5 Audio"
+msgstr "HTML5 аудіо"
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:232
+msgctxt "UrlPreview::UrlHandler|"
+msgid "HTML5 Video"
+msgstr "HTML5 відео"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:14
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Form"
+msgstr "Стиль"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:26
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Max filesize"
+msgstr "Максимальний розмір файлу"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:33
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Max picture size to preview "
+msgstr "Максимальний розмір зображення для попереднього перегляду "
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:36
+msgctxt "UrlPreviewSettingsForm|"
+msgid " bytes"
+msgstr " байтів"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:49
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Height"
+msgstr "Висота"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:56
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Max height of images preview."
+msgstr "Максимальний розмір зображення по вертикалі для попереднього перегляду"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:59
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:88
+msgctxt "UrlPreviewSettingsForm|"
+msgid "px"
+msgstr "пікселів"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:78
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Width"
+msgstr "Ширина"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:85
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Max width of images preview."
+msgstr ""
+"Максимальний розмір зображення по горизонталі для попереднього перегляду"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:107
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Images preview"
+msgstr "Попередній перегляд зображень"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:117
+msgctxt "UrlPreviewSettingsForm|"
+msgid "YouTube preview"
+msgstr "Перегляд YouTube"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:127
+msgctxt "UrlPreviewSettingsForm|"
+msgid "HTML5 Audio"
+msgstr "HTML5 аудіо"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:137
+msgctxt "UrlPreviewSettingsForm|"
+msgid "HTML5 Video"
+msgstr "HTML5 відео"

@@ -1,0 +1,52 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-23 17:51+0000\n"
+"PO-Revision-Date: 2012-04-17 10:22+0000\n"
+"Last-Translator: Boyan Kiroff <boyan.kiroff@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-06-28 12:52+0000\n"
+"X-Generator: Launchpad (build 15505)\n"
+"X-Qt-Contexts: true\n"
+"X-Language: cs\n"
+"X-Source-Language: en_GB\n"
+
+#: ../../../plugins/dbusnotifications/src/dbusbackend.cpp:84
+msgctxt "DBusBackend|"
+msgid "Show popup"
+msgstr "Zobrazit oznamovací okno"
+
+#: ../../../plugins/dbusnotifications/__data_from_cmakelists_txt.cpp:1
+msgctxt "Plugin|"
+msgid "Dbus notifications"
+msgstr ""
+
+#: ../../../plugins/dbusnotifications/__data_from_cmakelists_txt.cpp:2
+msgctxt "Plugin|"
+msgid "Notification system, based on Freedesktop"
+msgstr ""
+
+#: ../../../plugins/dbusnotifications/src/dplugin.cpp:39
+msgctxt "Plugin|"
+msgid "DBus notifications"
+msgstr ""
+
+#: ../../../plugins/dbusnotifications/src/dplugin.cpp:40
+msgctxt "Plugin|"
+msgid "Notification system based on Freedesktop DBus protocol"
+msgstr ""
+
+#: ../../../plugins/dbusnotifications/src/dplugin.cpp:44
+msgctxt "plugin|"
+msgid "DBus notifications"
+msgstr ""
+
+#: ../../../plugins/dbusnotifications/src/dplugin.cpp:45
+msgctxt "plugin|"
+msgid "Notification system based on Freedesktop DBus protocol"
+msgstr ""

@@ -1,0 +1,132 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-29 12:42+0000\n"
+"PO-Revision-Date: 2012-07-22 09:50+0000\n"
+"Last-Translator: MrFree <f1.mrfree@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-01-30 04:52+0000\n"
+"X-Generator: Launchpad (build 16455)\n"
+"X-Qt-Contexts: true\n"
+"Language: ru\n"
+"X-Language: ru\n"
+
+#: ../../../plugins/urlpreview/__data_from_cmakelists_txt.cpp:1
+#: ../../../plugins/urlpreview/src/urlpreview.cpp:41
+#: ../../../plugins/urlpreview/src/urlpreview.cpp:54
+msgctxt "Plugin|"
+msgid "UrlPreview"
+msgstr "URL превью"
+
+#: ../../../plugins/urlpreview/__data_from_cmakelists_txt.cpp:2
+#: ../../../plugins/urlpreview/src/urlpreview.cpp:42
+msgctxt "Plugin|"
+msgid "Preview images directly in the chat window"
+msgstr "Просмотр рисунка в окне чата"
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:66
+msgctxt "UrlPreview::UrlHandler|"
+msgid "URL Preview"
+msgstr "Предпросмотр URL"
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:66
+msgctxt "UrlPreview::UrlHandler|"
+msgid "bytes"
+msgstr "байт(ов)"
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:75
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:77
+msgctxt "UrlPreview::UrlHandler|"
+msgid "Something went wrong."
+msgstr "Что-то пошло не так."
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:136
+msgctxt "UrlPreview::UrlHandler|"
+msgid "YouTube video"
+msgstr "Видео YouTube"
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:139
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:240
+msgctxt "UrlPreview::UrlHandler|"
+msgid "Unknown"
+msgstr "Неизвестно"
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:215
+msgctxt "UrlPreview::UrlHandler|"
+msgid "HTML5 Audio"
+msgstr "HTML5 Аудио"
+
+#: ../../../plugins/urlpreview/src/messagehandler.cpp:232
+msgctxt "UrlPreview::UrlHandler|"
+msgid "HTML5 Video"
+msgstr "HTML5 Видео"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:14
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Form"
+msgstr "Настройки"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:26
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Max filesize"
+msgstr "Максимальный размер файла"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:33
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Max picture size to preview "
+msgstr "Максимальный размер рисунка "
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:36
+msgctxt "UrlPreviewSettingsForm|"
+msgid " bytes"
+msgstr " байт(ов)"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:49
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Height"
+msgstr "Высота"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:56
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Max height of images preview."
+msgstr "Максимальная высота рисунка для просмотра."
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:59
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:88
+msgctxt "UrlPreviewSettingsForm|"
+msgid "px"
+msgstr "px"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:78
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Width"
+msgstr "Ширина"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:85
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Max width of images preview."
+msgstr "Максимальная ширина рисунка для просмотра"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:107
+msgctxt "UrlPreviewSettingsForm|"
+msgid "Images preview"
+msgstr "Просмотр рисунков"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:117
+msgctxt "UrlPreviewSettingsForm|"
+msgid "YouTube preview"
+msgstr "Просмотр роликов YouTube"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:127
+msgctxt "UrlPreviewSettingsForm|"
+msgid "HTML5 Audio"
+msgstr "HTML5 Аудио"
+
+#: ../../../plugins/urlpreview/src/urlpreviewsettings.ui:137
+msgctxt "UrlPreviewSettingsForm|"
+msgid "HTML5 Video"
+msgstr "HTML5 Видео"

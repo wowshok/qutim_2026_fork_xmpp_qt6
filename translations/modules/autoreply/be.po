@@ -1,0 +1,78 @@
+# Belarusian translation for qutim
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the qutim package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: qutim\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-28 19:33+0000\n"
+"PO-Revision-Date: 2013-03-26 16:46+0000\n"
+"Last-Translator: Yauhen Bugamol <haxycgm@gmail.com>\n"
+"Language-Team: Belarusian <be@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-03-27 05:23+0000\n"
+"X-Generator: Launchpad (build 16540)\n"
+"X-Qt-Contexts: true\n"
+"Language: be\n"
+
+#: ../../../plugins/autoreply/src/autoreplyplugin.cpp:36
+msgctxt "AutoReply|"
+msgid "Auto reply"
+msgstr "Аўтаадказчык"
+
+#: ../../../plugins/autoreply/src/autoreplydialog.ui:14
+msgctxt "AutoReplyDialog|"
+msgid "Dialog"
+msgstr "Дыялог"
+
+#: ../../../plugins/autoreply/src/autoreplysettingswidget.ui:14
+msgctxt "AutoReplySettingsWidget|"
+msgid "Form"
+msgstr "Форма"
+
+#: ../../../plugins/autoreply/src/autoreplysettingswidget.ui:23
+msgctxt "AutoReplySettingsWidget|"
+msgid "Enable autoreply by idle"
+msgstr "Уключыць аўтаадказчык калі статус \"Адышоў\""
+
+#: ../../../plugins/autoreply/src/autoreplysettingswidget.ui:38
+msgctxt "AutoReplySettingsWidget|"
+msgid "Idle timeout:"
+msgstr "\"Адышоў\" праз"
+
+#: ../../../plugins/autoreply/src/autoreplysettingswidget.ui:48
+#: ../../../plugins/autoreply/src/autoreplysettingswidget.ui:62
+msgctxt "AutoReplySettingsWidget|"
+msgid "hh:mm:ss"
+msgstr "гг:хх:сс"
+
+#: ../../../plugins/autoreply/src/autoreplysettingswidget.ui:55
+msgctxt "AutoReplySettingsWidget|"
+msgid "Delta time between messages:"
+msgstr "Розніца часу між паведамленнямі"
+
+#: ../../../plugins/autoreply/src/autoreplysettingswidget.ui:107
+msgctxt "AutoReplySettingsWidget|"
+msgid "Add answer"
+msgstr "Дадаць адказ"
+
+#: ../../../plugins/autoreply/src/autoreplysettingswidget.cpp:19
+msgctxt "AutoReplyTextLine|"
+msgid "Remove"
+msgstr "Сцерці"
+
+#: ../../../plugins/autoreply/__data_from_cmakelists_txt.cpp:1
+#: ../../../plugins/autoreply/src/autoreplyplugin.cpp:19
+msgctxt "Plugin|"
+msgid "Autoreply"
+msgstr "Аўтаадказчык"
+
+#: ../../../plugins/autoreply/__data_from_cmakelists_txt.cpp:2
+#: ../../../plugins/autoreply/src/autoreplyplugin.cpp:20
+msgctxt "Plugin|"
+msgid "Plugin allows autoreplying messages during idle state"
+msgstr "Пашырэнне для аўтаматычнага адказу, калі карыстальнік адышоў."

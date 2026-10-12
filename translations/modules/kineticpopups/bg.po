@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-28 19:33+0000\n"
+"PO-Revision-Date: 2012-02-19 18:17+0000\n"
+"Last-Translator: Boyan Kiroff <boyan.kiroff@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-01-29 05:42+0000\n"
+"X-Generator: Launchpad (build 16451)\n"
+"X-Qt-Contexts: true\n"
+"X-Language: bg\n"
+
+#: ../../../plugins/kineticpopups/src/settings/popupappearance.ui:20
+msgctxt "AppearanceSettings|"
+msgid "Form"
+msgstr "Настройки"
+
+#: ../../../plugins/kineticpopups/src/settings/popupappearance.ui:45
+msgctxt "AppearanceSettings|"
+msgid "test"
+msgstr "Проба"
+
+#: ../../../plugins/kineticpopups/src/settings/popupappearance.ui:65
+msgctxt "AppearanceSettings|"
+msgid "Preview is unavailable"
+msgstr "Липсва предварителен преглед"
+
+#: ../../../plugins/kineticpopups/src/backend.cpp:42
+msgctxt "KineticPopups::Backend|"
+msgid "Show popup"
+msgstr "Да се показва изскачащ прозорец"
+
+#: ../../../plugins/kineticpopups/src/backend.cpp:50
+msgctxt "KineticPopups::Backend|"
+msgid "Unable to create notification inside QtQuick"
+msgstr "Невъзможно е да бъде създадено уведомление чрез QtQuick"
+
+#: ../../../plugins/kineticpopups/src/settings/popupappearance.cpp:116
+msgctxt "KineticPopups::PopupAppearance|"
+msgid "Simple popup"
+msgstr "Обикновен изскачащ прозорец"
+
+#: ../../../plugins/kineticpopups/src/settings/popupappearance.cpp:117
+msgctxt "KineticPopups::PopupAppearance|"
+msgid "Preview"
+msgstr "Предварителен преглед"
+
+#: ../../../plugins/kineticpopups/src/settings/popupappearance.cpp:119
+msgctxt "KineticPopups::PopupAppearance|"
+msgid "Test again"
+msgstr "Повторна проба"
+
+#: ../../../plugins/kineticpopups/src/popupwidgets/quickpopupwidget.cpp:77
+msgctxt "KineticPopups::QuickNotify|"
+msgid "Notification from qutIM"
+msgstr "Уведомление от qutIM"
+
+#: ../../../plugins/kineticpopups/__data_from_cmakelists_txt.cpp:1
+msgctxt "Plugin|"
+msgid "Kinetic popups"
+msgstr "Kinetic изчакащи прозорци"
+
+#: ../../../plugins/kineticpopups/__data_from_cmakelists_txt.cpp:2
+msgctxt "Plugin|"
+msgid "Growl-like popups, based on power of Qt Quick"
+msgstr "Подобни на Growl, изскачащи прозорци, базирани  на Qt Quick"
+
+#: ../../../plugins/kineticpopups/src/backend.cpp:45
+msgctxt "Settings|"
+msgid "Popups"
+msgstr "Изскачащи прозорци"
