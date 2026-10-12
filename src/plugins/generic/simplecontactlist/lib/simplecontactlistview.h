@@ -51,6 +51,8 @@ protected slots:
 	void onCollapsed(const QModelIndex &index);
 	void onExpanded(const QModelIndex &index);
 	void onRowsInserted(const QModelIndex &parent, int first, int last);
+	void onModelReset();
+	void onItemClicked(const QModelIndex &index);
 private:
 	void storeClosedTags();
 	void checkTag(const QModelIndex &parent, QAbstractItemModel *model);

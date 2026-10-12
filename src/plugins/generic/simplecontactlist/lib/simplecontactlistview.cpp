@@ -49,6 +49,10 @@ TreeView::TreeView(QAbstractItemModel *model, QWidget *parent) : QTreeView(paren
 {
 	connect(this, SIGNAL(activated(QModelIndex)),
 			this, SLOT(onClick(QModelIndex)));
+	// Groups and accounts open and close with a single click on the header;
+	// the arrow is painted by the delegate, QTreeView knows nothing about it
+	setExpandsOnDoubleClick(false);
+	connect(this, &QTreeView::clicked, this, &TreeView::onItemClicked);
 
 	setAlternatingRowColors(true);
 	setRootIsDecorated(false);
@@ -78,8 +82,23 @@ void TreeView::setContactModel(QAbstractItemModel *model)
 	m_closedIndexes = QSet<QString>(closedTags.begin(), closedTags.end());
 	QTreeView::setModel(model);
 	connect(model, SIGNAL(rowsInserted(QModelIndex,int,int)),
-			SLOT(onRowsInserted(QModelIndex,int,int)));
+			SLOT(onRowsInserted(QModelIndex,int,int)), Qt::UniqueConnection);
+	// Switching the contact list model in the settings resets the front model
+	connect(model, &QAbstractItemModel::modelReset, this, &TreeView::onModelReset,
+			Qt::UniqueConnection);
 	checkTag(QModelIndex(), model);
+}
+
+void TreeView::onModelReset()
+{
+	checkTag(QModelIndex(), model());
+}
+
+void TreeView::onItemClicked(const QModelIndex &index)
+{
+	const ContactItemType type = static_cast<ContactItemType>(index.data(ItemTypeRole).toInt());
+	if (type == TagType || type == AccountType)
+		setExpanded(index, !isExpanded(index));
 }
 
 void TreeView::initScrolling()
