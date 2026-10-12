@@ -59,8 +59,8 @@ function(qutim_add_plugin name)
 		PREFIX "lib"
 		LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${QUTIM_PLUGIN_DIR}"
 		CXX_VISIBILITY_PRESET hidden
-		BUILD_RPATH "$ORIGIN/../.."
-		INSTALL_RPATH "$ORIGIN/../.."
+		BUILD_RPATH "$ORIGIN/.."
+		INSTALL_RPATH "$ORIGIN/.."
 	)
 	string(MD5 hash "${name}")
 	string(SUBSTRING "${hash}" 0 16 pluginId)
@@ -113,7 +113,7 @@ function(qutim_add_framework name)
 	target_include_directories(${name} PUBLIC "${incdir}" PRIVATE "${P_DIR}")
 	target_link_libraries(${name} PUBLIC libqutim)
 	target_link_options(${name} PRIVATE "LINKER:--no-undefined")
-	install(TARGETS ${name} LIBRARY DESTINATION ${QUTIM_LIB_DIR})
+	install(TARGETS ${name} LIBRARY DESTINATION ${QUTIM_LIB_DIR} NAMELINK_SKIP)
 endfunction()
 
 set(QUTIM_PLUGIN_TEMPLATE "${CMAKE_CURRENT_SOURCE_DIR}/plugintemplate.cpp")

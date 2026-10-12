@@ -51,4 +51,4 @@ target_link_libraries(libqutim
 	PRIVATE k8json qtsolutions
 )
 
-install(TARGETS libqutim LIBRARY DESTINATION ${QUTIM_LIB_DIR})
+install(TARGETS libqutim LIBRARY DESTINATION ${QUTIM_LIB_DIR} NAMELINK_SKIP)

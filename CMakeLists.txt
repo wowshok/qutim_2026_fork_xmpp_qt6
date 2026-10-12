@@ -14,9 +14,11 @@ include(GNUInstallDirs)
 set(QUTIM_VERSION_STRING "${PROJECT_VERSION}")
 
 # Same layout as the installed tree, so qutim runs straight from the build
-# directory: bin/qutim finds ../lib and ../share/apps/qutim
+# directory: bin/qutim finds ../lib/qutim and ../share/apps/qutim
 set(QUTIM_BIN_DIR    "bin")
-set(QUTIM_LIB_DIR    "lib")
+# Private libraries (libqutim, jreen, plugin frameworks) live next to the plugins,
+# like Debian wants for libraries that only one program uses
+set(QUTIM_LIB_DIR    "lib/qutim")
 set(QUTIM_PLUGIN_DIR "lib/qutim/plugins")
 set(QUTIM_SHARE_DIR  "share/apps/qutim")
 
@@ -34,3 +36,5 @@ add_subdirectory(src/plugins)
 add_subdirectory(src/qml)
 add_subdirectory(src/share)
 add_subdirectory(tools/qmlcheck)
+
+include(cmake/Packaging.cmake)
