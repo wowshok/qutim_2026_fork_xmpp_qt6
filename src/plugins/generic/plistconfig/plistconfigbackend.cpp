@@ -30,7 +30,7 @@
 #include <QFile>
 #include <QSaveFile>
 #include <QTime>
-#include <QTextCodec>
+#include <QTextStream>
 #include <QRect>
 #include <QDataStream>
 #include <qutim/debug.h>
@@ -42,51 +42,51 @@ namespace Core
 		QString result;
 		QString type = QLatin1String("string");
 		QDomElement element;
-		switch (v.type()) {
-			case QVariant::StringList:
-			case QVariant::List:
-			case QVariant::Map: {
+		switch (v.typeId()) {
+			case QMetaType::QStringList:
+			case QMetaType::QVariantList:
+			case QMetaType::QVariantMap: {
 				return element;
 			}
-			case QVariant::Invalid:
+			case QMetaType::UnknownType:
 				result = QLatin1String("@Invalid()");
 				break;
 
-			case QVariant::ByteArray: {
+			case QMetaType::QByteArray: {
 				QByteArray a = v.toByteArray();
 				result = a.toBase64();
 				type = QLatin1String("data");
 				break;
 			}
 
-			case QVariant::String: {
+			case QMetaType::QString: {
 				result = v.toString();
 				break;
 			}
-			case QVariant::LongLong:
-			case QVariant::ULongLong:
-			case QVariant::Int:
-			case QVariant::UInt: {
+			case QMetaType::LongLong:
+			case QMetaType::ULongLong:
+			case QMetaType::Int:
+			case QMetaType::UInt: {
 				result = v.toString();
 				type = QLatin1String("integer");
 				break;
 			}
-			case QVariant::Bool: {
+			case QMetaType::Bool: {
 				element = root.createElement(v.toString());
 				return element;
 			}
-			case QVariant::Double: {
+			case QMetaType::Double: {
 				result = v.toString();
 				type = QLatin1String("real");
 				break;
 			}
-			case QVariant::KeySequence: {
+			case QMetaType::QKeySequence: {
 				result = v.toString();
 				if (result.startsWith(QLatin1Char('@')))
 					result.prepend(QLatin1Char('@'));
 				break;
 			}
-			case QVariant::Rect: {
+			case QMetaType::QRect: {
 				QRect r = qvariant_cast<QRect>(v);
 				result += QLatin1String("@Rect(");
 				result += QString::number(r.x());
@@ -99,7 +99,7 @@ namespace Core
 				result += QLatin1Char(')');
 				break;
 			}
-			case QVariant::Size: {
+			case QMetaType::QSize: {
 				QSize s = qvariant_cast<QSize>(v);
 				result += QLatin1String("@Size(");
 				result += QString::number(s.width());
@@ -108,7 +108,7 @@ namespace Core
 				result += QLatin1Char(')');
 				break;
 			}
-			case QVariant::Point: {
+			case QMetaType::QPoint: {
 				QPoint p = qvariant_cast<QPoint>(v);
 				result += QLatin1String("@Point(");
 				result += QString::number(p.x());
@@ -147,7 +147,7 @@ namespace Core
 			return generateConfigEntry(root.firstChild());
 		} else {
 			input.close();
-			return QVariant(QVariant::Invalid);
+			return QVariant();
 		}
 	}
 
@@ -169,8 +169,7 @@ namespace Core
 			return;
 		}
 		QTextStream out(&output);
-		static QTextCodec *utf8 = QTextCodec::codecForName("utf-8");
-		out.setCodec(utf8);
+		out.setEncoding(QStringConverter::Utf8);
 		out << QLatin1String("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"); //hack
 		root.save(out, 2, QDomNode::EncodingFromDocument);
 		output.commit();
@@ -214,13 +213,13 @@ namespace Core
 			}
 			return list;
 		}
-		return QVariant(QVariant::Invalid);
+		return QVariant();
 	}
 
 	QDomElement PListConfigBackend::generateQDomElement (const QVariant &entry, QDomDocument &root)
 	{
 		QDomElement element;
-		if (entry.type() == QVariant::Map) {
+		if (entry.typeId() == QMetaType::QVariantMap) {
 			const QVariantMap map = entry.toMap();
 			QVariantMap::const_iterator i;
 			element = root.createElement("dict");
@@ -230,7 +229,7 @@ namespace Core
 				element.appendChild(key);
 				element.appendChild(generateQDomElement(i.value(), root));
 			}
-		} else if (entry.type() == QVariant::List) {
+		} else if (entry.typeId() == QMetaType::QVariantList) {
 			element = root.createElement("array");
 			const QVariantList list = entry.toList();
 			for (int i = 0; i < list.size(); i++)

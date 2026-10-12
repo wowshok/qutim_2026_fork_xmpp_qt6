@@ -146,6 +146,8 @@ qutim_add_framework(qutim-adiumchat DIR "${G}/adiumchat/lib"
 	HEADER_DIR adiumchat DEFINE ADIUMCHAT_LIBRARY)
 qutim_add_plugin(adiumchat DIR "${G}/adiumchat" SOURCE_DIR chatlayer LINK qutim-adiumchat)
 qutim_add_plugin(textchat DIR "${G}/adiumchat/chatfactories/textchat" SOURCE_DIR . LINK qutim-adiumchat)
+# Apple plist config backend: Adium chat styles describe themselves in Info.plist
+qutim_add_plugin(plistconfig DIR "${G}/plistconfig" SOURCE_DIR . LINK Qt6::Xml)
 qutim_add_plugin(tabbedchatform DIR "${G}/adiumchat/chatforms/tabbedchatform" SOURCE_DIR . LINK qutim-adiumchat)
 qutim_add_plugin(stackedchatform DIR "${G}/adiumchat/chatforms/stackedchatform" SOURCE_DIR . LINK qutim-adiumchat)
 
