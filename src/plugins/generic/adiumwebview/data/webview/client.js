@@ -1,6 +1,27 @@
 
 'use strict';
 
+// Adium styles scroll through document.body.scrollTop, as WebKit had it. Chromium
+// scrolls the document element in standards mode: body.scrollTop always reads 0 and
+// writes to it are ignored, so the styles never scrolled to new messages
+(function() {
+    var scrollTop = Object.getOwnPropertyDescriptor(Element.prototype, 'scrollTop');
+    Object.defineProperty(HTMLBodyElement.prototype, 'scrollTop', {
+        configurable: true,
+        get: function() {
+            var root = document.scrollingElement;
+            return root && root !== this ? root.scrollTop : scrollTop.get.call(this);
+        },
+        set: function(value) {
+            var root = document.scrollingElement;
+            if (root && root !== this)
+                root.scrollTop = value;
+            else
+                scrollTop.set.call(this, value);
+        }
+    });
+})();
+
 var client = (function() {
     var client = {};
     var webChannel = undefined;
