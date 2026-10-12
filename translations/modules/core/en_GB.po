@@ -404,7 +404,7 @@ msgstr "Main menu"
 #: ../../../core/src/corelayers/simplecontactlist/contactlist/simplecontactlist.cpp:111
 msgctxt "ContactList|"
 msgid "&Quit"
-msgstr "%Quit"
+msgstr "&Quit"
 
 #: ../../../core/src/corelayers/simplecontactlist/contactlist/simplecontactlist.cpp:124
 msgctxt "ContactList|"
