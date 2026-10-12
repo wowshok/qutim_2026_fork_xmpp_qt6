@@ -27,6 +27,8 @@
 #include "xsettingswindow.h"
 #include "xsettingswidget.h"
 #include <QListWidget>
+#include <QScrollBar>
+#include <QTimer>
 #include <QStackedWidget>
 #include <qutim/actiontoolbar.h>
 #include <QSplitter>
@@ -275,10 +277,24 @@ void XSettingsWindow::onGroupActionTriggered(QAction *a )
 		listItem->setData(Qt::UserRole, QVariant::fromValue(info));
 	}
 
-	if (p->listWidget->count() > 1)
+	if (p->listWidget->count() > 1) {
 		p->listWidget->show();
-	else
+		// Translated page names are longer: widen the list instead of cutting them.
+		// Queued: the splitter has no sizes before the window is laid out
+		QTimer::singleShot(0, this, [this] {
+			const int needed = p->listWidget->sizeHintForColumn(0)
+					+ 2 * p->listWidget->frameWidth()
+					+ p->listWidget->verticalScrollBar()->sizeHint().width();
+			QList<int> sizes = p->splitter->sizes();
+			if (sizes.size() == 2 && sizes.at(0) < needed && sizes.at(0) + sizes.at(1) > 2 * needed) {
+				sizes[1] -= needed - sizes.at(0);
+				sizes[0] = needed;
+				p->splitter->setSizes(sizes);
+			}
+		});
+	} else {
 		p->listWidget->hide();
+	}
 	int currentRow = 0; //TODO save current row
 	p->listWidget->setCurrentRow(currentRow);
 	onCurrentItemChanged(p->listWidget->currentItem()); //if current row = 0
@@ -323,9 +339,8 @@ void XSettingsWindow::closeEvent(QCloseEvent* ev)
 		int ret = QMessageBox::question(this,
 										tr("Apply Settings - System Settings"),
 										tr("The settings of the current module have changed. \n Do you want to apply the changes or discard them?"),
-										QMessageBox::Apply,
-										QMessageBox::Discard,
-										QMessageBox::Cancel);
+										QMessageBox::Apply | QMessageBox::Discard | QMessageBox::Cancel,
+										QMessageBox::Apply);
 		switch (ret) {
 		case QMessageBox::Apply:
 			save();
