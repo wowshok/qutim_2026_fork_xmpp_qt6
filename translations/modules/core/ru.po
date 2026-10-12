@@ -343,7 +343,7 @@ msgstr "Отображать учётные записи и контакты"
 #: ../../../core/src/corelayers/contactmodel/src/contactlistgroupmodel.cpp:33
 msgctxt "ContactList|"
 msgid "Show tags and contacts"
-msgstr "Отображать метки и контакты"
+msgstr "Отображать группы и контакты"
 
 #: ../../../core/src/corelayers/contactmodel/src/contactlistplainmodel.cpp:33
 msgctxt "ContactList|"
@@ -353,7 +353,7 @@ msgstr "Отображать только контакты"
 #: ../../../core/src/corelayers/contactmodel/src/contactlistseparatedmodel.cpp:33
 msgctxt "ContactList|"
 msgid "Show accounts, tags and contacts"
-msgstr "Отображать учетные записи, метки и контакты"
+msgstr "Отображать учетные записи, группы и контакты"
 
 #: ../../../core/src/corelayers/simpleactions/src/simpleactions.cpp:87
 msgctxt "ContactList|"
@@ -363,7 +363,7 @@ msgstr "Копировать id в буфер"
 #: ../../../core/src/corelayers/simpleactions/src/simpleactions.cpp:96
 msgctxt "ContactList|"
 msgid "Edit tags"
-msgstr "Изменить метки"
+msgstr "Изменить группы"
 
 #: ../../../core/src/corelayers/simpleactions/src/simpleactions.cpp:106
 msgctxt "ContactList|"
@@ -408,7 +408,7 @@ msgstr "Ростер"
 #: ../../../core/src/corelayers/simplecontactlist/contactlist/simplecontactlist.cpp:214
 msgctxt "ContactList|"
 msgid "Select tags"
-msgstr "Выбрать метки"
+msgstr "Выбрать группы"
 
 #: ../../../core/src/corelayers/simplecontactlist/contactlist/simplecontactlist.cpp:220
 #: ../../../core/src/corelayers/simplecontactlist/contactlist/simplecontactlist.cpp:223
@@ -465,7 +465,7 @@ msgstr "Мигать пиктограммой в контакт листе"
 #: ../../../core/src/corelayers/contactmodel/src/contactlistbasemodel.cpp:623
 msgctxt "ContactListBaseModel|"
 msgid "Without tags"
-msgstr "Без меток"
+msgstr "Без группы"
 
 #: ../../../core/src/corelayers/searchdialog/searchdialoglayer.cpp:54
 #: ../../../core/src/corelayers/searchdialog/searchdialoglayer.cpp:78
@@ -1230,7 +1230,7 @@ msgstr "Дайте новое имя контакту %1"
 #: ../../../core/src/corelayers/simplecontactlist/contactlist/simplecontactlist.cpp:202
 msgctxt "Core::SimpleContactList::Module|"
 msgid "Select tags"
-msgstr "Выбрать метки"
+msgstr "Выбрать группы"
 
 #: ../../../core/src/corelayers/simplecontactlist/contactlist/simplecontactlist.cpp:204
 msgctxt "Core::SimpleContactList::Module|"
@@ -1318,7 +1318,7 @@ msgstr "Введите пароль к аккаунту %1 (%2):"
 #, qt-format
 msgctxt "Core::SimpleTagsEditor|"
 msgid "Edit tags for %1"
-msgstr "Изменить метки для %1"
+msgstr "Изменить группы для %1"
 
 #: ../../../core/src/corelayers/trayicon/simpletray.cpp:87
 msgctxt "Core::SimpleTray|"
@@ -2676,7 +2676,7 @@ msgstr "Отображать учётные записи и контакты"
 #: ../../../core/src/corelayers/contactmodel/src/contactmodelplugin.cpp:48
 msgctxt "Plugin|"
 msgid "Show tags and contacts"
-msgstr "Отображать метки и контакты"
+msgstr "Отображать группы и контакты"
 
 #: ../../../core/src/corelayers/contactmodel/src/contactmodelplugin.cpp:50
 msgctxt "Plugin|"
@@ -2686,7 +2686,7 @@ msgstr "Отображать только контакты"
 #: ../../../core/src/corelayers/contactmodel/src/contactmodelplugin.cpp:52
 msgctxt "Plugin|"
 msgid "Show accounts, tags and contacts"
-msgstr "Отображать учетные записи, метки и контакты"
+msgstr "Отображать учетные записи, группы и контакты"
 
 #: ../../../core/src/corelayers/kineticscroller/kineticscroller.cpp:43
 msgctxt "Plugin|"
@@ -3977,7 +3977,7 @@ msgstr ""
 #: ../../../core/src/corelayers/simplecontactlist/contactlist/tagsfilterdialog.ui:14
 msgctxt "TagsFilterDialog|"
 msgid "Select tags"
-msgstr "Выберите метки"
+msgstr "Выберите группы"
 
 #: ../../../core/libqutim/personinfo.cpp:213
 msgctxt "Task|"
