@@ -14,6 +14,7 @@
 
 [Возможности](#возможности) ·
 [Скриншоты](#скриншоты) ·
+[Установка](#установка-из-пакета) ·
 [Сборка](#сборка) ·
 [Профили и история](#профили-и-история) ·
 [Что изменилось](#что-изменилось-по-сравнению-с-апстримом) ·
@@ -61,6 +62,18 @@ Adium-темами, OTR и треем, который собирается и р
 </tr>
 </table>
 
+## Установка из пакета
+
+Готовый `.deb` для Debian testing (forky) / amd64 — на странице
+[Releases](https://github.com/wowshok/qutim_2026_fork_xmpp_qt6/releases):
+
+```sh
+sudo apt install ./qutim_*_amd64.deb
+```
+
+`apt` сам доставит зависимости (Qt 6, Qt WebEngine, QML-модули, libotr, QCA, QtKeychain…).
+Пакет собран на Qt 6.11 и рассчитан на дистрибутивы с такой же или более новой версией Qt.
+
 ## Сборка
 
 Debian 13+/Ubuntu 24.04+:
@@ -85,6 +98,13 @@ cmake --build build
 
 Каталог сборки повторяет установленную раскладку, поэтому qutIM запускается прямо из него.
 `cmake --install build` ставит в систему (по умолчанию в `/usr/local`).
+
+Свой `.deb` с зависимостями, вычисленными `dpkg-shlibdeps`:
+
+```sh
+cmake -S . -B build-release -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+cmake --build build-release --target package
+```
 
 > **Мало памяти?** Qt WebEngine тяжёлый: на машине с 2 ГБ собирайте в один-два потока
 > (`cmake --build build -j2`). В работе веб-вид чата добавляет примерно 250 МБ (процессы
