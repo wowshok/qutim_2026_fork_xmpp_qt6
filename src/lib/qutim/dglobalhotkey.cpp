@@ -42,12 +42,15 @@
 
 dGlobalHotKey::dGlobalHotKey()
 {
-	qApp->eventDispatcher()->installNativeEventFilter(this);
+	qApp->installNativeEventFilter(this);
 }
 
 dGlobalHotKey::~dGlobalHotKey()
 {
-	qApp->eventDispatcher()->removeNativeEventFilter(this);
+	// A global static: it dies in exit(), after QApplication and its event
+	// dispatcher are gone, and calling into the dispatcher crashed on quit
+	if (QCoreApplication::instance())
+		QCoreApplication::instance()->removeNativeEventFilter(this);
 }
 
 #if defined( Q_WS_X11 )

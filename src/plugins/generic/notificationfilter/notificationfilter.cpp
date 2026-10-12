@@ -93,10 +93,15 @@ static QString toString(Notification::Type type, const QString &argument)
 
 static inline ChatUnit *getUnitForSession(QObject *obj)
 {
+	// Notifications like "qutIM launched" have no unit. The old code called
+	// metaContact() on null, which only worked while the compiler kept its
+	// "this == null" check: a release build crashed at start
 	ChatUnit *unit = qobject_cast<ChatUnit*>(obj);
+	if (!unit)
+		return nullptr;
 	if (ChatUnit *contact = unit->metaContact())
-			unit = contact;
-	return unit ? unit->account()->getUnitForSession(unit) : 0;
+		unit = contact;
+	return unit->account()->getUnitForSession(unit);
 }
 
 NotificationFilterImpl::NotificationFilterImpl()
